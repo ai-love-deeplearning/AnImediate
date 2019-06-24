@@ -18,6 +18,9 @@
 		50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968222C0AD9C00378AAB /* Exchange.storyboard */; };
 		50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968422C0ADC500378AAB /* AnimeList.storyboard */; };
 		50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968622C0ADD500378AAB /* Setting.storyboard */; };
+		50A5968922C0B09100378AAB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968822C0B09100378AAB /* Login.storyboard */; };
+		50A5968B22C0B11100378AAB /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968A22C0B11100378AAB /* Setup.storyboard */; };
+		50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5968C22C0B51900378AAB /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		50A5968222C0AD9C00378AAB /* Exchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exchange.storyboard; sourceTree = "<group>"; };
 		50A5968422C0ADC500378AAB /* AnimeList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeList.storyboard; sourceTree = "<group>"; };
 		50A5968622C0ADD500378AAB /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		50A5968822C0B09100378AAB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		50A5968A22C0B11100378AAB /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
+		50A5968C22C0B51900378AAB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +113,10 @@
 			children = (
 				50A5965222C0A04900378AAB /* AppDelegate.swift */,
 				50A5965422C0A04900378AAB /* ViewController.swift */,
+				50A5968C22C0B51900378AAB /* LoginVC.swift */,
+				50A5968822C0B09100378AAB /* Login.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
+				50A5968A22C0B11100378AAB /* Setup.storyboard */,
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
@@ -241,8 +250,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				50A5965A22C0A04A00378AAB /* Assets.xcassets in Resources */,
+				50A5968B22C0B11100378AAB /* Setup.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
@@ -274,6 +285,7 @@
 			files = (
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
+				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
