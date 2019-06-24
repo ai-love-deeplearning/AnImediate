@@ -14,6 +14,10 @@
 		50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5965B22C0A04A00378AAB /* LaunchScreen.storyboard */; };
 		50A5966822C0A04A00378AAB /* AnImediateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5966722C0A04A00378AAB /* AnImediateTests.swift */; };
 		50A5967322C0A04A00378AAB /* AnImediateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5967222C0A04A00378AAB /* AnImediateUITests.swift */; };
+		50A5968122C0AD6400378AAB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968022C0AD6400378AAB /* Home.storyboard */; };
+		50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968222C0AD9C00378AAB /* Exchange.storyboard */; };
+		50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968422C0ADC500378AAB /* AnimeList.storyboard */; };
+		50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968622C0ADD500378AAB /* Setting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		50A5966E22C0A04A00378AAB /* AnImediateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnImediateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A5967222C0A04A00378AAB /* AnImediateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnImediateUITests.swift; sourceTree = "<group>"; };
 		50A5967422C0A04A00378AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50A5968022C0AD6400378AAB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		50A5968222C0AD9C00378AAB /* Exchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exchange.storyboard; sourceTree = "<group>"; };
+		50A5968422C0ADC500378AAB /* AnimeList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeList.storyboard; sourceTree = "<group>"; };
+		50A5968622C0ADD500378AAB /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,10 @@
 				50A5965222C0A04900378AAB /* AppDelegate.swift */,
 				50A5965422C0A04900378AAB /* ViewController.swift */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
+				50A5968022C0AD6400378AAB /* Home.storyboard */,
+				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
+				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
+				50A5968622C0ADD500378AAB /* Setting.storyboard */,
 				50A5965922C0A04A00378AAB /* Assets.xcassets */,
 				50A5965B22C0A04A00378AAB /* LaunchScreen.storyboard */,
 				50A5965E22C0A04A00378AAB /* Info.plist */,
@@ -231,7 +243,11 @@
 			files = (
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				50A5965A22C0A04A00378AAB /* Assets.xcassets in Resources */,
+				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
+				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
+				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
 				50A5965822C0A04900378AAB /* Main.storyboard in Resources */,
+				50A5968122C0AD6400378AAB /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
