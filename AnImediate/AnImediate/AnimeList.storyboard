@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YQm-Cr-dfM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dzN-ah-PRF">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,20 +10,66 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="gmM-yT-Lyl">
+        <!--Navigation Controller-->
+        <scene sceneID="8pG-yR-9oa">
             <objects>
-                <viewController id="YQm-Cr-dfM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TjX-D1-Iwl">
+                <navigationController id="dzN-ah-PRF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2t-rR-yQ7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="N8A-Mw-lFo" kind="relationship" relationship="rootViewController" id="Pwl-jL-8nl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2T0-I7-uVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--アニメ一覧-->
+        <scene sceneID="HJQ-Tw-ELQ">
+            <objects>
+                <viewController id="N8A-Mw-lFo" customClass="AnimeListVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IqX-5B-ZZc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wL-Za-lOg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="269"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="vO8-2H-NmC">
+                                        <rect key="frame" x="171.5" y="232" width="71" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="UuM-lS-uds"/>
+                                            <constraint firstAttribute="height" constant="37" id="cz3-Pa-G6B"/>
+                                        </constraints>
+                                    </pageControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vO8-2H-NmC" firstAttribute="top" secondItem="7wL-Za-lOg" secondAttribute="top" constant="232" id="12J-Wq-fP9"/>
+                                    <constraint firstItem="vO8-2H-NmC" firstAttribute="centerX" secondItem="7wL-Za-lOg" secondAttribute="centerX" id="LK8-ap-etK"/>
+                                    <constraint firstAttribute="trailing" secondItem="vO8-2H-NmC" secondAttribute="trailing" constant="171" id="kfW-Hm-mmb"/>
+                                    <constraint firstAttribute="bottom" secondItem="vO8-2H-NmC" secondAttribute="bottom" id="oWz-6H-qeM"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Ndc-X9-hh9"/>
+                        <constraints>
+                            <constraint firstItem="7wL-Za-lOg" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="AYs-VC-lkN"/>
+                            <constraint firstItem="7wL-Za-lOg" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="CKm-rK-a8a"/>
+                            <constraint firstItem="7wL-Za-lOg" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="R7f-jZ-f9S"/>
+                            <constraint firstItem="7wL-Za-lOg" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="SyX-qT-OVO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FVy-pc-KTk"/>
                     </view>
+                    <navigationItem key="navigationItem" title="アニメ一覧" id="qyX-HV-ZZy"/>
+                    <connections>
+                        <outlet property="pageControl" destination="vO8-2H-NmC" id="ECv-8C-Kzj"/>
+                        <outlet property="recomScrollView" destination="7wL-Za-lOg" id="yhE-5Z-uDT"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r7I-q0-bVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAg-Fj-oZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="-240"/>
+            <point key="canvasLocation" x="1018.840579710145" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
