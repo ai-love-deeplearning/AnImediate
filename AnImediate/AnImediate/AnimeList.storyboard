@@ -17,6 +17,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2t-rR-yQ7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="N8A-Mw-lFo" kind="relationship" relationship="rootViewController" id="Pwl-jL-8nl"/>
@@ -24,6 +32,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2T0-I7-uVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="257" y="21"/>
         </scene>
         <!--アニメ一覧-->
         <scene sceneID="HJQ-Tw-ELQ">
@@ -33,38 +42,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wL-Za-lOg">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DXz-WZ-Brv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="269"/>
-                                <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="vO8-2H-NmC">
-                                        <rect key="frame" x="171.5" y="232" width="71" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="71" id="UuM-lS-uds"/>
-                                            <constraint firstAttribute="height" constant="37" id="cz3-Pa-G6B"/>
-                                        </constraints>
-                                    </pageControl>
-                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewLayout key="collectionViewLayout" id="bSY-Na-m5c" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recomCell" id="pVM-Cy-qyV" customClass="RecomCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-eQ-FLf">
+                                <rect key="frame" x="171.5" y="320" width="71" height="37"/>
+                                <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="vO8-2H-NmC" firstAttribute="top" secondItem="7wL-Za-lOg" secondAttribute="top" constant="232" id="12J-Wq-fP9"/>
-                                    <constraint firstItem="vO8-2H-NmC" firstAttribute="centerX" secondItem="7wL-Za-lOg" secondAttribute="centerX" id="LK8-ap-etK"/>
-                                    <constraint firstAttribute="trailing" secondItem="vO8-2H-NmC" secondAttribute="trailing" constant="171" id="kfW-Hm-mmb"/>
-                                    <constraint firstAttribute="bottom" secondItem="vO8-2H-NmC" secondAttribute="bottom" id="oWz-6H-qeM"/>
+                                    <constraint firstAttribute="height" constant="37" id="bPQ-sx-SUk"/>
+                                    <constraint firstAttribute="width" constant="71" id="yXL-BB-HLL"/>
                                 </constraints>
-                            </scrollView>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7wL-Za-lOg" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="AYs-VC-lkN"/>
-                            <constraint firstItem="7wL-Za-lOg" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="CKm-rK-a8a"/>
-                            <constraint firstItem="7wL-Za-lOg" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="R7f-jZ-f9S"/>
-                            <constraint firstItem="7wL-Za-lOg" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="SyX-qT-OVO"/>
+                            <constraint firstItem="DXz-WZ-Brv" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="CVO-GX-7WB"/>
+                            <constraint firstItem="DXz-WZ-Brv" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="NfZ-J5-kc3"/>
+                            <constraint firstItem="DXz-WZ-Brv" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="hCP-EQ-5iX"/>
+                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="centerX" secondItem="IqX-5B-ZZc" secondAttribute="centerX" id="s0t-DY-ivM"/>
+                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="bottom" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="wHA-6R-Olv"/>
+                            <constraint firstItem="FVy-pc-KTk" firstAttribute="trailing" secondItem="DXz-WZ-Brv" secondAttribute="trailing" id="zMq-c8-qm8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FVy-pc-KTk"/>
                     </view>
                     <navigationItem key="navigationItem" title="アニメ一覧" id="qyX-HV-ZZy"/>
                     <connections>
-                        <outlet property="pageControl" destination="vO8-2H-NmC" id="ECv-8C-Kzj"/>
-                        <outlet property="recomScrollView" destination="7wL-Za-lOg" id="yhE-5Z-uDT"/>
+                        <outlet property="pageControl" destination="tqp-eQ-FLf" id="cuh-Sj-gT7"/>
+                        <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="Hik-5Z-TKc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAg-Fj-oZH" userLabel="First Responder" sceneMemberID="firstResponder"/>

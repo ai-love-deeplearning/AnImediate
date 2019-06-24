@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import CenteredCollectionView
 
 class AnimeListVC: UIViewController {
-
-    @IBOutlet weak var recomScrollView: UIScrollView!
+    
+    @IBOutlet weak var recomCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    private var recomImageView: [UIImageView] = []
+    private var autoScrollTimer = Timer()
+    var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
     private var works: [Work] = [] {
         didSet {
-            // workImageCollectionView.reloadData()
+            recomCollectionView.reloadData()
         }
     }
     
@@ -25,17 +27,12 @@ class AnimeListVC: UIViewController {
         super.viewDidLoad()
         
         fetchWorks()
-    }
-    
-    private func setupScrollView() {
-        
-        recomScrollView.delegate = self
-        recomScrollView.isPagingEnabled = true // メニュー単位のスクロールを可能にする
-        recomScrollView.showsHorizontalScrollIndicator = false // 水平方向のスクロールインジケータを非表示にする
+        setupCCView()
+        startAutoScroll(duration: 7.0)
     }
     
     private func fetchWorks() {
-        guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=30&per_page=5&sort_id=desc") else {return}
+        guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=32&per_page=5&sort_id=desc") else {return}
         
         let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler:
         {data, response, error in
@@ -60,9 +57,64 @@ class AnimeListVC: UIViewController {
         })
         task.resume() // 実行
     }
-
+    
+    private func setupCCView() {
+        centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
+        
+        recomCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        
+        recomCollectionView.delegate = self
+        recomCollectionView.dataSource = self
+        
+        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recomCell")
+        
+        centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width, height: recomCollectionView.bounds.height)
+        
+        centeredCollectionViewFlowLayout.minimumLineSpacing = 0
+        
+        recomCollectionView.showsVerticalScrollIndicator = false
+        recomCollectionView.showsHorizontalScrollIndicator = false
+    }
 }
 
-extension AnimeListVC: UIScrollViewDelegate {
+extension AnimeListVC: UICollectionViewDelegate {
     
+    func startAutoScroll(duration: TimeInterval){
+        var indexPath = recomCollectionView.indexPathsForVisibleItems.sorted { $0.item < $1.item }.first ?? IndexPath(item: 0, section: 0)
+        
+        autoScrollTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: true, block: { [weak self] (_) in
+            guard let self = self else { return }
+            indexPath.row += 1
+            if indexPath.row == 5 {
+                indexPath.row = 0
+            }
+            DispatchQueue.main.async {
+                self.recomCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+            }
+        })
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+}
+
+extension AnimeListVC: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.pageControl.numberOfPages = works.count
+        
+        return works.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
+        let work = works[indexPath.row]
+        cell.bindData(work: work)
+        return cell
+    }
 }
