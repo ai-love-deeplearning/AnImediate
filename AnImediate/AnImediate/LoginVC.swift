@@ -7,13 +7,36 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    /* ユーザ作成
+    if let email = mailAddressText.text, let password = passwordText.text {
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
+            self?.validateAuthenticationResult(user, error: error)
+        }
+    }*/
+    
+    @IBAction func signInTapped(_ sender: Any) {
+        if let email = emailTF.text, let password = passwordTF.text {
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                if error != nil{
+                    let alert = UIAlertController(title: "ログインエラー", message: "メールアドレスもしくはパスワードが違います。", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.performSegue(withIdentifier: "toHome", sender: self)
+                }
+            }
+        }
     }
     
 
