@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="1216" y="106"/>
         </scene>
-        <!--Home-->
+        <!--main-->
         <scene sceneID="Ofr-Z2-Ljd">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="TxZ-7T-yCg" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="main" id="TxZ-7T-yCg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bI4-ws-asc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1813" y="106"/>
