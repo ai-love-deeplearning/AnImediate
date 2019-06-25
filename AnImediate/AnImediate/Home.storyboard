@@ -41,11 +41,13 @@
             </objects>
             <point key="canvasLocation" x="1600" y="-78"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ホーム-->
         <scene sceneID="dEu-Zy-Qb1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PkT-1N-Qbi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="home" id="oOM-GJ-sww"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pNS-DV-fbU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -67,4 +69,7 @@
             <point key="canvasLocation" x="715.94202898550725" y="-78.348214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="30" height="27"/>
+    </resources>
 </document>
