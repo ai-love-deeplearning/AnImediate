@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -14,7 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func signOutTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error)
+        }
+    }
+    
 
 }
 
