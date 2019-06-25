@@ -8,12 +8,15 @@
 
 import UIKit
 import CenteredCollectionView
+import Firebase
+import FirebaseAuth
 
 class AnimeListVC: UIViewController {
     
     @IBOutlet weak var recomCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    var ref:DatabaseReference!
     private var autoScrollTimer = Timer()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
@@ -25,14 +28,35 @@ class AnimeListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        ref = Database.database().reference()
         
-        fetchWorks()
+        referDB()
+        // fetchAPI()
         setupCCView()
         startAutoScroll(duration: 7.0)
     }
     
-    private func fetchWorks() {
-        guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=4&per_page=5&sort_watchers_count=desc") else {return}
+    private func referDB() {
+        ref.child("works").observe(.value, with: { (snapshot) in
+            guard let info = snapshot.value as? [Any] else {return}
+            let value = info.compactMap { (info) -> [String: Any]? in
+                return info as? [String: Any]
+            }
+            let works = value.map { (value: [String: Any]) -> Work in
+                return Work(value: value)
+            }
+            DispatchQueue.main.async(execute: {
+                self.works = works
+            })
+        }) { (error) in
+            print(error)
+        }
+    }
+    
+    /*
+    private func fetchAPI() {
+        guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=1&per_page=5&sort_watchers_count=desc") else {return}
         
         let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler:
         {data, response, error in
@@ -48,7 +72,19 @@ class AnimeListVC: UIViewController {
                 }
                 DispatchQueue.main.async(execute: {
                     self.works = works
-                    print(self.works)
+                    /*
+                    for i in 0..<self.works.count {
+                        self.ref.child("works").child("\(i+1)").child("id").setValue(self.works[i].id)
+                        self.ref.child("works").child("\(i+1)").child("title").setValue(self.works[i].title)
+                        self.ref.child("works").child("\(i+1)").child("episodesCount").setValue(self.works[i].episodesCount)
+                        self.ref.child("works").child("\(i+1)").child("seasonNameText").setValue(self.works[i].seasonNameText)
+                        self.ref.child("works").child("\(i+1)").child("watchersCount").setValue(self.works[i].watchersCount)
+                        self.ref.child("works").child("\(i+1)").child("reviewsCount").setValue(self.works[i].reviewsCount)
+                        self.ref.child("works").child("\(i+1)").child("imageUrl").setValue(self.works[i].imageUrl)
+                        self.ref.child("works").child("\(i+1)").child("officialSiteUrl").setValue(self.works[i].officialSiteUrl)
+                        self.ref.child("works").child("\(i+1)").child("wikipediaUrl").setValue(self.works[i].wikipediaUrl)
+                    }
+                    */
                 })
             }
             catch {
@@ -56,7 +92,7 @@ class AnimeListVC: UIViewController {
             }
         })
         task.resume() // 実行
-    }
+    }*/
     
     private func setupCCView() {
         centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
@@ -115,6 +151,7 @@ extension AnimeListVC: UICollectionViewDataSource {
         let cell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
         let work = works[indexPath.row]
         cell.bindData(work: work)
+        
         return cell
     }
 }
