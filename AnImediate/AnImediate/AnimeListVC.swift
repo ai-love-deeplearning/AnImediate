@@ -32,7 +32,7 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchWorks() {
-        guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=32&per_page=5&sort_id=desc") else {return}
+        guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=4&per_page=5&sort_watchers_count=desc") else {return}
         
         let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler:
         {data, response, error in
