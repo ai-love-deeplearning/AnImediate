@@ -17,6 +17,9 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTF.delegate = self
+        passwordTF.delegate = self
+        
     }
     /* ユーザ作成
     if let email = mailAddressText.text, let password = passwordText.text {
@@ -33,10 +36,14 @@ class LoginVC: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: .default))
                     self.present(alert, animated: true, completion: nil)
                 } else {
-                    self.performSegue(withIdentifier: "toHome", sender: self)
+                    self.performSegue(withIdentifier: "loginToMain", sender: self)
                 }
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 
@@ -50,4 +57,12 @@ class LoginVC: UIViewController {
     }
     */
 
+}
+
+extension LoginVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        // キーボードを閉じる処理
+        self.view.endEditing(true)
+        return true
+    }
 }

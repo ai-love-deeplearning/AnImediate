@@ -9,6 +9,9 @@ target 'AnImediate' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'MXParallaxHeader'
+  pod 'Tabman'
+  pod 'RSKImageCropper'
   pod 'Firebase/Database'
   pod 'CenteredCollectionView'
 
