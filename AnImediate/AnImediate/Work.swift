@@ -19,20 +19,16 @@ struct Work {
     let officialSiteUrl: String
     let wikipediaUrl: String
     
-    init(json: [String: Any]) {
-        id = json["id"] as? Int ?? 0
-        title = json["title"] as? String ?? ""
-        episodesCount = json["episodes_count"] as? Int ?? 0
-        seasonNameText = json["season_name_text"] as? String ?? ""
-        watchersCount = json["watchers_count"] as? Int ?? 0
-        reviewsCount = json["reviews_count"] as? Int ?? 0
-        if let images = json["images"] as? [String: Any] {
-            imageUrl = images["recommended_url"] as? String ?? ""
-        } else {
-            imageUrl = ""
-        }
-        officialSiteUrl = json["official_site_url"] as? String ?? ""
-        wikipediaUrl = json["wikipedia_url"] as? String ?? ""
+    init(value: [String: Any]) {
+        id = value["id"] as? Int ?? 0
+        title = value["title"] as? String ?? ""
+        episodesCount = value["episodesCount"] as? Int ?? 0
+        seasonNameText = value["seasonNameText"] as? String ?? ""
+        watchersCount = value["watchersCount"] as? Int ?? 0
+        reviewsCount = value["reviewsCount"] as? Int ?? 0
+        imageUrl = value["imageUrl"] as? String ?? ""
+        officialSiteUrl = value["officialSiteUrl"] as? String ?? ""
+        wikipediaUrl = value["wikipediaUrl"] as? String ?? ""
     }
     
     init() {

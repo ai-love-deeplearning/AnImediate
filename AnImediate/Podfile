@@ -12,6 +12,8 @@ target 'AnImediate' do
   pod 'MXParallaxHeader'
   pod 'Tabman'
   pod 'RSKImageCropper'
+  pod 'Firebase/Database'
+  pod 'CenteredCollectionView'
 
   target 'AnImediateTests' do
     inherit! :search_paths
