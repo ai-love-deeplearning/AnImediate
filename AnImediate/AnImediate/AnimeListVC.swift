@@ -20,7 +20,8 @@ class AnimeListVC: UIViewController {
     private var autoScrollTimer = Timer()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
-    private var works: [Work] = [] {
+    private var works: [Work] = []
+    private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
             recomCollectionView.reloadData()
         }
@@ -28,8 +29,6 @@ class AnimeListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        ref = Database.database().reference()
         
         referDB()
         // fetchAPI()
@@ -38,6 +37,7 @@ class AnimeListVC: UIViewController {
     }
     
     private func referDB() {
+        ref = Database.database().reference()
         ref.child("works").observe(.value, with: { (snapshot) in
             guard let info = snapshot.value as? [Any] else {return}
             let value = info.compactMap { (info) -> [String: Any]? in
@@ -48,6 +48,9 @@ class AnimeListVC: UIViewController {
             }
             DispatchQueue.main.async(execute: {
                 self.works = works
+                for i in 0..<self.recomWorks.count {
+                    self.recomWorks[i] = works[Int.random(in: 0..<50)]
+                }
             })
         }) { (error) in
             print(error)
@@ -142,14 +145,14 @@ extension AnimeListVC: UICollectionViewDelegate {
 extension AnimeListVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.pageControl.numberOfPages = works.count
+        self.pageControl.numberOfPages = recomWorks.count
         
-        return works.count
+        return recomWorks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
-        let work = works[indexPath.row]
+        let work = recomWorks[indexPath.row]
         cell.bindData(work: work)
         
         return cell
