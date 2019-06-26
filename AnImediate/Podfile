@@ -9,6 +9,8 @@ target 'AnImediate' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'CenteredCollectionView'
 
   target 'AnImediateTests' do
     inherit! :search_paths
