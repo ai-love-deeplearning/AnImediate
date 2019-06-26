@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nHG-oP-0Wu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <color key="sectionIndexColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
@@ -54,10 +54,12 @@
             </objects>
             <point key="canvasLocation" x="328" y="-262"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--設定-->
         <scene sceneID="ciS-Of-d9u">
             <objects>
                 <navigationController id="RkX-cZ-sjM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="xNJ-Z1-e0F"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NhX-DX-BMQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,4 +82,7 @@
             <point key="canvasLocation" x="-519" y="-263"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="setting" width="30" height="30"/>
+    </resources>
 </document>

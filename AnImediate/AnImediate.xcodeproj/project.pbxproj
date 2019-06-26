@@ -12,6 +12,7 @@
 		3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */; };
 		3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */; };
 		3238B00122C1D25A00C8D3DD /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
+		509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820922C364D800BF813F /* UIColorExtension.swift */; };
 		50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965222C0A04900378AAB /* AppDelegate.swift */; };
 		50A5965522C0A04900378AAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965422C0A04900378AAB /* ViewController.swift */; };
 		50A5965822C0A04900378AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5965622C0A04900378AAB /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
 		3238B00022C1D25A00C8D3DD /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
+		509D820922C364D800BF813F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		50A5964F22C0A04900378AAB /* AnImediate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnImediate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A5965222C0A04900378AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50A5965422C0A04900378AAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
 				3238B00022C1D25A00C8D3DD /* Work.swift */,
+				509D820922C364D800BF813F /* UIColorExtension.swift */,
 				50A5968822C0B09100378AAB /* Login.storyboard */,
 				50A5968A22C0B11100378AAB /* SignUp.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
@@ -324,7 +327,6 @@
 				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */,
-				50A5965A22C0A04A00378AAB /* Assets.xcassets in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
@@ -363,15 +365,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
-				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -380,15 +380,13 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -477,6 +475,7 @@
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
+				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 			);
