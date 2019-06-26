@@ -142,11 +142,20 @@
                     <connections>
                         <outlet property="emailTF" destination="SsB-wo-csx" id="wJQ-2i-L6H"/>
                         <outlet property="passwordTF" destination="LTa-aH-w1w" id="rDj-ea-WwX"/>
+                        <segue destination="zWa-Ss-03n" kind="show" identifier="loginToMain" id="9Jh-On-kXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcn-Nq-64k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1263.2" y="-281.5270935960591"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="ENq-s3-c3n">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="zWa-Ss-03n" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xX4-hY-FeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1935" y="-393"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="Trt-GJ-3aD">

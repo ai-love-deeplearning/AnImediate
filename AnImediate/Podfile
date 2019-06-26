@@ -9,6 +9,9 @@ target 'AnImediate' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'MXParallaxHeader'
+  pod 'Tabman'
+  pod 'RSKImageCropper'
 
   target 'AnImediateTests' do
     inherit! :search_paths
