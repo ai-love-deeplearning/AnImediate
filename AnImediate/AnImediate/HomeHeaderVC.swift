@@ -17,7 +17,7 @@ class HomeHeaderVC: UIViewController {
         super.viewDidLoad()
         
         parallaxHeader?.delegate = self
-        parallaxHeader?.height = 200
+        parallaxHeader?.height = 400
         parallaxHeader?.mode = .fill
     }
     

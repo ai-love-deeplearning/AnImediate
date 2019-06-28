@@ -17,10 +17,36 @@
                     <view key="view" contentMode="scaleToFill" id="fJa-BF-EBf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48T-pS-274">
+                                <rect key="frame" x="100" y="206.5" width="214" height="214"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="48T-pS-274" secondAttribute="height" multiplier="1:1" id="Kdw-T6-CaZ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-0E-rHn">
+                                <rect key="frame" x="142.5" y="567.5" width="129" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="48T-pS-274" firstAttribute="centerY" secondItem="fJa-BF-EBf" secondAttribute="centerY" multiplier="0.7" id="MJ0-vM-dbz"/>
+                            <constraint firstItem="48T-pS-274" firstAttribute="leading" secondItem="S8L-Q5-M0L" secondAttribute="leading" constant="100" id="Vj5-OR-8br"/>
+                            <constraint firstItem="S8L-Q5-M0L" firstAttribute="trailing" secondItem="48T-pS-274" secondAttribute="trailing" constant="100" id="aj8-PG-Ism"/>
+                            <constraint firstItem="48T-pS-274" firstAttribute="centerX" secondItem="fJa-BF-EBf" secondAttribute="centerX" id="fkb-Ba-FXW"/>
+                            <constraint firstItem="EBH-0E-rHn" firstAttribute="centerY" secondItem="fJa-BF-EBf" secondAttribute="centerY" multiplier="1.3" id="hGB-nh-fRl"/>
+                            <constraint firstItem="EBH-0E-rHn" firstAttribute="centerX" secondItem="fJa-BF-EBf" secondAttribute="centerX" id="xBQ-xr-mn6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S8L-Q5-M0L"/>
                     </view>
                     <navigationItem key="navigationItem" title="交換" id="Ie0-L7-KSz"/>
+                    <connections>
+                        <outlet property="loadingView" destination="48T-pS-274" id="4lJ-GZ-w00"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUW-5d-Sd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
