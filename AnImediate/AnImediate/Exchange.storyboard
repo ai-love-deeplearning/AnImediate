@@ -13,7 +13,7 @@
         <!--交換-->
         <scene sceneID="g31-AF-0LQ">
             <objects>
-                <viewController id="ETi-Nl-zLc" sceneMemberID="viewController">
+                <viewController id="ETi-Nl-zLc" customClass="ExchangeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fJa-BF-EBf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

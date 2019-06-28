@@ -9,12 +9,22 @@
 import UIKit
 
 class ExchangeVC: UIViewController {
+    
+    let gradientRingLayer = WCGraintCircleLayer(bounds: CGRect(origin: CGPoint.zero, size: CGSize(width: 200, height: 200)), position:CGPoint(x: 200, y: 300), fromColor: .deepMagenta(), toColor: UIColor.white, linewidth: 8.0, toValue:0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.layer.addSublayer(gradientRingLayer)
+        let duration = 1.0
+        gradientRingLayer.animateCircleTo(duration: duration, fromValue: 0, toValue: 0.99)
+    }
+    
+    
+    
     
 
     /*

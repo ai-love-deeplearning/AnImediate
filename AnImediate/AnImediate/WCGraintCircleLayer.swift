@@ -124,27 +124,56 @@ class WCGraintCircleLayer: CALayer {
     // This is what you call to draw a partial circle.
     func animateCircleTo(duration: TimeInterval, fromValue: CGFloat, toValue: CGFloat){
         // We want to animate the strokeEnd property of the circleLayer
+        
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.isRemovedOnCompletion = true
+        //animation.autoreverses = true
+        //animation.repeatCount = .infinity
         // Set the animation duration appropriately
         animation.duration = duration
         
-        // Animate from 0.010 (no circle) to 0.99 (full circle)
         animation.fromValue = 0.010
         animation.toValue = toValue
         
-        // Do an easeout. Don't know how to do a spring instead
-        //animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        animation.beginTime = 0.0
         
+        // Do an easeout. Don't know how to do a spring instead
+        //animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+
+        //animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.86, 0.01, 0.22, 1)
+        animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.9, 0, 0.3, 1)
+        
+        let animation2 = CABasicAnimation(keyPath: "strokeStart")
+        animation2.isRemovedOnCompletion = true
+        animation2.duration = duration
+        
+        animation2.fromValue = 0.010
+        animation2.toValue = toValue
+        
+        animation2.beginTime = animation.beginTime + animation.duration + 0.5
+        
+        animation2.timingFunction = CAMediaTimingFunction(controlPoints: 0.9, 0, 0.3, 1)
+        /*
+        let animation3 = CABasicAnimation(keyPath: "position")
+        animation3.isRemovedOnCompletion = true
+        animation3.duration = 1.0
+        
+        animation3.beginTime = animation2.beginTime + animation2.duration
+        */
         // Set the circleLayer's strokeEnd property to 0.99 now so that it's the
         // right value when the animation ends.
         let circleMask = self.mask as! CAShapeLayer
         circleMask.strokeEnd = toValue
         
+        let animationGroup: CAAnimationGroup = CAAnimationGroup()
+        
+        animationGroup.animations = [animation, animation2]
+        animationGroup.duration = animation2.beginTime + animation2.duration
+        animationGroup.repeatCount = .infinity
+        
         // Do the actual animation
         circleMask.removeAllAnimations()
-        circleMask.add(animation, forKey: "animateCircle")
+        circleMask.add(animationGroup, forKey: "animateCircle")
     }
     
 }
