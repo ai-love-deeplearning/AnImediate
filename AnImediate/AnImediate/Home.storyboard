@@ -149,35 +149,45 @@
             <objects>
                 <viewController id="3da-cR-oqE" customClass="HomeHeaderVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KK0-KW-ckt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_sample" translatesAutoresizingMaskIntoConstraints="NO" id="4Oi-PF-XpH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="322"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="222"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrt-Hd-1lv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="322"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="222"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vmJ-bY-OWR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="322"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-K9-LKD">
+                                <rect key="frame" x="0.0" y="266" width="414" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="JAW-gq-CcD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="7Uj-bo-pOP"/>
-                            <constraint firstItem="gGx-sx-Sxm" firstAttribute="bottom" secondItem="lrt-Hd-1lv" secondAttribute="bottom" id="BcN-F1-kDs"/>
+                            <constraint firstItem="lrt-Hd-1lv" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="BcN-F1-kDs"/>
+                            <constraint firstItem="vWb-K9-LKD" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="GGz-Y1-w3L"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="GbL-eN-Etz"/>
+                            <constraint firstItem="vWb-K9-LKD" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="I4x-RP-n5r"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="JdF-HW-ui6"/>
+                            <constraint firstItem="vWb-K9-LKD" firstAttribute="bottom" secondItem="gGx-sx-Sxm" secondAttribute="bottom" id="RcQ-C3-lT4"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="abQ-Wn-DQN"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="c1q-2L-z54"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="jTL-bQ-4ij"/>
-                            <constraint firstItem="gGx-sx-Sxm" firstAttribute="bottom" secondItem="4Oi-PF-XpH" secondAttribute="bottom" id="ped-XI-5Xw"/>
+                            <constraint firstItem="4Oi-PF-XpH" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="ped-XI-5Xw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gGx-sx-Sxm"/>
                     </view>
-                    <size key="freeformSize" width="414" height="400"/>
+                    <size key="freeformSize" width="414" height="500"/>
                     <connections>
                         <outlet property="visualEffectView" destination="lrt-Hd-1lv" id="eCc-eA-pkz"/>
                     </connections>
