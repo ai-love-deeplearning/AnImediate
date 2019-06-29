@@ -17,11 +17,7 @@ class RecomCollectionViewCell: UICollectionViewCell {
     }
     
     public func bindData(work: Work) {
-        if work.imageUrl == "" {
-            setIconImageView(imageUrlString: "https://www.fondationquebecjeunes.com/wp-content/themes/Y1_1426_pet_sutoresu/image/noimage.jpg")
-        } else {
-            setIconImageView(imageUrlString: work.imageUrl)
-        }
+        setIconImageView(imageUrlString: work.imageUrl)
     }
     
     private func setIconImageView(imageUrlString: String) {
