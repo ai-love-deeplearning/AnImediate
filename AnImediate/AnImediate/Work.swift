@@ -26,7 +26,7 @@ struct Work {
         seasonNameText = value["seasonNameText"] as? String ?? ""
         watchersCount = value["watchersCount"] as? Int ?? 0
         reviewsCount = value["reviewsCount"] as? Int ?? 0
-        imageUrl = value["imageUrl"] as? String ?? ""
+        imageUrl = value["imageURL"] as? String ?? ""
         officialSiteUrl = value["officialSiteUrl"] as? String ?? ""
         wikipediaUrl = value["wikipediaUrl"] as? String ?? ""
     }

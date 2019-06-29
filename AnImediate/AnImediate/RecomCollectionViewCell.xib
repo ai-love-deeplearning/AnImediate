@@ -20,20 +20,44 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLL-wb-PDK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="269"/>
+                        <rect key="frame" x="0.0" y="0.0" width="207" height="269"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-t5-9s3">
+                        <rect key="frame" x="207" y="0.0" width="207" height="269"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-51-dOF">
+                                <rect key="frame" x="10.5" y="124.5" width="186" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S5s-51-dOF" firstAttribute="centerX" secondItem="sDK-t5-9s3" secondAttribute="centerX" id="5Pw-l3-2RT"/>
+                            <constraint firstItem="S5s-51-dOF" firstAttribute="width" secondItem="sDK-t5-9s3" secondAttribute="width" multiplier="0.9" id="6sv-WH-CsQ"/>
+                            <constraint firstItem="S5s-51-dOF" firstAttribute="centerY" secondItem="sDK-t5-9s3" secondAttribute="centerY" id="c3t-bV-sms"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="OLL-wb-PDK" secondAttribute="trailing" id="9Eh-Y3-ocH"/>
+                <constraint firstAttribute="trailing" secondItem="sDK-t5-9s3" secondAttribute="trailing" id="7bi-D1-ljw"/>
                 <constraint firstItem="OLL-wb-PDK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ch3-9F-dA1"/>
+                <constraint firstItem="sDK-t5-9s3" firstAttribute="leading" secondItem="OLL-wb-PDK" secondAttribute="trailing" id="Dge-W2-LOX"/>
+                <constraint firstItem="sDK-t5-9s3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SNM-cC-1ev"/>
                 <constraint firstItem="OLL-wb-PDK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Wi5-PP-oRe"/>
                 <constraint firstAttribute="bottom" secondItem="OLL-wb-PDK" secondAttribute="bottom" id="Wys-VG-fnL"/>
+                <constraint firstAttribute="bottom" secondItem="sDK-t5-9s3" secondAttribute="bottom" id="cxF-4W-nYb"/>
+                <constraint firstItem="OLL-wb-PDK" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.5" id="dj7-pL-KUK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="recomImageView" destination="OLL-wb-PDK" id="Twh-0x-xkO"/>
+                <outlet property="titleLabel" destination="S5s-51-dOF" id="h8q-fU-m6O"/>
             </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="80.691964285714278"/>
         </collectionViewCell>
     </objects>
 </document>

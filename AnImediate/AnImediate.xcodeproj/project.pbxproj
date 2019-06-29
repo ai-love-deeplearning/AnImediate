@@ -12,6 +12,7 @@
 		3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */; };
 		3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */; };
 		3238B00122C1D25A00C8D3DD /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
+		32CDA20C22C5EEC600BD5A76 /* imageURL.json in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA20B22C5EEC600BD5A76 /* imageURL.json */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820922C364D800BF813F /* UIColorExtension.swift */; };
@@ -60,6 +61,7 @@
 		3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomCollectionViewCell.swift; sourceTree = "<group>"; };
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
 		3238B00022C1D25A00C8D3DD /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		32CDA20B22C5EEC600BD5A76 /* imageURL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageURL.json; path = "../../../自学/python_file/imageURL.json"; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				509D820B22C3710900BF813F /* SettingVC.swift */,
 				3238B00022C1D25A00C8D3DD /* Work.swift */,
 				509D820922C364D800BF813F /* UIColorExtension.swift */,
+				32CDA20B22C5EEC600BD5A76 /* imageURL.json */,
 				50A5968822C0B09100378AAB /* Login.storyboard */,
 				50A5968A22C0B11100378AAB /* SignUp.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
@@ -338,6 +341,7 @@
 				3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
+				32CDA20C22C5EEC600BD5A76 /* imageURL.json in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
 				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
