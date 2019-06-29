@@ -11,13 +11,16 @@ import UIKit
 class RecomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var recomImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     public func bindData(work: Work) {
+        titleLabel.text = work.title
         setIconImageView(imageUrlString: work.imageUrl)
+        recomImageView.contentMode = .scaleAspectFill
     }
     
     private func setIconImageView(imageUrlString: String) {

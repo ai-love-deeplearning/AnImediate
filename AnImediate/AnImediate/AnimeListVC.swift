@@ -19,12 +19,14 @@ class AnimeListVC: UIViewController {
     var ref:DatabaseReference!
     
     private var autoScrollTimer = Timer()
+    private var activityIndicatorView = UIActivityIndicatorView()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
     //private var imageURL: [String:String] = [:]
     private var works: [Work] = []
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
+            self.activityIndicatorView.stopAnimating()
             recomCollectionView.reloadData()
         }
     }
@@ -34,22 +36,9 @@ class AnimeListVC: UIViewController {
         
         referDB()
         setupCCView()
-        //startAutoScroll(duration: 7.0)
+        setupIndicator()
+        startAutoScroll(duration: 7.0)
     }
-    
-    /*func getJSONData() throws -> Data? {
-        guard let path = Bundle.main.path(forResource: "imageURL", ofType: "json") else { return nil }
-        let url = URL(fileURLWithPath: path)
-        
-        return try Data(contentsOf: url)
-    }
-    
-    func setImage() {
-        guard let data = try? getJSONData() else { return }
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: String] else {return}
-        self.imageURL = json
-        
-    }*/
     
     private func referDB() {
         ref = Database.database().reference()
@@ -64,7 +53,7 @@ class AnimeListVC: UIViewController {
             DispatchQueue.main.async(execute: {
                 self.works = works
                 for i in 0..<self.recomWorks.count {
-                    self.recomWorks[i] = works[Int.random(in: 0..<50)]
+                    self.recomWorks[i] = works[Int.random(in: 0..<self.works.count)]
                 }
             })
         }) { (error) in
@@ -72,7 +61,49 @@ class AnimeListVC: UIViewController {
         }
     }
     
-    /*private func fetchAPI() {
+    private func setupCCView() {
+        centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
+        
+        recomCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        
+        recomCollectionView.delegate = self
+        recomCollectionView.dataSource = self
+        
+        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recomCell")
+        
+        centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width, height: recomCollectionView.bounds.height)
+        
+        centeredCollectionViewFlowLayout.minimumLineSpacing = 0
+        
+        recomCollectionView.showsVerticalScrollIndicator = false
+        recomCollectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    private func setupIndicator() {
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+        guard let navBarHeight = self.navigationController?.navigationBar.frame.size.height else {return}
+        activityIndicatorView.center = CGPoint(x: recomCollectionView.center.x, y: recomCollectionView.center.y - (statusBarHeight+navBarHeight))
+        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.color = .deepMagenta()
+        recomCollectionView.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+    }
+    
+    /*func getJSONData() throws -> Data? {
+     guard let path = Bundle.main.path(forResource: "imageURL", ofType: "json") else { return nil }
+     let url = URL(fileURLWithPath: path)
+     
+     return try Data(contentsOf: url)
+     }
+     
+     func setImage() {
+     guard let data = try? getJSONData() else { return }
+     guard let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: String] else {return}
+     self.imageURL = json
+     
+     }
+    
+    private func fetchAPI() {
         for i in 1..<136 {
             guard let url: URL = URL(string: "https://api.annict.com/v1/works?access_token=Y4m-6I3_lqZw0NS1QtxgWX-9yHAvlIgQISLkQL6M2i0&page=\(i)&per_page=50&sort_watchers_count=desc") else {return}
             
@@ -112,24 +143,6 @@ class AnimeListVC: UIViewController {
             task.resume() // 実行
         }
     }*/
-    
-    private func setupCCView() {
-        centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
-        
-        recomCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-        
-        recomCollectionView.delegate = self
-        recomCollectionView.dataSource = self
-        
-        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recomCell")
-        
-        centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width, height: recomCollectionView.bounds.height)
-        
-        centeredCollectionViewFlowLayout.minimumLineSpacing = 0
-        
-        recomCollectionView.showsVerticalScrollIndicator = false
-        recomCollectionView.showsHorizontalScrollIndicator = false
-    }
 }
 
 extension AnimeListVC: UICollectionViewDelegate {
