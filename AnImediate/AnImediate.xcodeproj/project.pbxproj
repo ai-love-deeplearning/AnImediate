@@ -13,6 +13,8 @@
 		3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */; };
 		3238B00122C1D25A00C8D3DD /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
 		32CDA20C22C5EEC600BD5A76 /* imageURL.json in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA20B22C5EEC600BD5A76 /* imageURL.json */; };
+		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
+		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820922C364D800BF813F /* UIColorExtension.swift */; };
 		509D820C22C3710900BF813F /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820B22C3710900BF813F /* SettingVC.swift */; };
 		50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965222C0A04900378AAB /* AppDelegate.swift */; };
@@ -60,6 +62,8 @@
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
 		3238B00022C1D25A00C8D3DD /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		32CDA20B22C5EEC600BD5A76 /* imageURL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageURL.json; path = "../../../自学/python_file/imageURL.json"; sourceTree = "<group>"; };
+		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
+		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
 		509D820922C364D800BF813F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		509D820B22C3710900BF813F /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				50A5969022C19F7A00378AAB /* SignUpVC.swift */,
 				50A5969222C1F16C00378AAB /* HomeVC.swift */,
 				50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */,
+				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
+				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
@@ -480,12 +486,14 @@
 				50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */,
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
+				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
+				500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
