@@ -46,6 +46,7 @@
                     <navigationItem key="navigationItem" title="交換" id="Ie0-L7-KSz"/>
                     <connections>
                         <outlet property="loadingView" destination="48T-pS-274" id="4lJ-GZ-w00"/>
+                        <outlet property="seachLLabel" destination="EBH-0E-rHn" id="l3I-aP-4gv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUW-5d-Sd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
