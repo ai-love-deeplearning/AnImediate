@@ -16,6 +16,8 @@
 		32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA22D22CB219A00BD5A76 /* Search.storyboard */; };
 		32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */; };
 		32CDA23222CB21D300BD5A76 /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23122CB21D300BD5A76 /* SearchResult.storyboard */; };
+		32CDA23522CB228700BD5A76 /* ThisTermCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */; };
+		32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAE22C994E300A038C8 /* P2PConnectivity.swift */; };
@@ -74,6 +76,8 @@
 		32CDA22D22CB219A00BD5A76 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		32CDA23122CB21D300BD5A76 /* SearchResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
+		32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisTermCollectionViewCell.swift; sourceTree = "<group>"; };
+		32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThisTermCollectionViewCell.xib; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		50165BAE22C994E300A038C8 /* P2PConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PConnectivity.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
+				32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */,
 				32CDA22B22CB218800BD5A76 /* SearchVC.swift */,
 				32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
@@ -201,6 +206,7 @@
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
 				3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */,
+				32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */,
 				32CDA22D22CB219A00BD5A76 /* Search.storyboard */,
 				32CDA23122CB21D300BD5A76 /* SearchResult.storyboard */,
 				50A5968622C0ADD500378AAB /* Setting.storyboard */,
@@ -374,6 +380,7 @@
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
 				50A5965822C0A04900378AAB /* Main.storyboard in Resources */,
+				32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */,
 				32CDA23222CB21D300BD5A76 /* SearchResult.storyboard in Resources */,
 				32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */,
 				50A5968122C0AD6400378AAB /* Home.storyboard in Resources */,
@@ -506,6 +513,7 @@
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 				500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */,
+				32CDA23522CB228700BD5A76 /* ThisTermCollectionViewCell.swift in Sources */,
 				50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
