@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */; };
 		3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */; };
 		3238B00122C1D25A00C8D3DD /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
-		32CDA20C22C5EEC600BD5A76 /* imageURL.json in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA20B22C5EEC600BD5A76 /* imageURL.json */; };
 		32CDA21822CADC0700BD5A76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA21722CADC0700BD5A76 /* UIViewExtension.swift */; };
 		32CDA21B22CAEECE00BD5A76 /* ThisTermCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA21922CAEECE00BD5A76 /* ThisTermCollectionViewCell.swift */; };
 		32CDA21C22CAEECE00BD5A76 /* ThisTermCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA21A22CAEECE00BD5A76 /* ThisTermCollectionViewCell.xib */; };
@@ -22,6 +21,10 @@
 		32CDA22622CB1E1100BD5A76 /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA22522CB1E1100BD5A76 /* SearchResult.storyboard */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
+		50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAE22C994E300A038C8 /* P2PConnectivity.swift */; };
+		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
+		50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB222C995BC00A038C8 /* UserInfo.swift */; };
+		50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB422CAEAE300A038C8 /* WatchData.swift */; };
 		509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820922C364D800BF813F /* UIColorExtension.swift */; };
 		509D820C22C3710900BF813F /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820B22C3710900BF813F /* SettingVC.swift */; };
 		50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965222C0A04900378AAB /* AppDelegate.swift */; };
@@ -42,6 +45,8 @@
 		50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643AE2122C6080800899B61 /* sendMailVC.swift */; };
+		9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9643AE2322C608E800899B61 /* MessageUI.framework */; };
 		CD59A32782CAAF15C7CBFF1B /* Pods_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */; };
 		F39589C84FD6D64323060327 /* Pods_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F582B62C817D67B8B3C7B2 /* Pods_AnImediate.framework */; };
 /* End PBXBuildFile section */
@@ -68,7 +73,6 @@
 		3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomCollectionViewCell.swift; sourceTree = "<group>"; };
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
 		3238B00022C1D25A00C8D3DD /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
-		32CDA20B22C5EEC600BD5A76 /* imageURL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = imageURL.json; path = "../../../自学/python_file/imageURL.json"; sourceTree = "<group>"; };
 		32CDA21722CADC0700BD5A76 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		32CDA21922CAEECE00BD5A76 /* ThisTermCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisTermCollectionViewCell.swift; sourceTree = "<group>"; };
 		32CDA21A22CAEECE00BD5A76 /* ThisTermCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThisTermCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -78,6 +82,10 @@
 		32CDA22522CB1E1100BD5A76 /* SearchResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
+		50165BAE22C994E300A038C8 /* P2PConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PConnectivity.swift; sourceTree = "<group>"; };
+		50165BB022C994EA00A038C8 /* BLEConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConnectivity.swift; sourceTree = "<group>"; };
+		50165BB222C995BC00A038C8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		50165BB422CAEAE300A038C8 /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
 		5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
 		509D820922C364D800BF813F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		509D820B22C3710900BF813F /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -106,6 +114,8 @@
 		50A5969422C2F2E200378AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
+		9643AE2122C6080800899B61 /* sendMailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMailVC.swift; sourceTree = "<group>"; };
+		9643AE2322C608E800899B61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B0E9B47C3A4EA7396AA01598 /* Pods-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B68E9BB81DF5216782F7EB60 /* Pods-AnImediateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateUITests/Pods-AnImediateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnImediateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */,
 				F39589C84FD6D64323060327 /* Pods_AnImediate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +180,10 @@
 		50A5965122C0A04900378AAB /* AnImediate */ = {
 			isa = PBXGroup;
 			children = (
+				50165BB022C994EA00A038C8 /* BLEConnectivity.swift */,
+				50165BAE22C994E300A038C8 /* P2PConnectivity.swift */,
+				50165BB222C995BC00A038C8 /* UserInfo.swift */,
+				50165BB422CAEAE300A038C8 /* WatchData.swift */,
 				50A5965222C0A04900378AAB /* AppDelegate.swift */,
 				50A5965422C0A04900378AAB /* ViewController.swift */,
 				50A5968C22C0B51900378AAB /* LoginVC.swift */,
@@ -183,10 +198,10 @@
 				32CDA21F22CAFFC000BD5A76 /* SearchVC.swift */,
 				32CDA22322CB1DEC00BD5A76 /* SearchResultVC.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
+				9643AE2122C6080800899B61 /* sendMailVC.swift */,
 				3238B00022C1D25A00C8D3DD /* Work.swift */,
 				509D820922C364D800BF813F /* UIColorExtension.swift */,
 				32CDA21722CADC0700BD5A76 /* UIViewExtension.swift */,
-				32CDA20B22C5EEC600BD5A76 /* imageURL.json */,
 				50A5968822C0B09100378AAB /* Login.storyboard */,
 				50A5968A22C0B11100378AAB /* SignUp.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
@@ -228,6 +243,7 @@
 		59FB79C804F93F0C7E94E561 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9643AE2322C608E800899B61 /* MessageUI.framework */,
 				D0F582B62C817D67B8B3C7B2 /* Pods_AnImediate.framework */,
 				CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */,
 				FCAB57F523E445CEC838C2B1 /* Pods_AnImediateUITests.framework */,
@@ -363,7 +379,6 @@
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				32CDA22222CAFFD400BD5A76 /* Search.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
-				32CDA20C22C5EEC600BD5A76 /* imageURL.json in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
 				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
@@ -398,38 +413,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
-				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
-				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
-				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
-				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6841F1C93BB31280EAD5585A /* [CP] Check Pods Manifest.lock */ = {
@@ -511,17 +503,22 @@
 				50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */,
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
 				32CDA21822CADC0700BD5A76 /* UIViewExtension.swift in Sources */,
+				50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
+				9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				32CDA21B22CAEECE00BD5A76 /* ThisTermCollectionViewCell.swift in Sources */,
 				32CDA22022CAFFC000BD5A76 /* SearchVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
+				50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
+				50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 				500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */,
+				50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +697,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V85Y4GF6BG;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnImediate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -723,7 +720,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V85Y4GF6BG;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnImediate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
