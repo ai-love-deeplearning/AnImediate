@@ -14,6 +14,7 @@ target 'AnImediate' do
   pod 'RSKImageCropper'
   pod 'Firebase/Database'
   pod 'CenteredCollectionView'
+  pod 'RealmSwift'
 
   target 'AnImediateTests' do
     inherit! :search_paths
