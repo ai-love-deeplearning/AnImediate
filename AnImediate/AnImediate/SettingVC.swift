@@ -76,6 +76,14 @@ extension SettingVC:UITableViewDataSource{
             }))
             alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel))
             self.present(alert, animated: true, completion: nil)
+        case 6:
+            Auth.auth().currentUser?.delete() { [weak self] error in
+                guard let self = self else { return }
+                if error != nil {
+                    self.performSegue(withIdentifier: "toLogin", sender: self)
+                }
+                self.showErrorIfNeeded(error)
+            }
         default:
             break
         }
