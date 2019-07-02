@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,8 @@
 		50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643AE2122C6080800899B61 /* sendMailVC.swift */; };
+		9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9643AE2322C608E800899B61 /* MessageUI.framework */; };
 		CD59A32782CAAF15C7CBFF1B /* Pods_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */; };
 		F39589C84FD6D64323060327 /* Pods_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F582B62C817D67B8B3C7B2 /* Pods_AnImediate.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,8 @@
 		50A5969422C2F2E200378AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
+		9643AE2122C6080800899B61 /* sendMailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMailVC.swift; sourceTree = "<group>"; };
+		9643AE2322C608E800899B61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B0E9B47C3A4EA7396AA01598 /* Pods-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B68E9BB81DF5216782F7EB60 /* Pods-AnImediateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateUITests/Pods-AnImediateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnImediateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */,
 				F39589C84FD6D64323060327 /* Pods_AnImediate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +169,7 @@
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
+				9643AE2122C6080800899B61 /* sendMailVC.swift */,
 				3238B00022C1D25A00C8D3DD /* Work.swift */,
 				509D820922C364D800BF813F /* UIColorExtension.swift */,
 				50A5968822C0B09100378AAB /* Login.storyboard */,
@@ -204,6 +210,7 @@
 		59FB79C804F93F0C7E94E561 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9643AE2322C608E800899B61 /* MessageUI.framework */,
 				D0F582B62C817D67B8B3C7B2 /* Pods_AnImediate.framework */,
 				CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */,
 				FCAB57F523E445CEC838C2B1 /* Pods_AnImediateUITests.framework */,
@@ -370,38 +377,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
-				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
-				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
-				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
-				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6841F1C93BB31280EAD5585A /* [CP] Check Pods Manifest.lock */ = {
@@ -482,6 +466,7 @@
 				50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */,
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
+				9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
@@ -668,7 +653,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V85Y4GF6BG;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnImediate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,7 +676,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V85Y4GF6BG;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnImediate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
