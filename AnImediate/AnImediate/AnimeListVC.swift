@@ -21,11 +21,11 @@ class AnimeListVC: UIViewController {
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     private var autoScrollTimer = Timer()
     private var activityIndicatorView = UIActivityIndicatorView()
-    private var works: [Work] = []
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
             self.activityIndicatorView.stopAnimating()
             recomCollectionView.reloadData()
+            startAutoScroll(duration: 7.0)
         }
     }
     private var thisTermWorks: [Work] = [] {
@@ -41,32 +41,24 @@ class AnimeListVC: UIViewController {
         setupCCView()
         setupThisTermCV()
         setupIndicator()
-        startAutoScroll(duration: 7.0)
     }
     
     private func referDB() {
         ref = Database.database().reference()
         
-        ref.child("works").observe(.value, with: { (snapshot) in
-            
-            guard let info = snapshot.value as? [Any] else {return}
+        for i in 0..<self.recomWorks.count {
+            ref.child("works").child("\(Int.random(in: 0..<100))").observe(.value, with: { (snapshot) in
+                
+                guard let value = snapshot.value as? [String: Any] else {return}
 
-            let value = info.compactMap { (info) -> [String: Any]? in
-                return info as? [String: Any]
+                let works = Work(value: value)
+                
+                DispatchQueue.main.async(execute: {
+                    self.recomWorks[i] = works
+                })
+            }) { (error) in
+                print(error)
             }
-            
-            let works = value.map { (value: [String: Any]) -> Work in
-                return Work(value: value)
-            }
-            
-            DispatchQueue.main.async(execute: {
-                self.works = works
-                for i in 0..<self.recomWorks.count {
-                    self.recomWorks[i] = works[Int.random(in: 0..<self.works.count)]
-                }
-            })
-        }) { (error) in
-            print(error)
         }
     }
     
@@ -90,6 +82,9 @@ class AnimeListVC: UIViewController {
         thisTermCollectionView.delegate = self
         thisTermCollectionView.dataSource = self
         thisTermCollectionView.showsHorizontalScrollIndicator = false
+        thisTermCollectionView.register(UINib(nibName: "ThisTermCollectionViewCell",
+                                           bundle: nil),
+                                     forCellWithReuseIdentifier: "thisTermCell")
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: thisTermCollectionView.bounds.width*0.2, height: thisTermCollectionView.bounds.height)
@@ -109,8 +104,6 @@ class AnimeListVC: UIViewController {
         
         activityIndicatorView.startAnimating()
     }
-    
-    
 }
 
 extension AnimeListVC: UICollectionViewDelegate {
