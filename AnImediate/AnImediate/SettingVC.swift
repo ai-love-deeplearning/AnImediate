@@ -12,7 +12,7 @@ class SettingVC: UIViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
     
-    let settingItem: [String] = ["アカウント","使い方","お問い合わせ","プライバシー","ライセンス"]
+    let settingItem: [String] = ["アカウント","使い方","お問い合わせ","プライバシー","ライセンス","ログアウト","退会"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,20 @@ extension SettingVC:UITableViewDataSource{
         let cell = settingTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) 
         cell.textLabel?.text = settingItem[indexPath.row]
         // 色仮置き
-        cell.textLabel?.textColor = UIColor.red
+        cell.textLabel?.textColor = UIColor.deepMagenta()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            self.performSegue(withIdentifier: "toAccount", sender: self)
+        case 1:
+            self.performSegue(withIdentifier: "toUse", sender: self)
+        case 2:
+            self.performSegue(withIdentifier: "toMail", sender: self)
+        default:
+            break
+        }
     }
 }
