@@ -12,6 +12,7 @@ import MXParallaxHeader
 class HomeHeaderVC: UIViewController {
 
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var imageProfile: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

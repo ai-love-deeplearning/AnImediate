@@ -165,11 +165,27 @@
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-K9-LKD">
                                 <rect key="frame" x="0.0" y="266" width="414" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5J-3N-WMG">
+                                        <rect key="frame" x="357" y="8" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="編集">
+                                            <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="a8b-D8-Ut9" kind="show" id="vUs-WV-scF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="JAW-gq-CcD"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfZ-QU-hez">
+                                <rect key="frame" x="87" y="186" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -189,12 +205,21 @@
                     </view>
                     <size key="freeformSize" width="414" height="500"/>
                     <connections>
+                        <outlet property="imageProfile" destination="SfZ-QU-hez" id="tBZ-fy-sH6"/>
                         <outlet property="visualEffectView" destination="lrt-Hd-1lv" id="eCc-eA-pkz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxr-G1-sm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3076.811594202899" y="-577.23214285714278"/>
+        </scene>
+        <!--ProfileModify-->
+        <scene sceneID="Tcc-Yl-o07">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileModify" id="a8b-D8-Ut9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtE-Xg-iuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3722" y="-567"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YHL-fZ-nZ1">
