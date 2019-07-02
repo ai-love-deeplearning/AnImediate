@@ -51,6 +51,7 @@
                         <segue destination="GuL-di-Htl" kind="show" identifier="toAccount" id="y5A-Di-9K3"/>
                         <segue destination="dIf-ne-gSH" kind="show" identifier="toUse" id="bmR-ED-gqW"/>
                         <segue destination="qo9-Wf-7Ah" kind="show" identifier="toMail" id="22s-R3-CL8"/>
+                        <segue destination="SW9-Zf-mUd" kind="presentation" identifier="toLogin" id="O99-P9-5uC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aH-K9-Z7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,6 +102,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Su-Zp-GXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1242" y="-523"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="B29-i3-35u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="SW9-Zf-mUd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2bk-mW-XLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="349"/>
         </scene>
         <!--Send MailVC-->
         <scene sceneID="DFc-wf-znb">
