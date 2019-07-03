@@ -80,7 +80,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-Bl-Ey3">
-                                <rect key="frame" x="0.0" y="407" width="414" height="89.5"/>
+                                <rect key="frame" x="0.0" y="407" width="414" height="107.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M7n-nM-w79">
                                     <size key="itemSize" width="50" height="50"/>
@@ -90,7 +90,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="xIh-EI-F9t" customClass="ThisTermCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="29" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="CVO-GX-7WB"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="NfZ-J5-kc3"/>
                             <constraint firstItem="duw-R2-icd" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="ZQJ-Xm-Rnt"/>
-                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.1" id="ani-qR-Tgh"/>
+                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.12" id="ani-qR-Tgh"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="dpr-M3-HFQ"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="hCP-EQ-5iX"/>
                             <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" constant="20" id="kV1-px-hQj"/>

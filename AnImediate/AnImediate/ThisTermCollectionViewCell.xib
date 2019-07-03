@@ -20,25 +20,30 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pkg-JH-heV">
-                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                        <rect key="frame" x="5" y="5" width="65" height="65"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Pkg-JH-heV" secondAttribute="height" multiplier="1:1" id="6Qh-lQ-fe9"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkO-lI-jgv">
-                        <rect key="frame" x="0.0" y="75" width="75" height="15"/>
+                        <rect key="frame" x="0.0" y="70" width="75" height="20"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfA-ny-31V">
-                                <rect key="frame" x="0.0" y="0.0" width="75" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="5" width="75" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KfA-ny-31V" firstAttribute="top" secondItem="MkO-lI-jgv" secondAttribute="top" id="c44-UK-gep"/>
+                            <constraint firstItem="KfA-ny-31V" firstAttribute="top" secondItem="MkO-lI-jgv" secondAttribute="top" constant="5" id="c44-UK-gep"/>
                             <constraint firstItem="KfA-ny-31V" firstAttribute="leading" secondItem="MkO-lI-jgv" secondAttribute="leading" id="cYh-YY-4zS"/>
                             <constraint firstAttribute="bottom" secondItem="KfA-ny-31V" secondAttribute="bottom" id="pWZ-Aa-uzJ"/>
                             <constraint firstAttribute="trailing" secondItem="KfA-ny-31V" secondAttribute="trailing" id="ynJ-Jh-DUZ"/>
@@ -47,13 +52,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Pkg-JH-heV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EId-TG-KIo"/>
+                <constraint firstItem="Pkg-JH-heV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="EId-TG-KIo"/>
                 <constraint firstAttribute="bottom" secondItem="MkO-lI-jgv" secondAttribute="bottom" id="Mzj-fX-9mD"/>
                 <constraint firstItem="MkO-lI-jgv" firstAttribute="top" secondItem="Pkg-JH-heV" secondAttribute="bottom" id="NhS-Kq-jnT"/>
                 <constraint firstItem="MkO-lI-jgv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="R54-1P-435"/>
-                <constraint firstAttribute="trailing" secondItem="Pkg-JH-heV" secondAttribute="trailing" id="bjO-vm-XCj"/>
+                <constraint firstAttribute="trailing" secondItem="Pkg-JH-heV" secondAttribute="trailing" constant="5" id="bjO-vm-XCj"/>
                 <constraint firstAttribute="trailing" secondItem="MkO-lI-jgv" secondAttribute="trailing" id="nxA-cZ-lVU"/>
-                <constraint firstItem="Pkg-JH-heV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oCn-yV-Ulu"/>
+                <constraint firstItem="Pkg-JH-heV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="oCn-yV-Ulu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="75" height="90"/>

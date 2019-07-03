@@ -37,15 +37,15 @@ class AnimeListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        referDB()
+        ref = Database.database().reference()
+        
+        fetchRecom()
         setupCCView()
         setupThisTermCV()
         setupIndicator()
     }
     
-    private func referDB() {
-        ref = Database.database().reference()
-        
+    private func fetchRecom() {
         for i in 0..<self.recomWorks.count {
             ref.child("works").child("\(Int.random(in: 0..<100))").observe(.value, with: { (snapshot) in
                 
@@ -60,6 +60,9 @@ class AnimeListVC: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    private func  fetchThisTerm() {
     }
     
     private func setupCCView() {
