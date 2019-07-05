@@ -14,11 +14,22 @@ import FirebaseAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var defaults = UserDefaults.standard
+    let dataManager = DataManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        FirebaseApp.configure()
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+
+        if defaults.bool(forKey: "firstLaunch") {
+            defaults.set(false, forKey: "firstLaunch")
+        } else {
+            dataManager.getWork()
+            defaults.set(true, forKey: "firstLaunch")
+        }
         
         //自動ログイン
         if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
@@ -55,7 +66,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

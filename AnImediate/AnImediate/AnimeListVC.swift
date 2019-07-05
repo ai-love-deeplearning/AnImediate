@@ -17,7 +17,7 @@ class AnimeListVC: UIViewController {
     @IBOutlet weak var thisTermCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var ref:DatabaseReference!
+    let dataManager = DataManager()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     private var autoScrollTimer = Timer()
     private var activityIndicatorView = UIActivityIndicatorView()
@@ -37,29 +37,16 @@ class AnimeListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
+        print(dataManager.work)
         
-        fetchRecom()
+        //fetchRecom()
         setupCCView()
         setupThisTermCV()
         setupIndicator()
     }
     
     private func fetchRecom() {
-        for i in 0..<self.recomWorks.count {
-            ref.child("works").child("\(Int.random(in: 0..<100))").observe(.value, with: { (snapshot) in
-                
-                guard let value = snapshot.value as? [String: Any] else {return}
-
-                let works = Work(value: value)
-                
-                DispatchQueue.main.async(execute: {
-                    self.recomWorks[i] = works
-                })
-            }) { (error) in
-                print(error)
-            }
-        }
+        
     }
     
     private func  fetchThisTerm() {
