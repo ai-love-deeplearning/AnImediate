@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PkT-1N-Qbi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PkT-1N-Qbi">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -165,15 +165,38 @@
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-K9-LKD">
                                 <rect key="frame" x="0.0" y="266" width="414" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVP-xX-C7R">
+                                        <rect key="frame" x="330" y="15" width="34" height="29"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="編集">
+                                            <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editBtnTapped:" destination="3da-cR-oqE" eventType="touchUpInside" id="dDX-Ba-rT1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="JAW-gq-CcD"/>
+                                    <constraint firstAttribute="trailing" secondItem="iVP-xX-C7R" secondAttribute="trailing" constant="50" id="cbX-RA-U2h"/>
+                                    <constraint firstItem="iVP-xX-C7R" firstAttribute="top" secondItem="vWb-K9-LKD" secondAttribute="top" constant="15" id="sGc-BM-Hw3"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-Oc-N2E">
+                                <rect key="frame" x="157" y="216" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="LUb-LS-Sh6"/>
+                                    <constraint firstAttribute="width" secondItem="bPs-Oc-N2E" secondAttribute="height" multiplier="1:1" id="s1S-b1-jQ9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="7Uj-bo-pOP"/>
+                            <constraint firstItem="bPs-Oc-N2E" firstAttribute="centerX" secondItem="KK0-KW-ckt" secondAttribute="centerX" id="AkG-3n-w68"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="BcN-F1-kDs"/>
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="GGz-Y1-w3L"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="GbL-eN-Etz"/>
@@ -182,6 +205,7 @@
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="bottom" secondItem="gGx-sx-Sxm" secondAttribute="bottom" id="RcQ-C3-lT4"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="abQ-Wn-DQN"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="c1q-2L-z54"/>
+                            <constraint firstItem="vWb-K9-LKD" firstAttribute="top" secondItem="bPs-Oc-N2E" secondAttribute="top" constant="50" id="cu4-VA-jaL"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="jTL-bQ-4ij"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="ped-XI-5Xw"/>
                         </constraints>
@@ -189,6 +213,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="500"/>
                     <connections>
+                        <outlet property="iconView" destination="bPs-Oc-N2E" id="RcN-DN-88n"/>
                         <outlet property="visualEffectView" destination="lrt-Hd-1lv" id="eCc-eA-pkz"/>
                     </connections>
                 </viewController>
@@ -253,6 +278,7 @@
     </scenes>
     <resources>
         <image name="header_sample" width="900" height="600"/>
-        <image name="home" width="2.5501770973205566" height="2.2951593399047852"/>
+        <image name="home" width="30" height="27"/>
+        <image name="pic" width="481" height="480"/>
     </resources>
 </document>
