@@ -39,6 +39,7 @@ class AnimeListVC: UIViewController {
         super.viewDidLoad()
         
         fetchRecom()
+        fetchThisTerm()
         setupCCView()
         setupThisTermCV()
     }
@@ -51,6 +52,12 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchThisTerm() {
+        let works = realm.objects(Work.self)
+        for i in 0..<works.count {
+            if works[i].seasonNameText == "2019年春" {
+                self.thisTermWorks.append(works[i])
+            }
+        }
     }
     
     private func setupCCView() {
@@ -86,6 +93,20 @@ class AnimeListVC: UIViewController {
 }
 
 extension AnimeListVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recomCell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
+        if collectionView.tag == 1 {
+            let recomWork = recomWorks[indexPath.row]
+            recomCell.bindData(work: recomWork)
+            print(recomCell.titleLabel.text!)
+        } else if collectionView.tag == 2 {
+            let thisWork = thisTermWorks[indexPath.row]
+            let cell = thisTermCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
+            cell.bindData(work: thisWork)
+            print(cell.titleLabel.text!)
+        }
+    }
     
     func startAutoScroll(duration: TimeInterval){
         var indexPath = recomCollectionView.indexPathsForVisibleItems.sorted { $0.item < $1.item }.first ?? IndexPath(item: 0, section: 0)
@@ -128,10 +149,12 @@ extension AnimeListVC: UICollectionViewDataSource {
         let recomCell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
         
         if collectionView.tag == 1 {
-            let work = recomWorks[indexPath.row]
-            recomCell.bindData(work: work)
+            let recomWork = recomWorks[indexPath.row]
+            recomCell.bindData(work: recomWork)
         } else if collectionView.tag == 2 {
+            let thisWork = thisTermWorks[indexPath.row]
             let cell = thisTermCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
+            cell.bindData(work: thisWork)
             return cell
         }
         

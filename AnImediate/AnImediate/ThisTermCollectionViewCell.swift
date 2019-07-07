@@ -20,6 +20,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
 
     public func bindData(work: Work) {
         titleLabel.text = work.title
+        titleLabel.textColor = .deepMagenta()
         setIconImageView(imageUrlString: work.imageUrl)
         iconImageView.contentMode = .scaleAspectFill
     }
