@@ -20,6 +20,8 @@
 		32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */; };
 		32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */; };
 		32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23D22CC46C700BD5A76 /* DataManager.swift */; };
+		3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */; };
+		3F854D1F22CC570700A1BADA /* ExchangeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F854D1E22CC570700A1BADA /* ExchangeResult.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAE22C994E300A038C8 /* P2PConnectivity.swift */; };
@@ -82,6 +84,8 @@
 		32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThisTermCollectionViewCell.xib; sourceTree = "<group>"; };
 		32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		32CDA23D22CC46C700BD5A76 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeResult.storyboard; sourceTree = "<group>"; };
+		3F854D1E22CC570700A1BADA /* ExchangeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResult.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		50165BAE22C994E300A038C8 /* P2PConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PConnectivity.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				50A5969222C1F16C00378AAB /* HomeVC.swift */,
 				50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */,
 				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
+				3F854D1E22CC570700A1BADA /* ExchangeResult.swift */,
 				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
@@ -210,6 +215,7 @@
 				50A5965622C0A04900378AAB /* Main.storyboard */,
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
+				3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */,
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
 				3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */,
 				32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */,
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
+				3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
@@ -418,13 +425,42 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6841F1C93BB31280EAD5585A /* [CP] Check Pods Manifest.lock */ = {
@@ -517,6 +553,7 @@
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
 				50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
+				3F854D1F22CC570700A1BADA /* ExchangeResult.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
