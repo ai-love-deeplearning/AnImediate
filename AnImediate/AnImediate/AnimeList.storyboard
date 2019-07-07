@@ -105,17 +105,52 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-cc-Dkj">
+                                <rect key="frame" x="20" y="534.5" width="108" height="30"/>
+                                <state key="normal" title="ランキング　＞">
+                                    <color key="titleColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY">
+                                <rect key="frame" x="0.0" y="564.5" width="414" height="107.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HdP-jf-K9y">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="R7g-t3-Irj" customClass="ThisTermCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="29" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="top" secondItem="EOI-cc-Dkj" secondAttribute="bottom" id="2ql-Fo-l5M"/>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="7DD-M1-gjn"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="bottom" id="9r9-mX-cA1"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="CVO-GX-7WB"/>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="height" secondItem="jQf-Bl-Ey3" secondAttribute="height" id="Mpf-cz-hnZ"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="NfZ-J5-kc3"/>
+                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="height" secondItem="duw-R2-icd" secondAttribute="height" id="RpF-uk-aWQ"/>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="ZNm-ae-NGF"/>
                             <constraint firstItem="duw-R2-icd" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="ZQJ-Xm-Rnt"/>
+                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="width" secondItem="duw-R2-icd" secondAttribute="width" id="afO-vm-4le"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.12" id="ani-qR-Tgh"/>
+                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="dep-nd-cDW"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="dpr-M3-HFQ"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="hCP-EQ-5iX"/>
                             <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" constant="20" id="kV1-px-hQj"/>
+                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="top" secondItem="jQf-Bl-Ey3" secondAttribute="bottom" constant="20" id="mB3-ZJ-rsd"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="rFa-Ik-riE"/>
                             <constraint firstItem="tqp-eQ-FLf" firstAttribute="centerX" secondItem="IqX-5B-ZZc" secondAttribute="centerX" id="s0t-DY-ivM"/>
                             <constraint firstItem="tqp-eQ-FLf" firstAttribute="bottom" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="wHA-6R-Olv"/>
@@ -132,6 +167,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="pageControl" destination="tqp-eQ-FLf" id="cuh-Sj-gT7"/>
+                        <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="Bti-zO-cnn"/>
                         <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="Hik-5Z-TKc"/>
                         <outlet property="thisTermCollectionView" destination="jQf-Bl-Ey3" id="WAr-ZE-kBa"/>
                     </connections>
