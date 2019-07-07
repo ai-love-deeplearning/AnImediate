@@ -44,6 +44,9 @@
 		50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
+		963B681622D22A33006988FE /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963B681522D22A33006988FE /* SettingText.storyboard */; };
+		963B681822D22A63006988FE /* SettingTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B681722D22A63006988FE /* SettingTextVC.swift */; };
 		9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643AE2122C6080800899B61 /* sendMailVC.swift */; };
 		9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9643AE2322C608E800899B61 /* MessageUI.framework */; };
 		CD59A32782CAAF15C7CBFF1B /* Pods_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */; };
@@ -112,6 +115,9 @@
 		50A5969422C2F2E200378AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
+		963B681322D225DD006988FE /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		963B681522D22A33006988FE /* SettingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingText.storyboard; sourceTree = "<group>"; };
+		963B681722D22A63006988FE /* SettingTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextVC.swift; sourceTree = "<group>"; };
 		9643AE2122C6080800899B61 /* sendMailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMailVC.swift; sourceTree = "<group>"; };
 		9643AE2322C608E800899B61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B0E9B47C3A4EA7396AA01598 /* Pods-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +202,8 @@
 				32CDA22B22CB218800BD5A76 /* SearchVC.swift */,
 				32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
+				963B681722D22A63006988FE /* SettingTextVC.swift */,
+				963B681322D225DD006988FE /* license.txt */,
 				9643AE2122C6080800899B61 /* sendMailVC.swift */,
 				3238B00022C1D25A00C8D3DD /* Work.swift */,
 				509D820922C364D800BF813F /* UIColorExtension.swift */,
@@ -210,6 +218,7 @@
 				32CDA22D22CB219A00BD5A76 /* Search.storyboard */,
 				32CDA23122CB21D300BD5A76 /* SearchResult.storyboard */,
 				50A5968622C0ADD500378AAB /* Setting.storyboard */,
+				963B681522D22A33006988FE /* SettingText.storyboard */,
 				50A5965B22C0A04A00378AAB /* LaunchScreen.storyboard */,
 				50A5969422C2F2E200378AAB /* Assets.xcassets */,
 				50A5965E22C0A04A00378AAB /* Info.plist */,
@@ -370,12 +379,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963B681622D22A33006988FE /* SettingText.storyboard in Resources */,
 				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
+				963B681422D225DD006988FE /* license.txt in Resources */,
 				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
@@ -500,6 +511,7 @@
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
 				50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
+				963B681822D22A63006988FE /* SettingTextVC.swift in Sources */,
 				9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
