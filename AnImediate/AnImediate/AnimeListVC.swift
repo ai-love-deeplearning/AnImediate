@@ -8,6 +8,8 @@
 
 import UIKit
 import CenteredCollectionView
+import Realm
+import RealmSwift
 import Firebase
 import FirebaseAuth
 
@@ -17,15 +19,14 @@ class AnimeListVC: UIViewController {
     @IBOutlet weak var thisTermCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var ref:DatabaseReference!
+    let realm = try! Realm()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     private var autoScrollTimer = Timer()
-    private var activityIndicatorView = UIActivityIndicatorView()
-    private var works: [Work] = []
+    
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
-            self.activityIndicatorView.stopAnimating()
             recomCollectionView.reloadData()
+            startAutoScroll(duration: 7.0)
         }
     }
     private var thisTermWorks: [Work] = [] {
@@ -37,37 +38,19 @@ class AnimeListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        referDB()
+        fetchRecom()
         setupCCView()
         setupThisTermCV()
-        setupIndicator()
-        startAutoScroll(duration: 7.0)
     }
     
-    private func referDB() {
-        ref = Database.database().reference()
-        
-        ref.child("works").observe(.value, with: { (snapshot) in
-            
-            guard let info = snapshot.value as? [Any] else {return}
-
-            let value = info.compactMap { (info) -> [String: Any]? in
-                return info as? [String: Any]
-            }
-            
-            let works = value.map { (value: [String: Any]) -> Work in
-                return Work(value: value)
-            }
-            
-            DispatchQueue.main.async(execute: {
-                self.works = works
-                for i in 0..<self.recomWorks.count {
-                    self.recomWorks[i] = works[Int.random(in: 0..<self.works.count)]
-                }
-            })
-        }) { (error) in
-            print(error)
+    private func fetchRecom() {
+        let works = realm.objects(Work.self)
+        for i in 0..<self.recomWorks.count {
+            self.recomWorks[i] = works[Int.random(in: 0..<100)]
         }
+    }
+    
+    private func fetchThisTerm() {
     }
     
     private func setupCCView() {
@@ -90,6 +73,9 @@ class AnimeListVC: UIViewController {
         thisTermCollectionView.delegate = self
         thisTermCollectionView.dataSource = self
         thisTermCollectionView.showsHorizontalScrollIndicator = false
+        thisTermCollectionView.register(UINib(nibName: "ThisTermCollectionViewCell",
+                                           bundle: nil),
+                                     forCellWithReuseIdentifier: "thisTermCell")
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: thisTermCollectionView.bounds.width*0.2, height: thisTermCollectionView.bounds.height)
@@ -97,20 +83,6 @@ class AnimeListVC: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         thisTermCollectionView.collectionViewLayout = layout
     }
-    
-    private func setupIndicator() {
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-        guard let navBarHeight = self.navigationController?.navigationBar.frame.size.height else {return}
-        activityIndicatorView.center = CGPoint(x: recomCollectionView.center.x,
-                                               y: recomCollectionView.center.y - (statusBarHeight+navBarHeight))
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .deepMagenta()
-        recomCollectionView.addSubview(activityIndicatorView)
-        
-        activityIndicatorView.startAnimating()
-    }
-    
-    
 }
 
 extension AnimeListVC: UICollectionViewDelegate {
