@@ -8,6 +8,8 @@
 
 import UIKit
 import CenteredCollectionView
+import Realm
+import RealmSwift
 import Firebase
 import FirebaseAuth
 
@@ -17,13 +19,12 @@ class AnimeListVC: UIViewController {
     @IBOutlet weak var thisTermCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    let dataManager = DataManager()
+    let realm = try! Realm()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     private var autoScrollTimer = Timer()
-    private var activityIndicatorView = UIActivityIndicatorView()
+    
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
-            self.activityIndicatorView.stopAnimating()
             recomCollectionView.reloadData()
             startAutoScroll(duration: 7.0)
         }
@@ -37,19 +38,19 @@ class AnimeListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(dataManager.work)
-        
-        //fetchRecom()
+        fetchRecom()
         setupCCView()
         setupThisTermCV()
-        setupIndicator()
     }
     
     private func fetchRecom() {
-        
+        let works = realm.objects(Work.self)
+        for i in 0..<self.recomWorks.count {
+            self.recomWorks[i] = works[Int.random(in: 0..<100)]
+        }
     }
     
-    private func  fetchThisTerm() {
+    private func fetchThisTerm() {
     }
     
     private func setupCCView() {
@@ -81,18 +82,6 @@ class AnimeListVC: UIViewController {
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         thisTermCollectionView.collectionViewLayout = layout
-    }
-    
-    private func setupIndicator() {
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-        guard let navBarHeight = self.navigationController?.navigationBar.frame.size.height else {return}
-        activityIndicatorView.center = CGPoint(x: recomCollectionView.center.x,
-                                               y: recomCollectionView.center.y - (statusBarHeight+navBarHeight))
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .deepMagenta()
-        recomCollectionView.addSubview(activityIndicatorView)
-        
-        activityIndicatorView.startAnimating()
     }
 }
 

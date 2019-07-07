@@ -7,39 +7,53 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
-struct Work {
-    let id: Int
-    let title: String
-    let episodesCount: Int
-    let seasonNameText: String
-    let watchersCount: Int
-    let reviewsCount: Int
-    let imageUrl: String
-    let officialSiteUrl: String
-    let wikipediaUrl: String
+class Work: Object {
+    @objc dynamic var id = NSUUID().uuidString
+    @objc dynamic var title = ""
+    @objc dynamic var episodesCount = 0
+    @objc dynamic var seasonNameText = ""
+    @objc dynamic var watchersCount = 0
+    @objc dynamic var reviewsCount = 0
+    @objc dynamic var imageUrl = ""
+    @objc dynamic var officialSiteUrl = ""
+    @objc dynamic var wikipediaUrl = ""
     
-    init(value: [String: Any]) {
-        id = value["id"] as? Int ?? 0
-        title = value["title"] as? String ?? ""
-        episodesCount = value["episodesCount"] as? Int ?? 0
-        seasonNameText = value["seasonNameText"] as? String ?? ""
-        watchersCount = value["watchersCount"] as? Int ?? 0
-        reviewsCount = value["reviewsCount"] as? Int ?? 0
-        imageUrl = value["imageURL"] as? String ?? ""
-        officialSiteUrl = value["officialSiteUrl"] as? String ?? ""
-        wikipediaUrl = value["wikipediaUrl"] as? String ?? ""
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
-    init() {
-        id = 0
-        title = ""
-        episodesCount = 0
-        seasonNameText = ""
-        watchersCount = 0
-        reviewsCount = 0
-        imageUrl = ""
-        officialSiteUrl = ""
-        wikipediaUrl = ""
+    init(value: [String: Any]) {
+        super.init()
+        self.title = value["title"] as? String ?? ""
+        self.episodesCount = value["episodesCount"] as? Int ?? 0
+        self.seasonNameText = value["seasonNameText"] as? String ?? ""
+        self.watchersCount = value["watchersCount"] as? Int ?? 0
+        self.reviewsCount = value["reviewsCount"] as? Int ?? 0
+        self.imageUrl = value["imageURL"] as? String ?? ""
+        self.officialSiteUrl = value["officialSiteUrl"] as? String ?? ""
+        self.wikipediaUrl = value["wikipediaUrl"] as? String ?? ""
+    }
+    
+    required init() {
+        super.init()
+        self.title = ""
+        self.episodesCount = 0
+        self.seasonNameText = ""
+        self.watchersCount = 0
+        self.reviewsCount = 0
+        self.imageUrl = ""
+        self.officialSiteUrl = ""
+        self.wikipediaUrl = ""
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
     }
 }

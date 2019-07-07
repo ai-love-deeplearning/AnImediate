@@ -14,7 +14,6 @@ import FirebaseAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var defaults = UserDefaults.standard
     let dataManager = DataManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -24,12 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure()
         }
 
-        if defaults.bool(forKey: "firstLaunch") {
-            defaults.set(false, forKey: "firstLaunch")
-        } else {
-            dataManager.getWork()
-            defaults.set(true, forKey: "firstLaunch")
-        }
+        // Firebaseからアニメデータを取得
+        //dataManager.getWork()
         
         //自動ログイン
         if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
