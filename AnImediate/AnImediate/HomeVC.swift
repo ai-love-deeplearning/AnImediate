@@ -9,7 +9,6 @@
 import UIKit
 import Tabman
 import Pageboy
-import RSKImageCropper
 
 class HomeVC: TabmanViewController {
     

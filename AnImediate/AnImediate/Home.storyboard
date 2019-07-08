@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PkT-1N-Qbi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PkT-1N-Qbi">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -165,36 +165,91 @@
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-K9-LKD">
                                 <rect key="frame" x="0.0" y="266" width="414" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVP-xX-C7R">
+                                        <rect key="frame" x="330" y="15" width="34" height="29"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="編集">
+                                            <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editBtnTapped:" destination="3da-cR-oqE" eventType="touchUpInside" id="dDX-Ba-rT1"/>
+                                            <segue destination="s6H-Bf-6JH" kind="presentation" identifier="toEdit" id="d4P-GN-k64"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="JAW-gq-CcD"/>
+                                    <constraint firstAttribute="trailing" secondItem="iVP-xX-C7R" secondAttribute="trailing" constant="50" id="cbX-RA-U2h"/>
+                                    <constraint firstItem="iVP-xX-C7R" firstAttribute="top" secondItem="vWb-K9-LKD" secondAttribute="top" constant="15" id="sGc-BM-Hw3"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-Oc-N2E">
+                                <rect key="frame" x="157" y="216" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="LUb-LS-Sh6"/>
+                                    <constraint firstAttribute="width" secondItem="bPs-Oc-N2E" secondAttribute="height" multiplier="1:1" id="s1S-b1-jQ9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bl-O6-rsH" userLabel="nameLabel">
+                                <rect key="frame" x="171" y="326" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEk-J2-qu6">
+                                <rect key="frame" x="20" y="397" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gGx-sx-Sxm" firstAttribute="trailing" secondItem="KEk-J2-qu6" secondAttribute="trailing" constant="20" id="4M4-Qk-awU"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="7Uj-bo-pOP"/>
+                            <constraint firstItem="bPs-Oc-N2E" firstAttribute="centerX" secondItem="KK0-KW-ckt" secondAttribute="centerX" id="AkG-3n-w68"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="BcN-F1-kDs"/>
+                            <constraint firstItem="KEk-J2-qu6" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" constant="20" id="FTK-fd-3Xi"/>
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="GGz-Y1-w3L"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="GbL-eN-Etz"/>
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="I4x-RP-n5r"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="JdF-HW-ui6"/>
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="bottom" secondItem="gGx-sx-Sxm" secondAttribute="bottom" id="RcQ-C3-lT4"/>
+                            <constraint firstItem="8bl-O6-rsH" firstAttribute="centerX" secondItem="KK0-KW-ckt" secondAttribute="centerX" id="XQS-RL-7yn"/>
+                            <constraint firstItem="KEk-J2-qu6" firstAttribute="top" secondItem="8bl-O6-rsH" secondAttribute="bottom" constant="50" id="aRf-lm-36Q"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="abQ-Wn-DQN"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="c1q-2L-z54"/>
+                            <constraint firstItem="vWb-K9-LKD" firstAttribute="top" secondItem="bPs-Oc-N2E" secondAttribute="top" constant="50" id="cu4-VA-jaL"/>
+                            <constraint firstItem="KEk-J2-qu6" firstAttribute="centerX" secondItem="KK0-KW-ckt" secondAttribute="centerX" id="fTB-Hp-J4L"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="jTL-bQ-4ij"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="ped-XI-5Xw"/>
+                            <constraint firstItem="8bl-O6-rsH" firstAttribute="top" secondItem="bPs-Oc-N2E" secondAttribute="bottom" constant="10" id="tk4-pJ-XQI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gGx-sx-Sxm"/>
                     </view>
                     <size key="freeformSize" width="414" height="500"/>
                     <connections>
+                        <outlet property="backView" destination="4Oi-PF-XpH" id="ktc-ne-Jop"/>
+                        <outlet property="commentLabel" destination="KEk-J2-qu6" id="fuF-SG-GzG"/>
+                        <outlet property="iconView" destination="bPs-Oc-N2E" id="RcN-DN-88n"/>
+                        <outlet property="nameLabel" destination="8bl-O6-rsH" id="H93-y1-ZxS"/>
                         <outlet property="visualEffectView" destination="lrt-Hd-1lv" id="eCc-eA-pkz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxr-G1-sm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3076.811594202899" y="-577.23214285714278"/>
+        </scene>
+        <!--ProfileEdit-->
+        <scene sceneID="y70-RD-DCb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileEdit" id="s6H-Bf-6JH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5M-Ux-vgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3675" y="-577"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YHL-fZ-nZ1">
@@ -253,6 +308,7 @@
     </scenes>
     <resources>
         <image name="header_sample" width="900" height="600"/>
-        <image name="home" width="2.5501770973205566" height="2.2951593399047852"/>
+        <image name="home" width="30" height="27"/>
+        <image name="pic" width="481" height="480"/>
     </resources>
 </document>

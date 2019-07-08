@@ -39,6 +39,15 @@ class ExchangeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initGradientLayer()
+        /*
+        DispatchQueue.global().async {
+            while true {
+                Thread.sleep(forTimeInterval: 1)
+                DispatchQueue.main.async {
+                    self.labelAnimetion()
+                }
+            }
+        }*/
         timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.labelAnimetion(_:)), userInfo: nil, repeats: true)
         timer.fire()
     }
