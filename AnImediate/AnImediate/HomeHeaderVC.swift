@@ -36,24 +36,9 @@ class HomeHeaderVC: UIViewController {
     }
     
     @IBAction func editBtnTapped(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            let picker = UIImagePickerController()
-            picker.sourceType = .photoLibrary
-            picker.delegate = self
-            self.present(picker, animated: true, completion: nil)
-        }
         
-        let image = UIImage(named: "pic")!
-        let imageCropVC = RSKImageCropViewController(image: image, cropMode: .circle)
-        imageCropVC.moveAndScaleLabel.text = "切り取り範囲を選択"
-        imageCropVC.cancelButton.setTitle("キャンセル", for: .normal)
-        imageCropVC.chooseButton.setTitle("完了", for: .normal)
-        imageCropVC.delegate = self
-        present(imageCropVC, animated: true)
     }
     
-    
-
 }
 
 extension HomeHeaderVC: MXParallaxHeaderDelegate {
@@ -61,27 +46,5 @@ extension HomeHeaderVC: MXParallaxHeaderDelegate {
         //let alpha = 1 - min(1, parallaxHeader.progress)
         let alpha = 1 - (parallaxHeader.progress - 0.27)
         visualEffectView.alpha = alpha
-    }
-}
-
-extension HomeHeaderVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIImage
-        
-        iconView.image = image
-        self.dismiss(animated: false)
-    }
-}
-
-extension HomeHeaderVC: RSKImageCropViewControllerDelegate {
-    //キャンセルを押した時の処理
-    func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //完了を押した後の処理
-    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
-        dismiss(animated: true)
-        iconView.image = croppedImage
     }
 }

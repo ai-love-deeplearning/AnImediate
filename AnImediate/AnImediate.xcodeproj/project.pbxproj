@@ -26,6 +26,9 @@
 		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
 		50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB222C995BC00A038C8 /* UserInfo.swift */; };
 		50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB422CAEAE300A038C8 /* WatchData.swift */; };
+		50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */; };
+		50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */; };
+		50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */; };
 		509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820922C364D800BF813F /* UIColorExtension.swift */; };
 		509D820C22C3710900BF813F /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820B22C3710900BF813F /* SettingVC.swift */; };
 		50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965222C0A04900378AAB /* AppDelegate.swift */; };
@@ -88,6 +91,9 @@
 		50165BB022C994EA00A038C8 /* BLEConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConnectivity.swift; sourceTree = "<group>"; };
 		50165BB222C995BC00A038C8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		50165BB422CAEAE300A038C8 /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
+		50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileEdit.storyboard; sourceTree = "<group>"; };
+		50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
+		50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditTableViewCell.swift; sourceTree = "<group>"; };
 		5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
 		509D820922C364D800BF813F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		509D820B22C3710900BF813F /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -192,6 +198,8 @@
 				50A5969022C19F7A00378AAB /* SignUpVC.swift */,
 				50A5969222C1F16C00378AAB /* HomeVC.swift */,
 				50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */,
+				50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */,
+				50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */,
 				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
 				3F854D1E22CC570700A1BADA /* ExchangeResult.swift */,
 				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
@@ -208,6 +216,7 @@
 				50A5968A22C0B11100378AAB /* SignUp.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
+				50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */,
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
 				3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */,
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
@@ -380,6 +389,7 @@
 				3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */,
+				50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
@@ -504,6 +514,7 @@
 				50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */,
 				50A5969122C19F7A00378AAB /* SignUpVC.swift in Sources */,
 				50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */,
+				50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */,
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
 				50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
@@ -521,6 +532,7 @@
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 				500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */,
+				50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */,
 				32CDA23522CB228700BD5A76 /* ThisTermCollectionViewCell.swift in Sources */,
 				50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */,
 			);

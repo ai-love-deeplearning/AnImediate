@@ -15,10 +15,34 @@ class UserInfo : Object, NSCoding {
     @objc dynamic var id = ""
     @objc dynamic var name = ""
     @objc dynamic var comment = ""
+    @objc dynamic var _image: UIImage? = nil
+    @objc dynamic var icon: UIImage? {
+        set{
+            self._image = newValue
+            if let value = newValue {
+                self.imageData = value.pngData() as NSData?
+            }
+        }
+        get{
+            if let image = self._image {
+                return image
+            }
+            if let data = self.imageData {
+                self._image = UIImage(data: data as Data)
+                return self._image
+            }
+            return nil
+        }
+    }
+    @objc dynamic var imageData: NSData? = nil
     
     // idをプライマリキーに設定
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["image", "_image"]
     }
     
     func encode(with aCoder: NSCoder) {
