@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import MXParallaxHeader
 
 class HomeHeaderVC: UIViewController {
@@ -14,6 +15,11 @@ class HomeHeaderVC: UIViewController {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
     @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var backView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    
+    private let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,18 @@ class HomeHeaderVC: UIViewController {
         iconView.layer.shadowColor = UIColor.black.cgColor
         iconView.layer.shadowOpacity = 0.6
         iconView.layer.shadowRadius = 4
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let results = realm.objects(UserInfo.self)
+        
+        nameLabel.text = results[0].name
+        commentLabel.text = results[0].comment
+        iconView.image = results[0].icon
+        backView.image = results[0].background
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

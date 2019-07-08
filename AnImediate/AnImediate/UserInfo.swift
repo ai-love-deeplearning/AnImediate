@@ -15,26 +15,47 @@ class UserInfo : Object, NSCoding {
     @objc dynamic var id = ""
     @objc dynamic var name = ""
     @objc dynamic var comment = ""
-    @objc dynamic var _image: UIImage? = nil
+    @objc dynamic var _icon: UIImage? = nil
     @objc dynamic var icon: UIImage? {
         set{
-            self._image = newValue
+            self._icon = newValue
             if let value = newValue {
-                self.imageData = value.pngData() as NSData?
+                self.iconData = value.pngData() as NSData?
             }
         }
         get{
-            if let image = self._image {
+            if let image = self._icon {
                 return image
             }
-            if let data = self.imageData {
-                self._image = UIImage(data: data as Data)
-                return self._image
+            if let data = self.iconData {
+                self._icon = UIImage(data: data as Data)
+                return self._icon
             }
             return nil
         }
     }
-    @objc dynamic var imageData: NSData? = nil
+    @objc dynamic var iconData: NSData? = nil
+    
+    @objc dynamic var _background: UIImage? = nil
+    @objc dynamic var background: UIImage? {
+        set{
+            self._background = newValue
+            if let value = newValue {
+                self.backData = value.pngData() as NSData?
+            }
+        }
+        get{
+            if let image = self._background {
+                return image
+            }
+            if let data = self.backData {
+                self._background = UIImage(data: data as Data)
+                return self._background
+            }
+            return nil
+        }
+    }
+    @objc dynamic var backData: NSData? = nil
     
     // idをプライマリキーに設定
     override static func primaryKey() -> String? {
@@ -42,7 +63,7 @@ class UserInfo : Object, NSCoding {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["image", "_image"]
+        return ["icon", "_icon", "background", "_background"]
     }
     
     func encode(with aCoder: NSCoder) {
