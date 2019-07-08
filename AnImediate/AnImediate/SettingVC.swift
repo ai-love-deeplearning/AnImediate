@@ -14,6 +14,7 @@ class SettingVC: UIViewController {
     @IBOutlet weak var settingTableView: UITableView!
     
     let settingItem: [String] = ["アカウント", "使い方", "お問い合わせ", "プライバシー", "ライセンス", "ログアウト", "退会"]
+    var nextType: textType = .license
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +33,16 @@ class SettingVC: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-}
-
-extension SettingVC: UITableViewDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "toText"{
+            let nextView = segue.destination as! SettingTextVC
+            nextView.type = nextType
+        }
+    }
     
 }
 
-extension SettingVC:UITableViewDataSource{
+extension SettingVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingItem.count
     }
@@ -54,15 +58,18 @@ extension SettingVC:UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.performSegue(withIdentifier: "toAccount", sender: self)
-        case 1:
             self.performSegue(withIdentifier: "toUse", sender: self)
+            
+        case 1:
+            self.performSegue(withIdentifier: "toText", sender: self)
         case 2:
             self.performSegue(withIdentifier: "toMail", sender: self)
         case 3:
-            self.performSegue(withIdentifier: "toMail", sender: self)
+            nextType = .privacy
+            self.performSegue(withIdentifier: "toText", sender: self)
         case 4:
-            self.performSegue(withIdentifier: "toMail", sender: self)
+            nextType = .license
+            self.performSegue(withIdentifier: "toText", sender: self)
         case 5:
             let alert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
