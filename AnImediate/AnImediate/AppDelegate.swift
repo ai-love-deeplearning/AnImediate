@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window?.makeKeyAndVisible()
         }
+        
+        //Realmのマイグレーション処理
+        let config = Realm.Configuration(
+            schemaVersion : 1, //データの構造が変わったらここを変える
+            migrationBlock : { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    var nextID = 0
+                    migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
+                        newObject!["id"] = String(nextID)
+                        nextID += 1
+                    }
+                    migration.enumerateObjects(ofType: Work.className()) { oldObject, newObject in
+                        newObject!["id"] = String(nextID)
+                        nextID += 1
+                    }
+                    migration.enumerateObjects(ofType: WatchData.className()) { oldObject, newObject in
+                        newObject!["id"] = String(nextID)
+                        nextID += 1
+                    }
+                }
+        }
+        )
+        
+        Realm.Configuration.defaultConfiguration = config
         
         return true
     }
