@@ -22,6 +22,7 @@ class ProfileEditVC: UIViewController {
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var iconBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIBarButtonItem!
     
     private let editLabels = ["名前", "自己紹介"]
     

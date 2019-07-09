@@ -134,6 +134,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="background" destination="o4k-A9-gnw" id="agi-7o-f23"/>
+                        <outlet property="cancelBtn" destination="UfB-Vw-3kP" id="SyQ-rW-v1E"/>
                         <outlet property="editTable" destination="iv5-8K-azQ" id="Vpf-bR-dkQ"/>
                         <outlet property="icon" destination="woD-De-zcT" id="ORl-pK-Qlg"/>
                         <outlet property="iconBtn" destination="3Mj-kx-FHd" id="TGM-pA-Jzk"/>
@@ -146,7 +147,7 @@
         <!--Navigation Controller-->
         <scene sceneID="aR1-3d-Pqy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="32q-1M-sFl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="32q-1M-sFl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MXC-do-MFe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

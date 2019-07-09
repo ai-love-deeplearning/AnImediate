@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         // Firebaseからアニメデータを取得
-        //dataManager.getWork()
+        //self.dataManager.getWork()
         
         //自動ログイン
         if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
