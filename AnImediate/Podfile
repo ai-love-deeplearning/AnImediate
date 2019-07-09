@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 target 'AnImediate' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  # Comment the next line if you're not using Swift and don't want to use dynamic framework
   use_frameworks!
 
   # Pods for AnImediate
