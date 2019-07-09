@@ -12,25 +12,30 @@ import FirebaseAuth
 import RealmSwift
 
 class DataManager: NSObject {
-    
-    let realm = try! Realm()
-    var ref:DatabaseReference!
+    var ref: DatabaseReference!
     
     public func getWork() {
         ref = Database.database().reference()
         
         ref.child("works").observe(.value, with: { (snapshot) in
             guard let info = snapshot.value as? [Any] else {return}
+            
             let value = info.compactMap { (info) -> [String: Any]? in
                 return info as? [String: Any]
             }
+            
             let work = value.map { (value: [String: Any]) -> Work in
                 return Work(value: value)
             }
-            for i in 0..<work.count {
-                print(work[i].title)
-                try! self.realm.write {
-                    self.realm.add(work[i])
+            
+            DispatchQueue.global(qos: .background).async {
+                let realm = try! Realm()
+                
+                for i in 0..<work.count {
+                    print(work[i].title)
+                    try! realm.write {
+                        realm.add(work[i])
+                    }
                 }
             }
             
