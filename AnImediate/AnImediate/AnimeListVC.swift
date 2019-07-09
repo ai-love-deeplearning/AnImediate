@@ -22,7 +22,8 @@ class AnimeListVC: UIViewController {
     
     let realm = try! Realm()
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
-    private var autoScrollTimer = Timer()
+    var autoScrollTimer = Timer()
+    var nextVCImageURL = ""
     
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
@@ -105,6 +106,13 @@ class AnimeListVC: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         cv.collectionViewLayout = layout
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            //let nextHeaderVC: AnimeDetailsHeaderVC = (segue.destination as? AnimeDetailsHeaderVC)!
+            //nextHeaderVC.imageURL = self.nextVCImageURL
+        }
+    }
 }
 
 extension AnimeListVC: UICollectionViewDelegate {
@@ -116,16 +124,21 @@ extension AnimeListVC: UICollectionViewDelegate {
         if collectionView.tag == 1 {
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
-            print(recomCell.titleLabel.text!)
+            self.nextVCImageURL = recomCell.imageURL
+            performSegue(withIdentifier: "toDetails",sender: nil)
+            
         } else if collectionView.tag == 2 {
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
-            print(cell.titleLabel.text!)
+            self.nextVCImageURL = cell.imageURL
+            performSegue(withIdentifier: "toDetails",sender: nil)
+            
         } else if collectionView.tag == 3 {
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work:rankingWork)
-            print(cell.titleLabel.text!)
+            self.nextVCImageURL = cell.imageURL
+            performSegue(withIdentifier: "toDetails",sender: nil)
         }
     }
     
@@ -138,9 +151,11 @@ extension AnimeListVC: UICollectionViewDelegate {
             if indexPath.row == 5 {
                 indexPath.row = 0
             }
+            
             DispatchQueue.main.async {
                 self.recomCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
             }
+            
         })
     }
     
@@ -160,10 +175,13 @@ extension AnimeListVC: UICollectionViewDataSource {
         
         if collectionView.tag == 1 {
             return recomWorks.count
+            
         } else if collectionView.tag == 2 {
             return 20
+            
         } else if collectionView.tag == 3 {
             return rankingWorks.count
+            
         }
         return 1
     }
@@ -175,10 +193,12 @@ extension AnimeListVC: UICollectionViewDataSource {
         if collectionView.tag == 1 {
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
+            
         } else if collectionView.tag == 2 {
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
             return cell
+            
         } else if collectionView.tag == 3 {
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
