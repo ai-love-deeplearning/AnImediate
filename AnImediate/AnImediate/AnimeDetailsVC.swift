@@ -16,6 +16,8 @@ class AnimeDetailsVC: UIViewController {
     let blurEffect = UIBlurEffect(style: .light)
     
     public var imageURL = ""
+    public var titleText = ""
+    public var seasonText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +26,10 @@ class AnimeDetailsVC: UIViewController {
         visualEffectView.frame.size = self.backImageView.frame.size
         self.backImageView.addSubview(visualEffectView)
         
-        self.navigationItem.title = "アニメ詳細"
-        
         setIconImageView(imageUrlString: imageURL)
         self.backImageView.contentMode = .scaleToFill
+        
+        self.navigationItem.title = "アニメ詳細"
     }
 
     private func setIconImageView(imageUrlString: String) {
@@ -45,5 +47,13 @@ class AnimeDetailsVC: UIViewController {
             
         }
         downloadImageTask.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toContainer" {
+            let containerVC: AnimeContainerVC = segue.destination as! AnimeContainerVC
+            containerVC.titleText = self.titleText
+            containerVC.seasonText = self.seasonText
+        }
     }
 }

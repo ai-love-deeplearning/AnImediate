@@ -13,6 +13,7 @@
 		3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */; };
 		3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */; };
 		3226CD2722D576A00090937F /* AnimeContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2622D576A00090937F /* AnimeContainerVC.swift */; };
+		3226CD2922D583B80090937F /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2822D583B80090937F /* InfoVC.swift */; };
 		3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */; };
 		3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */; };
 		3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */; };
@@ -88,6 +89,7 @@
 		3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetails.storyboard; sourceTree = "<group>"; };
 		3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsVC.swift; sourceTree = "<group>"; };
 		3226CD2622D576A00090937F /* AnimeContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeContainerVC.swift; sourceTree = "<group>"; };
+		3226CD2822D583B80090937F /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListVC.swift; sourceTree = "<group>"; };
 		3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomCollectionViewCell.swift; sourceTree = "<group>"; };
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */,
 				3226CD2622D576A00090937F /* AnimeContainerVC.swift */,
+				3226CD2822D583B80090937F /* InfoVC.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
 				32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */,
 				32CDA22B22CB218800BD5A76 /* SearchVC.swift */,
@@ -559,6 +562,7 @@
 				9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				3226CD2722D576A00090937F /* AnimeContainerVC.swift in Sources */,
+				3226CD2922D583B80090937F /* InfoVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */,
 				50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */,

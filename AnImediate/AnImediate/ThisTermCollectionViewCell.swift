@@ -14,6 +14,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     var imageURL = ""
+    var seasonText = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,8 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
         imageURL = work.imageUrl
         titleLabel.text = work.title
         titleLabel.textColor = .deepMagenta()
+        seasonText = work.seasonNameText
+        
         setIconImageView(imageUrlString: work.imageUrl)
         iconImageView.contentMode = .scaleAspectFill
     }

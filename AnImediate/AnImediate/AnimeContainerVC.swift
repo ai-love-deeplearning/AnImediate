@@ -21,10 +21,14 @@ class AnimeContainerVC: TabmanViewController {
     
     let barTitles = ["基本情報", "各話", "レビュー", "リンク"]
     
+    public var titleText = ""
+    public var seasonText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.dataSource = self
+        self.delegate = self
         initBars()
     }
     
@@ -48,11 +52,10 @@ class AnimeContainerVC: TabmanViewController {
     }
 }
 
-extension AnimeContainerVC: PageboyViewControllerDataSource, TMBarDataSource {
+extension AnimeContainerVC: PageboyViewControllerDataSource, TMBarDataSource  {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         return TMBarItem(title: barTitles[index])
     }
-    
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
