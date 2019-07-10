@@ -188,7 +188,9 @@
         <!--AnimeDetails-->
         <scene sceneID="cDu-Ml-WF4">
             <objects>
-                <viewControllerPlaceholder storyboardName="AnimeDetails" id="jmJ-MB-Ky7" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="jmJ-MB-Ky7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="egY-HW-xNp"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7OK-K6-aQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1682" y="123"/>

@@ -109,8 +109,7 @@ class AnimeListVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
-            //let nextHeaderVC: AnimeDetailsHeaderVC = (segue.destination as? AnimeDetailsHeaderVC)!
-            //nextHeaderVC.imageURL = self.nextVCImageURL
+            
         }
     }
 }
@@ -125,21 +124,20 @@ extension AnimeListVC: UICollectionViewDelegate {
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
             self.nextVCImageURL = recomCell.imageURL
-            performSegue(withIdentifier: "toDetails",sender: nil)
             
         } else if collectionView.tag == 2 {
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
             self.nextVCImageURL = cell.imageURL
-            performSegue(withIdentifier: "toDetails",sender: nil)
             
         } else if collectionView.tag == 3 {
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work:rankingWork)
             self.nextVCImageURL = cell.imageURL
-            performSegue(withIdentifier: "toDetails",sender: nil)
         }
+        
+        performSegue(withIdentifier: "toDetails",sender: nil)
     }
     
     func startAutoScroll(duration: TimeInterval){

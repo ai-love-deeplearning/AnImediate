@@ -17,6 +17,9 @@ class AnimeDetailsHeaderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+        self.navigationItem.title = "アニメ詳細"
+        
         parallaxHeader?.delegate = self
         parallaxHeader?.height = 269
         parallaxHeader?.mode = .fill

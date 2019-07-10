@@ -23,7 +23,9 @@ class AnimeDetailVC: TabmanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationItem.title = "アニメ詳細"
+        
         self.dataSource = self
         initBars()
     }
