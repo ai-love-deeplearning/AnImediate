@@ -161,7 +161,7 @@
                     <navigationItem key="navigationItem" title="アニメ一覧" id="qyX-HV-ZZy">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="nxT-vC-oKC">
                             <connections>
-                                <segue destination="xm7-n3-fsF" kind="show" id="tu5-Pt-zez"/>
+                                <segue destination="xm7-n3-fsF" kind="show" id="O1J-xM-pwS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -170,6 +170,7 @@
                         <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="Bti-zO-cnn"/>
                         <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="Hik-5Z-TKc"/>
                         <outlet property="thisTermCollectionView" destination="jQf-Bl-Ey3" id="WAr-ZE-kBa"/>
+                        <segue destination="jmJ-MB-Ky7" kind="show" identifier="toDetails" id="ZRv-Q9-ctg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAg-Fj-oZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +183,17 @@
                 <viewControllerPlaceholder storyboardName="Search" id="xm7-n3-fsF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwz-sQ-EXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698" y="21"/>
+            <point key="canvasLocation" x="1654" y="21"/>
+        </scene>
+        <!--AnimeDetails-->
+        <scene sceneID="cDu-Ml-WF4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="jmJ-MB-Ky7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="egY-HW-xNp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OK-K6-aQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="123"/>
         </scene>
     </scenes>
     <resources>
