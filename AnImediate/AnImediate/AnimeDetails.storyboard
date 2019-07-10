@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kH8-N7-Fhq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1BR-T9-1DN">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,47 +10,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Scroll View Controller-->
-        <scene sceneID="Pqn-si-4gn">
+        <!--Anime DetailsVC-->
+        <scene sceneID="Ovj-2t-itq">
             <objects>
-                <viewController id="kH8-N7-Fhq" customClass="MXScrollViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u6y-fW-mTz">
+                <viewController id="1BR-T9-1DN" customClass="AnimeDetailsVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Kv-yy-N0Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-aa-dxc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-E1-oew">
+                                <rect key="frame" x="0.0" y="313" width="414" height="549"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="xuu-Tz-16A" kind="embed" id="Kzn-9K-aLJ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qdF-h0-SiF"/>
+                        <viewLayoutGuide key="safeArea" id="ag2-Iz-Nvu"/>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
-                            <real key="value" value="269"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumHeight">
-                            <real key="value" value="88"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="cUM-Pf-DKq" kind="custom" identifier="toHeaderImage" customClass="MXParallaxHeaderSegue" id="Uk7-h7-hCq"/>
-                        <segue destination="cUE-qs-hjX" kind="custom" identifier="toInfo" customClass="MXScrollViewControllerSegue" id="va0-G6-zrp"/>
+                        <outlet property="animeImageView" destination="Q7b-aa-dxc" id="wbA-fC-BI3"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JwY-DW-xGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xJ-09-0kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1119" y="-588"/>
-        </scene>
-        <!--Anime DetailVC-->
-        <scene sceneID="tFi-Mq-GDS">
-            <objects>
-                <viewController id="cUE-qs-hjX" customClass="AnimeDetailVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dZ6-sh-r4H">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Jmf-9A-tda"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kPc-tO-hzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-197" y="-256"/>
+            <point key="canvasLocation" x="-1049" y="-245"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="91X-Aw-vaz">
@@ -112,42 +102,19 @@
             </objects>
             <point key="canvasLocation" x="4248" y="-217"/>
         </scene>
-        <!--Anime Details HeaderVC-->
-        <scene sceneID="af7-KA-bJW">
+        <!--Anime ContainerVC-->
+        <scene sceneID="mka-vA-zX8">
             <objects>
-                <viewController id="cUM-Pf-DKq" customClass="AnimeDetailsHeaderVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QJn-I0-lwr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="269"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OgV-fv-VGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="xuu-Tz-16A" customClass="AnimeContainerVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RMd-mK-FXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sga-vY-tiF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="269"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="sga-vY-tiF" secondAttribute="bottom" id="WIA-A5-1Hc"/>
-                            <constraint firstItem="sga-vY-tiF" firstAttribute="top" secondItem="QJn-I0-lwr" secondAttribute="top" id="XB0-ZF-5pq"/>
-                            <constraint firstItem="sga-vY-tiF" firstAttribute="trailing" secondItem="wJU-ZF-qmm" secondAttribute="trailing" id="YhQ-yC-NaZ"/>
-                            <constraint firstItem="sga-vY-tiF" firstAttribute="leading" secondItem="wJU-ZF-qmm" secondAttribute="leading" id="pSC-hh-WIO"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="wJU-ZF-qmm"/>
                     </view>
-                    <size key="freeformSize" width="414" height="269"/>
-                    <connections>
-                        <outlet property="animeImageView" destination="sga-vY-tiF" id="ow6-Oh-AMR"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pd5-kL-m2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194.20289855072465" y="-968.63839285714278"/>
+            <point key="canvasLocation" x="141" y="-245"/>
         </scene>
     </scenes>
 </document>
