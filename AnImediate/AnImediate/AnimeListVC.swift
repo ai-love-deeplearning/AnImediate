@@ -109,7 +109,8 @@ class AnimeListVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
-            
+            let nextVC: AnimeDetailsVC = (segue.destination as? AnimeDetailsVC)!
+            nextVC.imageURL = self.nextVCImageURL
         }
     }
 }

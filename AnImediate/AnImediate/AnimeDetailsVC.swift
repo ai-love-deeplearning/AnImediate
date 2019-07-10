@@ -11,16 +11,23 @@ import UIKit
 class AnimeDetailsVC: UIViewController {
 
     @IBOutlet weak var animeImageView: UIImageView!
+    @IBOutlet weak var backImageView: UIImageView!
     
-    public var imageURL = "https://annict.imgix.net/shrine/workimage/604/image/master-0bad88db8a4e54a196b89a7ab2b59664.jpg?ixlib=rails-3.0.2&auto=format&w=270&h=360&fit=fillmax&fill=blur&s=e53bcf6d3d42be3aebcf3da767f7bb25"
+    let blurEffect = UIBlurEffect(style: .light)
+    
+    public var imageURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame.size = self.backImageView.frame.size
+        self.backImageView.addSubview(visualEffectView)
+        
         self.navigationItem.title = "アニメ詳細"
         
         setIconImageView(imageUrlString: imageURL)
-        animeImageView.contentMode = .scaleAspectFill
+        self.backImageView.contentMode = .scaleToFill
     }
 
     private func setIconImageView(imageUrlString: String) {
@@ -33,6 +40,7 @@ class AnimeDetailsVC: UIViewController {
             
             DispatchQueue.main.async(execute: {
                 self.animeImageView.image = image
+                self.backImageView.image = image
             })
             
         }

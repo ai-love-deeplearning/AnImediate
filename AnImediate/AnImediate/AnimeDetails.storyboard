@@ -18,29 +18,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-aa-dxc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="261"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bmf-yO-ckh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="269"/>
                             </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-E1-oew">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-aa-dxc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="269"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-E1-oew">
                                 <rect key="frame" x="0.0" y="313" width="414" height="549"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="xuu-Tz-16A" kind="embed" id="Kzn-9K-aLJ"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qe9-E1-oew" firstAttribute="bottom" secondItem="ag2-Iz-Nvu" secondAttribute="bottom" id="25b-ll-azp"/>
+                            <constraint firstItem="Q7b-aa-dxc" firstAttribute="height" secondItem="1Kv-yy-N0Q" secondAttribute="height" multiplier="0.3" id="4cE-ba-NXI"/>
+                            <constraint firstItem="Q7b-aa-dxc" firstAttribute="leading" secondItem="ag2-Iz-Nvu" secondAttribute="leading" id="Ab7-MP-f9G"/>
+                            <constraint firstItem="Qe9-E1-oew" firstAttribute="top" secondItem="Q7b-aa-dxc" secondAttribute="bottom" id="BX5-qm-wUI"/>
+                            <constraint firstItem="Bmf-yO-ckh" firstAttribute="trailing" secondItem="ag2-Iz-Nvu" secondAttribute="trailing" id="GY5-2Y-Jn4"/>
+                            <constraint firstItem="Q7b-aa-dxc" firstAttribute="trailing" secondItem="ag2-Iz-Nvu" secondAttribute="trailing" id="Nc1-5p-Fen"/>
+                            <constraint firstItem="Qe9-E1-oew" firstAttribute="trailing" secondItem="ag2-Iz-Nvu" secondAttribute="trailing" id="Sl3-HF-Bie"/>
+                            <constraint firstItem="Bmf-yO-ckh" firstAttribute="leading" secondItem="ag2-Iz-Nvu" secondAttribute="leading" id="Uwk-BS-ylw"/>
+                            <constraint firstItem="Bmf-yO-ckh" firstAttribute="height" secondItem="Q7b-aa-dxc" secondAttribute="height" id="bGW-ij-gb7"/>
+                            <constraint firstItem="Q7b-aa-dxc" firstAttribute="top" secondItem="ag2-Iz-Nvu" secondAttribute="top" id="c5l-d8-GZR"/>
+                            <constraint firstItem="Bmf-yO-ckh" firstAttribute="top" secondItem="ag2-Iz-Nvu" secondAttribute="top" id="dTh-go-l50"/>
+                            <constraint firstItem="Qe9-E1-oew" firstAttribute="leading" secondItem="ag2-Iz-Nvu" secondAttribute="leading" id="h2F-vn-mJ8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ag2-Iz-Nvu"/>
                     </view>
                     <connections>
                         <outlet property="animeImageView" destination="Q7b-aa-dxc" id="wbA-fC-BI3"/>
+                        <outlet property="backImageView" destination="Bmf-yO-ckh" id="jYl-gM-J2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xJ-09-0kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1049" y="-245"/>
+            <point key="canvasLocation" x="-1049.2753623188407" y="-245.08928571428569"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="91X-Aw-vaz">
