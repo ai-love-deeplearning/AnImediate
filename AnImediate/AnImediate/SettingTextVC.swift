@@ -11,28 +11,37 @@ import UIKit
 enum textType {
     case license
     case privacy
+    case Use
 }
 
 class SettingTextVC: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
-    var contentText: String = ""
-    var type: textType = .license
+    var type: textType = .privacy
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch type {
-        case .license:
-            contentText = "license"
+        switch (type) {
+        case .Use:
+            if let FilePath = Bundle.main.path(forResource: "HowToUse", ofType: "txt"){
+                let HowToUse = try? String(contentsOfFile: FilePath, encoding: String.Encoding.utf8 )
+            textView.text = HowToUse
+            }            
         case .privacy:
-            contentText = "privacy"
-        default:
-            contentText = "default"
+            if let FilePath = Bundle.main.path(forResource: "privacy", ofType: "txt"){
+                let privacy = try? String(contentsOfFile: FilePath, encoding: String.Encoding.utf8 )
+                textView.text = privacy
+            }
+        case .license:
+            if let FilePath = Bundle.main.path(forResource: "license", ofType: "txt"){
+                let licence = try? String(contentsOfFile: FilePath, encoding: String.Encoding.utf8 )
+                textView.text = licence
+            }
+           
         }
-        textView.text = contentText
-            //textView.text = "1234567890abcdefghijklmnopqrstuwxyz 1234567890 abcdefghijklmnopqrstuwxyz \na\nb\nc\ndefghijklmnopqrstuwxyz \n http://www.gclue.com\n"
+     
     }
     
 

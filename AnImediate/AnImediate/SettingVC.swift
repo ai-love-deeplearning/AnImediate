@@ -58,9 +58,10 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.performSegue(withIdentifier: "toUse", sender: self)
+            self.performSegue(withIdentifier: "toAccount", sender: self)
             
         case 1:
+            nextType = .Use
             self.performSegue(withIdentifier: "toText", sender: self)
         case 2:
             self.performSegue(withIdentifier: "toMail", sender: self)

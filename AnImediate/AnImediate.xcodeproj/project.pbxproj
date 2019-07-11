@@ -62,6 +62,8 @@
 		963B681822D22A63006988FE /* SettingTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B681722D22A63006988FE /* SettingTextVC.swift */; };
 		9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643AE2122C6080800899B61 /* sendMailVC.swift */; };
 		9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9643AE2322C608E800899B61 /* MessageUI.framework */; };
+		9652986922D5D4780026A99C /* HowToUse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9652986822D5D4780026A99C /* HowToUse.txt */; };
+		9652986B22D5D4B20026A99C /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9652986A22D5D4B20026A99C /* privacy.txt */; };
 		CD59A32782CAAF15C7CBFF1B /* Pods_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */; };
 		F39589C84FD6D64323060327 /* Pods_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F582B62C817D67B8B3C7B2 /* Pods_AnImediate.framework */; };
 /* End PBXBuildFile section */
@@ -146,6 +148,8 @@
 		963B681722D22A63006988FE /* SettingTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextVC.swift; sourceTree = "<group>"; };
 		9643AE2122C6080800899B61 /* sendMailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMailVC.swift; sourceTree = "<group>"; };
 		9643AE2322C608E800899B61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9652986822D5D4780026A99C /* HowToUse.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = HowToUse.txt; sourceTree = "<group>"; };
+		9652986A22D5D4B20026A99C /* privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		B0E9B47C3A4EA7396AA01598 /* Pods-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B68E9BB81DF5216782F7EB60 /* Pods-AnImediateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateUITests/Pods-AnImediateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnImediateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +240,8 @@
 				32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
 				963B681722D22A63006988FE /* SettingTextVC.swift */,
+				9652986822D5D4780026A99C /* HowToUse.txt */,
+				9652986A22D5D4B20026A99C /* privacy.txt */,
 				963B681322D225DD006988FE /* license.txt */,
 				9643AE2122C6080800899B61 /* sendMailVC.swift */,
 				32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */,
@@ -419,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				963B681622D22A33006988FE /* SettingText.storyboard in Resources */,
+				9652986B22D5D4B20026A99C /* privacy.txt in Resources */,
 				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
 				3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
@@ -432,6 +439,7 @@
 				963B681422D225DD006988FE /* license.txt in Resources */,
 				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
+				9652986922D5D4780026A99C /* HowToUse.txt in Resources */,
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
 				50A5965822C0A04900378AAB /* Main.storyboard in Resources */,
 				32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */,

@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="設定" id="b7w-b5-jY3"/>
                     <connections>
                         <outlet property="settingTableView" destination="nHG-oP-0Wu" id="nzW-OH-1bU"/>
-                        <segue destination="dIf-ne-gSH" kind="show" identifier="toUse" id="bmR-ED-gqW"/>
+                        <segue destination="dIf-ne-gSH" kind="show" identifier="toAccount" id="bmR-ED-gqW"/>
                         <segue destination="qo9-Wf-7Ah" kind="show" identifier="toMail" id="22s-R3-CL8"/>
                         <segue destination="SW9-Zf-mUd" kind="presentation" identifier="toLogin" id="O99-P9-5uC"/>
                         <segue destination="SCT-cz-kor" kind="show" identifier="toText" id="fW5-R4-tvf"/>
