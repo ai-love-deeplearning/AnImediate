@@ -13,14 +13,11 @@ class InfoVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
     
-    let animeContainerVC = AnimeContainerVC()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(animeContainerVC.titleText)
         
-        titleLabel.text = animeContainerVC.titleText
-        seasonLabel.text = "放送年：" + animeContainerVC.seasonText
+        titleLabel.text = UserDefaults.standard.string(forKey: "title")!
+        seasonLabel.text = "放送年：" + UserDefaults.standard.string(forKey: "season")!
     }
 
 }
