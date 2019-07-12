@@ -12,6 +12,7 @@ import Realm
 import RealmSwift
 import Firebase
 import FirebaseAuth
+import MXParallaxHeader
 
 class AnimeListVC: UIViewController {
     
@@ -21,11 +22,9 @@ class AnimeListVC: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     let realm = try! Realm()
+    
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     var autoScrollTimer = Timer()
-    var nextVCImageURL = ""
-    var nextVCTitleText = ""
-    var nextVCSeasonText = ""
     
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
@@ -84,9 +83,7 @@ class AnimeListVC: UIViewController {
         recomCollectionView.dataSource = self
         recomCollectionView.showsVerticalScrollIndicator = false
         recomCollectionView.showsHorizontalScrollIndicator = false
-        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell",
-                                           bundle: nil),
-                                     forCellWithReuseIdentifier: "recomCell")
+        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recomCell")
         
         centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
         centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width,
@@ -98,9 +95,7 @@ class AnimeListVC: UIViewController {
         cv.delegate = self
         cv.dataSource = self
         cv.showsHorizontalScrollIndicator = false
-        cv.register(UINib(nibName: "ThisTermCollectionViewCell",
-                                           bundle: nil),
-                                     forCellWithReuseIdentifier: "thisTermCell")
+        cv.register(UINib(nibName: "ThisTermCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: cv.bounds.width*0.2, height: cv.bounds.height)
@@ -111,11 +106,7 @@ class AnimeListVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
-            let nextVC: AnimeDetailsVC = (segue.destination as? AnimeDetailsVC)!
             
-            nextVC.imageURL = self.nextVCImageURL
-            nextVC.titleText = self.nextVCTitleText
-            nextVC.seasonText = self.nextVCSeasonText
         }
     }
 }
@@ -130,27 +121,30 @@ extension AnimeListVC: UICollectionViewDelegate {
         case 1:
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
-            self.nextVCImageURL = recomCell.imageURL
-            self.nextVCTitleText = recomCell.titleLabel.text ?? ""
-            self.nextVCSeasonText = recomCell.seasonText
+            
+            UserDefaults.standard.set(recomCell.imageURL, forKey: "imageURL")
+            UserDefaults.standard.set(recomCell.titleLabel.text, forKey: "title")
+            UserDefaults.standard.set(recomCell.seasonText, forKey: "season")
         case 2:
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
-            self.nextVCImageURL = cell.imageURL
-            self.nextVCTitleText = cell.titleLabel.text ?? ""
-            self.nextVCSeasonText = cell.seasonText
+            
+            UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
+            UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
+            UserDefaults.standard.set(cell.seasonText, forKey: "season")
         case 3:
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work:rankingWork)
-            self.nextVCImageURL = cell.imageURL
-            self.nextVCTitleText = cell.titleLabel.text ?? ""
-            self.nextVCSeasonText = cell.seasonText
+            
+            UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
+            UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
+            UserDefaults.standard.set(cell.seasonText, forKey: "season")
         default:
             break
         }
         
-        performSegue(withIdentifier: "toDetails",sender: nil)
+        performSegue(withIdentifier: "toDetails", sender: nil)
     }
     
     func startAutoScroll(duration: TimeInterval){
@@ -159,6 +153,7 @@ extension AnimeListVC: UICollectionViewDelegate {
         autoScrollTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: true, block: { [weak self] (_) in
             guard let self = self else { return }
             indexPath.row += 1
+            
             if indexPath.row == 5 {
                 indexPath.row = 0
             }

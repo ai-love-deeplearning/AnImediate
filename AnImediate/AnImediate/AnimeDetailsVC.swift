@@ -7,53 +7,68 @@
 //
 
 import UIKit
+import Tabman
+import Pageboy
 
-class AnimeDetailsVC: UIViewController {
+class AnimeDetailsVC: TabmanViewController {
 
-    @IBOutlet weak var animeImageView: UIImageView!
-    @IBOutlet weak var backImageView: UIImageView!
+    private lazy var viewControllers: [UIViewController] = {
+        [storyboard!.instantiateViewController(withIdentifier: "info"),
+         storyboard!.instantiateViewController(withIdentifier: "episodes"),
+         storyboard!.instantiateViewController(withIdentifier: "reviews"),
+         storyboard!.instantiateViewController(withIdentifier: "rinks")]
+    }()
     
-    let blurEffect = UIBlurEffect(style: .light)
-    
-    public var imageURL = ""
-    public var titleText = ""
-    public var seasonText = ""
+    let barTitles = ["基本情報", "各話", "レビュー", "リンク"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.frame.size = self.backImageView.frame.size
-        self.backImageView.addSubview(visualEffectView)
-        
-        setIconImageView(imageUrlString: imageURL)
-        self.backImageView.contentMode = .scaleToFill
-        
-        self.navigationItem.title = "アニメ詳細"
-    }
-
-    private func setIconImageView(imageUrlString: String) {
-        guard let iconImageUrl = URL(string: imageUrlString) else {return}
-        let session = URLSession(configuration: .default)
-        
-        let downloadImageTask = session.dataTask(with: iconImageUrl) {(data, response, error) in
-            guard let imageData = data else {return}
-            let image = UIImage(data: imageData)
-            
-            DispatchQueue.main.async(execute: {
-                self.animeImageView.image = image
-                self.backImageView.image = image
-            })
-            
-        }
-        downloadImageTask.resume()
+        self.dataSource = self
+        self.delegate = self
+        initBars()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toContainer" {
-            let containerVC: AnimeContainerVC = segue.destination as! AnimeContainerVC
-            containerVC.titleText = self.titleText
-            containerVC.seasonText = self.seasonText
+    private func initBars() {
+        let bar = TMBar.ButtonBar()
+        bar.indicator.tintColor = .deepMagenta()
+        bar.indicator.weight = .light
+        bar.layout.transitionStyle = .snap // Customize
+        bar.layout.contentMode = .fit
+        bar.layout.view.backgroundColor = .white
+        bar.buttons.customize { (button) in
+            // 通常時の色
+            button.tintColor = .lightGray
+            button.font = UIFont(name: "Hiragino Maru Gothic ProN", size: UIFont.labelFontSize)!
+            // 選択時の色
+            button.selectedTintColor = .deepMagenta()
+            
         }
+        
+        addBar(bar, dataSource: self, at: .top)
     }
+}
+
+extension AnimeDetailsVC: PageboyViewControllerDataSource, TMBarDataSource  {
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        return TMBarItem(title: barTitles[index])
+    }
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        return viewControllers.count
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController,
+                        at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return viewControllers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
+    }
+    /*
+     func barItem(for tabViewController: TabmanViewController, at index: Int) -> TMBarItemable {
+     let title = "Page \(index)"
+     return TMBarItem(title: title)
+     }*/
 }
