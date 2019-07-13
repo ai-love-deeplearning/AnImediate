@@ -14,7 +14,7 @@ protocol WaitDelegate {
 }
 
 protocol ExchangeDelegate {
-    func showData(data: Data)
+    func didRecieveData(data: Data)
 }
 
 class P2PConnectivity: NSObject {
@@ -72,7 +72,7 @@ class P2PConnectivity: NSObject {
     func invite(peer: MCPeerID) {
         browser.invitePeer(peer, to: session, withContext: nil, timeout: 0)
     }
-    
+    /*
     func showAcceptAlert(parent: UIViewController, handler: @escaping (Bool) -> Void) {
         var ret: Bool = true
         let dialog = UIAlertController(title: "招待", message: "招待を受けています。承認しますか？", preferredStyle: .actionSheet)
@@ -86,7 +86,7 @@ class P2PConnectivity: NSObject {
         dialog.addAction(act_cancel)
         
         parent.present(dialog, animated: true, completion: nil)
-    }
+    }*/
     
     @discardableResult
     func send(data: Data) -> Bool {
@@ -106,10 +106,14 @@ class P2PConnectivity: NSObject {
 
 // MARK: - MCSessionDelegate
 extension P2PConnectivity: MCSessionDelegate {
+    /*
+    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+        certificateHandler(true)
+    }*/
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         //profileRecieveHandler?(data)
-        self.exDelegate?.showData(data: data)
+        self.exDelegate?.didRecieveData(data: data)
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
@@ -182,7 +186,7 @@ extension P2PConnectivity: MCNearbyServiceBrowserDelegate {
         print("found: \(peerID)")
         // 見つけたら即招待
         // ToDo: ここにUI関連の処理を入れれば好きなUIにできる？
-        //browser.invitePeer(peerID, to: session, withContext: nil, timeout: 0)
+        browser.invitePeer(peerID, to: session, withContext: nil, timeout: 0)
 
         self.waitDelegate?.reloadPeer(peerID: peerID)
         

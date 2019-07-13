@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+import MultipeerConnectivity
 
 class ExchangeVC: UIViewController {
     
@@ -15,6 +17,15 @@ class ExchangeVC: UIViewController {
     
     var timer: Timer!
     var count = 0
+    
+    var myInfo: UserInfo = UserInfo()
+    var peerInfo: UserInfo = UserInfo()
+    
+    let realm = try! Realm()
+    
+    // 告知用の文字列（相手を検索するのに使用するIDの様なもの）
+    // 一つのハイフンしか使用できず、15文字以下である必要がある
+    let serviceType = "fun-AnImediate"
     
     @objc func labelAnimetion(_ tm: Timer) {
         switch count {
@@ -39,17 +50,57 @@ class ExchangeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initGradientLayer()
-        /*
-        DispatchQueue.global().async {
-            while true {
-                Thread.sleep(forTimeInterval: 1)
-                DispatchQueue.main.async {
-                    self.labelAnimetion()
-                }
-            }
-        }*/
-        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.labelAnimetion(_:)), userInfo: nil, repeats: true)
+        
+        let result = self.realm.objects(UserInfo.self)
+        P2PConnectivity.manager.exDelegate = self
+        
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.isRemovedOnCompletion = true
+        rotateAnimation.fromValue = 0
+        rotateAnimation.toValue = CGFloat.pi * 2.0
+        rotateAnimation.duration = 2.0 // 周期3秒
+        rotateAnimation.repeatCount = .infinity
+        
+        loadingView.layer.add(rotateAnimation, forKey: "rotateindicator")
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.1, target: self, selector: #selector(self.labelAnimetion(_:)), userInfo: nil, repeats: true)
         timer.fire()
+        
+        P2PConnectivity.manager.start(
+            serviceType: serviceType,
+            displayName: "player",
+            stateChangeHandler: { state in
+                
+                // 接続状況の変化した時の処理
+                DispatchQueue.main.async() {
+                    switch state {
+                    case .notConnected:
+                        // ここでタイマーを起動
+                        // 30秒接続されなかったら、notfound画面を表示
+                        break
+                    case .connecting:
+                        // ここでタイマーをストップ、リセット
+                        break
+                    case .connected:
+                        do {
+                            // WatchData → NSData
+                            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: result[0], requiringSecureCoding: false)
+                            P2PConnectivity.manager.send(data: codedInfo)
+                        } catch {
+                            fatalError("archivedData failed with error: \(error)")
+                        }
+                    @unknown default:
+                        break
+                    }
+                }
+        }, profileRecieveHandler: { data in
+            // データを受信した時の処理（UIの更新処理はmain thread で行う必要がある）
+            // ここでResultに遷移する
+            DispatchQueue.main.async() {
+                
+            }
+        }
+        )
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,18 +122,43 @@ class ExchangeVC: UIViewController {
             }
         }
         loadingView.layer.addSublayer(gradientRingLayer)
-        let duration = 1.0
+        let duration = 0.8
         gradientRingLayer.animateCircleTo(duration: duration, fromValue: 0, toValue: 0.99)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toPopUpModal" {
+            let nextVC = segue.destination as! ExchangeDataVC
+            nextVC.peerInfo = peerInfo
+        }
     }
-    */
+}
 
+extension ExchangeVC: ExchangeDelegate {
+    func didRecieveData(data: Data) {
+        do {
+            let realm = try! Realm()
+            // NSData → WatchData
+            print(data)
+            let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! UserInfo
+            peerInfo = decoded
+            let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
+            if peer.isEmpty {
+                try! realm.write {
+                    realm.add(peerInfo)
+                }
+            } else {
+                try! realm.write {
+                    peer[0].name = peerInfo.name
+                    peer[0].comment = peerInfo.comment
+                    peer[0].icon = peerInfo.icon
+                    peer[0].background = peerInfo.background
+                }
+            }
+            
+            self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
+        } catch {
+            fatalError("archivedData failed with error: \(error)")
+        }
+    }
 }
