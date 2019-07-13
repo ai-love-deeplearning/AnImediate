@@ -13,14 +13,20 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var imageURL = ""
+    var seasonText = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     public func bindData(work: Work) {
+        imageURL = work.imageUrl
         titleLabel.text = work.title
         titleLabel.textColor = .deepMagenta()
+        seasonText = work.seasonNameText
+        
         setIconImageView(imageUrlString: work.imageUrl)
         iconImageView.contentMode = .scaleAspectFill
     }

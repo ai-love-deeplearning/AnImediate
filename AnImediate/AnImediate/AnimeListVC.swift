@@ -12,6 +12,7 @@ import Realm
 import RealmSwift
 import Firebase
 import FirebaseAuth
+import MXParallaxHeader
 
 class AnimeListVC: UIViewController {
     
@@ -21,8 +22,9 @@ class AnimeListVC: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     let realm = try! Realm()
+    
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
-    private var autoScrollTimer = Timer()
+    var autoScrollTimer = Timer()
     
     private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
         didSet {
@@ -81,9 +83,7 @@ class AnimeListVC: UIViewController {
         recomCollectionView.dataSource = self
         recomCollectionView.showsVerticalScrollIndicator = false
         recomCollectionView.showsHorizontalScrollIndicator = false
-        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell",
-                                           bundle: nil),
-                                     forCellWithReuseIdentifier: "recomCell")
+        recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recomCell")
         
         centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
         centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width,
@@ -95,15 +95,19 @@ class AnimeListVC: UIViewController {
         cv.delegate = self
         cv.dataSource = self
         cv.showsHorizontalScrollIndicator = false
-        cv.register(UINib(nibName: "ThisTermCollectionViewCell",
-                                           bundle: nil),
-                                     forCellWithReuseIdentifier: "thisTermCell")
+        cv.register(UINib(nibName: "ThisTermCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: cv.bounds.width*0.2, height: cv.bounds.height)
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         cv.collectionViewLayout = layout
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            
+        }
     }
 }
 
@@ -113,20 +117,34 @@ extension AnimeListVC: UICollectionViewDelegate {
         let recomCell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
         var cell = thisTermCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
         
-        if collectionView.tag == 1 {
+        switch collectionView.tag {
+        case 1:
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
-            print(recomCell.titleLabel.text!)
-        } else if collectionView.tag == 2 {
+            
+            UserDefaults.standard.set(recomCell.imageURL, forKey: "imageURL")
+            UserDefaults.standard.set(recomCell.titleLabel.text, forKey: "title")
+            UserDefaults.standard.set(recomCell.seasonText, forKey: "season")
+        case 2:
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
-            print(cell.titleLabel.text!)
-        } else if collectionView.tag == 3 {
+            
+            UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
+            UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
+            UserDefaults.standard.set(cell.seasonText, forKey: "season")
+        case 3:
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work:rankingWork)
-            print(cell.titleLabel.text!)
+            
+            UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
+            UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
+            UserDefaults.standard.set(cell.seasonText, forKey: "season")
+        default:
+            break
         }
+        
+        performSegue(withIdentifier: "toDetails", sender: nil)
     }
     
     func startAutoScroll(duration: TimeInterval){
@@ -135,9 +153,11 @@ extension AnimeListVC: UICollectionViewDelegate {
         autoScrollTimer = Timer.scheduledTimer(withTimeInterval: duration, repeats: true, block: { [weak self] (_) in
             guard let self = self else { return }
             indexPath.row += 1
+            
             if indexPath.row == 5 {
                 indexPath.row = 0
             }
+            
             DispatchQueue.main.async {
                 self.recomCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
             }
@@ -158,13 +178,17 @@ extension AnimeListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.pageControl.numberOfPages = recomWorks.count
         
-        if collectionView.tag == 1 {
+        switch collectionView.tag {
+        case 1:
             return recomWorks.count
-        } else if collectionView.tag == 2 {
+        case 2:
             return 20
-        } else if collectionView.tag == 3 {
+        case 3:
             return rankingWorks.count
+        default:
+            break
         }
+        
         return 1
     }
     
@@ -172,18 +196,21 @@ extension AnimeListVC: UICollectionViewDataSource {
         let recomCell = recomCollectionView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: indexPath) as! RecomCollectionViewCell
         var cell = thisTermCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
         
-        if collectionView.tag == 1 {
+        switch collectionView.tag {
+        case 1:
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
-        } else if collectionView.tag == 2 {
+        case 2:
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
             return cell
-        } else if collectionView.tag == 3 {
+        case 3:
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work: rankingWork)
             return cell
+        default:
+            break
         }
         
         return recomCell

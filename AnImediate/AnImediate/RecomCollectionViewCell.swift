@@ -13,12 +13,18 @@ class RecomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recomImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var imageURL = ""
+    var seasonText = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     public func bindData(work: Work) {
+        imageURL = work.imageUrl
         titleLabel.text = work.title
+        seasonText = work.seasonNameText
+        
         setIconImageView(imageUrlString: work.imageUrl)
         recomImageView.contentMode = .scaleAspectFill
     }
