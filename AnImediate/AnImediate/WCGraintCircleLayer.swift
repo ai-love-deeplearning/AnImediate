@@ -24,7 +24,7 @@ class WCGraintCircleLayer: CALayer {
             graint.bounds = CGRect(origin:CGPoint.zero, size: CGSize(width:bounds.width/2,height:bounds.height/2))
             let valuePoint = self.positionArrayWith(bounds: self.bounds)[i]
             graint.position = valuePoint
-            print("iesimo graint position: \(graint.position)")
+            //print("iesimo graint position: \(graint.position)")
             let fromColor = colors[i]
             let toColor = colors[i+1]
             let colors : [CGColor] = [fromColor.cgColor,toColor.cgColor]
@@ -78,7 +78,7 @@ class WCGraintCircleLayer: CALayer {
             let oneAlpha : CGFloat = fromAlpha + (toAlpha - fromAlpha)/CGFloat(count) * CGFloat(i)
             let oneColor = UIColor.init(red: oneR, green: oneG, blue: oneB, alpha: oneAlpha)
             result.append(oneColor)
-            print(oneColor)
+            //print(oneColor)
             
         }
         return result
@@ -89,7 +89,7 @@ class WCGraintCircleLayer: CALayer {
         let second = CGPoint(x:(bounds.width/4)*3,y: (bounds.height/4)*3)
         let third = CGPoint(x:(bounds.width/4)*1,y: (bounds.height/4)*3)
         let fourth = CGPoint(x:(bounds.width/4)*1,y: (bounds.height/4)*1)
-        print([first,second,third,fourth])
+        //print([first,second,third,fourth])
         return [first,second,third,fourth]
     }
     
@@ -141,7 +141,8 @@ class WCGraintCircleLayer: CALayer {
         //animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
         //animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.86, 0.01, 0.22, 1)
-        animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.9, 0, 0.3, 1)
+        animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.3, 0, 0.3, 1)
+        //animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.9, 0, 0.3, 1)
         
         let animation2 = CABasicAnimation(keyPath: "strokeStart")
         animation2.isRemovedOnCompletion = true
@@ -151,15 +152,15 @@ class WCGraintCircleLayer: CALayer {
         animation2.toValue = toValue
         
         animation2.beginTime = animation.beginTime + animation.duration + 0.5
-        
-        animation2.timingFunction = CAMediaTimingFunction(controlPoints: 0.9, 0, 0.3, 1)
+        animation2.timingFunction = CAMediaTimingFunction(controlPoints: 0.3, 0, 0.3, 1)
+        //animation2.timingFunction = CAMediaTimingFunction(controlPoints: 0.9, 0, 0.3, 1)
         /*
-        let animation3 = CABasicAnimation(keyPath: "position")
+        let animation3 = CABasicAnimation(keyPath: "transform.rotation")
         animation3.isRemovedOnCompletion = true
-        animation3.duration = 1.0
+        animation3.fromValue = 0
+        animation3.toValue = CGFloat.pi * 2.0
+        animation3.duration = 3.0 // 周期２秒*/
         
-        animation3.beginTime = animation2.beginTime + animation2.duration
-        */
         // Set the circleLayer's strokeEnd property to 0.99 now so that it's the
         // right value when the animation ends.
         let circleMask = self.mask as! CAShapeLayer

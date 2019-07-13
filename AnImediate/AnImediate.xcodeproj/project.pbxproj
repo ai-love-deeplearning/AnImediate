@@ -28,7 +28,7 @@
 		32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */; };
 		32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23D22CC46C700BD5A76 /* DataManager.swift */; };
 		3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */; };
-		3F854D1F22CC570700A1BADA /* ExchangeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F854D1E22CC570700A1BADA /* ExchangeResult.swift */; };
+		3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAE22C994E300A038C8 /* P2PConnectivity.swift */; };
@@ -58,6 +58,8 @@
 		50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeDataVC.swift */; };
+		50F9849322D47C7D00038A23 /* ExchangeData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F9849222D47C7D00038A23 /* ExchangeData.storyboard */; };
 		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
 		963B681622D22A33006988FE /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963B681522D22A33006988FE /* SettingText.storyboard */; };
 		963B681822D22A63006988FE /* SettingTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B681722D22A63006988FE /* SettingTextVC.swift */; };
@@ -105,7 +107,7 @@
 		32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		32CDA23D22CC46C700BD5A76 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeResult.storyboard; sourceTree = "<group>"; };
-		3F854D1E22CC570700A1BADA /* ExchangeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResult.swift; sourceTree = "<group>"; };
+		3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultVC.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		50165BAE22C994E300A038C8 /* P2PConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PConnectivity.swift; sourceTree = "<group>"; };
@@ -143,6 +145,8 @@
 		50A5969422C2F2E200378AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
+		50F9849022D4775600038A23 /* ExchangeDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataVC.swift; sourceTree = "<group>"; };
+		50F9849222D47C7D00038A23 /* ExchangeData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeData.storyboard; sourceTree = "<group>"; };
 		963B681322D225DD006988FE /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		963B681522D22A33006988FE /* SettingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingText.storyboard; sourceTree = "<group>"; };
 		963B681722D22A63006988FE /* SettingTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextVC.swift; sourceTree = "<group>"; };
@@ -225,7 +229,8 @@
 				50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */,
 				50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */,
 				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
-				3F854D1E22CC570700A1BADA /* ExchangeResult.swift */,
+				50F9849022D4775600038A23 /* ExchangeDataVC.swift */,
+				3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */,
 				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				32A6410C22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift */,
@@ -251,6 +256,7 @@
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
 				50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */,
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
+				50F9849222D47C7D00038A23 /* ExchangeData.storyboard */,
 				3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */,
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
 				3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */,
@@ -429,6 +435,7 @@
 				50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */,
 				3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */,
 				3226CD1B22D224B70090937F /* AnimeListTableViewCell.xib in Resources */,
+				50F9849322D47C7D00038A23 /* ExchangeData.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
@@ -567,6 +574,7 @@
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				3226CD2922D583B80090937F /* InfoVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
+				50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */,
 				32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */,
 				50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
@@ -574,7 +582,7 @@
 				50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */,
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
-				3F854D1F22CC570700A1BADA /* ExchangeResult.swift in Sources */,
+				3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */,
 				32A6410B22D5A935002EF6F3 /* AnimeListTableVC.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,

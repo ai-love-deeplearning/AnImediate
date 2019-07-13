@@ -70,6 +70,8 @@ class UserInfo : Object, NSCoding {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.comment, forKey: "comment")
+        aCoder.encode(self.iconData, forKey: "icon")
+        aCoder.encode(self.backData, forKey: "back")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,6 +79,9 @@ class UserInfo : Object, NSCoding {
         self.id = aDecoder.decodeObject(forKey: "id") as! String
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.comment = aDecoder.decodeObject(forKey: "comment") as! String
+        self.iconData = (aDecoder.decodeObject(forKey: "icon") as! NSData)
+        self.backData = (aDecoder.decodeObject(forKey: "back") as! NSData)
+        
     }
     
     required init() {

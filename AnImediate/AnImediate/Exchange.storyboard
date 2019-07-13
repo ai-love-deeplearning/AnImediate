@@ -47,11 +47,20 @@
                     <connections>
                         <outlet property="loadingView" destination="48T-pS-274" id="4lJ-GZ-w00"/>
                         <outlet property="seachLLabel" destination="EBH-0E-rHn" id="l3I-aP-4gv"/>
+                        <segue destination="yrX-OQ-JN1" kind="show" identifier="toPopUpModal" id="Ddo-bq-8f7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUW-5d-Sd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1614" y="-583"/>
+        </scene>
+        <!--ExchangeData-->
+        <scene sceneID="v6j-OG-9Tf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ExchangeData" id="yrX-OQ-JN1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYn-wh-Vvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288" y="-583"/>
         </scene>
         <!--交換-->
         <scene sceneID="9Ef-fd-uLX">

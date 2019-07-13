@@ -10,7 +10,7 @@ import UIKit
 import Tabman
 import Pageboy
 
-class ExchangeResult: TabmanViewController {
+class ExchangeResultVC: TabmanViewController {
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
@@ -22,6 +22,8 @@ class ExchangeResult: TabmanViewController {
     }()
     
     let barTitles = ["おすすめ ", "あなたのみ", "相手のみ", "二人とも"]
+    
+    var showData: [WatchData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,7 @@ class ExchangeResult: TabmanViewController {
 
 }
 
-extension ExchangeResult: PageboyViewControllerDataSource, TMBarDataSource {
+extension ExchangeResultVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         return TMBarItem(title: barTitles[index])
     }
