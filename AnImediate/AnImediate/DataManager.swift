@@ -37,6 +37,7 @@ class DataManager: NSObject {
                         realm.add(work[i])
                     }
                 }
+                print(work.count)
             }
             
         }) { (error) in

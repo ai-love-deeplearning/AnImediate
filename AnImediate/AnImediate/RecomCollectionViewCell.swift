@@ -13,6 +13,7 @@ class RecomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recomImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var animeID = ""
     var imageURL = ""
     var seasonText = ""
     
@@ -21,6 +22,7 @@ class RecomCollectionViewCell: UICollectionViewCell {
     }
     
     public func bindData(work: Work) {
+        animeID = work.id
         imageURL = work.imageUrl
         titleLabel.text = work.title
         seasonText = work.seasonNameText
