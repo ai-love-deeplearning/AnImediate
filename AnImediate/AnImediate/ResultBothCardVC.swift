@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ResultBothCardVC: UIViewController {
 
     @IBOutlet weak var cardCV: UICollectionView!
     
     public var works: [Work] = []
+    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,28 @@ class ResultBothCardVC: UIViewController {
     }
     
     private func fetchWork() {
-        let userID = UserDefaults.standard.string(forKey: "userID") ?? ""
+        var flag = false
+        
+        let userInfo = realm.objects(UserInfo.self)
+        let myResults = realm.objects(WatchData.self).filter("userId='" + userInfo[0].id + "'")
+        
+        let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
+        let partResults = realm.objects(WatchData.self).filter("userId='" + selectUserID + "'")
+        
+        for myResult in myResults {
+            
+            for partResult in partResults {
+                if myResult.animeId == partResult.animeId {
+                    flag = true
+                }
+            }
+            
+            if flag {
+                let workResults = realm.objects(Work.self).filter("animeID='" + myResult.animeId + "'")
+                self.works.append(workResults[0])
+            }
+            flag = false
+        }
     }
     
     private func setupCV() {

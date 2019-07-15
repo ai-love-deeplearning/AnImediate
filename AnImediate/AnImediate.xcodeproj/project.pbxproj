@@ -14,6 +14,8 @@
 		321C6E3522DC869000757F83 /* ResultRecommCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */; };
 		321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */; };
 		321C6E3922DC86D300757F83 /* ResultBothCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */; };
+		321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */; };
+		321C6E3D22DC9C2900757F83 /* ResultUserCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321C6E3B22DC9C2900757F83 /* ResultUserCVCell.xib */; };
 		3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */; };
 		3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */; };
 		3226CD2922D583B80090937F /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2822D583B80090937F /* InfoVC.swift */; };
@@ -102,6 +104,8 @@
 		321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRecommCardVC.swift; sourceTree = "<group>"; };
 		321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultYouCardVC.swift; sourceTree = "<group>"; };
 		321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBothCardVC.swift; sourceTree = "<group>"; };
+		321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultUserCVCell.swift; sourceTree = "<group>"; };
+		321C6E3B22DC9C2900757F83 /* ResultUserCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultUserCVCell.xib; sourceTree = "<group>"; };
 		3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetails.storyboard; sourceTree = "<group>"; };
 		3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsVC.swift; sourceTree = "<group>"; };
 		3226CD2822D583B80090937F /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */,
 				50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */,
 				32A6411E22DC57AD002EF6F3 /* ResultVC.swift */,
+				321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */,
 				321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */,
 				321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */,
 				321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */,
@@ -281,6 +286,7 @@
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
 				50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */,
 				32A6411C22DC53CB002EF6F3 /* Result.storyboard */,
+				321C6E3B22DC9C2900757F83 /* ResultUserCVCell.xib */,
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
 				50F9849222D47C7D00038A23 /* ExchangeData.storyboard */,
 				3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */,
@@ -474,6 +480,7 @@
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
 				50A5965822C0A04900378AAB /* Main.storyboard in Resources */,
 				32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */,
+				321C6E3D22DC9C2900757F83 /* ResultUserCVCell.xib in Resources */,
 				32CDA23222CB21D300BD5A76 /* SearchResult.storyboard in Resources */,
 				32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */,
 				50A5968122C0AD6400378AAB /* Home.storyboard in Resources */,
@@ -617,6 +624,7 @@
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
+				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,
 				3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */,
 				321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
