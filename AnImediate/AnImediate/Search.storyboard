@@ -58,11 +58,20 @@
                     </view>
                     <connections>
                         <outlet property="broadcastTable" destination="3L5-sn-l4F" id="EaV-mn-340"/>
+                        <segue destination="Hez-6R-BV9" kind="show" identifier="toAnimeListCard" id="pTj-Pm-aCz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vM-dX-MV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1587" y="92"/>
+        </scene>
+        <!--AnimeListCard-->
+        <scene sceneID="SuL-Ru-PZb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeListCard" id="Hez-6R-BV9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gQ-Xh-HT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1588" y="597"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2g1-rx-m7g">

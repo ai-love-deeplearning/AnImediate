@@ -21,6 +21,7 @@ class BroadcastTableVC: UIViewController {
     private let old: Int = 1972
     private let latest: Int = 2019
     private var works: [Work] = []
+    private var selectedSeason: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +57,10 @@ class BroadcastTableVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "to" {
-            let nextVC = segue.destination as! AnimeListTableVC
-            //nextVC.data = work
-            
+        if segue.identifier == "toAnimeListCard" {
+            let nextVC = segue.destination as! AnimeListCardVC
+            nextVC.works = works
+            nextVC.navigationItem.title = selectedSeason
         }
     }
 
@@ -99,9 +100,10 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedSeason: String = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
+        selectedSeason = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
         works = Array(realm.objects(Work.self).filter("seasonNameText == %@", selectedSeason))
-        performSegue(withIdentifier: "to", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: false)
+        performSegue(withIdentifier: "toAnimeListCard", sender: nil)
     }
     
 }
