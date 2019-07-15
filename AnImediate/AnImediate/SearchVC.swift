@@ -21,7 +21,6 @@ class SearchVC: TabmanViewController {
     }()
     
     let barTitles = ["放送年", "ジャンル", "属性", "人気"]
-    let searchController: UISearchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,21 +28,7 @@ class SearchVC: TabmanViewController {
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
         self.dataSource = self
         initBars()
-        
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.title = "放送年"
-        if #available(iOS 11.0, *) {
-            // UISearchControllerをUINavigationItemのsearchControllerプロパティにセットする。
-            navigationItem.searchController = searchController
-            
-            // trueだとスクロールした時にSearchBarを隠す（デフォルトはtrue）
-            // falseだとスクロール位置に関係なく常にSearchBarが表示される
-            navigationItem.hidesSearchBarWhenScrolling = false
-        } else {
-            // iOS 11未満は別処理が必要
-            //tableView.tableHeaderView = searchController.searchBar
-        }
     }
     
     private func initBars() {
@@ -90,19 +75,4 @@ extension SearchVC: PageboyViewControllerDataSource, TMBarDataSource {
      let title = "Page \(index)"
      return TMBarItem(title: title)
      }*/
-}
-
-// MARK: - UISearchResultsUpdating
-extension SearchVC: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        // SearchBarに入力したテキストを使って表示データをフィルタリングする。
-        /*let text = searchController.searchBar.text ?? ""
-        if text.isEmpty {
-            filteredTitles = titles
-        } else {
-            filteredTitles = titles.filter { $0.contains(text) }
-        }
-        tableView.reloadData()*/
-    }
 }
