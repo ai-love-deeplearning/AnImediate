@@ -18,4 +18,9 @@ extension UIColor {
         let color = rgba(red: 210, green: 0, blue: 100, alpha: 1)
         return color
     }
+    
+    class func whiteSmoke()->UIColor{
+        let color = rgba(red: 245, green: 245, blue: 245, alpha: 1)
+        return color
+    }
 }
