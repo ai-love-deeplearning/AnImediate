@@ -42,15 +42,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログ・ホライズン" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSX-Zd-nq5">
-                                <rect key="frame" x="128" y="16" width="196" height="24.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログ・ホライズン" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSX-Zd-nq5">
+                                <rect key="frame" x="128" y="16" width="196" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-1n-HeH">
-                                <rect key="frame" x="113" y="45.5" width="211" height="52.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あらすじ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-1n-HeH">
+                                <rect key="frame" x="113" y="57" width="211" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -76,11 +76,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="53T-hm-NWc" secondAttribute="trailing" constant="16" id="1a1-TR-og2"/>
-                            <constraint firstItem="fSX-Zd-nq5" firstAttribute="height" secondItem="4D4-4L-f5z" secondAttribute="height" multiplier="0.3" id="3BP-OM-GCH"/>
                             <constraint firstItem="Lnx-ga-dNw" firstAttribute="centerX" secondItem="4D4-4L-f5z" secondAttribute="centerX" id="45N-Zr-eIP"/>
                             <constraint firstItem="b5m-1n-HeH" firstAttribute="leading" secondItem="4D4-4L-f5z" secondAttribute="trailing" constant="15" id="4KQ-oA-QcX"/>
                             <constraint firstItem="fSX-Zd-nq5" firstAttribute="top" secondItem="VMD-Jt-DMM" secondAttribute="top" constant="16" id="5dT-H1-qGh"/>
                             <constraint firstItem="b5m-1n-HeH" firstAttribute="bottom" secondItem="4D4-4L-f5z" secondAttribute="bottom" id="CeE-mB-waw"/>
+                            <constraint firstItem="b5m-1n-HeH" firstAttribute="height" secondItem="4D4-4L-f5z" secondAttribute="height" multiplier="0.5" id="MAA-1o-SwL"/>
                             <constraint firstItem="4D4-4L-f5z" firstAttribute="height" secondItem="VMD-Jt-DMM" secondAttribute="height" multiplier="0.63" id="Ngx-Qe-jc5"/>
                             <constraint firstAttribute="trailing" secondItem="fSX-Zd-nq5" secondAttribute="trailing" constant="16" id="OID-Lg-99W"/>
                             <constraint firstItem="Lnx-ga-dNw" firstAttribute="top" secondItem="4D4-4L-f5z" secondAttribute="bottom" constant="6" id="Q16-4b-8eB"/>
@@ -88,8 +88,8 @@
                             <constraint firstItem="53T-hm-NWc" firstAttribute="bottom" secondItem="Lnx-ga-dNw" secondAttribute="bottom" id="eVY-OH-sg7"/>
                             <constraint firstItem="4D4-4L-f5z" firstAttribute="leading" secondItem="VMD-Jt-DMM" secondAttribute="leading" constant="16" id="ezC-LJ-i0Y"/>
                             <constraint firstItem="4D4-4L-f5z" firstAttribute="top" secondItem="VMD-Jt-DMM" secondAttribute="top" constant="16" id="gqW-nf-ndf"/>
-                            <constraint firstItem="b5m-1n-HeH" firstAttribute="top" secondItem="fSX-Zd-nq5" secondAttribute="bottom" constant="5" id="lm9-KK-UFL"/>
                             <constraint firstItem="ama-eP-1te" firstAttribute="bottom" secondItem="Lnx-ga-dNw" secondAttribute="bottom" id="lrw-tO-i57"/>
+                            <constraint firstItem="b5m-1n-HeH" firstAttribute="top" secondItem="fSX-Zd-nq5" secondAttribute="bottom" id="tNu-yz-EXd"/>
                             <constraint firstItem="fSX-Zd-nq5" firstAttribute="leading" secondItem="4D4-4L-f5z" secondAttribute="trailing" constant="30" id="vGG-su-mIA"/>
                             <constraint firstItem="53T-hm-NWc" firstAttribute="leading" secondItem="ama-eP-1te" secondAttribute="trailing" constant="5" id="xPt-vc-d1f"/>
                         </constraints>

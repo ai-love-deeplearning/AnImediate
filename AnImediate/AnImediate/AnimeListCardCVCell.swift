@@ -19,6 +19,7 @@ class AnimeListCardCVCell: UICollectionViewCell {
     
     var animeID = ""
     var imageURL = ""
+    var seasonText = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()

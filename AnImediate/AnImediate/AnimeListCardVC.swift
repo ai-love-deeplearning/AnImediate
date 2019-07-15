@@ -33,10 +33,27 @@ class AnimeListCardVC: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         self.animeListCardCV.collectionViewLayout = layout
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+        }
+    }
 }
 
 extension AnimeListCardVC: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
+        
+        let work = works[indexPath.row]
+        cell.bindData(work: work)
+        
+        UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
+        UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
+        UserDefaults.standard.set(cell.seasonText, forKey: "season")
+        
+        performSegue(withIdentifier: "toDetails", sender: nil)
+    }
 }
 
 extension AnimeListCardVC: UICollectionViewDataSource {

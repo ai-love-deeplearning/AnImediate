@@ -50,11 +50,20 @@
                     </view>
                     <connections>
                         <outlet property="animeListCardCV" destination="JiK-9P-kzo" id="klL-eA-c99"/>
+                        <segue destination="1yf-b6-kZT" kind="show" identifier="toDetails" id="7wH-pB-3am"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbV-rq-cQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="46.875"/>
+        </scene>
+        <!--AnimeDetails-->
+        <scene sceneID="0d1-VD-6jZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="1yf-b6-kZT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZ5-m2-yMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="55"/>
         </scene>
     </scenes>
 </document>

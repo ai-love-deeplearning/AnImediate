@@ -115,10 +115,12 @@ class AnimeListVC: UIViewController {
         case "fromThisTerm":
             let nextVC = segue.destination as! AnimeListCardVC
             nextVC.works = self.thisTermWorks
+            nextVC.navigationItem.title = "今期アニメ"
             break
         case "fromRank":
             let nextVC = segue.destination as! AnimeListCardVC
             nextVC.works = self.rankingWorks
+            nextVC.navigationItem.title = "ランキング"
             break
         default:
             break
