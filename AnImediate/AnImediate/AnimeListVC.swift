@@ -68,6 +68,9 @@ class AnimeListVC: UIViewController {
                 self.thisTermWorks.append(works[i])
             }
         }
+        while self.thisTermWorks.count != 20 {
+            self.thisTermWorks.removeLast()
+        }
     }
     
     private func fetchRanking() {
@@ -105,8 +108,22 @@ class AnimeListVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetails" {
-            
+        
+        switch segue.identifier {
+        case "toDetails":
+            break
+        case "fromThisTerm":
+            let nextVC = segue.destination as! AnimeListCardVC
+            nextVC.works = self.thisTermWorks
+            nextVC.navigationItem.title = "今期アニメ"
+            break
+        case "fromRank":
+            let nextVC = segue.destination as! AnimeListCardVC
+            nextVC.works = self.rankingWorks
+            nextVC.navigationItem.title = "ランキング"
+            break
+        default:
+            break
         }
     }
 }
@@ -185,7 +202,7 @@ extension AnimeListVC: UICollectionViewDataSource {
         case 1:
             return recomWorks.count
         case 2:
-            return 20
+            return thisTermWorks.count
         case 3:
             return rankingWorks.count
         default:

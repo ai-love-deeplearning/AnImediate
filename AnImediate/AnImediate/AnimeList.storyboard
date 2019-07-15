@@ -79,6 +79,9 @@
                                 <state key="normal" title="今期アニメ　＞">
                                     <color key="titleColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="rQn-V9-TeV" kind="show" identifier="fromThisTerm" id="5XH-ro-AtJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-cc-Dkj">
                                 <rect key="frame" x="20" y="586" width="130" height="35"/>
@@ -90,6 +93,9 @@
                                 <state key="normal" title="ランキング　＞">
                                     <color key="titleColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="rQn-V9-TeV" kind="show" identifier="fromRank" id="tdx-GJ-nQV"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY">
                                 <rect key="frame" x="0.0" y="631" width="414" height="134.5"/>
@@ -181,6 +187,16 @@
             </objects>
             <point key="canvasLocation" x="1018.840579710145" y="20.758928571428569"/>
         </scene>
+        <!--AnimeListCard-->
+        <scene sceneID="Kxx-NG-RO5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeListCard" id="rQn-V9-TeV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="b9b-CC-NhU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aas-YV-E9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="-119"/>
+        </scene>
         <!--Search-->
         <scene sceneID="HHc-nH-dnI">
             <objects>
@@ -203,4 +219,7 @@
     <resources>
         <image name="animeList" width="27.5" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5XH-ro-AtJ"/>
+    </inferredMetricsTieBreakers>
 </document>
