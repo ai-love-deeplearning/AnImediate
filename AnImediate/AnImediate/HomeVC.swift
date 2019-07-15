@@ -22,7 +22,7 @@ class HomeVC: TabmanViewController {
         ]
     }()
     
-    let barTitles = ["見たい", "見てる", "見た", "見てない"]
+    let barTitles = ["見たい", "見てる", "見てない", "見た"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

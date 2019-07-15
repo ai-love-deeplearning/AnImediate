@@ -53,92 +53,135 @@
             </objects>
             <point key="canvasLocation" x="3077" y="237"/>
         </scene>
-        <!--View Controller-->
+        <!--Home Will SeeVC-->
         <scene sceneID="nFg-Za-sT3">
             <objects>
-                <viewController storyboardIdentifier="willSeeSB" id="J1V-ER-UFE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="willSeeSB" id="J1V-ER-UFE" customClass="HomeWillSeeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oG9-ku-9ZH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="trD-Ox-A1b">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fhX-QF-zMQ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X05-Nw-MoN">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X05-Nw-MoN" id="eAj-Oc-qgV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QKf-jI-BHd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="NPJ-g5-aL9" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="trD-Ox-A1b" firstAttribute="top" secondItem="nXe-4f-Qfw" secondAttribute="top" id="6Oy-PQ-wGv"/>
-                            <constraint firstItem="trD-Ox-A1b" firstAttribute="leading" secondItem="nXe-4f-Qfw" secondAttribute="leading" id="IZD-EU-Aoa"/>
-                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="bottom" secondItem="trD-Ox-A1b" secondAttribute="bottom" id="UIE-zd-07t"/>
-                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="trailing" secondItem="trD-Ox-A1b" secondAttribute="trailing" id="q77-Y0-mYl"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nXe-4f-Qfw"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCV" destination="fhX-QF-zMQ" id="c42-pF-RMs"/>
+                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="E7J-tH-QcN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7d-f2-4Vy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4176.811594202899" y="235.71428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Home SeeingVC-->
         <scene sceneID="MMn-MC-Q9m">
             <objects>
-                <viewController storyboardIdentifier="seeingSB" id="WEk-8Y-Jkc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="seeingSB" id="WEk-8Y-Jkc" customClass="HomeSeeingVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lb8-lM-utD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gv6-cE-VXi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e84-BY-4b7">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="El0-mC-dH7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="i0B-YP-bq8" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="gv6-cE-VXi" firstAttribute="top" secondItem="sQD-8v-7vu" secondAttribute="top" id="GeH-KF-QpD"/>
-                            <constraint firstItem="gv6-cE-VXi" firstAttribute="trailing" secondItem="sQD-8v-7vu" secondAttribute="trailing" id="I5q-1X-qEF"/>
-                            <constraint firstItem="gv6-cE-VXi" firstAttribute="bottom" secondItem="sQD-8v-7vu" secondAttribute="bottom" id="Y1V-F7-L4s"/>
-                            <constraint firstItem="gv6-cE-VXi" firstAttribute="leading" secondItem="sQD-8v-7vu" secondAttribute="leading" id="iTS-2C-YYB"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sQD-8v-7vu"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCV" destination="e84-BY-4b7" id="Alk-pN-xme"/>
+                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="WNb-ze-9sb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvd-vw-OJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5060.8695652173919" y="235.71428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--AnimeDetails-->
+        <scene sceneID="M5Y-yP-jS4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="gV6-ha-OWe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sEa-un-pjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5481" y="-371"/>
+        </scene>
+        <!--Home Not SeeVC-->
         <scene sceneID="Mos-cg-uZn">
             <objects>
-                <viewController storyboardIdentifier="notSeeSB" id="FRp-al-eud" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notSeeSB" id="FRp-al-eud" customClass="HomeNotSeeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nya-Kd-UCn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FTL-iW-fz5">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="szk-fu-FLl">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mT0-N9-ROS">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="jFi-ZO-zhb" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="FTL-iW-fz5" firstAttribute="bottom" secondItem="zQo-2f-I34" secondAttribute="bottom" id="8OJ-L8-FCB"/>
-                            <constraint firstItem="FTL-iW-fz5" firstAttribute="leading" secondItem="zQo-2f-I34" secondAttribute="leading" id="HaH-jD-HfJ"/>
-                            <constraint firstItem="FTL-iW-fz5" firstAttribute="top" secondItem="zQo-2f-I34" secondAttribute="top" id="Ruz-KB-OWX"/>
-                            <constraint firstItem="FTL-iW-fz5" firstAttribute="trailing" secondItem="zQo-2f-I34" secondAttribute="trailing" id="Snn-t9-hgJ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zQo-2f-I34"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCV" destination="szk-fu-FLl" id="vI6-V4-hiA"/>
+                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="v5f-ol-Jcc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeN-Pq-6dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -251,28 +294,43 @@
             </objects>
             <point key="canvasLocation" x="3675" y="-577"/>
         </scene>
-        <!--View Controller-->
+        <!--Home SawVC-->
         <scene sceneID="YHL-fZ-nZ1">
             <objects>
-                <viewController storyboardIdentifier="sawSB" id="UD9-Wj-79s" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sawSB" id="UD9-Wj-79s" customClass="HomeSawVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dvk-I8-LAh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U21-Tb-2SB">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NK8-aj-ke1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yhv-fS-Z9g">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="Iy2-xf-7KF" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="U21-Tb-2SB" firstAttribute="bottom" secondItem="oYW-vk-Tfu" secondAttribute="bottom" id="3m0-0K-Wwd"/>
-                            <constraint firstItem="U21-Tb-2SB" firstAttribute="trailing" secondItem="oYW-vk-Tfu" secondAttribute="trailing" id="DEb-cS-Zax"/>
-                            <constraint firstItem="U21-Tb-2SB" firstAttribute="top" secondItem="oYW-vk-Tfu" secondAttribute="top" id="J67-0c-NT7"/>
-                            <constraint firstItem="U21-Tb-2SB" firstAttribute="leading" secondItem="oYW-vk-Tfu" secondAttribute="leading" id="Klt-Y8-nc0"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oYW-vk-Tfu"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCV" destination="NK8-aj-ke1" id="Nt1-ln-HZY"/>
+                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="Tp6-Sd-4c8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0S-Os-n1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,4 +369,7 @@
         <image name="home" width="30" height="27"/>
         <image name="pic" width="481" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tp6-Sd-4c8"/>
+    </inferredMetricsTieBreakers>
 </document>
