@@ -29,7 +29,27 @@ class ExchangeResultVC: TabmanViewController {
         super.viewDidLoad()
         
         dataSource = self
+        
         initBars()
+        do {
+            // NSData → WatchData
+            let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(UserDefaults.standard.data(forKey: "data")!) as! [WatchData]
+            showData = decoded
+        } catch {
+            fatalError("archivedData failed with error: \(error)")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initBars()
+        do {
+            // NSData → WatchData
+            let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(UserDefaults.standard.data(forKey: "data")!) as! [WatchData]
+            showData = decoded
+        } catch {
+            fatalError("archivedData failed with error: \(error)")
+        }
     }
     
     private func initBars() {

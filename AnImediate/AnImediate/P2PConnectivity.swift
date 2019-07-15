@@ -96,9 +96,9 @@ class P2PConnectivity: NSObject {
             try session.send(data, toPeers: session.connectedPeers, with: .reliable)
         } catch {
             print(error.localizedDescription)
+            print("エラー: 正常にデータの送信が行われませんでした")
             return false
         }
-        
         return true
     }
     
@@ -106,10 +106,9 @@ class P2PConnectivity: NSObject {
 
 // MARK: - MCSessionDelegate
 extension P2PConnectivity: MCSessionDelegate {
-    /*
     func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
         certificateHandler(true)
-    }*/
+    }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         //profileRecieveHandler?(data)
@@ -117,22 +116,22 @@ extension P2PConnectivity: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        print(#function)
+        //print(#function)
         assertionFailure("Not support")
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        print(#function)
+        //print(#function)
         assertionFailure("Not support")
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        print(#function)
+        //print(#function)
         assertionFailure("Not support")
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        print(#function)
+        //print(#function)
         
         switch state {
         case .notConnected:
@@ -147,6 +146,8 @@ extension P2PConnectivity: MCSessionDelegate {
             // 接続開始されたので一旦停止
             advertiser.stopAdvertisingPeer()
             browser.stopBrowsingForPeers()
+        @unknown default:
+            break
         }
         self.state = state
     }
@@ -167,7 +168,7 @@ extension P2PConnectivity: MCNearbyServiceAdvertiserDelegate {
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        print(#function)
+        //print(#function)
         print(error)
     }
     
@@ -177,12 +178,12 @@ extension P2PConnectivity: MCNearbyServiceAdvertiserDelegate {
 extension P2PConnectivity: MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        print(#function)
+        //print(#function)
         print("lost: \(peerID)")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        print(#function)
+        //print(#function)
         print("found: \(peerID)")
         // 見つけたら即招待
         // ToDo: ここにUI関連の処理を入れれば好きなUIにできる？
@@ -193,7 +194,7 @@ extension P2PConnectivity: MCNearbyServiceBrowserDelegate {
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        print(#function)
+        //print(#function)
         print(error)
     }
     

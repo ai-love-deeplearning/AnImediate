@@ -21,8 +21,6 @@ class ExchangeVC: UIViewController {
     var myInfo: UserInfo = UserInfo()
     var peerInfo: UserInfo = UserInfo()
     
-    let realm = try! Realm()
-    
     // 告知用の文字列（相手を検索するのに使用するIDの様なもの）
     // 一つのハイフンしか使用できず、15文字以下である必要がある
     let serviceType = "fun-AnImediate"
@@ -45,14 +43,16 @@ class ExchangeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        P2PConnectivity.manager.exDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initGradientLayer()
         
-        let result = self.realm.objects(UserInfo.self)
-        P2PConnectivity.manager.exDelegate = self
+        let realm = try! Realm()
+        
+        let result = realm.objects(UserInfo.self)
         
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.isRemovedOnCompletion = true
@@ -71,17 +71,16 @@ class ExchangeVC: UIViewController {
             displayName: "player",
             stateChangeHandler: { state in
                 
-                // 接続状況の変化した時の処理
-                DispatchQueue.main.async() {
-                    switch state {
-                    case .notConnected:
-                        // ここでタイマーを起動
-                        // 30秒接続されなかったら、notfound画面を表示
-                        break
-                    case .connecting:
-                        // ここでタイマーをストップ、リセット
-                        break
-                    case .connected:
+                switch state {
+                case .notConnected:
+                    // ここでタイマーを起動
+                    // 30秒接続されなかったら、notfound画面を表示
+                    break
+                case .connecting:
+                    // ここでタイマーをストップ、リセット
+                    break
+                case .connected:
+                    DispatchQueue.main.async {
                         do {
                             // WatchData → NSData
                             let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: result[0], requiringSecureCoding: false)
@@ -89,16 +88,13 @@ class ExchangeVC: UIViewController {
                         } catch {
                             fatalError("archivedData failed with error: \(error)")
                         }
-                    @unknown default:
-                        break
                     }
+                @unknown default:
+                    break
                 }
-        }, profileRecieveHandler: { data in
-            // データを受信した時の処理（UIの更新処理はmain thread で行う必要がある）
-            // ここでResultに遷移する
-            DispatchQueue.main.async() {
                 
-            }
+        }, profileRecieveHandler: { data in
+            
         }
         )
     }
@@ -136,6 +132,7 @@ class ExchangeVC: UIViewController {
 
 extension ExchangeVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
+        print("userhInfoReceive")
         do {
             let realm = try! Realm()
             // NSData → WatchData
@@ -155,8 +152,9 @@ extension ExchangeVC: ExchangeDelegate {
                     peer[0].background = peerInfo.background
                 }
             }
-            
-            self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
+            }
         } catch {
             fatalError("archivedData failed with error: \(error)")
         }

@@ -40,6 +40,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このユーザと通信しますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktt-Is-ytp">
+                                        <rect key="frame" x="92.5" y="335.5" width="129.5" height="10"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="10"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-gi-Ygr">
                                         <rect key="frame" x="142" y="385.5" width="30" height="30"/>
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="18"/>
@@ -47,15 +53,9 @@
                                             <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="acceptBtnTapped:" destination="KN8-kk-LqB" eventType="touchUpInside" id="bSy-5R-SB6"/>
+                                            <action selector="acceptBtnTapped:" destination="vYz-qi-b0o" eventType="touchUpInside" id="keM-QF-XBl"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このユーザと通信しますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktt-Is-ytp">
-                                        <rect key="frame" x="92.5" y="335.5" width="129.5" height="10"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="10"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -86,20 +86,19 @@
                         <viewLayoutGuide key="safeArea" id="jvt-It-roJ"/>
                     </view>
                     <connections>
-                        <outlet property="peerIcon" destination="qJR-QQ-49F" id="qkh-CV-vuf"/>
-                        <outlet property="peerName" destination="jep-wq-dvP" id="Rtm-9K-Iyn"/>
-                        <segue destination="cm2-V1-pPd" kind="show" identifier="toResult" id="N34-j5-bjv"/>
+                        <outlet property="peerIcon" destination="qJR-QQ-49F" id="4jG-GX-aNC"/>
+                        <outlet property="peerName" destination="jep-wq-dvP" id="l1o-LM-bq8"/>
+                        <segue destination="cm2-V1-pPd" kind="show" identifier="toResult" id="PI9-gP-CY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvh-Fd-tdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="KN8-kk-LqB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="205.79710144927537" y="164.73214285714286"/>
         </scene>
-        <!--ExchangeResult-->
+        <!--Result-->
         <scene sceneID="fZs-zv-TlQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="ExchangeResult" id="cm2-V1-pPd" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Result" id="cm2-V1-pPd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KM-jX-Ck0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="824" y="165"/>
