@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 class BroadcastTableVC: UIViewController {
     
     private var viewModel = AccordionViewModel()
     @IBOutlet weak var broadcastTable: UITableView!
     
-    private let seasons: [String] = ["冬（1月 〜 3月）", "春（4月 〜 6月）", "夏（7月 〜 9月）", "秋（10月 〜 12月）"]
+    let realm = try! Realm()
+    
+    private let seasons: [String] = ["冬", "春", "夏", "秋"]
+    private let seasonTexts: [String] = ["冬（1月 〜 3月）", "春（4月 〜 6月）", "夏（7月 〜 9月）", "秋（10月 〜 12月）"]
     private let old: Int = 1972
     private let latest: Int = 2019
+    private var works: [Work] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,7 @@ class BroadcastTableVC: UIViewController {
     
     func addSectionContents() {
         for i in (old...latest).reversed() {
-            viewModel.addSectionContent(content: SectionContents(categoryTitle: String(i) + "年", genreTitles: seasons))
+            viewModel.addSectionContent(content: SectionContents(categoryTitle: String(i) + "年", genreTitles: seasonTexts))
         }
     }
     
@@ -48,6 +53,14 @@ class BroadcastTableVC: UIViewController {
         broadcastTable.beginUpdates()
         broadcastTable.reloadSections([header.section], with: viewModel.currentAnimation)
         broadcastTable.endUpdates()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "to" {
+            let nextVC = segue.destination as! AnimeListTableVC
+            //nextVC.data = work
+            
+        }
     }
 
 }
@@ -83,6 +96,12 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = cellTitleForRowAtIndexPath(indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedSeason: String = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
+        works = Array(realm.objects(Work.self).filter("seasonNameText == %@", selectedSeason))
+        performSegue(withIdentifier: "to", sender: nil)
     }
     
 }
