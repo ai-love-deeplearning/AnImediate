@@ -36,6 +36,10 @@
 		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
 		50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB222C995BC00A038C8 /* UserInfo.swift */; };
 		50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB422CAEAE300A038C8 /* WatchData.swift */; };
+		503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */; };
+		503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */; };
+		503DD23822DB0748004B9746 /* AccordionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */; };
+		503DD23A22DC3636004B9746 /* AccordionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23922DC3636004B9746 /* AccordionViewModel.swift */; };
 		50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */; };
 		50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */; };
 		50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */; };
@@ -116,6 +120,10 @@
 		50165BB022C994EA00A038C8 /* BLEConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConnectivity.swift; sourceTree = "<group>"; };
 		50165BB222C995BC00A038C8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		50165BB422CAEAE300A038C8 /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
+		503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTableVC.swift; sourceTree = "<group>"; };
+		503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionSectionHeaderView.swift; sourceTree = "<group>"; };
+		503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccordionSectionHeaderView.xib; sourceTree = "<group>"; };
+		503DD23922DC3636004B9746 /* AccordionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionViewModel.swift; sourceTree = "<group>"; };
 		50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileEdit.storyboard; sourceTree = "<group>"; };
 		50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +251,10 @@
 				32A6411422DC387D002EF6F3 /* AnimeListCardVC.swift */,
 				32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */,
 				32CDA22B22CB218800BD5A76 /* SearchVC.swift */,
+				503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */,
+				503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */,
+				503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */,
+				503DD23922DC3636004B9746 /* AccordionViewModel.swift */,
 				32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
 				963B681722D22A63006988FE /* SettingTextVC.swift */,
@@ -445,6 +457,7 @@
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
 				963B681422D225DD006988FE /* license.txt in Resources */,
 				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
+				503DD23822DB0748004B9746 /* AccordionSectionHeaderView.xib in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
 				50A5965822C0A04900378AAB /* Main.storyboard in Resources */,
@@ -567,6 +580,7 @@
 				32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */,
 				50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */,
 				50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */,
+				503DD23A22DC3636004B9746 /* AccordionViewModel.swift in Sources */,
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
 				32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */,
 				32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */,
@@ -577,12 +591,14 @@
 				9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				3226CD2922D583B80090937F /* InfoVC.swift in Sources */,
+				503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */,
 				32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */,
 				50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
+				503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */,
 				32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */,
 				50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */,
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
