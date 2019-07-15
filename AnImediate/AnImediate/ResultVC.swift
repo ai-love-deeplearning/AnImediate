@@ -18,7 +18,7 @@ class ResultVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupCV()
     }
     
     private func setupCV() {

@@ -19,7 +19,6 @@ class ResultYouCardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCV()
     }
     

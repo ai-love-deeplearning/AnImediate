@@ -25,7 +25,7 @@ class HomeHeaderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         parallaxHeader?.delegate = self
         parallaxHeader?.height = 400
         parallaxHeader?.mode = .fill

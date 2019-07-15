@@ -18,8 +18,6 @@ class ExchangeDataVC: UIViewController {
     
     let realm = try! Realm()
     
-    var findPeers: [MCPeerID] = []
-    
     var myInfo: UserInfo = UserInfo()
     var myData: [WatchData] = []
     var peerInfo: UserInfo = UserInfo()
@@ -33,36 +31,47 @@ class ExchangeDataVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        P2PConnectivity.manager.exDelegate = self
+        setMyInfo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.peerIcon.image = UIImage(data: self.peerInfo.iconData! as Data)!
+            self.peerName.text =  self.peerInfo.name
+        }
         
+        setMyInfo()
+        
+        myData = Array(realm.objects(WatchData.self).filter("userId == %@", myInfo.id))
+    }
+    
+    private func setMyInfo() {
         let result = realm.objects(UserInfo.self)
         myInfo.id = result[0].id
         myInfo.name = result[0].name
         myInfo.comment = result[0].comment
         myInfo.icon = result[0].icon
         myInfo.background = result[0].background
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        P2PConnectivity.manager.exDelegate = self
-        
-        peerIcon.image = UIImage(data: peerInfo.iconData! as Data)!
-        peerName.text =  peerInfo.name
     }
     
     @IBAction func acceptBtnTapped(_ sender: Any) {
-        let results = realm.objects(WatchData.self).filter("userId == %@", myInfo.id)
-        myData = Array(results)
-        do {
-            // WatchData → NSData
-            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: myData, requiringSecureCoding: false)
-            // データの送信
-            P2PConnectivity.manager.send(data: codedInfo)
-            isAccepted = true
-        } catch {
-            fatalError("archivedData failed with error: \(error)")
+        print("accept")
+            DispatchQueue.main.async() {
+            do {
+                // WatchData → NSData
+                let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myData, requiringSecureCoding: false)
+                print(codedInfo)
+                // データの送信
+                P2PConnectivity.manager.send(data: codedInfo)
+                if self.isReceived {
+                    self.performSegue(withIdentifier: "toResult", sender: nil)
+                }
+                self.isAccepted = true
+            } catch {
+                fatalError("archivedData failed with error: \(error)")
+            }
         }
     }
     
@@ -89,8 +98,14 @@ class ExchangeDataVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult" {
-            let nextVC = segue.destination as! ExchangeResultVC
-            nextVC.showData = peerData
+            P2PConnectivity.manager.stop()
+            do {
+                // WatchData → NSData
+                let codedData = try NSKeyedArchiver.archivedData(withRootObject: peerData, requiringSecureCoding: false)
+                UserDefaults.standard.set(codedData, forKey: "data")
+            } catch {
+                fatalError("archivedData failed with error: \(error)")
+            }
         }
     }
 
@@ -98,36 +113,45 @@ class ExchangeDataVC: UIViewController {
 
 extension ExchangeDataVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
-        if isAccepted, isReceived { // 承認してるかつデータを受け取ったら（相手も承認）
-            // result画面にデータを渡す
-            performSegue(withIdentifier: "toResult", sender: nil)
-        } else {
-            isReceived = true
-            do {
-                // NSData → WatchData
-                let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]
-                peerData = decoded
-                // クエリによるデータの取得
-                let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
+        print("watchDataReceive")
+        self.isReceived = true
+        DispatchQueue.main.async {
+            if self.isAccepted, self.isReceived { // 承認してるかつデータを受け取ったら（相手も承認）
+                // result画面にデータを渡す
+                self.performSegue(withIdentifier: "toResult", sender: nil)
                 
-                if results.isEmpty {
-                    let data: [WatchData] = decoded
-                    data[0].id = NSUUID().uuidString
+            } else {
+                if type(of: data) == UserInfo.self {
                     
-                    try! realm.write {
-                        realm.add(peerData)
-                    }
-                } else {
-                    // データの更新
-                    try! realm.write {
-                        realm.delete(results)
-                        realm.add(peerData)
-                    }
                 }
-                
-                
-            } catch {
-                fatalError("archivedData failed with error: \(error)")
+                do {
+                    // NSData → WatchData
+                    let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]
+                    self.peerData = decoded
+                    // クエリによるデータの取得
+                    let results = self.realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
+                    
+                    if results.isEmpty {
+                        self.peerData.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        
+                        try! self.realm.write {
+                            self.realm.add(self.peerData)
+                        }
+                    } else {
+                        self.peerData.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        // データの更新
+                        try! self.realm.write {
+                            self.realm.delete(results)
+                            self.realm.add(self.peerData)
+                        }
+                    }
+                } catch {
+                    fatalError("archivedData failed with error: \(error)")
+                }
             }
         }
     }
