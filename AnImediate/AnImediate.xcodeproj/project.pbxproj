@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		10422A1A64633E000E85882A /* Pods_AnImediateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAB57F523E445CEC838C2B1 /* Pods_AnImediateUITests.framework */; };
+		321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */; };
+		321C6E2F22DC68FA00757F83 /* ResultScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */; };
+		321C6E3322DC866A00757F83 /* ResultMeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */; };
+		321C6E3522DC869000757F83 /* ResultRecommCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */; };
+		321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */; };
+		321C6E3922DC86D300757F83 /* ResultBothCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */; };
 		3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */; };
 		3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */; };
 		3226CD2922D583B80090937F /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2822D583B80090937F /* InfoVC.swift */; };
@@ -90,6 +96,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderVC.swift; sourceTree = "<group>"; };
+		321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScrollVC.swift; sourceTree = "<group>"; };
+		321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMeCardVC.swift; sourceTree = "<group>"; };
+		321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRecommCardVC.swift; sourceTree = "<group>"; };
+		321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultYouCardVC.swift; sourceTree = "<group>"; };
+		321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBothCardVC.swift; sourceTree = "<group>"; };
 		3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetails.storyboard; sourceTree = "<group>"; };
 		3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsVC.swift; sourceTree = "<group>"; };
 		3226CD2822D583B80090937F /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
@@ -235,6 +247,12 @@
 				50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */,
 				50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */,
 				32A6411E22DC57AD002EF6F3 /* ResultVC.swift */,
+				321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */,
+				321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */,
+				321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */,
+				321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */,
+				321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */,
+				321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */,
 				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
 				50F9849022D4775600038A23 /* ExchangeDataVC.swift */,
 				3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */,
@@ -571,11 +589,13 @@
 			files = (
 				50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */,
 				50A5969122C19F7A00378AAB /* SignUpVC.swift in Sources */,
+				321C6E2F22DC68FA00757F83 /* ResultScrollVC.swift in Sources */,
 				32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */,
 				50A5969322C1F16C00378AAB /* HomeVC.swift in Sources */,
 				50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */,
 				32A6411F22DC57AD002EF6F3 /* ResultVC.swift in Sources */,
 				3238B00122C1D25A00C8D3DD /* Work.swift in Sources */,
+				321C6E3522DC869000757F83 /* ResultRecommCardVC.swift in Sources */,
 				32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */,
 				32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */,
 				32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */,
@@ -583,6 +603,7 @@
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
 				963B681822D22A63006988FE /* SettingTextVC.swift in Sources */,
 				9643AE2222C6080800899B61 /* sendMailVC.swift in Sources */,
+				321C6E3922DC86D300757F83 /* ResultBothCardVC.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				3226CD2922D583B80090937F /* InfoVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
@@ -595,12 +616,15 @@
 				50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */,
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
+				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */,
+				321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 				500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */,
 				50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */,
+				321C6E3322DC866A00757F83 /* ResultMeCardVC.swift in Sources */,
 				32CDA23522CB228700BD5A76 /* ThisTermCollectionViewCell.swift in Sources */,
 				50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */,
 			);

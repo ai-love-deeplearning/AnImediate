@@ -114,10 +114,11 @@ extension InfoVC: UICollectionViewDelegate, UIPickerViewDelegate {
         
         if self.statusTextField.text != "" {
             let results = realm.objects(WatchData.self).filter("animeId='" + self.animeId + "'")
+            let userInfo = realm.objects(UserInfo.self)
             
-            if results.count == 0 {
+            if results.isEmpty {
                 self.watchData.id = NSUUID().uuidString
-                self.watchData.userId = "0"
+                self.watchData.userId = userInfo[0].id
                 self.watchData.animeId = self.animeId
                 self.watchData.animeStatus = self.statusTextField.text ?? ""
                 self.watchData.createdAt = self.dateString
