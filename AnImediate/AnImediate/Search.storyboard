@@ -33,8 +33,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3L5-sn-l4F">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="z6q-Fs-fU6">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -46,24 +47,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rNC-dl-sj4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <color key="barTintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3L5-sn-l4F" firstAttribute="top" secondItem="k9y-Bg-U4h" secondAttribute="top" id="7QY-LL-lJv"/>
+                            <constraint firstItem="3L5-sn-l4F" firstAttribute="top" secondItem="rNC-dl-sj4" secondAttribute="bottom" id="7XD-Vm-8lc"/>
                             <constraint firstItem="k9y-Bg-U4h" firstAttribute="trailing" secondItem="3L5-sn-l4F" secondAttribute="trailing" id="BcO-BJ-FV6"/>
+                            <constraint firstItem="rNC-dl-sj4" firstAttribute="leading" secondItem="k9y-Bg-U4h" secondAttribute="leading" id="EDf-gI-pr4"/>
                             <constraint firstItem="3L5-sn-l4F" firstAttribute="leading" secondItem="k9y-Bg-U4h" secondAttribute="leading" id="LPG-Q9-eAZ"/>
+                            <constraint firstItem="rNC-dl-sj4" firstAttribute="trailing" secondItem="k9y-Bg-U4h" secondAttribute="trailing" id="U1p-2m-coo"/>
                             <constraint firstItem="k9y-Bg-U4h" firstAttribute="bottom" secondItem="3L5-sn-l4F" secondAttribute="bottom" id="twk-j3-uCg"/>
+                            <constraint firstItem="rNC-dl-sj4" firstAttribute="top" secondItem="k9y-Bg-U4h" secondAttribute="top" id="xzC-LG-jJd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k9y-Bg-U4h"/>
                     </view>
                     <connections>
                         <outlet property="broadcastTable" destination="3L5-sn-l4F" id="EaV-mn-340"/>
+                        <outlet property="searchBar" destination="rNC-dl-sj4" id="ryC-hD-Y8u"/>
                         <segue destination="Hez-6R-BV9" kind="show" identifier="toAnimeListCard" id="pTj-Pm-aCz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vM-dX-MV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="92"/>
+            <point key="canvasLocation" x="1586.9565217391305" y="91.741071428571431"/>
         </scene>
         <!--AnimeListCard-->
         <scene sceneID="SuL-Ru-PZb">

@@ -12,6 +12,7 @@ import RealmSwift
 class BroadcastTableVC: UIViewController {
     
     private var viewModel = AccordionViewModel()
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var broadcastTable: UITableView!
     
     let realm = try! Realm()
@@ -33,11 +34,22 @@ class BroadcastTableVC: UIViewController {
         broadcastTable.tableFooterView = UIView(frame: .zero)
         
         addSectionContents()
+        
+        searchBar.tintColor = .deepMagenta()
+        searchBar.barTintColor = .whiteSmoke()
+        searchBar.placeholder = "年代を入力"
+        searchBar.setValue("キャンセル", forKey: "_cancelButtonText")
+        searchBar.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.view.endEditing(true)
     }
     
     func addSectionContents() {
@@ -54,6 +66,7 @@ class BroadcastTableVC: UIViewController {
         broadcastTable.beginUpdates()
         broadcastTable.reloadSections([header.section], with: viewModel.currentAnimation)
         broadcastTable.endUpdates()
+        self.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,9 +116,24 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
         selectedSeason = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
         works = Array(realm.objects(Work.self).filter("seasonNameText == %@", selectedSeason))
         tableView.deselectRow(at: indexPath, animated: false)
+        self.view.endEditing(true)
         performSegue(withIdentifier: "toAnimeListCard", sender: nil)
     }
     
+}
+
+// MARK: - UISearchResultsUpdating
+extension BroadcastTableVC: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        searchBar.showsCancelButton = true
+        if let year = Int(searchBar.text!) {
+            broadcastTable.scrollToRow(at: IndexPath(row: NSNotFound, section: 2019 - year), at: .top, animated: false)
+        } else {
+            print("検索には数字を入力してください")
+        }
+    }
 }
 
 extension UITableView.RowAnimation {
