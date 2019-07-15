@@ -116,7 +116,7 @@
         <!--View Controller-->
         <scene sceneID="KdZ-JN-Qbj">
             <objects>
-                <viewController storyboardIdentifier="ranking" id="iTh-sF-XlD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="title" id="iTh-sF-XlD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3sx-VR-CIC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

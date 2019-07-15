@@ -14,13 +14,13 @@ class SearchVC: TabmanViewController {
     
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
-        [storyboard!.instantiateViewController(withIdentifier: "broadcast"),
+        [storyboard!.instantiateViewController(withIdentifier: "title"),
+         storyboard!.instantiateViewController(withIdentifier: "broadcast"),
          storyboard!.instantiateViewController(withIdentifier: "genre"),
-         storyboard!.instantiateViewController(withIdentifier: "property"),
-         storyboard!.instantiateViewController(withIdentifier: "ranking")]
+         storyboard!.instantiateViewController(withIdentifier: "property")]
     }()
     
-    let barTitles = ["放送年", "ジャンル", "属性", "人気"]
+    let barTitles = ["タイトル", "放送年", "ジャンル", "属性"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class SearchVC: TabmanViewController {
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
         self.dataSource = self
         initBars()
-        navigationItem.title = "放送年"
+        navigationItem.title = "検索"
     }
     
     private func initBars() {
