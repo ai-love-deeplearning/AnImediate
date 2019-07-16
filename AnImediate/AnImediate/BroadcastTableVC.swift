@@ -134,6 +134,12 @@ extension BroadcastTableVC: UISearchBarDelegate {
             print("検索には数字を入力してください")
         }
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+    }
 }
 
 extension UITableView.RowAnimation {

@@ -74,6 +74,12 @@ extension SearchTitleVC: UICollectionViewDelegate, UISearchBarDelegate {
         fetchWork()
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = cardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
         

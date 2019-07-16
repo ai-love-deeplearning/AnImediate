@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="4671.0144927536239" y="91.741071428571431"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--AnimeDetails-->
         <scene sceneID="fKc-Zl-Pow">
             <objects>
-                <viewControllerPlaceholder id="7BY-eP-7lv" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="7BY-eP-7lv" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJ7-hv-1D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4680" y="502"/>
