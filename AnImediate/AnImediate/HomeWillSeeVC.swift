@@ -23,7 +23,7 @@ class HomeWillSeeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchWork()
         setupCV()
     }
     
@@ -33,22 +33,25 @@ class HomeWillSeeVC: UIViewController {
     }
     
     private func fetchWork() {
-        
         var work = [Work]()
         
         let userInfo = realm.objects(UserInfo.self)
-        let myResults = realm.objects(WatchData.self).filter("userId='" + userInfo[0].id + "'" + "&&" + "animeStatus='見たい'")
         
-        for i in 0..<myResults.count {
-            let workResults = realm.objects(Work.self).filter("id='" + myResults[i].animeId + "'")
-            if workResults.isEmpty {
-                
-            } else {
-                work.append(workResults[0])
+        if userInfo.isEmpty {
+            
+        } else {
+            let myResults = realm.objects(WatchData.self).filter("userId='" + userInfo[0].id + "'" + "&&" + "animeStatus='見たい'")
+            for i in 0..<myResults.count {
+                let workResults = realm.objects(Work.self).filter("id='" + myResults[i].animeId + "'")
+                if workResults.isEmpty {
+                    
+                } else {
+                    work.append(workResults[0])
+                }
             }
+            self.works = work
+            work = [Work]()
         }
-        self.works = work
-        work = [Work]()
     }
     
     private func setupCV() {
