@@ -61,9 +61,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fhX-QF-zMQ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fhX-QF-zMQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="749"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QKf-jI-BHd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -84,6 +83,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fhX-QF-zMQ" firstAttribute="trailing" secondItem="nXe-4f-Qfw" secondAttribute="trailing" id="85i-bo-umG"/>
+                            <constraint firstItem="fhX-QF-zMQ" firstAttribute="top" secondItem="nXe-4f-Qfw" secondAttribute="top" id="COx-K2-w8U"/>
+                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="bottom" secondItem="fhX-QF-zMQ" secondAttribute="bottom" constant="69" id="I1Z-7Q-WW9"/>
+                            <constraint firstItem="fhX-QF-zMQ" firstAttribute="leading" secondItem="nXe-4f-Qfw" secondAttribute="leading" id="kYw-uf-YNx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nXe-4f-Qfw"/>
                     </view>
                     <connections>
@@ -103,9 +108,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e84-BY-4b7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e84-BY-4b7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="749"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="El0-mC-dH7">
                                     <size key="itemSize" width="50" height="50"/>
@@ -126,6 +130,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sQD-8v-7vu" firstAttribute="bottom" secondItem="e84-BY-4b7" secondAttribute="bottom" constant="69" id="09j-jI-6LV"/>
+                            <constraint firstItem="e84-BY-4b7" firstAttribute="leading" secondItem="sQD-8v-7vu" secondAttribute="leading" id="dn4-Z5-sMX"/>
+                            <constraint firstItem="e84-BY-4b7" firstAttribute="top" secondItem="sQD-8v-7vu" secondAttribute="top" id="ejy-eK-c3L"/>
+                            <constraint firstItem="e84-BY-4b7" firstAttribute="trailing" secondItem="sQD-8v-7vu" secondAttribute="trailing" id="vLc-g9-vyM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sQD-8v-7vu"/>
                     </view>
                     <connections>
@@ -153,9 +163,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="szk-fu-FLl">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="szk-fu-FLl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="749"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mT0-N9-ROS">
                                     <size key="itemSize" width="50" height="50"/>
@@ -176,6 +185,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="szk-fu-FLl" firstAttribute="trailing" secondItem="zQo-2f-I34" secondAttribute="trailing" id="Mlg-bZ-tZJ"/>
+                            <constraint firstItem="szk-fu-FLl" firstAttribute="leading" secondItem="zQo-2f-I34" secondAttribute="leading" id="S2v-iO-MEK"/>
+                            <constraint firstItem="zQo-2f-I34" firstAttribute="bottom" secondItem="szk-fu-FLl" secondAttribute="bottom" constant="69" id="nIa-IS-EH7"/>
+                            <constraint firstItem="szk-fu-FLl" firstAttribute="top" secondItem="zQo-2f-I34" secondAttribute="top" id="wsO-eN-Gus"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zQo-2f-I34"/>
                     </view>
                     <connections>
@@ -302,9 +317,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NK8-aj-ke1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NK8-aj-ke1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="749"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yhv-fS-Z9g">
                                     <size key="itemSize" width="50" height="50"/>
@@ -325,6 +339,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oYW-vk-Tfu" firstAttribute="bottom" secondItem="NK8-aj-ke1" secondAttribute="bottom" constant="69" id="9be-ab-kxO"/>
+                            <constraint firstItem="NK8-aj-ke1" firstAttribute="leading" secondItem="oYW-vk-Tfu" secondAttribute="leading" id="MZe-9I-4YN"/>
+                            <constraint firstItem="NK8-aj-ke1" firstAttribute="trailing" secondItem="oYW-vk-Tfu" secondAttribute="trailing" id="kfb-yF-5Fk"/>
+                            <constraint firstItem="NK8-aj-ke1" firstAttribute="top" secondItem="oYW-vk-Tfu" secondAttribute="top" id="ouQ-z7-J7I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oYW-vk-Tfu"/>
                     </view>
                     <connections>
@@ -370,6 +390,6 @@
         <image name="pic" width="481" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tp6-Sd-4c8"/>
+        <segue reference="E7J-tH-QcN"/>
     </inferredMetricsTieBreakers>
 </document>

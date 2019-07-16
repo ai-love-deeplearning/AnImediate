@@ -20,6 +20,7 @@
 		321C6E4122DCB99600757F83 /* HomeSeeingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4022DCB99600757F83 /* HomeSeeingVC.swift */; };
 		321C6E4322DCB9B000757F83 /* HomeNotSeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4222DCB9B000757F83 /* HomeNotSeeVC.swift */; };
 		321C6E4522DCB9C700757F83 /* HomeSawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4422DCB9C700757F83 /* HomeSawVC.swift */; };
+		321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */; };
 		3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */; };
 		3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */; };
 		3226CD2922D583B80090937F /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2822D583B80090937F /* InfoVC.swift */; };
@@ -118,6 +119,7 @@
 		321C6E4022DCB99600757F83 /* HomeSeeingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSeeingVC.swift; sourceTree = "<group>"; };
 		321C6E4222DCB9B000757F83 /* HomeNotSeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotSeeVC.swift; sourceTree = "<group>"; };
 		321C6E4422DCB9C700757F83 /* HomeSawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSawVC.swift; sourceTree = "<group>"; };
+		321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleVC.swift; sourceTree = "<group>"; };
 		3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetails.storyboard; sourceTree = "<group>"; };
 		3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsVC.swift; sourceTree = "<group>"; };
 		3226CD2822D583B80090937F /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				32A6411422DC387D002EF6F3 /* AnimeListCardVC.swift */,
 				32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */,
 				32CDA22B22CB218800BD5A76 /* SearchVC.swift */,
+				321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */,
 				503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */,
 				503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */,
 				503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */,
@@ -632,6 +635,7 @@
 				32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */,
 				32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */,
 				32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */,
+				321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */,
 				50165BB322C995BC00A038C8 /* UserInfo.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
 				963B681822D22A63006988FE /* SettingTextVC.swift in Sources */,
