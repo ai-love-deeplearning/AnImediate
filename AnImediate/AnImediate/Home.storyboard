@@ -258,7 +258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEk-J2-qu6">
-                                <rect key="frame" x="20" y="397" width="374" height="20.5"/>
+                                <rect key="frame" x="70" y="397" width="274" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -266,11 +266,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gGx-sx-Sxm" firstAttribute="trailing" secondItem="KEk-J2-qu6" secondAttribute="trailing" constant="20" id="4M4-Qk-awU"/>
+                            <constraint firstItem="gGx-sx-Sxm" firstAttribute="trailing" secondItem="KEk-J2-qu6" secondAttribute="trailing" constant="70" id="4M4-Qk-awU"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="7Uj-bo-pOP"/>
                             <constraint firstItem="bPs-Oc-N2E" firstAttribute="centerX" secondItem="KK0-KW-ckt" secondAttribute="centerX" id="AkG-3n-w68"/>
                             <constraint firstItem="lrt-Hd-1lv" firstAttribute="bottom" secondItem="vWb-K9-LKD" secondAttribute="top" id="BcN-F1-kDs"/>
-                            <constraint firstItem="KEk-J2-qu6" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" constant="20" id="FTK-fd-3Xi"/>
+                            <constraint firstItem="KEk-J2-qu6" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" constant="70" id="FTK-fd-3Xi"/>
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="trailing" secondItem="gGx-sx-Sxm" secondAttribute="trailing" id="GGz-Y1-w3L"/>
                             <constraint firstItem="4Oi-PF-XpH" firstAttribute="top" secondItem="gGx-sx-Sxm" secondAttribute="top" id="GbL-eN-Etz"/>
                             <constraint firstItem="vWb-K9-LKD" firstAttribute="leading" secondItem="gGx-sx-Sxm" secondAttribute="leading" id="I4x-RP-n5r"/>
@@ -390,6 +390,6 @@
         <image name="pic" width="481" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E7J-tH-QcN"/>
+        <segue reference="Tp6-Sd-4c8"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -45,6 +45,12 @@ class ProfileEditVC: UIViewController {
     private var cropFlg: cropType = .icon
     private var profile: UserInfo = UserInfo()
     
+    var nameText: String = ""
+    var commentText: String = ""
+    var iconImage: UIImage = UIImage()
+    var backImage: UIImage = UIImage()
+    
+    
     private let realm = try! Realm()
     
     override func viewDidLoad() {
@@ -52,6 +58,9 @@ class ProfileEditVC: UIViewController {
         
         editTable.delegate = self
         editTable.dataSource = self
+        
+        icon.image = iconImage
+        background.image = backImage
         
         icon.layer.cornerRadius = icon.frame.width * 0.5
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
@@ -161,11 +170,29 @@ extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat.leastNormalMagnitude
+        }
+        return tableView.sectionHeaderHeight
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProfileEditTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProfileEditTableViewCell
         cell.titleLabel.text = editLabels[indexPath.row]
         cell.titleLabel.textColor = .deepMagenta()
         cell.titleLabel.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        
+        switch indexPath.row {
+        case 0:
+            cell.contentTF.text = nameText
+        case 1:
+            cell.contentTF.text = commentText
+        default:
+            break
+        }
+        
+        
         
         return cell
     }
