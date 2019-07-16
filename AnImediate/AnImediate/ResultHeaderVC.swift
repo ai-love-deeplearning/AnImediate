@@ -46,10 +46,12 @@ class ResultHeaderVC: UIViewController {
         }
         self.resultUserInfo.removeLast()
         
-        nameLabel.text = self.resultUserInfo[index].name
-        commentLabel.text = self.resultUserInfo[index].comment
-        iconImageView.image = self.resultUserInfo[index].icon
-        backImageView.image = self.resultUserInfo[index].background
+        if !self.resultUserInfo.isEmpty {
+            nameLabel.text = self.resultUserInfo[index].name
+            commentLabel.text = self.resultUserInfo[index].comment
+            iconImageView.image = self.resultUserInfo[index].icon
+            backImageView.image = self.resultUserInfo[index].background
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

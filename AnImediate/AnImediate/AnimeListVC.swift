@@ -101,9 +101,10 @@ class AnimeListVC: UIViewController {
         cv.register(UINib(nibName: "ThisTermCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: cv.bounds.width*0.2, height: cv.bounds.height)
+        layout.itemSize = CGSize(width: cv.bounds.width*0.25, height: cv.bounds.height)
+        layout.minimumLineSpacing = 0.3
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
         cv.collectionViewLayout = layout
     }
     

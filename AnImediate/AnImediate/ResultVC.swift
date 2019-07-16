@@ -26,7 +26,9 @@ class ResultVC: UIViewController {
         setupCV()
         fetchUserInfo()
         
-        UserDefaults.standard.set(self.resultUserInfo[0].id, forKey: "userID")
+        if !self.resultUserInfo.isEmpty {
+            UserDefaults.standard.set(self.resultUserInfo[0].id, forKey: "userID")
+        }
         UserDefaults.standard.set(0, forKey: "userNum")
     }
     
