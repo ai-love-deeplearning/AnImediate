@@ -79,11 +79,12 @@ class AnimeListCardVC: UIViewController {
                 
             } else {
                 animeListCardCV.indexPathsForSelectedItems?.forEach{
-                    let cell = animeListCardCV.cellForItem(at: $0) as! AnimeListCardCVCell
+                    let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: $0) as! AnimeListCardCVCell
                     cell.layer.borderColor = UIColor.clear.cgColor
                     cell.layer.borderWidth = 0
                     animeListCardCV.deselectItem(at: $0, animated: false)
                 }
+                animeListCardCV.reloadData()
             }
             animeListCardCV.allowsMultipleSelection = false
         } else {
@@ -105,7 +106,7 @@ class AnimeListCardVC: UIViewController {
             return
         }
         animeListCardCV.indexPathsForSelectedItems!.forEach{
-            let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: $0) as! AnimeListCardCVCell
+            let cell = animeListCardCV.cellForItem(at: $0) as! AnimeListCardCVCell
             
             let work = self.works[$0.row]
             cell.bindData(work: work)
@@ -148,12 +149,13 @@ class AnimeListCardVC: UIViewController {
 extension AnimeListCardVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
         if isRegister {
             let cell = collectionView.cellForItem(at: indexPath) as! AnimeListCardCVCell
             cell.layer.borderColor = UIColor.deepMagenta().cgColor
             cell.layer.borderWidth = 2
         } else {
-            let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
+            let cell = collectionView.cellForItem(at: indexPath) as! AnimeListCardCVCell
             let work = works[indexPath.row]
             cell.bindData(work: work)
             
@@ -161,7 +163,7 @@ extension AnimeListCardVC: UICollectionViewDelegate {
             UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
             UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
             UserDefaults.standard.set(cell.seasonText, forKey: "season")
-            
+            collectionView.deselectItem(at: indexPath, animated: false)
             performSegue(withIdentifier: "toDetails", sender: nil)
         }
     }
@@ -173,6 +175,7 @@ extension AnimeListCardVC: UICollectionViewDelegate {
             cell.layer.borderWidth = 0
         }
     }
+    
 }
 
 extension AnimeListCardVC: UICollectionViewDataSource {
@@ -183,6 +186,13 @@ extension AnimeListCardVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
+        if cell.isSelected {
+            cell.layer.borderColor = UIColor.deepMagenta().cgColor
+            cell.layer.borderWidth = 2
+        } else {
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.layer.borderWidth = 0
+        }
         
         let work = self.works[indexPath.row]
         cell.bindData(work: work)
