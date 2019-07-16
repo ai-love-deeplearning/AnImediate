@@ -54,9 +54,12 @@ class ExchangeVC: UIViewController {
         super.viewWillAppear(animated)
         initGradientLayer()
         
+        self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        self.dateString = self.formatter.string(from: now as Date)
+        
         let realm = try! Realm()
         
-        let result = realm.objects(UserInfo.self)
+        let myInfo = Array(realm.objects(UserInfo.self))[0]
         
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.isRemovedOnCompletion = true
@@ -87,7 +90,7 @@ class ExchangeVC: UIViewController {
                     DispatchQueue.main.async {
                         do {
                             // WatchData → NSData
-                            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: result[0], requiringSecureCoding: false)
+                            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: myInfo, requiringSecureCoding: false)
                             P2PConnectivity.manager.send(data: codedInfo)
                         } catch {
                             fatalError("archivedData failed with error: \(error)")
@@ -137,17 +140,15 @@ class ExchangeVC: UIViewController {
 extension ExchangeVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("userhInfoReceive")
-        self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        self.dateString = self.formatter.string(from: now as Date)
         do {
             let realm = try! Realm()
             // NSData → WatchData
             print(data)
             let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! UserInfo
             peerInfo = decoded
+            peerInfo.excangedAt = dateString
             let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
             if peer.isEmpty {
-                peerInfo.excangedAt = self.dateString
                 try! realm.write {
                     realm.add(peerInfo)
                 }
@@ -157,7 +158,7 @@ extension ExchangeVC: ExchangeDelegate {
                     peer[0].comment = peerInfo.comment
                     peer[0].icon = peerInfo.icon
                     peer[0].background = peerInfo.background
-                    peer[0].excangedAt = self.dateString
+                    peer[0].excangedAt = peerInfo.excangedAt
                 }
             }
             DispatchQueue.main.async {

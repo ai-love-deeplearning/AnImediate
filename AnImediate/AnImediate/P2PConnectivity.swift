@@ -50,7 +50,7 @@ class P2PConnectivity: NSObject {
         
         let peerID = MCPeerID(displayName: displayName)
         
-        session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .none)
+        session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .optional)
         session.delegate = self
         
         advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: serviceType)

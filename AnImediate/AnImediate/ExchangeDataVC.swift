@@ -82,20 +82,6 @@ class ExchangeDataVC: UIViewController {
         return formatter.string(from: date)
     }
     
-    // ToDo: 現在時刻はDateFormaterでフォーマットする
-    func getDateAndTime() {
-        // 現在日時
-        let date = Date()
-        // 年月日時分秒をそれぞれ個別に取得
-        let calendar = Calendar.current
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
-        
-        self.recentlyDate = "\(month)" + "/" + "\(day)" + " " + "\(hour)" + ":" + "\(minute)"
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult" {
             P2PConnectivity.manager.stop()

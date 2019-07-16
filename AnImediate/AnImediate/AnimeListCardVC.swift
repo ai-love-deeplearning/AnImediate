@@ -75,11 +75,15 @@ class AnimeListCardVC: UIViewController {
             floatingView.isHidden = true
             self.navigationItem.rightBarButtonItem!.tintColor = .deepMagenta()
             self.navigationItem.rightBarButtonItem!.title = "登録"
-            animeListCardCV.indexPathsForSelectedItems?.forEach{
-                let cell = animeListCardCV.cellForItem(at: $0) as! AnimeListCardCVCell
-                cell.layer.borderColor = UIColor.clear.cgColor
-                cell.layer.borderWidth = 0
-                animeListCardCV.deselectItem(at: $0, animated: false)
+            if animeListCardCV.indexPathsForSelectedItems!.isEmpty {
+                
+            } else {
+                animeListCardCV.indexPathsForSelectedItems?.forEach{
+                    let cell = animeListCardCV.cellForItem(at: $0) as! AnimeListCardCVCell
+                    cell.layer.borderColor = UIColor.clear.cgColor
+                    cell.layer.borderWidth = 0
+                    animeListCardCV.deselectItem(at: $0, animated: false)
+                }
             }
             animeListCardCV.allowsMultipleSelection = false
         } else {
@@ -96,8 +100,11 @@ class AnimeListCardVC: UIViewController {
     @IBAction func registerBtnTapped(_ sender: Any) {
         self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         self.dateString = self.formatter.string(from: now as Date)
-        
-        animeListCardCV.indexPathsForSelectedItems?.forEach{
+        if animeListCardCV.indexPathsForSelectedItems!.isEmpty {
+            changeRegisterMode()
+            return
+        }
+        animeListCardCV.indexPathsForSelectedItems!.forEach{
             let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: $0) as! AnimeListCardCVCell
             
             let work = self.works[$0.row]
