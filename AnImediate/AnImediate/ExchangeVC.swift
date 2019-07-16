@@ -18,6 +18,10 @@ class ExchangeVC: UIViewController {
     var timer: Timer!
     var count = 0
     
+    var dateString = ""
+    let now = NSDate()
+    let formatter = DateFormatter()
+    
     var myInfo: UserInfo = UserInfo()
     var peerInfo: UserInfo = UserInfo()
     
@@ -133,6 +137,8 @@ class ExchangeVC: UIViewController {
 extension ExchangeVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("userhInfoReceive")
+        self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        self.dateString = self.formatter.string(from: now as Date)
         do {
             let realm = try! Realm()
             // NSData → WatchData
@@ -141,6 +147,7 @@ extension ExchangeVC: ExchangeDelegate {
             peerInfo = decoded
             let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
             if peer.isEmpty {
+                peerInfo.excangedAt = self.dateString
                 try! realm.write {
                     realm.add(peerInfo)
                 }
@@ -150,6 +157,7 @@ extension ExchangeVC: ExchangeDelegate {
                     peer[0].comment = peerInfo.comment
                     peer[0].icon = peerInfo.icon
                     peer[0].background = peerInfo.background
+                    peer[0].excangedAt = self.dateString
                 }
             }
             DispatchQueue.main.async {
