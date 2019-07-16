@@ -47,6 +47,13 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource{
         return settingItem.count
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat.leastNormalMagnitude
+        }
+        return tableView.sectionHeaderHeight
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settingTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) 
         cell.textLabel?.text = settingItem[indexPath.row]
@@ -56,6 +63,7 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         switch indexPath.row {
         case 0:
             self.performSegue(withIdentifier: "toUse", sender: self)
@@ -94,5 +102,9 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource{
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
