@@ -13,7 +13,7 @@ class RecomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recomImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var animeId = 0
+    var animeId = ""
     var imageURL = ""
     var seasonText = ""
     

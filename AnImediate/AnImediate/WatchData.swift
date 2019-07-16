@@ -14,7 +14,7 @@ class WatchData : Object, NSCoding {
     
     @objc dynamic var id = ""
     @objc dynamic var userId = ""
-    @objc dynamic var animeId = 0
+    @objc dynamic var animeId = ""
     @objc dynamic var animeStatus = ""
     @objc dynamic var createdAt = ""
     @objc dynamic var udatedAt = ""
@@ -28,7 +28,7 @@ class WatchData : Object, NSCoding {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.userId, forKey: "userId")
         aCoder.encode(self.animeId, forKey: "animeId")
-        aCoder.encode(self.animeId, forKey: "animeStatus")
+        aCoder.encode(self.animeStatus, forKey: "animeStatus")
         aCoder.encode(self.createdAt, forKey: "createdAt")
         aCoder.encode(self.udatedAt, forKey: "udatedAt")
     }
@@ -36,7 +36,7 @@ class WatchData : Object, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         super.init()
         self.userId = aDecoder.decodeObject(forKey: "userId") as! String
-        self.animeId = aDecoder.decodeObject(forKey: "animeId") as! Int
+        self.animeId = aDecoder.decodeObject(forKey: "animeId") as! String
         self.animeStatus = aDecoder.decodeObject(forKey: "animeStatus") as! String
         self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
         self.udatedAt = aDecoder.decodeObject(forKey: "udatedAt") as! String
@@ -46,7 +46,7 @@ class WatchData : Object, NSCoding {
         super.init()
         self.id = ""
         self.userId = ""
-        self.animeId = 0
+        self.animeId = ""
         self.animeStatus = ""
         self.createdAt = ""
         self.udatedAt = ""

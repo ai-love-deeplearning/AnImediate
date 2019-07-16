@@ -17,7 +17,7 @@ class AnimeListCardCVCell: UICollectionViewCell {
     @IBOutlet weak var desLabel: UILabel!
     @IBOutlet weak var registLabel: UILabel!
     
-    var animeId = 0
+    var animeId = ""
     var imageURL = ""
     var seasonText = ""
     

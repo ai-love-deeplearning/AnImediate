@@ -33,13 +33,13 @@ class ResultYouCardVC: UIViewController {
     
     private func fetchWork() {
         
-        var work = Array<Work>(repeating: Work(), count: 1)
+        var work = [Work]()
         
         let userInfo = realm.objects(UserInfo.self)
-        let myResults = realm.objects(WatchData.self).filter("userId == %@", userInfo[0].id)
+        let myResults = realm.objects(WatchData.self).filter("userId==%@ && animeStatus=='見た'", userInfo[0].id)
         
         //let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
-        let partResults = realm.objects(WatchData.self).filter("userId == %@", userInfo[1].id)
+        let partResults = realm.objects(WatchData.self).filter("userId==%@ && animeStatus=='見た'", userInfo[1].id)
         
         for i in 0..<partResults.count {
             

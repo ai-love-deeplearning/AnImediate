@@ -13,7 +13,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var animeId = 0
+    var animeId = ""
     var imageURL = ""
     var seasonText = ""
     

@@ -22,7 +22,7 @@ class InfoVC: UIViewController {
     let statusList = ["", "見たい", "見てる", "見た", "見てない"]
     
     var dateString = ""
-    var animeId = 0
+    var animeId = ""
     var pickerView = UIPickerView()
     var watchData = WatchData()
     
@@ -35,7 +35,7 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.animeId = UserDefaults.standard.integer(forKey: "animeId")
+        self.animeId = UserDefaults.standard.string(forKey: "animeId")!
         titleLabel.text = UserDefaults.standard.string(forKey: "title")!
         seasonLabel.text = "放送年：" + UserDefaults.standard.string(forKey: "season")!
         
