@@ -21,6 +21,14 @@ class ResultVC: UIViewController {
         setupCV()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let userInfo = realm.objects(UserInfo.self)
+        
+        if userInfo.count == 1 {
+            self.containerView.isHidden = true
+        }
+    }
+    
     private func setupCV() {
         self.userCV.delegate = self
         self.userCV.dataSource = self

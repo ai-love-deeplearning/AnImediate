@@ -50,6 +50,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF5-1f-NuW">
+                                <rect key="frame" x="0.0" y="88" width="414" height="609.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="k9w-pG-nyE">
+                                        <rect key="frame" x="124" y="130.5" width="166" height="165.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="k9w-pG-nyE" secondAttribute="height" multiplier="1:1" id="I3w-GK-DOc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友達と交換しよう！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-3b-bF3">
+                                        <rect key="frame" x="115.5" y="346" width="183.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="k9w-pG-nyE" firstAttribute="width" secondItem="gF5-1f-NuW" secondAttribute="width" multiplier="0.4" id="2HD-PX-cMe"/>
+                                    <constraint firstItem="k9w-pG-nyE" firstAttribute="centerY" secondItem="gF5-1f-NuW" secondAttribute="centerY" multiplier="0.7" id="Eek-nJ-UDv"/>
+                                    <constraint firstItem="AQ4-3b-bF3" firstAttribute="centerX" secondItem="gF5-1f-NuW" secondAttribute="centerX" id="Kc9-hM-YRT"/>
+                                    <constraint firstItem="k9w-pG-nyE" firstAttribute="centerX" secondItem="gF5-1f-NuW" secondAttribute="centerX" id="Vsn-Na-3W6"/>
+                                    <constraint firstItem="AQ4-3b-bF3" firstAttribute="top" secondItem="k9w-pG-nyE" secondAttribute="bottom" constant="50" id="j48-Nc-g4a"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTJ-Jg-kYe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="609.5"/>
                                 <connections>
@@ -90,7 +115,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="35"/>
+                                                <real key="value" value="33"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,16 +155,20 @@
                         <constraints>
                             <constraint firstItem="BTJ-Jg-kYe" firstAttribute="height" secondItem="VRn-RF-8e7" secondAttribute="height" multiplier="0.68" id="0wT-Nc-rIh"/>
                             <constraint firstItem="qjH-Nz-8kz" firstAttribute="width" secondItem="VRn-RF-8e7" secondAttribute="width" multiplier="0.75" id="6Wt-9l-S3e"/>
+                            <constraint firstItem="gF5-1f-NuW" firstAttribute="height" secondItem="BTJ-Jg-kYe" secondAttribute="height" id="F60-Le-brg"/>
                             <constraint firstItem="qjH-Nz-8kz" firstAttribute="leading" secondItem="BXf-Cd-5do" secondAttribute="trailing" id="Hdl-Wu-dJM"/>
+                            <constraint firstItem="gF5-1f-NuW" firstAttribute="trailing" secondItem="RfJ-Il-fxk" secondAttribute="trailing" id="K4Q-LD-h7E"/>
                             <constraint firstItem="qjH-Nz-8kz" firstAttribute="top" secondItem="BTJ-Jg-kYe" secondAttribute="bottom" id="NuQ-hV-Q0M"/>
                             <constraint firstItem="qjH-Nz-8kz" firstAttribute="bottom" secondItem="RfJ-Il-fxk" secondAttribute="bottom" id="PHg-5M-SmA"/>
                             <constraint firstItem="BTJ-Jg-kYe" firstAttribute="top" secondItem="RfJ-Il-fxk" secondAttribute="top" id="T5q-WV-dPB"/>
                             <constraint firstItem="qjH-Nz-8kz" firstAttribute="trailing" secondItem="RfJ-Il-fxk" secondAttribute="trailing" id="UlV-Rt-V2Q"/>
+                            <constraint firstItem="gF5-1f-NuW" firstAttribute="top" secondItem="RfJ-Il-fxk" secondAttribute="top" id="ahP-Gv-x77"/>
                             <constraint firstItem="BTJ-Jg-kYe" firstAttribute="leading" secondItem="RfJ-Il-fxk" secondAttribute="leading" id="cem-LD-Sn5"/>
                             <constraint firstItem="BXf-Cd-5do" firstAttribute="leading" secondItem="RfJ-Il-fxk" secondAttribute="leading" id="eqL-Y2-eph"/>
                             <constraint firstItem="BTJ-Jg-kYe" firstAttribute="trailing" secondItem="RfJ-Il-fxk" secondAttribute="trailing" id="ety-xO-Zuq"/>
                             <constraint firstItem="BXf-Cd-5do" firstAttribute="bottom" secondItem="RfJ-Il-fxk" secondAttribute="bottom" id="idU-tU-9rT"/>
                             <constraint firstItem="BXf-Cd-5do" firstAttribute="top" secondItem="BTJ-Jg-kYe" secondAttribute="bottom" id="mXX-Qp-OUd"/>
+                            <constraint firstItem="gF5-1f-NuW" firstAttribute="leading" secondItem="RfJ-Il-fxk" secondAttribute="leading" id="zFu-7Z-wz1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RfJ-Il-fxk"/>
                     </view>
@@ -156,7 +185,6 @@
         <!--Scroll View Controller-->
         <scene sceneID="mI3-qi-7QX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kMx-oe-wXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="te5-F1-Hj4" customClass="MXScrollViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f0j-ne-8EP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="609.5"/>
@@ -177,6 +205,7 @@
                         <segue destination="94W-u2-0S2" kind="custom" identifier="toResultScroll" customClass="MXScrollViewControllerSegue" id="sMJ-Q9-xt9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMx-oe-wXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1165" y="96"/>
         </scene>
@@ -480,6 +509,7 @@
     <resources>
         <image name="exchange" width="30" height="27.5"/>
         <image name="header_sample" width="900" height="600"/>
+        <image name="logo" width="435" height="481"/>
         <image name="pic" width="481" height="480"/>
     </resources>
 </document>
