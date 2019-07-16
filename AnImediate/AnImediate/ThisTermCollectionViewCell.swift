@@ -13,7 +13,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var animeID = ""
+    var animeId = 0
     var imageURL = ""
     var seasonText = ""
     
@@ -23,7 +23,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
     }
 
     public func bindData(work: Work) {
-        animeID = work.id
+        animeId = work.animeId
         imageURL = work.imageUrl
         titleLabel.text = work.title
         titleLabel.textColor = .deepMagenta()

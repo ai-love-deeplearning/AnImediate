@@ -13,7 +13,12 @@ class ResultYouCardVC: UIViewController {
 
     @IBOutlet weak var cardCV: UICollectionView!
     
-    public var works: [Work] = []
+    var flag = false
+    public var works: [Work] = [] {
+        didSet {
+            cardCV.reloadData()
+        }
+    }
     
     let realm = try! Realm()
     
@@ -27,28 +32,31 @@ class ResultYouCardVC: UIViewController {
     }
     
     private func fetchWork() {
-        var flag = false
+        
+        var work = Array<Work>(repeating: Work(), count: 1)
         
         let userInfo = realm.objects(UserInfo.self)
-        let myResults = realm.objects(WatchData.self).filter("userId='" + userInfo[0].id + "'")
+        let myResults = realm.objects(WatchData.self).filter("userId == %@", userInfo[0].id)
         
-        let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
-        let partResults = realm.objects(WatchData.self).filter("userId='" + selectUserID + "'")
+        //let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
+        let partResults = realm.objects(WatchData.self).filter("userId == %@", userInfo[1].id)
         
-        for partResult in partResults {
+        for i in 0..<partResults.count {
             
-            for myResult in myResults {
-                if partResult.animeId == myResult.animeId {
+            for j in 0..<myResults.count {
+                if partResults[i].animeId == myResults[j].animeId {
                     flag = true
                 }
             }
             
             if !flag {
-                let workResults = realm.objects(Work.self).filter("animeID='" + partResult.animeId + "'")
-                self.works.append(workResults[0])
+                let workResults = realm.objects(Work.self).filter("animeId == %@", partResults[i].animeId)
+                work.append(workResults[0])
             }
+            self.works = work
             flag = false
         }
+        work = [Work]()
     }
     
     private func setupCV() {
@@ -79,7 +87,7 @@ extension ResultYouCardVC: UICollectionViewDelegate {
         let work = works[indexPath.row]
         cell.bindData(work: work)
         
-        UserDefaults.standard.set(cell.animeID, forKey: "id")
+        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
         UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
         UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
         UserDefaults.standard.set(cell.seasonText, forKey: "season")

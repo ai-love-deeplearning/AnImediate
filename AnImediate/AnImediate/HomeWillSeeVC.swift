@@ -40,9 +40,9 @@ class HomeWillSeeVC: UIViewController {
         if userInfo.isEmpty {
             
         } else {
-            let myResults = realm.objects(WatchData.self).filter("userId='" + userInfo[0].id + "'" + "&&" + "animeStatus='見たい'")
+            let myResults = realm.objects(WatchData.self).filter("userId == %@ && animeStatus == '見たい'", userInfo[0].id)
             for i in 0..<myResults.count {
-                let workResults = realm.objects(Work.self).filter("id='" + myResults[i].animeId + "'")
+                let workResults = realm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
                 if workResults.isEmpty {
                     
                 } else {
@@ -82,7 +82,7 @@ extension HomeWillSeeVC: UICollectionViewDelegate {
         let work = works[indexPath.row]
         cell.bindData(work: work)
         
-        UserDefaults.standard.set(cell.animeID, forKey: "id")
+        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
         UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
         UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
         UserDefaults.standard.set(cell.seasonText, forKey: "season")

@@ -100,16 +100,13 @@ class ExchangeDataVC: UIViewController {
 extension ExchangeDataVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("watchDataReceive")
-        self.isReceived = true
         DispatchQueue.main.async {
             if self.isAccepted, self.isReceived { // 承認してるかつデータを受け取ったら（相手も承認）
                 // result画面にデータを渡す
                 self.performSegue(withIdentifier: "toResult", sender: nil)
                 
             } else {
-                if type(of: data) == UserInfo.self {
-                    
-                }
+                self.isReceived = true
                 do {
                     // NSData → WatchData
                     let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]

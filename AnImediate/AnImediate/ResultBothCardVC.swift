@@ -33,8 +33,8 @@ class ResultBothCardVC: UIViewController {
         let userInfo = realm.objects(UserInfo.self)
         let myResults = realm.objects(WatchData.self).filter("userId='" + userInfo[0].id + "'")
         
-        let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
-        let partResults = realm.objects(WatchData.self).filter("userId='" + selectUserID + "'")
+        //let selectUserID = UserDefaults.standard.string(forKey: "userId") ?? ""
+        let partResults = realm.objects(WatchData.self).filter("userId == %@", userInfo[1].id)
         
         for myResult in myResults {
             
@@ -45,7 +45,7 @@ class ResultBothCardVC: UIViewController {
             }
             
             if flag {
-                let workResults = realm.objects(Work.self).filter("animeID='" + myResult.animeId + "'")
+                let workResults = realm.objects(Work.self).filter("animeId == %@", myResult.animeId)
                 self.works.append(workResults[0])
             }
             flag = false
@@ -80,7 +80,7 @@ extension ResultBothCardVC: UICollectionViewDelegate {
         let work = works[indexPath.row]
         cell.bindData(work: work)
         
-        UserDefaults.standard.set(cell.animeID, forKey: "id")
+        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
         UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
         UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
         UserDefaults.standard.set(cell.seasonText, forKey: "season")

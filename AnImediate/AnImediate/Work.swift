@@ -12,7 +12,7 @@ import RealmSwift
 
 class Work: Object {
     @objc dynamic var id = NSUUID().uuidString
-    @objc dynamic var animeID = ""
+    @objc dynamic var animeId = 0
     @objc dynamic var title = ""
     @objc dynamic var episodesCount = 0
     @objc dynamic var seasonNameText = ""
@@ -28,7 +28,7 @@ class Work: Object {
     
     init(value: [String: Any]) {
         super.init()
-        self.animeID = value["id"] as? String ?? ""
+        self.animeId = value["id"] as? Int ?? 0
         self.title = value["title"] as? String ?? ""
         self.episodesCount = value["episodesCount"] as? Int ?? 0
         self.seasonNameText = value["seasonNameText"] as? String ?? ""
@@ -41,7 +41,7 @@ class Work: Object {
     
     required init() {
         super.init()
-        self.animeID = ""
+        self.animeId = 0
         self.title = ""
         self.episodesCount = 0
         self.seasonNameText = ""

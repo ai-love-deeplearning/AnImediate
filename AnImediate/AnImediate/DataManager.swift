@@ -32,7 +32,7 @@ class DataManager: NSObject {
                 let realm = try! Realm()
                 
                 for i in 0..<work.count {
-                    print(work[i].title)
+                    print(work[i].animeId)
                     try! realm.write {
                         realm.add(work[i])
                     }
