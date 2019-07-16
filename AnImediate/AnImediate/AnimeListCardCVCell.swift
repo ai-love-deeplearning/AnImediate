@@ -17,7 +17,7 @@ class AnimeListCardCVCell: UICollectionViewCell {
     @IBOutlet weak var desLabel: UILabel!
     @IBOutlet weak var registLabel: UILabel!
     
-    var animeID = ""
+    var animeId = ""
     var imageURL = ""
     var seasonText = ""
     
@@ -27,7 +27,7 @@ class AnimeListCardCVCell: UICollectionViewCell {
 
     public func bindData(work: Work) {
         
-        animeID = work.id
+        animeId = work.animeId
         imageURL = work.imageUrl
         
         titleLabel.text = work.title

@@ -15,18 +15,40 @@ class ResultVC: UIViewController {
     @IBOutlet weak var userCV: UICollectionView!
     
     let realm = try! Realm()
+    let resultHeaderVC = ResultHeaderVC()
+    let resultScrollVC = ResultScrollVC()
+    
+    var resultUserInfo: [UserInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupCV()
+        fetchUserInfo()
+        
+        UserDefaults.standard.set(self.resultUserInfo[0].id, forKey: "userID")
+        UserDefaults.standard.set(0, forKey: "userNum")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        fetchUserInfo()
+    }
+    
+    private func fetchUserInfo() {
         let userInfo = realm.objects(UserInfo.self)
+        var result = [UserInfo]()
         
         if userInfo.count == 1 {
             self.containerView.isHidden = true
         }
+        
+        for user in (userInfo).reversed() {
+            result.append(user)
+        }
+        result.removeLast()
+        
+        self.resultUserInfo = result
+        result = [UserInfo]()
     }
     
     private func setupCV() {
@@ -36,30 +58,59 @@ class ResultVC: UIViewController {
         self.userCV.register(UINib(nibName: "ResultUserCVCell", bundle: nil), forCellWithReuseIdentifier: "userCell")
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.userCV.bounds.width*0.2, height: self.userCV.bounds.height)
+        layout.itemSize = CGSize(width: self.userCV.bounds.width*0.3, height: self.userCV.bounds.height)
+        layout.minimumLineSpacing = 0.3
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         self.userCV.collectionViewLayout = layout
     }
 }
 
 extension ResultVC: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = userCV.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! ResultUserCVCell
+        cell.bindData(userInfo: self.resultUserInfo[indexPath.row])
+        
+        let selectCell = collectionView.cellForItem(at: indexPath) as! ResultUserCVCell
+        selectCell.iconImageView.layer.borderWidth = 1
+        
+        UserDefaults.standard.set(self.resultUserInfo[indexPath.row].id, forKey: "userID")
+        UserDefaults.standard.set(indexPath.row, forKey: "userNum")
+        
+        self.resultHeaderVC.reloadInputViews()
+        self.resultScrollVC.reloadInputViews()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let deSelectCell = collectionView.cellForItem(at: indexPath) as! ResultUserCVCell
+        deSelectCell.iconImageView.layer.borderWidth = 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 extension ResultVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let userInfo = realm.objects(UserInfo.self)
-        
-        return userInfo.count - 1
+        return self.resultUserInfo.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let userInfo = realm.objects(UserInfo.self)
         let cell = userCV.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! ResultUserCVCell
         
-        cell.bindData(userInfo: userInfo[indexPath.row])
+        cell.bindData(userInfo: self.resultUserInfo[indexPath.row])
+        cell.iconImageView.layer.borderWidth = 0
+        
         return cell
     }
 }

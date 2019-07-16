@@ -28,7 +28,7 @@ class WatchData : Object, NSCoding {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.userId, forKey: "userId")
         aCoder.encode(self.animeId, forKey: "animeId")
-        aCoder.encode(self.animeId, forKey: "animeStatus")
+        aCoder.encode(self.animeStatus, forKey: "animeStatus")
         aCoder.encode(self.createdAt, forKey: "createdAt")
         aCoder.encode(self.udatedAt, forKey: "udatedAt")
     }

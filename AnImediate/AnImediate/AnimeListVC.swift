@@ -139,7 +139,7 @@ extension AnimeListVC: UICollectionViewDelegate {
             let recomWork = recomWorks[indexPath.row]
             recomCell.bindData(work: recomWork)
             
-            UserDefaults.standard.set(recomCell.animeID, forKey: "id")
+            UserDefaults.standard.set(recomCell.animeId, forKey: "animeId")
             UserDefaults.standard.set(recomCell.imageURL, forKey: "imageURL")
             UserDefaults.standard.set(recomCell.titleLabel.text, forKey: "title")
             UserDefaults.standard.set(recomCell.seasonText, forKey: "season")
@@ -147,7 +147,7 @@ extension AnimeListVC: UICollectionViewDelegate {
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
             
-            UserDefaults.standard.set(cell.animeID, forKey: "id")
+            UserDefaults.standard.set(cell.animeId, forKey: "animeId")
             UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
             UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
             UserDefaults.standard.set(cell.seasonText, forKey: "season")
@@ -156,7 +156,7 @@ extension AnimeListVC: UICollectionViewDelegate {
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work:rankingWork)
             
-            UserDefaults.standard.set(cell.animeID, forKey: "id")
+            UserDefaults.standard.set(cell.animeId, forKey: "animeId")
             UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
             UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
             UserDefaults.standard.set(cell.seasonText, forKey: "season")

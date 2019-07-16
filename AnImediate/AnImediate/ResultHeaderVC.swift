@@ -18,6 +18,8 @@ class ResultHeaderVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
+    var resultUserInfo: [UserInfo] = []
+    
     private let realm = try! Realm()
     
     override func viewDidLoad() {
@@ -36,13 +38,18 @@ class ResultHeaderVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let results = realm.objects(UserInfo.self)
-        if results.count != 1 {
-            nameLabel.text = results.last?.name
-            commentLabel.text = results.last?.comment
-            iconImageView.image = results.last?.icon
-            backImageView.image = results.last?.background
+        let userInfo = realm.objects(UserInfo.self)
+        let index = UserDefaults.standard.integer(forKey: "userNum")
+        
+        for user in (userInfo).reversed() {
+            self.resultUserInfo.append(user)
         }
+        self.resultUserInfo.removeLast()
+        
+        nameLabel.text = self.resultUserInfo[index].name
+        commentLabel.text = self.resultUserInfo[index].comment
+        iconImageView.image = self.resultUserInfo[index].icon
+        backImageView.image = self.resultUserInfo[index].background
     }
     
     override func viewDidAppear(_ animated: Bool) {

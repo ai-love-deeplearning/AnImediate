@@ -35,11 +35,11 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.animeId = UserDefaults.standard.string(forKey: "id")!
+        self.animeId = UserDefaults.standard.string(forKey: "animeId")!
         titleLabel.text = UserDefaults.standard.string(forKey: "title")!
         seasonLabel.text = "放送年：" + UserDefaults.standard.string(forKey: "season")!
         
-        let results = realm.objects(WatchData.self).filter("animeId='" + self.animeId + "'")
+        let results = realm.objects(WatchData.self).filter("animeId == %@", self.animeId)
         if results.count != 0 {
             self.statusTextField.text = results[0].animeStatus
         }
@@ -113,7 +113,7 @@ extension InfoVC: UICollectionViewDelegate, UIPickerViewDelegate {
         self.dateString = self.formatter.string(from: now as Date)
         
         if self.statusTextField.text != "" {
-            let results = realm.objects(WatchData.self).filter("animeId='" + self.animeId + "'")
+            let results = realm.objects(WatchData.self).filter("animeId == %@", self.animeId)
             let userInfo = realm.objects(UserInfo.self)
             
             if results.isEmpty {

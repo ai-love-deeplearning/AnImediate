@@ -86,7 +86,7 @@ extension SearchTitleVC: UICollectionViewDelegate, UISearchBarDelegate {
         let work = works[indexPath.row]
         cell.bindData(work: work)
         
-        UserDefaults.standard.set(cell.animeID, forKey: "id")
+        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
         UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
         UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
         UserDefaults.standard.set(cell.seasonText, forKey: "season")

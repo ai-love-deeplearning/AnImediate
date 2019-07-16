@@ -114,13 +114,13 @@ class AnimeListCardVC: UIViewController {
             let watchData = WatchData()
             
             if self.statusTextField.text != "" {
-                let results = realm.objects(WatchData.self).filter("animeId='" + cell.animeID + "'")
+                let results = realm.objects(WatchData.self).filter("animeId == %@", cell.animeId)
                 let userInfo = realm.objects(UserInfo.self)
                 
                 if results.isEmpty {
                     watchData.id = NSUUID().uuidString
                     watchData.userId = userInfo[0].id
-                    watchData.animeId = cell.animeID
+                    watchData.animeId = cell.animeId
                     watchData.animeStatus = self.statusTextField.text ?? ""
                     watchData.createdAt = self.dateString
                     
@@ -159,7 +159,7 @@ extension AnimeListCardVC: UICollectionViewDelegate {
             let work = works[indexPath.row]
             cell.bindData(work: work)
             
-            UserDefaults.standard.set(cell.animeID, forKey: "id")
+            UserDefaults.standard.set(cell.animeId, forKey: "animeId")
             UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
             UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
             UserDefaults.standard.set(cell.seasonText, forKey: "season")
