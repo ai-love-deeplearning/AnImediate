@@ -15,6 +15,7 @@ class UserInfo : Object, NSCoding {
     @objc dynamic var id = ""
     @objc dynamic var name = ""
     @objc dynamic var comment = ""
+    @objc dynamic var excangedAt = ""
     @objc dynamic var _icon: UIImage? = nil
     @objc dynamic var icon: UIImage? {
         set{
@@ -70,6 +71,7 @@ class UserInfo : Object, NSCoding {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.comment, forKey: "comment")
+        aCoder.encode(self.excangedAt, forKey: "excangedAt")
         aCoder.encode(self.iconData, forKey: "icon")
         aCoder.encode(self.backData, forKey: "back")
     }
@@ -79,6 +81,7 @@ class UserInfo : Object, NSCoding {
         self.id = aDecoder.decodeObject(forKey: "id") as! String
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.comment = aDecoder.decodeObject(forKey: "comment") as! String
+        self.excangedAt = aDecoder.decodeObject(forKey: "excangedAt") as! String
         self.iconData = (aDecoder.decodeObject(forKey: "icon") as! NSData)
         self.backData = (aDecoder.decodeObject(forKey: "back") as! NSData)
         
@@ -89,6 +92,7 @@ class UserInfo : Object, NSCoding {
         self.id = ""
         self.name = ""
         self.comment = ""
+        self.excangedAt = ""
     }
     
     required init(value: Any, schema: RLMSchema) {

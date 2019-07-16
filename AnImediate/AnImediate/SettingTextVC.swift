@@ -28,14 +28,9 @@ class SettingTextVC: UIViewController {
             contentText = "license"
         case .privacy:
             contentText = "privacy"
-        default:
-            contentText = "default"
         }
         textView.text = contentText
             //textView.text = "1234567890abcdefghijklmnopqrstuwxyz 1234567890 abcdefghijklmnopqrstuwxyz \na\nb\nc\ndefghijklmnopqrstuwxyz \n http://www.gclue.com\n"
     }
     
-
-
-
 }
