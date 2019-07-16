@@ -23,7 +23,7 @@ class HomeSawVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchWork()
         setupCV()
     }
     
