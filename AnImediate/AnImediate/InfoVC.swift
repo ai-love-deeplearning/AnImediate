@@ -44,15 +44,6 @@ class InfoVC: UIViewController {
             self.statusTextField.text = results[0].animeStatus
         }
         
-        let border = CALayer()
-        let width = CGFloat(2.0)
-        
-        border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: statusTextField.frame.size.height - width, width:  statusTextField.frame.size.width, height: 1)
-        border.borderWidth = width
-        
-        statusTextField.layer.addSublayer(border)
-        
         similarCollectionView.delegate = self
         similarCollectionView.dataSource = self
         
