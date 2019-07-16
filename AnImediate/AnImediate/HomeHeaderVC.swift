@@ -53,8 +53,10 @@ class HomeHeaderVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
         
-        parallaxHeader?.minimumHeight = 88
+        parallaxHeader?.minimumHeight = statusBarHeight + navBarHeight
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

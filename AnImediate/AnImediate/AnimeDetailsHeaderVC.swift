@@ -34,8 +34,10 @@ class AnimeDetailsHeaderVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
         
-        parallaxHeader?.minimumHeight = 88
+        parallaxHeader?.minimumHeight = statusBarHeight + navBarHeight
     }
     
     private func setIconImageView(imageUrlString: String) {
