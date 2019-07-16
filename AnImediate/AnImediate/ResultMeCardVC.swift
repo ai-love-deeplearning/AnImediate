@@ -38,8 +38,8 @@ class ResultMeCardVC: UIViewController {
         let userInfo = realm.objects(UserInfo.self)
         let myResults = realm.objects(WatchData.self).filter("userId==%@ && animeStatus=='見た'", userInfo[0].id)
         
-        //let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
-        let partResults = realm.objects(WatchData.self).filter("userId==%@ && animeStatus=='見た'", userInfo[1].id)
+        let selectUserID = UserDefaults.standard.string(forKey: "userID") ?? ""
+        let partResults = realm.objects(WatchData.self).filter("userId==%@ && animeStatus=='見た'", selectUserID)
     
         for i in 0..<myResults.count {
             

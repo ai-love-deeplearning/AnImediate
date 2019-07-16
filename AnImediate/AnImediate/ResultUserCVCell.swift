@@ -10,16 +10,20 @@ import UIKit
 
 class ResultUserCVCell: UICollectionViewCell {
 
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var userId = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     public func bindData(userInfo: UserInfo) {
+        self.userId = userInfo.id
         
-        self.iconImageView.image = userInfo._icon
+        self.iconImageView.image = UIImage(data: userInfo.iconData! as Data)!
         self.nameLabel.text = userInfo.name
     }
 }
