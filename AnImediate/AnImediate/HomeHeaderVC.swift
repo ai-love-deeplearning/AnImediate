@@ -63,6 +63,10 @@ class HomeHeaderVC: UIViewController {
             let nextVC = nc.topViewController as! ProfileEditVC
             nextVC.cancelBtn.title = ""
             nextVC.cancelBtn.isEnabled = false
+            nextVC.nameText = nameLabel.text!
+            nextVC.commentText = commentLabel.text!
+            nextVC.iconImage = iconView.image!
+            nextVC.backImage = backView.image!
             print("profile is empty")
         }
     }

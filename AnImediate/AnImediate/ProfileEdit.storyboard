@@ -53,8 +53,8 @@
                                     <action selector="iconBtntapped:" destination="iMQ-lw-JSb" eventType="touchUpInside" id="N01-pm-faF"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iv5-8K-azQ">
-                                <rect key="frame" x="0.0" y="385" width="414" height="477"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iv5-8K-azQ">
+                                <rect key="frame" x="0.0" y="375" width="414" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,7 +107,7 @@
                             <constraint firstItem="iv5-8K-azQ" firstAttribute="leading" secondItem="Dp4-r7-bwD" secondAttribute="leading" id="XEu-oi-7Bw"/>
                             <constraint firstItem="x2y-BS-kZE" firstAttribute="bottom" secondItem="o4k-A9-gnw" secondAttribute="bottom" id="Xo3-c7-hjq"/>
                             <constraint firstItem="3Mj-kx-FHd" firstAttribute="top" secondItem="woD-De-zcT" secondAttribute="top" id="eWX-hy-Xkl"/>
-                            <constraint firstItem="iv5-8K-azQ" firstAttribute="top" secondItem="woD-De-zcT" secondAttribute="bottom" constant="40" id="fqe-1X-lkU"/>
+                            <constraint firstItem="iv5-8K-azQ" firstAttribute="top" secondItem="woD-De-zcT" secondAttribute="bottom" constant="30" id="fqe-1X-lkU"/>
                             <constraint firstItem="x2y-BS-kZE" firstAttribute="trailing" secondItem="o4k-A9-gnw" secondAttribute="trailing" id="gvB-Q0-OkH"/>
                             <constraint firstItem="o4k-A9-gnw" firstAttribute="top" secondItem="Dp4-r7-bwD" secondAttribute="top" id="iq4-iI-775"/>
                             <constraint firstItem="x2y-BS-kZE" firstAttribute="top" secondItem="o4k-A9-gnw" secondAttribute="top" id="mxf-CM-q3r"/>
