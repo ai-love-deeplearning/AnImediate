@@ -113,20 +113,73 @@
             </objects>
             <point key="canvasLocation" x="3657" y="92"/>
         </scene>
-        <!--View Controller-->
+        <!--Search TitleVC-->
         <scene sceneID="KdZ-JN-Qbj">
             <objects>
-                <viewController storyboardIdentifier="title" id="iTh-sF-XlD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="title" id="iTh-sF-XlD" customClass="SearchTitleVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3sx-VR-CIC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EMk-Rq-7nx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="1I0-kx-eHP"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Um6-HD-hNi">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z1v-sY-ZSb">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="scC-Q4-bzB" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EMk-Rq-7nx" firstAttribute="leading" secondItem="e8i-V7-Vi5" secondAttribute="leading" id="Hru-Qh-2Ui"/>
+                            <constraint firstItem="Um6-HD-hNi" firstAttribute="bottom" secondItem="e8i-V7-Vi5" secondAttribute="bottom" id="OVm-ho-iXB"/>
+                            <constraint firstItem="EMk-Rq-7nx" firstAttribute="top" secondItem="e8i-V7-Vi5" secondAttribute="top" id="Uvq-Xf-SLB"/>
+                            <constraint firstItem="EMk-Rq-7nx" firstAttribute="trailing" secondItem="e8i-V7-Vi5" secondAttribute="trailing" id="brk-vZ-uFJ"/>
+                            <constraint firstItem="Um6-HD-hNi" firstAttribute="leading" secondItem="e8i-V7-Vi5" secondAttribute="leading" id="dfD-BQ-INw"/>
+                            <constraint firstItem="Um6-HD-hNi" firstAttribute="top" secondItem="EMk-Rq-7nx" secondAttribute="bottom" id="xpT-Dp-K3J"/>
+                            <constraint firstItem="Um6-HD-hNi" firstAttribute="trailing" secondItem="e8i-V7-Vi5" secondAttribute="trailing" id="y7N-dQ-azZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="e8i-V7-Vi5"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCV" destination="Um6-HD-hNi" id="Lzm-hY-ip1"/>
+                        <outlet property="searchBar" destination="EMk-Rq-7nx" id="aUP-OX-gKk"/>
+                        <segue destination="7BY-eP-7lv" kind="show" identifier="toDetails" id="owg-Fc-8Tw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx5-bU-sVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4672" y="92"/>
+            <point key="canvasLocation" x="4671.0144927536239" y="91.741071428571431"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="fKc-Zl-Pow">
+            <objects>
+                <viewControllerPlaceholder id="7BY-eP-7lv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wJ7-hv-1D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4680" y="502"/>
         </scene>
     </scenes>
 </document>
