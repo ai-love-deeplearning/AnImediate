@@ -20,14 +20,11 @@ class AnimeListCardVC: UIViewController {
     
     public var works = Array<Work>(repeating: Work(), count: 20)
     
-    var indexPaths: [IndexPath] = []
-    
     let realm = try! Realm()
     let now = NSDate()
     let formatter = DateFormatter()
     private let statusList = ["", "見たい", "見てる", "見た", "見てない"]
     var dateString = ""
-    var animeId = ""
     var pickerView = UIPickerView()
     
     override func viewDidLoad() {
@@ -78,13 +75,12 @@ class AnimeListCardVC: UIViewController {
             floatingView.isHidden = true
             self.navigationItem.rightBarButtonItem!.tintColor = .deepMagenta()
             self.navigationItem.rightBarButtonItem!.title = "登録"
-            indexPaths.forEach{
+            animeListCardCV.indexPathsForSelectedItems?.forEach{
                 let cell = animeListCardCV.cellForItem(at: $0) as! AnimeListCardCVCell
                 cell.layer.borderColor = UIColor.clear.cgColor
                 cell.layer.borderWidth = 0
                 animeListCardCV.deselectItem(at: $0, animated: false)
             }
-            indexPaths.removeAll()
             animeListCardCV.allowsMultipleSelection = false
         } else {
             isRegister = true
@@ -100,29 +96,39 @@ class AnimeListCardVC: UIViewController {
     @IBAction func registerBtnTapped(_ sender: Any) {
         self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         self.dateString = self.formatter.string(from: now as Date)
-        /*
-        if self.statusTextField.text != "" {
-            let results = realm.objects(WatchData.self).filter("animeId='" + self.animeId + "'")
-            let userInfo = realm.objects(UserInfo.self)
+        
+        animeListCardCV.indexPathsForSelectedItems?.forEach{
+            let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: $0) as! AnimeListCardCVCell
             
-            if results.isEmpty {
-                self.watchData.id = NSUUID().uuidString
-                self.watchData.userId = userInfo[0].id
-                self.watchData.animeId = self.animeId
-                self.watchData.animeStatus = self.statusTextField.text ?? ""
-                self.watchData.createdAt = self.dateString
+            let work = self.works[$0.row]
+            cell.bindData(work: work)
+            
+            let watchData = WatchData()
+            
+            if self.statusTextField.text != "" {
+                let results = realm.objects(WatchData.self).filter("animeId='" + cell.animeID + "'")
+                let userInfo = realm.objects(UserInfo.self)
                 
-                try! realm.write {
-                    realm.add(watchData)
-                }
-                
-            } else {
-                try! realm.write {
-                    results[0].animeStatus = self.statusTextField.text ?? ""
-                    results[0].udatedAt = self.dateString
+                if results.isEmpty {
+                    watchData.id = NSUUID().uuidString
+                    watchData.userId = userInfo[0].id
+                    watchData.animeId = cell.animeID
+                    watchData.animeStatus = self.statusTextField.text ?? ""
+                    watchData.createdAt = self.dateString
+                    
+                    try! realm.write {
+                        realm.add(watchData)
+                    }
+                    
+                } else {
+                    try! realm.write {
+                        results[0].animeStatus = self.statusTextField.text ?? ""
+                        results[0].udatedAt = self.dateString
+                    }
                 }
             }
-        }*/
+        }
+        changeRegisterMode()
     }
     
     
@@ -139,7 +145,6 @@ extension AnimeListCardVC: UICollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath) as! AnimeListCardCVCell
             cell.layer.borderColor = UIColor.deepMagenta().cgColor
             cell.layer.borderWidth = 2
-            indexPaths.append(indexPath)
         } else {
             let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
             let work = works[indexPath.row]

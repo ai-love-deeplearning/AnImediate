@@ -40,7 +40,11 @@ class HomeNotSeeVC: UIViewController {
         
         for i in 0..<myResults.count {
             let workResults = realm.objects(Work.self).filter("id='" + myResults[i].animeId + "'")
-            work.append(workResults[0])
+            if workResults.isEmpty {
+                
+            } else {
+                work.append(workResults[0])
+            }
         }
         self.works = work
         work = [Work]()
