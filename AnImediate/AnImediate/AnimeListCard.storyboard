@@ -38,18 +38,85 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-CP-rJN">
+                                <rect key="frame" x="100" y="809" width="214" height="43"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWQ-9s-OjF">
+                                        <rect key="frame" x="114" y="0.0" width="100" height="43"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="登録">
+                                            <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerBtnTapped:" destination="JfI-Vg-aLP" eventType="touchUpInside" id="cOO-i1-sMO"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9L-JV-qUf">
+                                        <rect key="frame" x="15" y="3" width="99" height="37.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29w-aD-1Ni">
+                                        <rect key="frame" x="15" y="36" width="99" height="2"/>
+                                        <color key="backgroundColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="P0Z-s5-sG8"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="に" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCx-WJ-J7r">
+                                        <rect key="frame" x="122" y="0.0" width="17" height="43"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="P9L-JV-qUf" firstAttribute="leading" secondItem="mUk-CP-rJN" secondAttribute="leading" constant="15" id="1cu-xB-spY"/>
+                                    <constraint firstAttribute="bottom" secondItem="BCx-WJ-J7r" secondAttribute="bottom" id="8jh-Do-XlV"/>
+                                    <constraint firstItem="29w-aD-1Ni" firstAttribute="leading" secondItem="P9L-JV-qUf" secondAttribute="leading" id="BMg-yh-vyS"/>
+                                    <constraint firstAttribute="bottom" secondItem="SWQ-9s-OjF" secondAttribute="bottom" id="SNk-Iu-rCo"/>
+                                    <constraint firstAttribute="bottom" secondItem="P9L-JV-qUf" secondAttribute="bottom" constant="2.5" id="Sxi-1S-gd8"/>
+                                    <constraint firstItem="SWQ-9s-OjF" firstAttribute="top" secondItem="mUk-CP-rJN" secondAttribute="top" id="WKM-tC-q4H"/>
+                                    <constraint firstAttribute="trailing" secondItem="P9L-JV-qUf" secondAttribute="trailing" constant="100" id="XKx-GG-hmW"/>
+                                    <constraint firstItem="BCx-WJ-J7r" firstAttribute="top" secondItem="mUk-CP-rJN" secondAttribute="top" id="XX2-Xp-nsE"/>
+                                    <constraint firstItem="29w-aD-1Ni" firstAttribute="width" secondItem="P9L-JV-qUf" secondAttribute="width" id="Xsn-pI-qUP"/>
+                                    <constraint firstAttribute="trailing" secondItem="SWQ-9s-OjF" secondAttribute="trailing" id="YAK-dK-ubQ"/>
+                                    <constraint firstItem="BCx-WJ-J7r" firstAttribute="leading" secondItem="P9L-JV-qUf" secondAttribute="trailing" constant="8" id="Zee-YY-sQu"/>
+                                    <constraint firstItem="SWQ-9s-OjF" firstAttribute="leading" secondItem="P9L-JV-qUf" secondAttribute="trailing" id="erC-1S-Bb2"/>
+                                    <constraint firstAttribute="width" secondItem="mUk-CP-rJN" secondAttribute="height" multiplier="5:1" id="fh6-6I-LBU"/>
+                                    <constraint firstItem="BCx-WJ-J7r" firstAttribute="centerY" secondItem="mUk-CP-rJN" secondAttribute="centerY" id="sFT-WI-wGN"/>
+                                    <constraint firstItem="P9L-JV-qUf" firstAttribute="top" secondItem="mUk-CP-rJN" secondAttribute="top" constant="3" id="tAp-lZ-tVg"/>
+                                    <constraint firstItem="29w-aD-1Ni" firstAttribute="bottom" secondItem="mUk-CP-rJN" secondAttribute="bottom" constant="-5" id="yAJ-FG-Eef"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JiK-9P-kzo" firstAttribute="trailing" secondItem="9vR-iE-aQK" secondAttribute="trailing" id="Bcm-Bg-7zZ"/>
                             <constraint firstItem="JiK-9P-kzo" firstAttribute="bottom" secondItem="9vR-iE-aQK" secondAttribute="bottom" id="K2x-9M-Maq"/>
+                            <constraint firstItem="mUk-CP-rJN" firstAttribute="centerX" secondItem="nfx-b9-f8J" secondAttribute="centerX" id="Qw8-2V-axP"/>
+                            <constraint firstItem="mUk-CP-rJN" firstAttribute="leading" secondItem="9vR-iE-aQK" secondAttribute="leading" constant="100" id="SJs-TS-sdD"/>
                             <constraint firstItem="JiK-9P-kzo" firstAttribute="top" secondItem="9vR-iE-aQK" secondAttribute="top" id="V3l-BO-Pnj"/>
+                            <constraint firstItem="mUk-CP-rJN" firstAttribute="trailing" secondItem="9vR-iE-aQK" secondAttribute="trailing" constant="-100" id="iVG-Tv-1um"/>
                             <constraint firstItem="JiK-9P-kzo" firstAttribute="leading" secondItem="9vR-iE-aQK" secondAttribute="leading" id="pwr-VR-ipT"/>
+                            <constraint firstItem="9vR-iE-aQK" firstAttribute="bottom" secondItem="mUk-CP-rJN" secondAttribute="bottom" constant="10" id="tOX-4Q-cZz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9vR-iE-aQK"/>
                     </view>
                     <connections>
                         <outlet property="animeListCardCV" destination="JiK-9P-kzo" id="klL-eA-c99"/>
+                        <outlet property="floatingView" destination="mUk-CP-rJN" id="z22-Na-077"/>
+                        <outlet property="statusTextField" destination="P9L-JV-qUf" id="jI4-PM-ZMS"/>
                         <segue destination="1yf-b6-kZT" kind="show" identifier="toDetails" id="7wH-pB-3am"/>
                     </connections>
                 </viewController>
