@@ -358,6 +358,7 @@
                     <size key="freeformSize" width="414" height="627"/>
                     <connections>
                         <outlet property="cardCV" destination="nlf-Pb-aV1" id="dNw-sN-YCq"/>
+                        <segue destination="hnl-o7-wsV" kind="show" identifier="toDetails" id="349-hY-smz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgl-eG-BqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,6 +406,7 @@
                     <size key="freeformSize" width="414" height="627"/>
                     <connections>
                         <outlet property="cardCV" destination="CJQ-xq-Vbh" id="uhq-zW-kU8"/>
+                        <segue destination="hnl-o7-wsV" kind="show" identifier="toDetails" id="XDq-bH-Mcz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pU-iH-odJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,11 +454,20 @@
                     <size key="freeformSize" width="414" height="627"/>
                     <connections>
                         <outlet property="cardCV" destination="rux-jS-C7V" id="6iU-ET-wo7"/>
+                        <segue destination="hnl-o7-wsV" kind="show" identifier="toDetails" id="Idp-Ul-aCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKe-uR-juT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4813.04347826087" y="530.69196428571422"/>
+        </scene>
+        <!--AnimeDetails-->
+        <scene sceneID="CU5-5w-B8K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="hnl-o7-wsV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5CW-8Z-Gep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4405" y="978"/>
         </scene>
         <!--Result Both CardVC-->
         <scene sceneID="AlB-Kp-XGV">
@@ -499,6 +510,7 @@
                     <size key="freeformSize" width="414" height="627"/>
                     <connections>
                         <outlet property="cardCV" destination="lVB-6i-avl" id="QkX-FE-f3t"/>
+                        <segue destination="hnl-o7-wsV" kind="show" identifier="toDetails" id="SjL-Pe-iZo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqM-1A-Msj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -512,4 +524,7 @@
         <image name="logo" width="435" height="481"/>
         <image name="pic" width="481" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SjL-Pe-iZo"/>
+    </inferredMetricsTieBreakers>
 </document>
