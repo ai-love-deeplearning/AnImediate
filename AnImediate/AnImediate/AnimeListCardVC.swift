@@ -106,21 +106,19 @@ class AnimeListCardVC: UIViewController {
             return
         }
         animeListCardCV.indexPathsForSelectedItems!.forEach{
-            let cell = animeListCardCV.cellForItem(at: $0) as! AnimeListCardCVCell
             
             let work = self.works[$0.row]
-            cell.bindData(work: work)
             
             let watchData = WatchData()
             
             if self.statusTextField.text != "" {
                 let userInfo = realm.objects(UserInfo.self)
-                let results = realm.objects(WatchData.self).filter("animeId == %@ && userId == %@", cell.animeId, userInfo[0].id)
+                let results = realm.objects(WatchData.self).filter("animeId == %@ && userId == %@", work.animeId, userInfo[0].id)
                 
                 if results.isEmpty {
                     watchData.id = NSUUID().uuidString
                     watchData.userId = userInfo[0].id
-                    watchData.animeId = cell.animeId
+                    watchData.animeId = work.animeId
                     watchData.animeStatus = self.statusTextField.text ?? ""
                     watchData.createdAt = self.dateString
                     
