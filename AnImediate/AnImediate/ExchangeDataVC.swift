@@ -16,8 +16,6 @@ class ExchangeDataVC: UIViewController {
     @IBOutlet weak var peerName: UILabel!
     
     
-    let realm = try! Realm()
-    
     var myInfo: UserInfo = UserInfo()
     var myData: [WatchData] = []
     var peerInfo: UserInfo = UserInfo()
@@ -41,19 +39,18 @@ class ExchangeDataVC: UIViewController {
             self.peerIcon.image = UIImage(data: self.peerInfo.iconData! as Data)!
             self.peerName.text =  self.peerInfo.name
         }
-        
         setMyInfo()
-        
-        myData = Array(realm.objects(WatchData.self).filter("userId == %@", myInfo.id))
     }
     
     private func setMyInfo() {
+        let realm = try! Realm()
         let result = realm.objects(UserInfo.self)
         myInfo.id = result[0].id
         myInfo.name = result[0].name
         myInfo.comment = result[0].comment
         myInfo.icon = result[0].icon
         myInfo.background = result[0].background
+        myData = Array(realm.objects(WatchData.self).filter("userId == %@", myInfo.id))
     }
     
     @IBAction func acceptBtnTapped(_ sender: Any) {
@@ -101,40 +98,41 @@ extension ExchangeDataVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("watchDataReceive")
         DispatchQueue.main.async {
-            if self.isAccepted, self.isReceived { // 承認してるかつデータを受け取ったら（相手も承認）
-                // result画面にデータを渡す
-                self.performSegue(withIdentifier: "toResult", sender: nil)
+            
+            self.isReceived = true
+            let realm = try! Realm()
+            
+            do {
+                // NSData → WatchData
+                let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]
+                self.peerData = decoded
+                // クエリによるデータの取得
+                let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
                 
-            } else {
-                self.isReceived = true
-                do {
-                    // NSData → WatchData
-                    let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]
-                    self.peerData = decoded
-                    // クエリによるデータの取得
-                    let results = self.realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
-                    
-                    if results.isEmpty {
-                        self.peerData.forEach {
-                            $0.id = NSUUID().uuidString
-                        }
-                        
-                        try! self.realm.write {
-                            self.realm.add(self.peerData)
-                        }
-                    } else {
-                        self.peerData.forEach {
-                            $0.id = NSUUID().uuidString
-                        }
-                        // データの更新
-                        try! self.realm.write {
-                            self.realm.delete(results)
-                            self.realm.add(self.peerData)
-                        }
+                if results.isEmpty {
+                    self.peerData.forEach {
+                        $0.id = NSUUID().uuidString
                     }
-                } catch {
-                    fatalError("archivedData failed with error: \(error)")
+                    
+                    try! realm.write {
+                        realm.add(self.peerData)
+                    }
+                } else {
+                    self.peerData.forEach {
+                        $0.id = NSUUID().uuidString
+                    }
+                    // データの更新
+                    try! realm.write {
+                        realm.delete(results)
+                        realm.add(self.peerData)
+                    }
                 }
+            } catch {
+                fatalError("archivedData failed with error: \(error)")
+            }
+                
+            if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
+                self.performSegue(withIdentifier: "toResult", sender: nil)
             }
         }
     }

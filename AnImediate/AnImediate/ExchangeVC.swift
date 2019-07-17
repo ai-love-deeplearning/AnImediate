@@ -16,6 +16,8 @@ class ExchangeVC: UIViewController {
     @IBOutlet weak var seachLLabel: UILabel!
     
     var timer: Timer!
+    var searchingTimer: Timer!
+    var searchingTime: Int = 0
     var count = 0
     
     var dateString = ""
@@ -80,11 +82,11 @@ class ExchangeVC: UIViewController {
                 
                 switch state {
                 case .notConnected:
-                    // ここでタイマーを起動
-                    // 30秒接続されなかったら、notfound画面を表示
+                    self.searchingTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.notFound), userInfo: nil, repeats: false)
                     break
                 case .connecting:
-                    // ここでタイマーをストップ、リセット
+                    self.searchingTimer.invalidate()
+                    self.searchingTime = 0
                     break
                 case .connected:
                     DispatchQueue.main.async {
@@ -127,6 +129,14 @@ class ExchangeVC: UIViewController {
         loadingView.layer.addSublayer(gradientRingLayer)
         let duration = 0.8
         gradientRingLayer.animateCircleTo(duration: duration, fromValue: 0, toValue: 0.99)
+    }
+    
+    @objc func notFound() {
+        searchingTime += 1
+        if searchingTime == 60 {
+            searchingTimer.invalidate()
+            performSegue(withIdentifier: "toNotFound", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
