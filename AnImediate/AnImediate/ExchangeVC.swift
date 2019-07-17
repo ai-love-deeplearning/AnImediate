@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 import RealmSwift
 import MultipeerConnectivity
 
@@ -59,9 +60,12 @@ class ExchangeVC: UIViewController {
         self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         self.dateString = self.formatter.string(from: now as Date)
         
+        self.peerInfo.excangedAt = self.dateString
+        
         let realm = try! Realm()
         
-        let myInfo = Array(realm.objects(UserInfo.self))[0]
+        let result = realm.objects(UserInfo.self)
+        myInfo = result[0].copy() as! UserInfo
         
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.isRemovedOnCompletion = true
@@ -91,10 +95,10 @@ class ExchangeVC: UIViewController {
                     self.searchingTime = 0
                     break
                 case .connected:
-                    DispatchQueue.main.async {
+                    DispatchQueue.global(qos: .background).async {
                         do {
-                            // WatchData → NSData
-                            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: myInfo, requiringSecureCoding: false)
+                            //  UserInfo → NSData
+                            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myInfo, requiringSecureCoding: false)
                             P2PConnectivity.manager.send(data: codedInfo)
                         } catch {
                             fatalError("archivedData failed with error: \(error)")
@@ -152,31 +156,31 @@ class ExchangeVC: UIViewController {
 extension ExchangeVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("userhInfoReceive")
-        DispatchQueue.main.async {
+        
+        DispatchQueue.global(qos: .background).async {
             do {
                 let realm = try! Realm()
-                // NSData → WatchData
+                // NSData → UserInfo
                 print(data)
                 let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! UserInfo
-                self.peerInfo = decoded
-                self.peerInfo.excangedAt = self.dateString
+                self.peerInfo = decoded.copy() as! UserInfo
                 let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
                 if peer.isEmpty {
                     try! realm.write {
-                        realm.add(self.peerInfo)
+                        realm.add(decoded)
                     }
                 } else {
                     try! realm.write {
-                        peer[0].name = self.peerInfo.name
-                        peer[0].comment = self.peerInfo.comment
-                        peer[0].icon = self.peerInfo.icon
-                        peer[0].background = self.peerInfo.background
-                        peer[0].excangedAt = self.peerInfo.excangedAt
+                        peer[0].name = decoded.name
+                        peer[0].comment = decoded.comment
+                        peer[0].icon = decoded.icon
+                        peer[0].background = decoded.background
+                        peer[0].excangedAt = decoded.excangedAt
                     }
                 }
-                
+                DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
-                
+                }
             } catch {
                 fatalError("archivedData failed with error: \(error)")
             }

@@ -30,9 +30,15 @@ class DataManager: NSObject {
             
             DispatchQueue.global(qos: .background).async {
                 let realm = try! Realm()
-                
+                print("[", terminator: "")
                 for i in 0..<work.count {
-                    print(work[i].animeId)
+                    //print(work[i].animeId)
+                    if i % (work.count / 50) == 0, i != work.count-1 {
+                        print("*", terminator: "")
+                    } else if i == work.count-1 {
+                        print("] 100% ", terminator: "\n")
+                    }
+                    
                     try! realm.write {
                         realm.add(work[i])
                     }

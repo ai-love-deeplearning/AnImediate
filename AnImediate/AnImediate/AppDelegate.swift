@@ -24,13 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure()
         }
         
-        let realm = try! Realm()
-        
-        if realm.objects(UserInfo.self).isEmpty {
-            // Firebaseからアニメデータを取得
-            self.dataManager.getWork()
-        }
-        
         //自動ログイン
         if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -43,10 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //Realmのマイグレーション処理
-        let config = Realm.Configuration(
-            schemaVersion : 1, //データの構造が変わったらここを変える
+        
+        var config = Realm.Configuration(
+            schemaVersion : 3, //データの構造が変わったらここを変える
             migrationBlock : { migration, oldSchemaVersion in
-                if oldSchemaVersion < 1 {
+                if oldSchemaVersion < 3 {
+                    /*
                     var nextID = 0
                     migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
                         newObject!["id"] = String(nextID)
@@ -59,12 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     migration.enumerateObjects(ofType: WatchData.className()) { oldObject, newObject in
                         newObject!["id"] = String(nextID)
                         nextID += 1
-                    }
+                    }*/
                 }
         }
         )
         
         Realm.Configuration.defaultConfiguration = config
+        config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        
+        let realm = try! Realm()
+        
+        if realm.objects(UserInfo.self).isEmpty {
+            // Firebaseからアニメデータを取得
+            self.dataManager.getWork()
+        }
         
         return true
     }

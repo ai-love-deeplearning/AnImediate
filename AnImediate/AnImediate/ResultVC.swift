@@ -23,8 +23,6 @@ class ResultVC: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var userCV: UICollectionView!
     
-    let realm = try! Realm()
-    
     var headerDelegate: ResultHeaderDelegate?
     var scrollDelegate: ResultScrollDelegate?
     var resultUserInfo: [UserInfo] = []
@@ -46,6 +44,7 @@ class ResultVC: UIViewController {
     }
     
     private func fetchUserInfo() {
+        let realm = try! Realm()
         let userInfo = realm.objects(UserInfo.self)
         var result = [UserInfo]()
         

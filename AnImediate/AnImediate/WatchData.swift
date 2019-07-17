@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class WatchData : Object, NSCoding {
+class WatchData : Object, NSCoding, NSCopying {
     
     @objc dynamic var id = ""
     @objc dynamic var userId = ""
@@ -22,6 +22,17 @@ class WatchData : Object, NSCoding {
     // idをプライマリキーに設定
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = WatchData()
+        copy.id = id
+        copy.animeId = animeId
+        copy.animeStatus = animeStatus
+        copy.createdAt = createdAt
+        copy.udatedAt = udatedAt
+        
+        return copy
     }
     
     func encode(with aCoder: NSCoder) {

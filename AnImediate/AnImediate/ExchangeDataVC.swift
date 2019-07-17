@@ -43,25 +43,30 @@ class ExchangeDataVC: UIViewController {
     private func setMyInfo() {
         let realm = try! Realm()
         let result = realm.objects(UserInfo.self)
+        let myDataResults = realm.objects(WatchData.self).filter("userId == %@", myInfo.id)
         myInfo.id = result[0].id
         myInfo.name = result[0].name
         myInfo.comment = result[0].comment
         myInfo.icon = result[0].icon
         myInfo.background = result[0].background
-        myData = Array(realm.objects(WatchData.self).filter("userId == %@", myInfo.id))
+        myDataResults.forEach {
+            myData.append($0.copy() as! WatchData)
+        }
     }
     
     @IBAction func acceptBtnTapped(_ sender: Any) {
         print("accept")
-            DispatchQueue.main.async() {
+        DispatchQueue.global(qos: .background).async {
             do {
                 // WatchData → NSData
                 let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myData, requiringSecureCoding: false)
                 print(codedInfo)
                 // データの送信
                 P2PConnectivity.manager.send(data: codedInfo)
-                if self.isReceived {
-                    self.performSegue(withIdentifier: "toResult", sender: nil)
+                DispatchQueue.main.async() {
+                    if self.isReceived {
+                        self.performSegue(withIdentifier: "toResult", sender: nil)
+                    }
                 }
                 self.isAccepted = true
             } catch {
@@ -96,7 +101,6 @@ extension ExchangeDataVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("watchDataReceive")
         DispatchQueue.main.async {
-            
             self.isReceived = true
             let realm = try! Realm()
             
@@ -108,21 +112,21 @@ extension ExchangeDataVC: ExchangeDelegate {
                 let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
                 
                 if results.isEmpty {
-                    self.peerData.forEach {
+                    decoded.forEach {
                         $0.id = NSUUID().uuidString
                     }
                     
                     try! realm.write {
-                        realm.add(self.peerData)
+                        realm.add(decoded)
                     }
                 } else {
-                    self.peerData.forEach {
+                    decoded.forEach {
                         $0.id = NSUUID().uuidString
                     }
                     // データの更新
                     try! realm.write {
                         realm.delete(results)
-                        realm.add(self.peerData)
+                        realm.add(decoded)
                     }
                 }
             } catch {

@@ -21,7 +21,7 @@ class AnimeListVC: UIViewController {
     @IBOutlet weak var rankingCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    let realm = try! Realm()
+    
     
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     var autoScrollTimer = Timer()
@@ -55,6 +55,7 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchRecom() {
+        let realm = try! Realm()
         let works = realm.objects(Work.self)
         for i in 0..<self.recomWorks.count {
             self.recomWorks[i] = works[Int.random(in: 0..<100)]
@@ -62,6 +63,7 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchThisTerm() {
+        let realm = try! Realm()
         let works = realm.objects(Work.self)
         for i in 0..<works.count {
             if works[i].seasonNameText == "2019年夏" {
@@ -74,6 +76,7 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchRanking() {
+        let realm = try! Realm()
         let works = realm.objects(Work.self)
         for i in 0..<self.rankingWorks.count {
             self.rankingWorks[i] = works[i]
