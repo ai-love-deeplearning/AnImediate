@@ -152,32 +152,34 @@ class ExchangeVC: UIViewController {
 extension ExchangeVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("userhInfoReceive")
-        do {
-            let realm = try! Realm()
-            // NSData → WatchData
-            print(data)
-            let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! UserInfo
-            peerInfo = decoded
-            peerInfo.excangedAt = dateString
-            let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
-            if peer.isEmpty {
-                try! realm.write {
-                    realm.add(peerInfo)
+        DispatchQueue.main.async {
+            do {
+                let realm = try! Realm()
+                // NSData → WatchData
+                print(data)
+                let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! UserInfo
+                self.peerInfo = decoded
+                self.peerInfo.excangedAt = self.dateString
+                let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
+                if peer.isEmpty {
+                    try! realm.write {
+                        realm.add(self.peerInfo)
+                    }
+                } else {
+                    try! realm.write {
+                        peer[0].name = self.peerInfo.name
+                        peer[0].comment = self.peerInfo.comment
+                        peer[0].icon = self.peerInfo.icon
+                        peer[0].background = self.peerInfo.background
+                        peer[0].excangedAt = self.peerInfo.excangedAt
+                    }
                 }
-            } else {
-                try! realm.write {
-                    peer[0].name = peerInfo.name
-                    peer[0].comment = peerInfo.comment
-                    peer[0].icon = peerInfo.icon
-                    peer[0].background = peerInfo.background
-                    peer[0].excangedAt = peerInfo.excangedAt
-                }
+                
+                    self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
+                
+            } catch {
+                fatalError("archivedData failed with error: \(error)")
             }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
-            }
-        } catch {
-            fatalError("archivedData failed with error: \(error)")
         }
     }
 }
