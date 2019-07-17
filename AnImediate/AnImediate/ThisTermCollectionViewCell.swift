@@ -31,6 +31,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
         
         setIconImageView(imageUrlString: work.imageUrl)
         iconImageView.contentMode = .scaleAspectFill
+        iconImageView.cornerRadius = iconImageView.bounds.width/2
     }
     
     private func setIconImageView(imageUrlString: String) {
