@@ -64,7 +64,7 @@ class AnimeListVC: UIViewController {
     private func fetchThisTerm() {
         let works = realm.objects(Work.self)
         for i in 0..<works.count {
-            if works[i].seasonNameText == "2019年春" {
+            if works[i].seasonNameText == "2019年夏" {
                 self.thisTermWorks.append(works[i])
             }
         }
