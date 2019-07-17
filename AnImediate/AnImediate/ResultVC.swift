@@ -7,7 +7,16 @@
 //
 
 import UIKit
+import MXParallaxHeader
 import RealmSwift
+
+protocol ResultHeaderDelegate {
+    func reload()
+}
+
+protocol ResultScrollDelegate {
+    func reload()
+}
 
 class ResultVC: UIViewController {
 
@@ -15,9 +24,9 @@ class ResultVC: UIViewController {
     @IBOutlet weak var userCV: UICollectionView!
     
     let realm = try! Realm()
-    let resultHeaderVC = ResultHeaderVC()
-    let resultScrollVC = ResultScrollVC()
     
+    var headerDelegate: ResultHeaderDelegate?
+    var scrollDelegate: ResultScrollDelegate?
     var resultUserInfo: [UserInfo] = []
     
     override func viewDidLoad() {
@@ -65,6 +74,13 @@ class ResultVC: UIViewController {
         layout.scrollDirection = .horizontal
         self.userCV.collectionViewLayout = layout
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toContainer" {
+            let next = segue.destination as! MXResultScrollVC
+            next.resultVC = self
+        }
+    }
 }
 
 extension ResultVC: UICollectionViewDelegate {
@@ -79,8 +95,8 @@ extension ResultVC: UICollectionViewDelegate {
         UserDefaults.standard.set(self.resultUserInfo[indexPath.row].id, forKey: "userID")
         UserDefaults.standard.set(indexPath.row, forKey: "userNum")
         
-        self.resultHeaderVC.reloadInputViews()
-        self.resultScrollVC.reloadInputViews()
+        self.headerDelegate?.reload()
+        self.scrollDelegate?.reload()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
