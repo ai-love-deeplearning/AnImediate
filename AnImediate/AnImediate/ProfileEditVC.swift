@@ -60,7 +60,9 @@ class ProfileEditVC: UIViewController {
         editTable.dataSource = self
         
         icon.image = iconImage
+        profile.icon = iconImage
         background.image = backImage
+        profile.background = backImage
         
         icon.layer.cornerRadius = icon.frame.width * 0.5
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5

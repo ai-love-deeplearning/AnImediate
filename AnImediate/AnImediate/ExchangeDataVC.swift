@@ -35,10 +35,8 @@ class ExchangeDataVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DispatchQueue.main.async {
-            self.peerIcon.image = UIImage(data: self.peerInfo.iconData! as Data)!
-            self.peerName.text =  self.peerInfo.name
-        }
+        self.peerIcon.image = UIImage(data: self.peerInfo.iconData! as Data)!
+        self.peerName.text =  self.peerInfo.name
         setMyInfo()
     }
     
