@@ -12,6 +12,8 @@ import Pageboy
 
 class ResultScrollVC: TabmanViewController {
     
+    var resultVC: ResultVC = ResultVC()
+    
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
@@ -23,9 +25,12 @@ class ResultScrollVC: TabmanViewController {
     }()
     
     let barTitles = ["おすすめ", "あなたのみ", "相手のみ", "二人とも"]
+    
+    var currentPage: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultVC.scrollDelegate = self
         
         self.dataSource = self
         
@@ -52,11 +57,27 @@ class ResultScrollVC: TabmanViewController {
     }
 }
 
+extension ResultScrollVC: ResultScrollDelegate {
+    func reload() {
+        switch currentIndex! {
+        case 0:
+            (viewControllers[0] as! ResultRecommCardVC).fetchWork()
+        case 1:
+            (viewControllers[1] as! ResultMeCardVC).fetchWork()
+        case 2:
+            (viewControllers[2] as! ResultYouCardVC).fetchWork()
+        case 3:
+            (viewControllers[3] as! ResultBothCardVC).fetchWork()
+        default:
+            break
+        }
+    }
+}
+
 extension ResultScrollVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         return TMBarItem(title: barTitles[index])
     }
-    
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
@@ -70,10 +91,5 @@ extension ResultScrollVC: PageboyViewControllerDataSource, TMBarDataSource {
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
-    /*
-     func barItem(for tabViewController: TabmanViewController, at index: Int) -> TMBarItemable {
-     let title = "Page \(index)"
-     return TMBarItem(title: title)
-     }*/
 }
 

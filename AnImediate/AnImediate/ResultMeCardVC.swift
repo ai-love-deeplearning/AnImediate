@@ -24,15 +24,14 @@ class ResultMeCardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupCV()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupCV()
         fetchWork()
     }
     
-    private func fetchWork() {
+    public func fetchWork() {
         var work = [Work]()
         
         let userInfo = realm.objects(UserInfo.self)

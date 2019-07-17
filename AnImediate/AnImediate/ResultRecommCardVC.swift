@@ -19,15 +19,14 @@ class ResultRecommCardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupCV()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupCV()
         fetchWork()
     }
     
-    private func fetchWork() {
+    public func fetchWork() {
     }
     
     private func setupCV() {
