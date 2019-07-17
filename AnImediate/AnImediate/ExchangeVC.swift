@@ -75,6 +75,8 @@ class ExchangeVC: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 2.1, target: self, selector: #selector(self.labelAnimetion(_:)), userInfo: nil, repeats: true)
         timer.fire()
         
+        self.searchingTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.notFound), userInfo: nil, repeats: false)
+        
         P2PConnectivity.manager.start(
             serviceType: serviceType,
             displayName: "player",
@@ -82,7 +84,7 @@ class ExchangeVC: UIViewController {
                 
                 switch state {
                 case .notConnected:
-                    self.searchingTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.notFound), userInfo: nil, repeats: false)
+                    self.searchingTimer.fire()
                     break
                 case .connecting:
                     self.searchingTimer.invalidate()
