@@ -114,8 +114,8 @@ class AnimeListCardVC: UIViewController {
             let watchData = WatchData()
             
             if self.statusTextField.text != "" {
-                let results = realm.objects(WatchData.self).filter("animeId == %@", cell.animeId)
                 let userInfo = realm.objects(UserInfo.self)
+                let results = realm.objects(WatchData.self).filter("animeId == %@ && userId == %@", cell.animeId, userInfo[0].id)
                 
                 if results.isEmpty {
                     watchData.id = NSUUID().uuidString
