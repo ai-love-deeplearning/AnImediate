@@ -48,11 +48,43 @@
                         <outlet property="loadingView" destination="48T-pS-274" id="4lJ-GZ-w00"/>
                         <outlet property="seachLLabel" destination="EBH-0E-rHn" id="l3I-aP-4gv"/>
                         <segue destination="yrX-OQ-JN1" kind="show" identifier="toPopUpModal" id="Ddo-bq-8f7"/>
+                        <segue destination="pNf-dK-sDP" kind="show" identifier="toNotFound" id="ult-Zl-OR7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUW-5d-Sd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1614" y="-583"/>
+        </scene>
+        <!--Exchange Not FoundVC-->
+        <scene sceneID="FuO-ET-LF4">
+            <objects>
+                <viewController id="pNf-dK-sDP" customClass="ExchangeNotFoundVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6qn-bb-267">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxT-YR-xWG">
+                                <rect key="frame" x="161" y="433" width="92" height="30"/>
+                                <state key="normal" title="もう一度探す">
+                                    <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="againBtnTapped:" destination="pNf-dK-sDP" eventType="touchUpInside" id="3iD-h0-T30"/>
+                                    <segue destination="ETi-Nl-zLc" kind="show" id="MoD-3p-qtY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kxT-YR-xWG" firstAttribute="centerY" secondItem="6qn-bb-267" secondAttribute="centerY" id="idZ-DF-ZOV"/>
+                            <constraint firstItem="kxT-YR-xWG" firstAttribute="centerX" secondItem="6qn-bb-267" secondAttribute="centerX" id="vdD-Av-jAX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="evX-Co-ve5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLo-Zx-AL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613" y="163"/>
         </scene>
         <!--ExchangeData-->
         <scene sceneID="v6j-OG-9Tf">
