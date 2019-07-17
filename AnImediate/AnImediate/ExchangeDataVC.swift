@@ -102,29 +102,36 @@ extension ExchangeDataVC: ExchangeDelegate {
             
             do {
                 // NSData → WatchData
-                let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]
-                self.peerData = decoded
-                // クエリによるデータの取得
-                let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
+                var decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
                 
-                if results.isEmpty {
-                    self.peerData.forEach {
-                        $0.id = NSUUID().uuidString
-                    }
+                if type(of: decoded) == UserInfo.self {
                     
-                    try! realm.write {
-                        realm.add(self.peerData)
-                    }
-                } else {
-                    self.peerData.forEach {
-                        $0.id = NSUUID().uuidString
-                    }
-                    // データの更新
-                    try! realm.write {
-                        realm.delete(results)
-                        realm.add(self.peerData)
+                } else if type(of: decoded) == NSArray.self {
+                    
+                    self.peerData = decoded as! [WatchData]
+                    // クエリによるデータの取得
+                    let results = realm.objects(WatchData.self).filter("userId == %@", self.peerData[0].userId)
+                    
+                    if results.isEmpty {
+                        self.peerData.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        
+                        try! realm.write {
+                            realm.add(self.peerData)
+                        }
+                    } else {
+                        self.peerData.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        // データの更新
+                        try! realm.write {
+                            realm.delete(results)
+                            realm.add(self.peerData)
+                        }
                     }
                 }
+                
             } catch {
                 fatalError("archivedData failed with error: \(error)")
             }
