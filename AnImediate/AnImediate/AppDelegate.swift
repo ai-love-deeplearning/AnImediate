@@ -23,9 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
-
-        // Firebaseからアニメデータを取得
-        //self.dataManager.getWork()
+        
+        let realm = try! Realm()
+        
+        if realm.objects(UserInfo.self).isEmpty {
+            // Firebaseからアニメデータを取得
+            self.dataManager.getWork()
+        }
         
         //自動ログイン
         if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
