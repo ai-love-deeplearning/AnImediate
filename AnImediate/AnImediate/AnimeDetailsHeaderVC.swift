@@ -7,44 +7,37 @@
 //
 
 import UIKit
-import MXParallaxHeader
 
 class AnimeDetailsHeaderVC: UIViewController {
 
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var animeImageView: UIImageView!
     @IBOutlet weak var backEffectView: UIVisualEffectView!
-    @IBOutlet var animeImageTopConstraint: NSLayoutConstraint!
-    
     
     let blurEffect = UIBlurEffect(style: .light)
-    var newImageView = UIImageView()
-    
-    var statusBarHeight: CGFloat = 0
-    var navBarHeight: CGFloat = 0
     
     public var imageURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statusBarHeight = UIApplication.shared.statusBarFrame.height
-        navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
-        
         self.imageURL = UserDefaults.standard.string(forKey: "imageURL")!
         
-        parallaxHeader?.delegate = self
         parallaxHeader?.height = 242
         parallaxHeader?.mode = .fill
-        parallaxHeader?.minimumHeight = statusBarHeight + navBarHeight
         
         backEffectView.effect = blurEffect
         
         setIconImageView(imageUrlString: imageURL)
         self.backImageView.contentMode = .scaleToFill
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
         
-        animeImageTopConstraint.constant = statusBarHeight + navBarHeight
-        
+        parallaxHeader?.minimumHeight = statusBarHeight + navBarHeight
     }
     
     private func setIconImageView(imageUrlString: String) {
@@ -62,17 +55,5 @@ class AnimeDetailsHeaderVC: UIViewController {
             
         }
         downloadImageTask.resume()
-    }
-}
-
-extension AnimeDetailsHeaderVC: MXParallaxHeaderDelegate {
-    func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-        if parallaxHeader.progress > 1.359 {
-            animeImageTopConstraint.isActive = true
-        } else {
-            if let constraint = animeImageTopConstraint {
-                constraint.isActive = false
-            }
-        }
     }
 }

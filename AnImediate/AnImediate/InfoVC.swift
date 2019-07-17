@@ -183,7 +183,6 @@ extension InfoVC: UICollectionViewDataSource, UIPickerViewDataSource {
         let similarWork = similarWorks[indexPath.row]
         
         cell.bindData(work: similarWork)
-        cell.iconImageView.cornerRadius = cell.iconImageView.bounds.width/2.5
         
         return cell
     }

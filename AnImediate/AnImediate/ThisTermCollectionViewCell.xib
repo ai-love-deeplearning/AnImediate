@@ -29,6 +29,11 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Pkg-JH-heV" secondAttribute="height" multiplier="1:1" id="Vs1-OK-peR"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfA-ny-31V">
                         <rect key="frame" x="5" y="86" width="93" height="12"/>

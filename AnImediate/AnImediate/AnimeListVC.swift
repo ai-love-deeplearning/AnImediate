@@ -64,7 +64,7 @@ class AnimeListVC: UIViewController {
     private func fetchThisTerm() {
         let works = realm.objects(Work.self)
         for i in 0..<works.count {
-            if works[i].seasonNameText == "2019年夏" {
+            if works[i].seasonNameText == "2019年春" {
                 self.thisTermWorks.append(works[i])
             }
         }
@@ -224,13 +224,11 @@ extension AnimeListVC: UICollectionViewDataSource {
         case 2:
             let thisWork = thisTermWorks[indexPath.row]
             cell.bindData(work: thisWork)
-            cell.iconImageView.cornerRadius = cell.iconImageView.bounds.width/2
             return cell
         case 3:
             let rankingWork = rankingWorks[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
             cell.bindData(work: rankingWork)
-            cell.iconImageView.cornerRadius = cell.iconImageView.bounds.width/2
             return cell
         default:
             break
