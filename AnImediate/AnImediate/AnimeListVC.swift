@@ -55,16 +55,18 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchRecom() {
-        let realm = try! Realm()
-        let works = realm.objects(Work.self)
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+        let seedRealm = try! Realm(configuration: config)
+        let works = seedRealm.objects(Work.self)
         for i in 0..<self.recomWorks.count {
             self.recomWorks[i] = works[Int.random(in: 0..<100)]
         }
     }
     
     private func fetchThisTerm() {
-        let realm = try! Realm()
-        let works = realm.objects(Work.self)
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+        let seedRealm = try! Realm(configuration: config)
+        let works = seedRealm.objects(Work.self)
         for i in 0..<works.count {
             if works[i].seasonNameText == "2019年夏" {
                 self.thisTermWorks.append(works[i])
@@ -76,8 +78,9 @@ class AnimeListVC: UIViewController {
     }
     
     private func fetchRanking() {
-        let realm = try! Realm()
-        let works = realm.objects(Work.self)
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+        let seedRealm = try! Realm(configuration: config)
+        let works = seedRealm.objects(Work.self)
         for i in 0..<self.rankingWorks.count {
             self.rankingWorks[i] = works[i]
         }

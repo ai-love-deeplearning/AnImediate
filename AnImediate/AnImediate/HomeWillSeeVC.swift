@@ -42,7 +42,10 @@ class HomeWillSeeVC: UIViewController {
         } else {
             let myResults = realm.objects(WatchData.self).filter("userId == %@ && animeStatus == '見たい'", userInfo[0].id)
             for i in 0..<myResults.count {
-                let workResults = realm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
+                let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+                let seedRealm = try! Realm(configuration: config)
+                
+                let workResults = seedRealm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
                 if workResults.isEmpty {
                     
                 } else {

@@ -54,7 +54,10 @@ class InfoVC: UIViewController {
     }
     
     private func fetchSimilar() {
-        let works = realm.objects(Work.self)
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+        let seedRealm = try! Realm(configuration: config)
+        
+        let works = seedRealm.objects(Work.self)
         
         for i in 0..<self.similarWorks.count {
             self.similarWorks[i] = works[Int.random(in: 0..<1000)]

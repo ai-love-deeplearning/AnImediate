@@ -14,8 +14,6 @@ class SearchTitleVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cardCV: UICollectionView!
     
-    let realm = try! Realm()
-    
     public var works: [Work] = [] {
         didSet {
             cardCV.reloadData()
@@ -35,7 +33,10 @@ class SearchTitleVC: UIViewController {
     }
     
     private func fetchWork() {
-        let results = realm.objects(Work.self).filter("title CONTAINS %@", self.searchBar.text ?? "")
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+        let seedRealm = try! Realm(configuration: config)
+        
+        let results = seedRealm.objects(Work.self).filter("title CONTAINS %@", self.searchBar.text ?? "")
         var resultWork = [Work]()
         
         for i in 0..<results.count {

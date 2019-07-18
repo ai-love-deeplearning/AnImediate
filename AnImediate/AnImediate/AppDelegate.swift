@@ -63,13 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config = Realm.Configuration()
         config.deleteRealmIfMigrationNeeded = true
         
-        let realm = try! Realm()
-        
-        if realm.objects(UserInfo.self).isEmpty {
-            // Firebaseからアニメデータを取得
-            self.dataManager.loadSeedRealm()
-        }
-        
         return true
     }
 
