@@ -113,29 +113,31 @@ extension ExchangeDataVC: ExchangeDelegate {
             
             do {
                 // NSData → WatchData
-                let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [WatchData]
-                self.peerData = decoded
-                // クエリによるデータの取得
-                let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
-                
-                if results.isEmpty {
-                    decoded.forEach {
-                        $0.id = NSUUID().uuidString
-                    }
+                if let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [WatchData] {
+                    self.peerData = decoded
+                    // クエリによるデータの取得
+                    let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
                     
-                    try! realm.write {
-                        realm.add(decoded)
-                    }
-                } else {
-                    decoded.forEach {
-                        $0.id = NSUUID().uuidString
-                    }
-                    // データの更新
-                    try! realm.write {
-                        realm.delete(results)
-                        realm.add(decoded)
+                    if results.isEmpty {
+                        decoded.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        
+                        try! realm.write {
+                            realm.add(decoded)
+                        }
+                    } else {
+                        decoded.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        // データの更新
+                        try! realm.write {
+                            realm.delete(results)
+                            realm.add(decoded)
+                        }
                     }
                 }
+                
             } catch {
                 fatalError("archivedData failed with error: \(error)")
             }
