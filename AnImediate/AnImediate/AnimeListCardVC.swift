@@ -134,9 +134,27 @@ class AnimeListCardVC: UIViewController {
                 }
             }
         }
+        
+        if self.statusTextField.text! == "" {
+            showAlert(title: "エラー", message: "ステータスを設定してください")
+        } else {
+            let msg: String = "\(self.statusTextField.text!)に \(String(animeListCardCV.indexPathsForSelectedItems!.count))件のデータを登録しました"
+            showAlert(title: "登録", message: msg)
+        }
+        
         changeRegisterMode()
+        
     }
     
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: {
+            // アラートを閉じる
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                alert.dismiss(animated: true, completion: nil)
+            })
+        })
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
