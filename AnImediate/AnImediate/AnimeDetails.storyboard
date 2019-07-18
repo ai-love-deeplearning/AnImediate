@@ -24,7 +24,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <segue destination="Wa8-eG-onf" kind="custom" identifier="toAinmeDetailsHeader" customClass="MXParallaxHeaderSegue" id="sE0-q4-lFZ"/>
-                        <segue destination="xuu-Tz-16A" kind="custom" identifier="toInfo" customClass="MXScrollViewControllerSegue" id="b5e-ck-Vbr"/>
+                        <segue destination="xuu-Tz-16A" kind="custom" identifier="toAnimeDetailsScroll" customClass="MXScrollViewControllerSegue" id="b5e-ck-Vbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xJ-09-0kX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,39 +227,53 @@
             </objects>
             <point key="canvasLocation" x="917" y="131"/>
         </scene>
-        <!--View Controller-->
+        <!--EpisodeVC-->
         <scene sceneID="2dR-yv-UH3">
             <objects>
-                <viewController storyboardIdentifier="episodes" id="sjd-Zx-HPy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="episodes" id="sjd-Zx-HPy" customClass="EpisodeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCp-PZ-mMY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aBG-7q-ogm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ITF-Dm-yHv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="517"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="S6G-MH-tyd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="episodeCell" id="F24-DA-N6j">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S6G-MH-tyd" id="iw0-8P-wC4">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F24-DA-N6j" id="DLj-rX-jFK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8VK-rT-rR5">
+                                <rect key="frame" x="0.0" y="517" width="414" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="PJv-Vo-a1E"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aBG-7q-ogm" firstAttribute="top" secondItem="WCp-PZ-mMY" secondAttribute="top" id="2eo-EG-pII"/>
-                            <constraint firstItem="aBG-7q-ogm" firstAttribute="leading" secondItem="I9E-M5-1qz" secondAttribute="leading" id="7BH-72-8Fc"/>
-                            <constraint firstAttribute="bottom" secondItem="aBG-7q-ogm" secondAttribute="bottom" id="7fJ-Rj-4dT"/>
-                            <constraint firstItem="I9E-M5-1qz" firstAttribute="trailing" secondItem="aBG-7q-ogm" secondAttribute="trailing" id="x5b-iD-vgR"/>
+                            <constraint firstItem="8VK-rT-rR5" firstAttribute="top" secondItem="ITF-Dm-yHv" secondAttribute="bottom" id="3Im-ko-Abb"/>
+                            <constraint firstAttribute="trailing" secondItem="8VK-rT-rR5" secondAttribute="trailing" id="8jl-aj-8AX"/>
+                            <constraint firstItem="ITF-Dm-yHv" firstAttribute="trailing" secondItem="I9E-M5-1qz" secondAttribute="trailing" id="HaM-AO-7AR"/>
+                            <constraint firstItem="8VK-rT-rR5" firstAttribute="bottom" secondItem="I9E-M5-1qz" secondAttribute="bottom" id="LDQ-tZ-MOj"/>
+                            <constraint firstItem="ITF-Dm-yHv" firstAttribute="top" secondItem="WCp-PZ-mMY" secondAttribute="top" id="n8b-Ft-LZu"/>
+                            <constraint firstItem="8VK-rT-rR5" firstAttribute="leading" secondItem="WCp-PZ-mMY" secondAttribute="leading" id="pei-YY-v1s"/>
+                            <constraint firstItem="ITF-Dm-yHv" firstAttribute="leading" secondItem="I9E-M5-1qz" secondAttribute="leading" id="y9F-GJ-m7T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I9E-M5-1qz"/>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="649"/>
+                    <connections>
+                        <outlet property="episodeTableView" destination="ITF-Dm-yHv" id="Bdg-yo-UnD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FG-FL-PvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
