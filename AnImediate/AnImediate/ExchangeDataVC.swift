@@ -77,6 +77,11 @@ class ExchangeDataVC: UIViewController {
         }
     }
     
+    @IBAction func cancelBtnTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     func stringFromDate(date: Date, format: String) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
