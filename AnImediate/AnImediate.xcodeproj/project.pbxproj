@@ -44,6 +44,7 @@
 		32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */; };
 		32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */; };
 		32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23D22CC46C700BD5A76 /* DataManager.swift */; };
+		32FEDB1B22DF5E1000462E12 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
 		3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */; };
 		3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
@@ -145,6 +146,7 @@
 		32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThisTermCollectionViewCell.xib; sourceTree = "<group>"; };
 		32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		32CDA23D22CC46C700BD5A76 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		32FEDB1A22DF5E1000462E12 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeResult.storyboard; sourceTree = "<group>"; };
 		3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultVC.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				509D820922C364D800BF813F /* UIColorExtension.swift */,
 				32CDA23D22CC46C700BD5A76 /* DataManager.swift */,
 				3238B00022C1D25A00C8D3DD /* Work.swift */,
+				32FEDB1A22DF5E1000462E12 /* Episode.swift */,
 				50A5968822C0B09100378AAB /* Login.storyboard */,
 				50A5968A22C0B11100378AAB /* SignUp.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
@@ -661,6 +664,7 @@
 				32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */,
 				322B208C22DEDA31000B3096 /* MXResultScrollVC.swift in Sources */,
 				50165BB522CAEAE300A038C8 /* WatchData.swift in Sources */,
+				32FEDB1B22DF5E1000462E12 /* Episode.swift in Sources */,
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
