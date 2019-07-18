@@ -104,7 +104,16 @@ class InfoVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetails" {
+        switch segue.identifier {
+        case "toDetails":
+            break
+        case "toSimilar":
+            let nextVC = segue.destination as! AnimeListCardVC
+            nextVC.works = self.similarWorks
+            nextVC.navigationItem.title = "類似作品"
+            break
+        default:
+            break
         }
     }
 }

@@ -85,6 +85,9 @@
                                                 <state key="normal" title="類似作品　＞">
                                                     <color key="titleColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="GkU-im-2uo" kind="show" identifier="toSimilar" id="8YK-a6-3Xx"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnV-sz-eEa">
                                                 <rect key="frame" x="30" y="110" width="354" height="120"/>
@@ -226,6 +229,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zp2-Iw-9fu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="917" y="131"/>
+        </scene>
+        <!--AnimeListCard-->
+        <scene sceneID="Juc-9P-0ge">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeListCard" id="GkU-im-2uo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sW-Tb-nOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="130"/>
         </scene>
         <!--EpisodeVC-->
         <scene sceneID="2dR-yv-UH3">
