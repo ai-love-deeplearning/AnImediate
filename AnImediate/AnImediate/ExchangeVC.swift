@@ -162,24 +162,25 @@ extension ExchangeVC: ExchangeDelegate {
                 let realm = try! Realm()
                 // NSData → UserInfo
                 print(data)
-                let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! UserInfo
-                self.peerInfo = decoded.copy() as! UserInfo
-                let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
-                if peer.isEmpty {
-                    try! realm.write {
-                        realm.add(decoded)
+                if let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UserInfo {
+                    self.peerInfo = decoded.copy() as! UserInfo
+                    let peer = realm.objects(UserInfo.self).filter("id == %@", decoded.id)
+                    if peer.isEmpty {
+                        try! realm.write {
+                            realm.add(decoded)
+                        }
+                    } else {
+                        try! realm.write {
+                            peer[0].name = decoded.name
+                            peer[0].comment = decoded.comment
+                            peer[0].icon = decoded.icon
+                            peer[0].background = decoded.background
+                            peer[0].excangedAt = decoded.excangedAt
+                        }
                     }
-                } else {
-                    try! realm.write {
-                        peer[0].name = decoded.name
-                        peer[0].comment = decoded.comment
-                        peer[0].icon = decoded.icon
-                        peer[0].background = decoded.background
-                        peer[0].excangedAt = decoded.excangedAt
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
                     }
-                }
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
                 }
             } catch {
                 fatalError("archivedData failed with error: \(error)")
