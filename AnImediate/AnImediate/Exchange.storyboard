@@ -47,7 +47,7 @@
                     <connections>
                         <outlet property="loadingView" destination="48T-pS-274" id="4lJ-GZ-w00"/>
                         <outlet property="seachLLabel" destination="EBH-0E-rHn" id="l3I-aP-4gv"/>
-                        <segue destination="yrX-OQ-JN1" kind="presentation" identifier="toPopUpModal" id="Ddo-bq-8f7"/>
+                        <segue destination="yrX-OQ-JN1" kind="show" identifier="toPopUpModal" id="Ddo-bq-8f7"/>
                         <segue destination="pNf-dK-sDP" kind="show" identifier="toNotFound" id="ult-Zl-OR7"/>
                     </connections>
                 </viewController>
