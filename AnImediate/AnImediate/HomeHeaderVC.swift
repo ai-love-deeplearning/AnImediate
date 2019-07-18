@@ -21,7 +21,7 @@ class HomeHeaderVC: UIViewController {
     
     private let realm = try! Realm()
     
-    private var isProfileEmpty = true
+    private var isProfileEmpty = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +42,10 @@ class HomeHeaderVC: UIViewController {
         
         let results = realm.objects(UserInfo.self)
         if results.isEmpty {
+            isProfileEmpty = true
             self.performSegue(withIdentifier: "toEdit", sender: nil)
         } else {
+            isProfileEmpty = false
             nameLabel.text = results[0].name
             commentLabel.text = results[0].comment
             iconView.image = results[0].icon
@@ -63,8 +65,7 @@ class HomeHeaderVC: UIViewController {
         if segue.identifier == "toEdit", isProfileEmpty {
             let nc: UINavigationController = segue.destination as! UINavigationController
             let nextVC = nc.topViewController as! ProfileEditVC
-            nextVC.cancelBtn.isEnabled = true
-            nextVC.cancelBtn.title = ""
+            nextVC.isFirstEdit = true
             nextVC.iconImage = iconView.image!
             nextVC.backImage = backView.image!
             print("profile is empty")

@@ -50,6 +50,8 @@ class ProfileEditVC: UIViewController {
     var iconImage: UIImage = UIImage()
     var backImage: UIImage = UIImage()
     
+    var isFirstEdit: Bool = false
+    
     
     private let realm = try! Realm()
     
@@ -66,7 +68,14 @@ class ProfileEditVC: UIViewController {
         
         icon.layer.cornerRadius = icon.frame.width * 0.5
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        if isFirstEdit {
+            cancelBtn.isEnabled = false
+            cancelBtn.title = ""
+        } else {
+            cancelBtn.isEnabled = true
+            cancelBtn.title = "キャンセル"
+        }
     }
     
     @IBAction func backgroundBtnTapped(_ sender: Any) {
