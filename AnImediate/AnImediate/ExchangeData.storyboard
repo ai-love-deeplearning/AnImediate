@@ -22,7 +22,7 @@
                                 <rect key="frame" x="50" y="212.5" width="314" height="471"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="qJR-QQ-49F">
-                                        <rect key="frame" x="107" y="115" width="100" height="100"/>
+                                        <rect key="frame" x="107" y="91.5" width="100" height="100"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Z28-1w-G57"/>
@@ -30,44 +30,78 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.5"/>
+                                                <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jep-wq-dvP">
-                                        <rect key="frame" x="134.5" y="255" width="45" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="133" y="231.5" width="48" height="17"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このユーザと通信しますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktt-Is-ytp">
-                                        <rect key="frame" x="92.5" y="335.5" width="129.5" height="10"/>
+                                        <rect key="frame" x="92.5" y="286.5" width="129.5" height="10"/>
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="10"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-gi-Ygr">
-                                        <rect key="frame" x="142" y="385.5" width="30" height="30"/>
+                                        <rect key="frame" x="107" y="336.5" width="100" height="33.5"/>
+                                        <color key="backgroundColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="G3t-gi-Ygr" secondAttribute="height" multiplier="3:1" id="B6b-j6-jQL"/>
+                                            <constraint firstAttribute="width" constant="100" id="Uha-hu-mUY"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="18"/>
-                                        <state key="normal" title="OK">
-                                            <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <state key="normal" title="交換">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="acceptBtnTapped:" destination="vYz-qi-b0o" eventType="touchUpInside" id="keM-QF-XBl"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Po-VW-vj5">
+                                        <rect key="frame" x="107" y="390" width="100" height="33.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Ziz-vO-0sn"/>
+                                            <constraint firstAttribute="width" secondItem="0Po-VW-vj5" secondAttribute="height" multiplier="3:1" id="fQ0-eq-cEh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <state key="normal" title="キャンセル">
+                                            <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="qJR-QQ-49F" firstAttribute="centerY" secondItem="mz9-pg-Q38" secondAttribute="centerY" multiplier="0.7" id="0Ld-GS-GCr"/>
-                                    <constraint firstItem="G3t-gi-Ygr" firstAttribute="centerY" secondItem="mz9-pg-Q38" secondAttribute="centerY" multiplier="1.7" id="30p-qB-aSU"/>
+                                    <constraint firstItem="qJR-QQ-49F" firstAttribute="centerY" secondItem="mz9-pg-Q38" secondAttribute="centerY" multiplier="0.6" id="0Ld-GS-GCr"/>
+                                    <constraint firstItem="G3t-gi-Ygr" firstAttribute="centerY" secondItem="mz9-pg-Q38" secondAttribute="centerY" multiplier="1.5" id="30p-qB-aSU"/>
                                     <constraint firstItem="jep-wq-dvP" firstAttribute="centerX" secondItem="mz9-pg-Q38" secondAttribute="centerX" id="AAs-f3-YAa"/>
                                     <constraint firstItem="ktt-Is-ytp" firstAttribute="centerX" secondItem="mz9-pg-Q38" secondAttribute="centerX" id="AI0-ba-lrA"/>
                                     <constraint firstItem="G3t-gi-Ygr" firstAttribute="centerX" secondItem="mz9-pg-Q38" secondAttribute="centerX" id="FXa-nd-Itf"/>
+                                    <constraint firstItem="0Po-VW-vj5" firstAttribute="top" secondItem="G3t-gi-Ygr" secondAttribute="bottom" constant="20" id="J6O-MU-BzX"/>
                                     <constraint firstItem="qJR-QQ-49F" firstAttribute="centerX" secondItem="mz9-pg-Q38" secondAttribute="centerX" id="fCm-g5-UJD"/>
                                     <constraint firstAttribute="width" secondItem="mz9-pg-Q38" secondAttribute="height" multiplier="2:3" id="kmI-qa-oC6"/>
                                     <constraint firstItem="jep-wq-dvP" firstAttribute="top" secondItem="qJR-QQ-49F" secondAttribute="bottom" constant="40" id="qJv-U4-mSY"/>
                                     <constraint firstItem="G3t-gi-Ygr" firstAttribute="top" secondItem="ktt-Is-ytp" secondAttribute="bottom" constant="40" id="yUV-ZB-fyI"/>
+                                    <constraint firstItem="0Po-VW-vj5" firstAttribute="centerX" secondItem="mz9-pg-Q38" secondAttribute="centerX" id="ybb-7V-MV4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -88,20 +122,11 @@
                     <connections>
                         <outlet property="peerIcon" destination="qJR-QQ-49F" id="4jG-GX-aNC"/>
                         <outlet property="peerName" destination="jep-wq-dvP" id="l1o-LM-bq8"/>
-                        <segue destination="cm2-V1-pPd" kind="show" identifier="toResult" id="PI9-gP-CY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvh-Fd-tdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="205.79710144927537" y="164.73214285714286"/>
-        </scene>
-        <!--Result-->
-        <scene sceneID="fZs-zv-TlQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Result" id="cm2-V1-pPd" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1KM-jX-Ck0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="824" y="165"/>
         </scene>
     </scenes>
     <resources>

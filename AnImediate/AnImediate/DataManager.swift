@@ -33,10 +33,10 @@ class DataManager: NSObject {
                 print("[", terminator: "")
                 for i in 0..<work.count {
                     //print(work[i].animeId)
-                    if i % (work.count / 50) == 0, i != work.count-1 {
-                        print("*", terminator: "")
+                    if i % (work.count / 100) == 0, i != work.count-1 {
+                        print("\(i/work.count) %... ")
                     } else if i == work.count-1 {
-                        print("] 100% ", terminator: "\n")
+                        print("100% Complete")
                     }
                     
                     try! realm.write {

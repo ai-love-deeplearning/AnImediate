@@ -63,10 +63,8 @@ class HomeHeaderVC: UIViewController {
         if segue.identifier == "toEdit", isProfileEmpty {
             let nc: UINavigationController = segue.destination as! UINavigationController
             let nextVC = nc.topViewController as! ProfileEditVC
+            nextVC.cancelBtn.isEnabled = true
             nextVC.cancelBtn.title = ""
-            nextVC.cancelBtn.isEnabled = false
-            nextVC.nameText = nameLabel.text!
-            nextVC.commentText = commentLabel.text!
             nextVC.iconImage = iconView.image!
             nextVC.backImage = backView.image!
             print("profile is empty")

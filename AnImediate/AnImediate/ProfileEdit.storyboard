@@ -134,7 +134,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="background" destination="o4k-A9-gnw" id="agi-7o-f23"/>
-                        <outlet property="cancelBtn" destination="UfB-Vw-3kP" id="SyQ-rW-v1E"/>
+                        <outlet property="cancelBtn" destination="UfB-Vw-3kP" id="r46-9G-KX0"/>
                         <outlet property="editTable" destination="iv5-8K-azQ" id="Vpf-bR-dkQ"/>
                         <outlet property="icon" destination="woD-De-zcT" id="ORl-pK-Qlg"/>
                         <outlet property="iconBtn" destination="3Mj-kx-FHd" id="TGM-pA-Jzk"/>

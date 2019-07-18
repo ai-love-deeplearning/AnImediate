@@ -37,6 +37,7 @@ class ExchangeDataVC: UIViewController {
         super.viewWillAppear(animated)
         self.peerIcon.image = UIImage(data: self.peerInfo.iconData! as Data)!
         self.peerName.text =  self.peerInfo.name
+        self.navigationItem.hidesBackButton = true
         setMyInfo()
     }
     
@@ -65,7 +66,8 @@ class ExchangeDataVC: UIViewController {
                 P2PConnectivity.manager.send(data: codedInfo)
                 DispatchQueue.main.async() {
                     if self.isReceived {
-                        self.performSegue(withIdentifier: "toResult", sender: nil)
+                        self.navigationController?.popToRootViewController(animated: true)
+                        //self.performSegue(withIdentifier: "toResult", sender: nil)
                     }
                 }
                 self.isAccepted = true
@@ -134,7 +136,8 @@ extension ExchangeDataVC: ExchangeDelegate {
             }
                 
             if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
-                self.performSegue(withIdentifier: "toResult", sender: nil)
+                self.navigationController?.popToRootViewController(animated: true)
+                //self.performSegue(withIdentifier: "toResult", sender: nil)
             }
         }
     }
