@@ -31,7 +31,7 @@ class AnimeListCardVC: UIViewController {
         super.viewDidLoad()
         setupCV()
         setupPickerView()
-        floatingView.layer.cornerRadius = floatingView.frame.height / 2
+        floatingView.layer.cornerRadius = floatingView.frame.height / 3
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登録", style: .plain, target: self, action: #selector(changeRegisterMode))
     }
     
