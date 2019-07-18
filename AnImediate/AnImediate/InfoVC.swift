@@ -155,6 +155,7 @@ extension InfoVC: UICollectionViewDelegate, UIPickerViewDelegate {
         
         cell.bindData(work: similarWork)
         
+        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
         UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
         UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
         UserDefaults.standard.set(cell.seasonText, forKey: "season")
