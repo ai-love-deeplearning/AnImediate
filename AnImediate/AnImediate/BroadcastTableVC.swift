@@ -15,8 +15,6 @@ class BroadcastTableVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var broadcastTable: UITableView!
     
-    let realm = try! Realm()
-    
     private let seasons: [String] = ["冬", "春", "夏", "秋"]
     private let seasonTexts: [String] = ["冬（1月 〜 3月）", "春（4月 〜 6月）", "夏（7月 〜 9月）", "秋（10月 〜 12月）"]
     private let old: Int = 1972
@@ -113,8 +111,10 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+        let seedRealm = try! Realm(configuration: config)
         selectedSeason = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
-        works = Array(realm.objects(Work.self).filter("seasonNameText == %@", selectedSeason))
+        works = Array(seedRealm.objects(Work.self).filter("seasonNameText == %@", selectedSeason))
         tableView.deselectRow(at: indexPath, animated: false)
         self.view.endEditing(true)
         performSegue(withIdentifier: "toAnimeListCard", sender: nil)

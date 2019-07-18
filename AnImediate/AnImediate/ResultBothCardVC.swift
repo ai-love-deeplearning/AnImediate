@@ -49,7 +49,10 @@ class ResultBothCardVC: UIViewController {
             }
             
             if flag {
-                let workResults = realm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
+                let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
+                let seedRealm = try! Realm(configuration: config)
+                
+                let workResults = seedRealm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
                 work.append(workResults[0])
             }
             self.works = work

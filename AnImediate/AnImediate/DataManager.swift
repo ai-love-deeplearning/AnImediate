@@ -70,16 +70,4 @@ class DataManager: NSObject {
         
         try! Realm().writeCopy(toFile: URL(string: realmPath)!, encryptionKey: Data(base64Encoded: "anime"))
     }
-    
-    func loadSeedRealm(){
-        var config = Realm.Configuration()
-        let path = Bundle.main.path(forResource: "anime", ofType: "realm")
-        
-        config.fileURL = URL(string:path!)
-        config.readOnly = true
-        Realm.Configuration.defaultConfiguration = config
-        
-        print(try! Realm().objects(Work.self).count)
-        print(try! Realm().objects(Episode.self).count)
-    }
 }
