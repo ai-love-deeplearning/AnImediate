@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class UserInfo : Object, NSCoding {
+class UserInfo : Object, NSCoding, NSCopying {
     
     @objc dynamic var id = ""
     @objc dynamic var name = ""
@@ -65,6 +65,18 @@ class UserInfo : Object, NSCoding {
     
     override static func ignoredProperties() -> [String] {
         return ["icon", "_icon", "background", "_background"]
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = UserInfo()
+        copy.id = id
+        copy.name = name
+        copy.comment = comment
+        copy.excangedAt = excangedAt
+        copy.iconData = iconData
+        copy.backData = backData
+        
+        return copy
     }
     
     func encode(with aCoder: NSCoder) {
