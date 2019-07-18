@@ -7,35 +7,47 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
-struct Episode {
-    var id: Int
-    var sortNumber: Int
-    var numberText: String
-    var title: String
-    var animeId: Int
-    var animeTitle: String
+class Episode: Object {
+    @objc dynamic var id = 0
+    @objc dynamic var sortNumber = 0
+    @objc dynamic var numberText = ""
+    @objc dynamic var title = ""
+    @objc dynamic var animeId = 0
+    @objc dynamic var animeTitle = ""
     
-    init(value: [String: Any]) {
-        self.id = value["id"] as? Int ?? 0
-        self.sortNumber = value["sort_number"] as? Int ?? 0
-        self.numberText = value["number_text"] as? String ?? ""
-        self.title = value["title"] as? String ?? ""
-        if let work = value["work"] as? [String: Any] {
-            animeId = work["id"] as? Int ?? 0
-            animeTitle = work["title"] as? String ?? ""
-        } else {
-            animeId = 0
-            animeTitle = ""
-        }
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
-    init() {
-        id = 0
-        sortNumber = 0
-        numberText = ""
-        title = ""
-        animeId = 0
-        animeTitle = ""
+    init(value: [String: Any]) {
+        super.init()
+        
+        self.id = value["id"] as? Int ?? 0
+        self.sortNumber = value["sortNumber"] as? Int ?? 0
+        self.numberText = value["numberText"] as? String ?? ""
+        self.title = value["title"] as? String ?? ""
+        self.animeId = value["animeId"] as? Int ?? 0
+        self.animeTitle = value["animeTitle"] as? String ?? ""
+    }
+    
+    required init() {
+        super.init()
+        self.id = 0
+        self.sortNumber = 0
+        self.numberText = ""
+        self.title = ""
+        self.animeId = 0
+        self.animeTitle = ""
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
     }
 }

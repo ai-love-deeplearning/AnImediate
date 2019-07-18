@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if realm.objects(UserInfo.self).isEmpty {
             // Firebaseからアニメデータを取得
-            self.dataManager.getWork()
+            self.dataManager.loadSeedRealm()
         }
         
         return true
