@@ -47,8 +47,6 @@
 		32FEDB1B22DF5E1000462E12 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
 		32FEDB2022E0AF9D00462E12 /* anime.realm in Resources */ = {isa = PBXBuildFile; fileRef = 32FEDB1F22E0AF9300462E12 /* anime.realm */; };
 		32FEDB2222E0CC5200462E12 /* EpisodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */; };
-		3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */; };
-		3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BAF22C994E300A038C8 /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAE22C994E300A038C8 /* P2PConnectivity.swift */; };
@@ -152,8 +150,6 @@
 		32FEDB1A22DF5E1000462E12 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		32FEDB1F22E0AF9300462E12 /* anime.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = anime.realm; sourceTree = "<group>"; };
 		32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeVC.swift; sourceTree = "<group>"; };
-		3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeResult.storyboard; sourceTree = "<group>"; };
-		3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultVC.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		50165BAE22C994E300A038C8 /* P2PConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PConnectivity.swift; sourceTree = "<group>"; };
@@ -296,7 +292,6 @@
 				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
 				50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */,
 				50F9849022D4775600038A23 /* ExchangeDataVC.swift */,
-				3F854D1E22CC570700A1BADA /* ExchangeResultVC.swift */,
 				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
 				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
 				32A6410C22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift */,
@@ -333,7 +328,6 @@
 				321C6E3B22DC9C2900757F83 /* ResultUserCVCell.xib */,
 				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
 				50F9849222D47C7D00038A23 /* ExchangeData.storyboard */,
-				3F854D1C22CB719F00A1BADA /* ExchangeResult.storyboard */,
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
 				3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */,
 				3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */,
@@ -509,7 +503,6 @@
 				32A6411D22DC53CB002EF6F3 /* Result.storyboard in Resources */,
 				963B681622D22A33006988FE /* SettingText.storyboard in Resources */,
 				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
-				3F854D1D22CB719F00A1BADA /* ExchangeResult.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
 				32A6411722DC389A002EF6F3 /* AnimeListCard.storyboard in Resources */,
 				3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */,
@@ -680,7 +673,6 @@
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,
-				3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */,
 				50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */,
 				321C6E4122DCB99600757F83 /* HomeSeeingVC.swift in Sources */,
 				321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */,

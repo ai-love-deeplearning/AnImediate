@@ -12,6 +12,7 @@ import RealmSwift
 class HomeNotSeeVC: UIViewController {
 
     @IBOutlet weak var cardCV: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
     
     let realm = try! Realm()
     
@@ -66,6 +67,9 @@ class HomeNotSeeVC: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         self.cardCV.collectionViewLayout = layout
     }
+    @IBAction func toAnimeListBtnTapped(_ sender: Any) {
+        tabBarController?.selectedViewController = tabBarController?.viewControllers?[2];
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
@@ -101,6 +105,12 @@ extension HomeNotSeeVC: UICollectionViewDataSource {
         
         let work = self.works[indexPath.row]
         cell.bindData(work: work)
+        
+        if self.works.count == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
         
         return cell
     }
