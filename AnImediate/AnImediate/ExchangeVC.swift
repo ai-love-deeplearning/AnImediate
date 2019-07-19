@@ -95,7 +95,7 @@ class ExchangeVC: UIViewController {
                     self.searchingTime = 0
                     break
                 case .connected:
-                    DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
                         do {
                             //  UserInfo → NSData
                             let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myInfo, requiringSecureCoding: false)
