@@ -24,7 +24,6 @@ class SettingVC: UIViewController {
     }
     
     private func showErrorIfNeeded(_ errorOrNil: Error?) {
-        // エラーがなければ何もしません
         guard errorOrNil != nil else { return }
         
         let message = "エラーが起きました"
@@ -66,7 +65,7 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: false)
         switch indexPath.row {
         case 0:
-            self.performSegue(withIdentifier: "toUse", sender: self)
+            self.performSegue(withIdentifier: "toAccount", sender: self)
             
         case 1:
             self.performSegue(withIdentifier: "toText", sender: self)

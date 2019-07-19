@@ -41,6 +41,19 @@ class ExchangeDataVC: UIViewController {
         setMyInfo()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isAccepted {
+            
+        } else {
+            let realm = try! Realm()
+            let result = realm.objects(UserInfo.self).filter("userId == %@", peerInfo.id)
+            try! realm.write {
+                realm.delete(result[0])
+            }
+        }
+    }
+    
     private func setMyInfo() {
         let realm = try! Realm()
         let result = realm.objects(UserInfo.self)
@@ -77,6 +90,11 @@ class ExchangeDataVC: UIViewController {
     }
     
     @IBAction func cancelBtnTapped(_ sender: Any) {
+        let realm = try! Realm()
+        let result = realm.objects(UserInfo.self).filter("userId == %@", peerInfo.id)
+        try! realm.write {
+            realm.delete(result[0])
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
