@@ -41,6 +41,7 @@ class ResultVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchUserInfo()
+        userCV.reloadData()
     }
     
     private func fetchUserInfo() {
