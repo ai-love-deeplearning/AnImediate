@@ -15,6 +15,8 @@ class ExchangeDataVC: UIViewController {
     @IBOutlet weak var peerIcon: UIImageView!
     @IBOutlet weak var peerName: UILabel!
     
+    @IBOutlet weak var exchangeBtn: UIButton!
+    @IBOutlet weak var canselBtn: UIButton!
     
     var myInfo: UserInfo = UserInfo()
     var myData: [WatchData] = []
@@ -52,6 +54,12 @@ class ExchangeDataVC: UIViewController {
                 realm.delete(result[0])
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        exchangeBtn.layer.cornerRadius = exchangeBtn.frame.height / 2
+        canselBtn.layer.cornerRadius = canselBtn.frame.height / 2
     }
     
     private func setMyInfo() {

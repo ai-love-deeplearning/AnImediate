@@ -123,6 +123,8 @@
                         <viewLayoutGuide key="safeArea" id="jvt-It-roJ"/>
                     </view>
                     <connections>
+                        <outlet property="canselBtn" destination="0Po-VW-vj5" id="WxN-AA-fPf"/>
+                        <outlet property="exchangeBtn" destination="G3t-gi-Ygr" id="rF9-ym-fyL"/>
                         <outlet property="peerIcon" destination="qJR-QQ-49F" id="4jG-GX-aNC"/>
                         <outlet property="peerName" destination="jep-wq-dvP" id="l1o-LM-bq8"/>
                     </connections>
