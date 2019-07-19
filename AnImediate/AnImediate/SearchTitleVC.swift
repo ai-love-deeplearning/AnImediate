@@ -13,6 +13,7 @@ class SearchTitleVC: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cardCV: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
     
     public var works: [Work] = [] {
         didSet {
@@ -72,6 +73,8 @@ extension SearchTitleVC: UICollectionViewDelegate, UISearchBarDelegate {
         self.view.endEditing(true)
         searchBar.showsCancelButton = true
         
+        self.emptyView.isHidden = true
+        
         fetchWork()
     }
     
@@ -79,6 +82,8 @@ extension SearchTitleVC: UICollectionViewDelegate, UISearchBarDelegate {
         self.view.endEditing(true)
         searchBar.showsCancelButton = false
         searchBar.text = ""
+        
+        self.emptyView.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

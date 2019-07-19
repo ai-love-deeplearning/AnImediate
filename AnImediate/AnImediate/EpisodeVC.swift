@@ -12,6 +12,7 @@ import RealmSwift
 class EpisodeVC: UIViewController {
 
     @IBOutlet weak var episodeTableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
     
     var episodes: [Episode] = []
     var animeId: Int = 0
@@ -34,6 +35,10 @@ class EpisodeVC: UIViewController {
             self.episodes.append($0)
         }
         self.episodes.sort {$0.sortNumber < $1.sortNumber}
+        
+        if !self.episodes.isEmpty {
+            self.emptyView.isHidden = true
+        }
     }
     
     private func setupTableView() {
