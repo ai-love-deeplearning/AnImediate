@@ -283,7 +283,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jbb-qa-RfI" firstAttribute="centerY" secondItem="SNL-lO-6J1" secondAttribute="centerY" multiplier="0.8" id="2HP-Ib-tuC"/>
                                     <constraint firstItem="jbb-qa-RfI" firstAttribute="height" secondItem="SNL-lO-6J1" secondAttribute="height" multiplier="0.25" id="6sB-fJ-Zcc"/>
@@ -344,7 +344,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dc7-7L-Tl6" firstAttribute="height" secondItem="J5d-lr-TMy" secondAttribute="height" multiplier="0.3" id="36p-ic-MSf"/>
                             <constraint firstItem="YG7-Th-Xqe" firstAttribute="centerX" secondItem="J5d-lr-TMy" secondAttribute="centerX" id="GCu-rm-k3h"/>
@@ -384,7 +384,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UzX-SA-1dH" firstAttribute="centerY" secondItem="s4v-kH-lqJ" secondAttribute="centerY" multiplier="0.8" id="0WY-Us-DaJ"/>
                             <constraint firstItem="UzX-SA-1dH" firstAttribute="height" secondItem="s4v-kH-lqJ" secondAttribute="height" multiplier="0.3" id="0wW-Cw-XRR"/>
