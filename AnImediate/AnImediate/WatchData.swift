@@ -27,6 +27,7 @@ class WatchData : Object, NSCoding, NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = WatchData()
         copy.id = id
+        copy.userId = userId
         copy.animeId = animeId
         copy.animeStatus = animeStatus
         copy.createdAt = createdAt
