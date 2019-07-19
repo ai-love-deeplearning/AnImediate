@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class ResultYouCardVC: UIViewController {
-
     @IBOutlet weak var cardCV: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
     
     var flag = false
     public var works: [Work] = [] {
@@ -110,6 +110,12 @@ extension ResultYouCardVC: UICollectionViewDataSource {
         
         let work = self.works[indexPath.row]
         cell.bindData(work: work)
+        
+        if self.works.count == 0 {
+            emptyView.isHidden = true
+        } else {
+            emptyView.isHidden = false
+        }
         
         return cell
     }

@@ -66,6 +66,9 @@ class HomeNotSeeVC: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         self.cardCV.collectionViewLayout = layout
     }
+    @IBAction func toAnimeListBtnTapped(_ sender: Any) {
+        tabBarController?.selectedViewController = tabBarController?.viewControllers?[2];
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
