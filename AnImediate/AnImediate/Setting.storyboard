@@ -49,7 +49,7 @@
                     <navigationItem key="navigationItem" title="設定" id="b7w-b5-jY3"/>
                     <connections>
                         <outlet property="settingTableView" destination="nHG-oP-0Wu" id="nzW-OH-1bU"/>
-                        <segue destination="dIf-ne-gSH" kind="show" identifier="toUse" id="bmR-ED-gqW"/>
+                        <segue destination="dIf-ne-gSH" kind="show" identifier="toAccount" id="bmR-ED-gqW"/>
                         <segue destination="qo9-Wf-7Ah" kind="show" identifier="toMail" id="22s-R3-CL8"/>
                         <segue destination="SW9-Zf-mUd" kind="presentation" identifier="toLogin" id="O99-P9-5uC"/>
                         <segue destination="SCT-cz-kor" kind="show" identifier="toText" id="fW5-R4-tvf"/>
@@ -67,14 +67,56 @@
             </objects>
             <point key="canvasLocation" x="1268" y="-1025"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting AccountVC-->
         <scene sceneID="TpZ-cC-VPY">
             <objects>
-                <viewController id="dIf-ne-gSH" sceneMemberID="viewController">
+                <viewController id="dIf-ne-gSH" customClass="SettingAccountVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kPV-2r-aKb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L2W-3R-PYc">
+                                <rect key="frame" x="113.5" y="344" width="187" height="29"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="交換情報をリセットする">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="exResetBtnTapped:" destination="dIf-ne-gSH" eventType="touchUpInside" id="U56-3f-TUk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-Rf-9Xv">
+                                <rect key="frame" x="113.5" y="523" width="187" height="29"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="視聴情報をリセットする">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="wdResetBtnTapped:" destination="dIf-ne-gSH" eventType="touchUpInside" id="QgH-cL-MyD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L2W-3R-PYc" firstAttribute="centerX" secondItem="kPV-2r-aKb" secondAttribute="centerX" id="Epf-8K-z4C"/>
+                            <constraint firstItem="PDv-Rf-9Xv" firstAttribute="centerX" secondItem="kPV-2r-aKb" secondAttribute="centerX" id="Z2z-ju-zTl"/>
+                            <constraint firstItem="PDv-Rf-9Xv" firstAttribute="centerY" secondItem="kPV-2r-aKb" secondAttribute="centerY" multiplier="1.2" id="bgQ-Rn-NDY"/>
+                            <constraint firstItem="L2W-3R-PYc" firstAttribute="centerY" secondItem="kPV-2r-aKb" secondAttribute="centerY" multiplier="0.8" id="l10-ud-9h5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JNu-Wh-AgZ"/>
                     </view>
                 </viewController>

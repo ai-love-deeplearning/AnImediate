@@ -83,6 +83,7 @@
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
 		50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */; };
+		50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */; };
 		50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeDataVC.swift */; };
 		50F9849322D47C7D00038A23 /* ExchangeData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F9849222D47C7D00038A23 /* ExchangeData.storyboard */; };
 		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
@@ -195,6 +196,7 @@
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
+		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
 		50F9849022D4775600038A23 /* ExchangeDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataVC.swift; sourceTree = "<group>"; };
 		50F9849222D47C7D00038A23 /* ExchangeData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeData.storyboard; sourceTree = "<group>"; };
 		963B681322D225DD006988FE /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */,
 				509D820B22C3710900BF813F /* SettingVC.swift */,
 				963B681722D22A63006988FE /* SettingTextVC.swift */,
+				50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */,
 				963B681322D225DD006988FE /* license.txt */,
 				9643AE2122C6080800899B61 /* sendMailVC.swift */,
 				32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */,
@@ -678,6 +681,7 @@
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,
 				3F854D1F22CC570700A1BADA /* ExchangeResultVC.swift in Sources */,
+				50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */,
 				321C6E4122DCB99600757F83 /* HomeSeeingVC.swift in Sources */,
 				321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
@@ -869,7 +873,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V85Y4GF6BG;
 				INFOPLIST_FILE = AnImediate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -892,7 +896,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V85Y4GF6BG;
 				INFOPLIST_FILE = AnImediate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

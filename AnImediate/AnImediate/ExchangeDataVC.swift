@@ -41,6 +41,19 @@ class ExchangeDataVC: UIViewController {
         setMyInfo()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isAccepted {
+            
+        } else {
+            let realm = try! Realm()
+            let result = realm.objects(UserInfo.self).filter("userId == %@", peerInfo.id)
+            try! realm.write {
+                realm.delete(result[0])
+            }
+        }
+    }
+    
     private func setMyInfo() {
         let realm = try! Realm()
         let result = realm.objects(UserInfo.self)
@@ -57,6 +70,7 @@ class ExchangeDataVC: UIViewController {
     
     @IBAction func acceptBtnTapped(_ sender: Any) {
         print("accept")
+        self.isAccepted = true
         DispatchQueue.global(qos: .background).async {
             do {
                 // WatchData → NSData
@@ -67,10 +81,8 @@ class ExchangeDataVC: UIViewController {
                 DispatchQueue.main.async() {
                     if self.isReceived {
                         self.navigationController?.popToRootViewController(animated: true)
-                        //self.performSegue(withIdentifier: "toResult", sender: nil)
                     }
                 }
-                self.isAccepted = true
             } catch {
                 fatalError("archivedData failed with error: \(error)")
             }
@@ -78,7 +90,12 @@ class ExchangeDataVC: UIViewController {
     }
     
     @IBAction func cancelBtnTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let realm = try! Realm()
+        let result = realm.objects(UserInfo.self).filter("userId == %@", peerInfo.id)
+        try! realm.write {
+            realm.delete(result[0])
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -144,7 +161,6 @@ extension ExchangeDataVC: ExchangeDelegate {
                 
             if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
                 self.navigationController?.popToRootViewController(animated: true)
-                //self.performSegue(withIdentifier: "toResult", sender: nil)
             }
         }
     }
