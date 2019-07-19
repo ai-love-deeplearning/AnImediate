@@ -12,6 +12,7 @@ import RealmSwift
 class HomeSeeingVC: UIViewController {
 
     @IBOutlet weak var cardCV: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
     
     let realm = try! Realm()
     
@@ -106,6 +107,12 @@ extension HomeSeeingVC: UICollectionViewDataSource {
         
         let work = self.works[indexPath.row]
         cell.bindData(work: work)
+        
+        if self.works.count == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
         
         return cell
     }

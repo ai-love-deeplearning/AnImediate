@@ -149,6 +149,7 @@
                     </view>
                     <connections>
                         <outlet property="cardCV" destination="fhX-QF-zMQ" id="c42-pF-RMs"/>
+                        <outlet property="emptyView" destination="Bhd-FB-s6A" id="XOi-2c-tf4"/>
                         <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="E7J-tH-QcN"/>
                     </connections>
                 </viewController>
@@ -252,6 +253,7 @@
                     </view>
                     <connections>
                         <outlet property="cardCV" destination="e84-BY-4b7" id="Alk-pN-xme"/>
+                        <outlet property="emptyView" destination="YLz-w7-V91" id="iS4-mp-LcJ"/>
                         <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="WNb-ze-9sb"/>
                     </connections>
                 </viewController>
@@ -363,6 +365,7 @@
                     </view>
                     <connections>
                         <outlet property="cardCV" destination="szk-fu-FLl" id="vI6-V4-hiA"/>
+                        <outlet property="emptyView" destination="Kaz-yY-aff" id="d8q-7c-u3x"/>
                         <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="v5f-ol-Jcc"/>
                     </connections>
                 </viewController>
@@ -573,6 +576,7 @@
                     </view>
                     <connections>
                         <outlet property="cardCV" destination="NK8-aj-ke1" id="Nt1-ln-HZY"/>
+                        <outlet property="emptyView" destination="gXi-A2-rML" id="i8E-0K-oSh"/>
                         <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="Tp6-Sd-4c8"/>
                     </connections>
                 </viewController>

@@ -112,9 +112,9 @@ extension ResultMeCardVC: UICollectionViewDataSource {
         cell.bindData(work: work)
         
         if self.works.count == 0 {
-            emptyView.isHidden = true
-        } else {
             emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
         }
         
         return cell
