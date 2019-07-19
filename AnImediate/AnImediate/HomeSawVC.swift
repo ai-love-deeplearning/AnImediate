@@ -51,6 +51,13 @@ class HomeSawVC: UIViewController {
             }
         }
         self.works = work
+        
+        if self.works.count == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
+        
         work = [Work]()
     }
     
@@ -106,12 +113,6 @@ extension HomeSawVC: UICollectionViewDataSource {
         
         let work = self.works[indexPath.row]
         cell.bindData(work: work)
-        
-        if self.works.count == 0 {
-            emptyView.isHidden = false
-        } else {
-            emptyView.isHidden = true
-        }
         
         return cell
     }

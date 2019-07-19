@@ -51,6 +51,13 @@ class HomeSeeingVC: UIViewController {
             }
         }
         self.works = work
+        
+        if self.works.count == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
+        
         work = [Work]()
     }
     
@@ -107,12 +114,6 @@ extension HomeSeeingVC: UICollectionViewDataSource {
         
         let work = self.works[indexPath.row]
         cell.bindData(work: work)
-        
-        if self.works.count == 0 {
-            emptyView.isHidden = false
-        } else {
-            emptyView.isHidden = true
-        }
         
         return cell
     }
