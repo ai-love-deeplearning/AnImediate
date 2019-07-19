@@ -21,6 +21,8 @@ class ExchangeVC: UIViewController {
     var searchingTime: Int = 0
     var count = 0
     
+    var isRecieveWatch: Bool = false
+    
     var dateString = ""
     let now = NSDate()
     let formatter = DateFormatter()
@@ -149,6 +151,7 @@ class ExchangeVC: UIViewController {
         if segue.identifier == "toPopUpModal" {
             let nextVC = segue.destination as! ExchangeDataVC
             nextVC.peerInfo = peerInfo
+            nextVC.isRecievedWatch = self.isRecieveWatch
         }
     }
 }
@@ -180,6 +183,29 @@ extension ExchangeVC: ExchangeDelegate {
                     }
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "toPopUpModal", sender: nil)
+                    }
+                } else if let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [WatchData] {
+                    self.isRecieveWatch = true
+                    // クエリによるデータの取得
+                    let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
+                    
+                    if results.isEmpty {
+                        decoded.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        
+                        try! realm.write {
+                            realm.add(decoded)
+                        }
+                    } else {
+                        decoded.forEach {
+                            $0.id = NSUUID().uuidString
+                        }
+                        // データの更新
+                        try! realm.write {
+                            realm.delete(results)
+                            realm.add(decoded)
+                        }
                     }
                 }
             } catch {
