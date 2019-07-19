@@ -27,6 +27,7 @@ class ExchangeDataVC: UIViewController {
     var passTime = 0
     var isAccepted = false
     var isReceived = false
+    var isRecievedWatch = false
     
 
     override func viewDidLoad() {
@@ -86,7 +87,7 @@ class ExchangeDataVC: UIViewController {
             // データの送信
             P2PConnectivity.manager.send(data: codedInfo)
             
-            if self.isReceived {
+            if self.isReceived || self.isRecievedWatch {
                 self.navigationController?.popToRootViewController(animated: true)
             }
             
@@ -132,8 +133,8 @@ class ExchangeDataVC: UIViewController {
 extension ExchangeDataVC: ExchangeDelegate {
     func didRecieveData(data: Data) {
         print("watchDataReceive")
+        self.isReceived = true
         DispatchQueue.main.async {
-            self.isReceived = true
             let realm = try! Realm()
             
             do {
@@ -161,6 +162,8 @@ extension ExchangeDataVC: ExchangeDelegate {
                             realm.add(decoded)
                         }
                     }
+                } else {
+                    return
                 }
                 
                 if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
