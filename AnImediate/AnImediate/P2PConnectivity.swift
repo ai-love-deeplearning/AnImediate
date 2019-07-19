@@ -50,7 +50,7 @@ class P2PConnectivity: NSObject {
         
         let peerID = MCPeerID(displayName: displayName)
         
-        session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .none)
+        session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .optional)
         session.delegate = self
         
         advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: serviceType)
@@ -106,10 +106,10 @@ class P2PConnectivity: NSObject {
 
 // MARK: - MCSessionDelegate
 extension P2PConnectivity: MCSessionDelegate {
-    /*
+    
     func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
         certificateHandler(true)
-    }*/
+    }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         //profileRecieveHandler?(data)

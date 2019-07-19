@@ -20,7 +20,7 @@ class SettingAccountVC: UIViewController {
         super.viewDidLoad()
         
         userInfos = realm.objects(UserInfo.self)
-        myInfo = userInfos[0]
+        myInfo = userInfos[0].copy() as! UserInfo
         watchDatas = realm.objects(WatchData.self)
     }
     
@@ -29,6 +29,7 @@ class SettingAccountVC: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
             (action) in
             try! self.realm.write {
+                
                 self.realm.delete(self.userInfos)
                 self.realm.add(self.myInfo)
             }

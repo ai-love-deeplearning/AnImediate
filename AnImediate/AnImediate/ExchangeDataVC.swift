@@ -49,7 +49,7 @@ class ExchangeDataVC: UIViewController {
             
         } else {
             let realm = try! Realm()
-            let result = realm.objects(UserInfo.self).filter("userId == %@", peerInfo.id)
+            let result = realm.objects(UserInfo.self).filter("id == %@", peerInfo.id)
             try! realm.write {
                 realm.delete(result[0])
             }
@@ -99,7 +99,7 @@ class ExchangeDataVC: UIViewController {
     
     @IBAction func cancelBtnTapped(_ sender: Any) {
         let realm = try! Realm()
-        let result = realm.objects(UserInfo.self).filter("userId == %@", peerInfo.id)
+        let result = realm.objects(UserInfo.self).filter("id == %@", peerInfo.id)
         try! realm.write {
             realm.delete(result[0])
         }
