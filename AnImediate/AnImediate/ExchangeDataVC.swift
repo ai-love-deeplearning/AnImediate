@@ -79,21 +79,19 @@ class ExchangeDataVC: UIViewController {
     @IBAction func acceptBtnTapped(_ sender: Any) {
         print("accept")
         self.isAccepted = true
-        DispatchQueue.global(qos: .background).async {
-            do {
-                // WatchData → NSData
-                let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myData, requiringSecureCoding: false)
-                print(codedInfo)
-                // データの送信
-                P2PConnectivity.manager.send(data: codedInfo)
-                DispatchQueue.main.async() {
-                    if self.isReceived {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
-                }
-            } catch {
-                fatalError("archivedData failed with error: \(error)")
+        do {
+            // WatchData → NSData
+            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myData, requiringSecureCoding: false)
+            print(codedInfo)
+            // データの送信
+            P2PConnectivity.manager.send(data: codedInfo)
+            
+            if self.isReceived {
+                self.navigationController?.popToRootViewController(animated: true)
             }
+            
+        } catch {
+            fatalError("archivedData failed with error: \(error)")
         }
     }
     
@@ -117,12 +115,14 @@ class ExchangeDataVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult" {
             P2PConnectivity.manager.stop()
-            do {
-                // WatchData → NSData
-                let codedData = try NSKeyedArchiver.archivedData(withRootObject: peerData, requiringSecureCoding: false)
-                UserDefaults.standard.set(codedData, forKey: "data")
-            } catch {
-                fatalError("archivedData failed with error: \(error)")
+            DispatchQueue.main.async {
+                do {
+                    // WatchData → NSData
+                    let codedData = try NSKeyedArchiver.archivedData(withRootObject: self.peerData, requiringSecureCoding: false)
+                    UserDefaults.standard.set(codedData, forKey: "data")
+                } catch {
+                    fatalError("archivedData failed with error: \(error)")
+                }
             }
         }
     }
@@ -163,12 +163,12 @@ extension ExchangeDataVC: ExchangeDelegate {
                     }
                 }
                 
+                if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                
             } catch {
                 fatalError("archivedData failed with error: \(error)")
-            }
-                
-            if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
-                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }
