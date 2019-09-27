@@ -1,17 +1,21 @@
 //
-//  ExchangeDataVC.swift
+//  ExchangeAcceptVC.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/07/09.
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
 import AppModel
 import UIKit
 import RealmSwift
 import MultipeerConnectivity
+import ReSwift
+import RxCocoa
+import RxSwift
 
-class ExchangeDataVC: UIViewController {
+class ExchangeAcceptVC: UIViewController {
     
     @IBOutlet weak var peerIcon: UIImageView!
     @IBOutlet weak var peerName: UILabel!
@@ -132,6 +136,34 @@ class ExchangeDataVC: UIViewController {
     }
 
 }
+
+private extension RxStore where AnyStateType == ExchangeViewState {
+    var state: Driver<ExchangeViewState> {
+        return stateDriver.distinctUntilChanged()
+    }
+    
+    var isReceivePeerModel: Driver<Bool> {
+        return state.mapDistinct { $0.isReceivePeerModel }
+    }
+    
+    var isReceiveArchiveModel: Driver<Bool> {
+        return state.mapDistinct { $0.isReceiveArchiveModel }
+    }
+    
+    var isSendAccountModel: Driver<Bool> {
+        return state.mapDistinct { $0.isSendAccountModel }
+    }
+    
+    var isSendArchiveModel: Driver<Bool> {
+        return state.mapDistinct { $0.isSendArchiveModel }
+    }
+    
+    var error: Driver<AnimediateError> {
+        return state.mapDistinct { $0.error }.skipNil()
+    }
+    
+}
+
 /*
 extension ExchangeDataVC: ExchangeDelegate {
     func didRecieveData(data: Data) {

@@ -116,9 +116,12 @@
 		50DE79B1233DD236006C683E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
 		50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3DD2339E95300D89478 /* P2PConnectivity.swift */; };
 		50DE79B9233E16A7006C683E /* P2PActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79B8233E16A7006C683E /* P2PActionCreator.swift */; };
+		50DE79BB233E6A99006C683E /* ExchangeAcceptViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */; };
+		50DE79BF233E6EE5006C683E /* ExchangeAcceptViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */; };
+		50DE79C3233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79C2233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift */; };
 		50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */; };
 		50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */; };
-		50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeDataVC.swift */; };
+		50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */; };
 		50F9849322D47C7D00038A23 /* ExchangeData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F9849222D47C7D00038A23 /* ExchangeData.storyboard */; };
 		65F247CE2440FF4684D1804A /* Pods_AppModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9C355E2523DAE65965ED1C /* Pods_AppModel.framework */; };
 		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
@@ -330,9 +333,12 @@
 		50B380CE233799BC0092B59C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		50B380D0233799FE0092B59C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		50DE79B8233E16A7006C683E /* P2PActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PActionCreator.swift; sourceTree = "<group>"; };
+		50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewState.swift; sourceTree = "<group>"; };
+		50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewReducer.swift; sourceTree = "<group>"; };
+		50DE79C2233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewControllerInjector.swift; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
 		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
-		50F9849022D4775600038A23 /* ExchangeDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataVC.swift; sourceTree = "<group>"; };
+		50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptVC.swift; sourceTree = "<group>"; };
 		50F9849222D47C7D00038A23 /* ExchangeData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeData.storyboard; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
@@ -452,8 +458,7 @@
 		5042F3592337A6DB00D89478 /* ActionCreator */ = {
 			isa = PBXGroup;
 			children = (
-				5042F35A2337A70100D89478 /* ExchangeViewActionCreator.swift */,
-				50DE79B8233E16A7006C683E /* P2PActionCreator.swift */,
+				50DE79C0233E6F02006C683E /* Exchange */,
 			);
 			path = ActionCreator;
 			sourceTree = "<group>";
@@ -461,8 +466,8 @@
 		5042F35C2337A71D00D89478 /* Reducer */ = {
 			isa = PBXGroup;
 			children = (
+				50DE79BD233E6EA7006C683E /* Exchange */,
 				5042F37A2337B7CF00D89478 /* AppReducer.swift */,
-				5042F35F2337A94000D89478 /* ExchangeViewReducer.swift */,
 				5042F3832338D9D200D89478 /* P2PReducer.swift */,
 			);
 			path = Reducer;
@@ -485,7 +490,7 @@
 			children = (
 				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
 				50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */,
-				50F9849022D4775600038A23 /* ExchangeDataVC.swift */,
+				50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */,
 				32A6411E22DC57AD002EF6F3 /* ResultVC.swift */,
 				321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */,
 				321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */,
@@ -732,6 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				5042F3B82339D50600D89478 /* ExchangeViewControllerInjecter.swift */,
+				50DE79C2233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -846,8 +852,8 @@
 		50B380D323379BA40092B59C /* State */ = {
 			isa = PBXGroup;
 			children = (
+				50DE79BC233E6E81006C683E /* Exchange */,
 				50B380D0233799FE0092B59C /* AppState.swift */,
-				50B380CC233798B50092B59C /* ExchangeViewState.swift */,
 				5042F37C2337D66700D89478 /* P2PConnectionState.swift */,
 			);
 			path = State;
@@ -865,11 +871,46 @@
 		50B380D523379BC80092B59C /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				50DE79C1233E6F0C006C683E /* Exchange */,
 				5042F3782337B78C00D89478 /* AppAction.swift */,
-				5042F3552337A4C200D89478 /* ExchangeViewAction.swift */,
-				5042F381233889E900D89478 /* P2PAction.swift */,
 			);
 			path = Action;
+			sourceTree = "<group>";
+		};
+		50DE79BC233E6E81006C683E /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				50B380CC233798B50092B59C /* ExchangeViewState.swift */,
+				50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		50DE79BD233E6EA7006C683E /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				5042F35F2337A94000D89478 /* ExchangeViewReducer.swift */,
+				50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		50DE79C0233E6F02006C683E /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				50DE79B8233E16A7006C683E /* P2PActionCreator.swift */,
+				5042F35A2337A70100D89478 /* ExchangeViewActionCreator.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		50DE79C1233E6F0C006C683E /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				5042F381233889E900D89478 /* P2PAction.swift */,
+				5042F3552337A4C200D89478 /* ExchangeViewAction.swift */,
+			);
+			path = Exchange;
 			sourceTree = "<group>";
 		};
 		59FB79C804F93F0C7E94E561 /* Frameworks */ = {
@@ -1382,6 +1423,7 @@
 				50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */,
 				50DE799A233DCA5E006C683E /* ExchangeViewActionCreator.swift in Sources */,
 				50DE79B9233E16A7006C683E /* P2PActionCreator.swift in Sources */,
+				50DE79BF233E6EE5006C683E /* ExchangeAcceptViewReducer.swift in Sources */,
 				50DE799B233DCA5E006C683E /* AppReducer.swift in Sources */,
 				50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */,
 				50DE79B1233DD236006C683E /* Episode.swift in Sources */,
@@ -1391,6 +1433,7 @@
 				50DE79A0233DCA5E006C683E /* ExchangeViewState.swift in Sources */,
 				50DE79A1233DCA5E006C683E /* P2PConnectionState.swift in Sources */,
 				5027DEEC233DBAD500F4818F /* P2PInjector.swift in Sources */,
+				50DE79BB233E6A99006C683E /* ExchangeAcceptViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1464,7 @@
 				32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */,
 				32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */,
 				321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */,
+				50DE79C3233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift in Sources */,
 				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
 				963B681822D22A63006988FE /* SettingTextVC.swift in Sources */,
 				9643AE2222C6080800899B61 /* SendMailVC.swift in Sources */,
@@ -1431,7 +1475,7 @@
 				321C6E3F22DCB97200757F83 /* HomeWillSeeVC.swift in Sources */,
 				503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
-				50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */,
+				50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */,
 				32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */,
 				50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
