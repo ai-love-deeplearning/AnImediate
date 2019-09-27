@@ -20,7 +20,7 @@ struct ExchangeViewReducer {
         
         switch action {
             
-        case let action as ExchangeViewAction.Initialize:
+        case is ExchangeViewAction.Initialize:
             nextState = ExchangeViewState()
             
         case is ExchangeViewAction.DismissErrorAlert:

@@ -14,7 +14,7 @@ public struct P2PConnectionState: StateType {
     public internal(set) var isAdvertising = false
     public internal(set) var isBrowsing = false
     public internal(set) var isLoading = false
-    public internal(set) var error: Error?
+    public internal(set) var error: AnimediateError?
 }
 
 extension P2PConnectionState: Equatable {

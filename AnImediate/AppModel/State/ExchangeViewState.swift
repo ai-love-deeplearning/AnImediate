@@ -11,7 +11,6 @@ import Realm
 import RealmSwift
 
 public struct ExchangeViewState: StateType  {
-    public internal(set) var p2pConnectionState = P2PConnectionState()
     public internal(set) var isSendAccountModel = false
     public internal(set) var isSendArchiveModel = false
     public internal(set) var isReceivePeerModel = false

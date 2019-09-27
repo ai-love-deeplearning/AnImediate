@@ -41,6 +41,7 @@ class ExchangeVC: UIViewController {
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.exchangeStore)
+    private let p2pStore = RxStore(store: AppStore.instance.p2pStore)
     
     private var viewState: ExchangeViewState {
         return store.state
@@ -126,39 +127,11 @@ class ExchangeVC: UIViewController {
         timer.fire()
         
         self.searchingTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.notFound), userInfo: nil, repeats: false)
-        /*
-        P2PConnectivity.manager.start(
-            serviceType: serviceType,
-            displayName: "player",
-            stateChangeHandler: { state in
-                
-                switch state {
-                case .notConnected:
-                    self.searchingTimer.fire()
-                    break
-                case .connecting:
-                    self.searchingTimer.invalidate()
-                    self.searchingTime = 0
-                    break
-                case .connected:
-                    /*
-                    DispatchQueue.main.async {
-                        do {
-                            //  UserInfo → NSData
-                            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myInfo, requiringSecureCoding: false)
-                            P2PConnectivity.send(data: codedInfo)
-                        } catch {
-                            fatalError("archivedData failed with error: \(error)")
-                        }
-                    }*/
-                @unknown default:
-                    break
-                }
-                
-        }, profileRecieveHandler: { data in
-            
-        }
-        )*/
+        
+        bind()
+        
+        self.p2pStore.dispatch(self.ExchangeSearchActionCreator.startSerching(disposeBag: self.disposeBag))
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,7 +154,7 @@ class ExchangeVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        store.connectionState
+        p2pStore.connectionState
             .drive(
                 onNext: {[unowned self] connectionState in
                     switch connectionState {
@@ -214,121 +187,7 @@ class ExchangeVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        /*
-        dismissButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                Analytics.sendEvent(TapNavigation(navigation: .close))
-                self.dismiss(animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
         
-        callButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                Analytics.sendEvent(TapUnique(name: .tel))
-                self.store.dispatch(self.getBusinessHourActionCreator.getInquiryBusinessHour(disposeBag: self.disposeBag))
-            })
-            .disposed(by: disposeBag)
-        
-        consultationButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                Analytics.sendEvent(TapUnique(name: .consultationReserve))
-                UIApplication.shared.openURLIfCanOpen(InquiryViewController.consultationURL)
-            })
-            .disposed(by: disposeBag)
-        
-        searchButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                Analytics.sendEvent(TapUnique(name: .branchAtmReserve))
-                if self.viewState.forFirstStep {
-                    self.perform(segue: StoryboardSegue.InquiryFirststep.atmSearch)
-                } else {
-                    self.perform(segue: StoryboardSegue.Inquiry.atmSearch)
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        chatButton?.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                Analytics.sendEvent(TapUnique(name: .chat))
-                self.perform(segue: StoryboardSegue.Inquiry.chatWebView, sender: nil)
-                self.store.dispatch(InquiryViewAction.Initialize(forFirstStep: self.viewState.forFirstStep))
-            })
-            .disposed(by: disposeBag)
-        
-        mailButton?.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                Analytics.sendEvent(TapUnique(name: .mail))
-                self.store.dispatch(self.getWebFormURLActionCreator.getInquiryWebFormURL(disposeBag: self.disposeBag))
-            })
-            .disposed(by: disposeBag)
-        
-        FAQButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                Analytics.sendEvent(TapUnique(name: .faq))
-                UIApplication.shared.openURLIfCanOpen(InquiryViewController.FAQLinkURL)
-            })
-            .disposed(by: disposeBag)
-        
-        store.isLoading
-            .drive(onNext: { isLoading in
-                isLoading ? ResonaLottieProgressHUD.show() : ResonaLottieProgressHUD.dismiss()
-            })
-            .disposed(by: disposeBag)
-        
-        store.forFirstStep
-            .drive(onNext: { [unowned self] _ in
-            })
-            .disposed(by: disposeBag)
-        
-        store.url
-            .drive(onNext: { [unowned self] url in
-                UIApplication.shared.openURLIfCanOpen(url)
-                self.store.dispatch(InquiryViewAction.Initialize(forFirstStep: self.viewState.forFirstStep))
-            })
-            .disposed(by: disposeBag)
-        
-        store.businessHourList
-            .drive(onNext: { [unowned self] businessHourList in
-                let actionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                let devitAction: UIAlertAction = UIAlertAction(title: L10n.rs0001S01LabelAboutApp, style: .default, handler: { _ in
-                    // TODO: api呼び出しに変更
-                    if self.isBusinessTime(businessHourList[0]) {
-                        let url = URL(string: "tel://\(self.inquiryTelNumber())")!
-                        UIApplication.shared.openURLIfCanOpen(url)
-                    } else {
-                        self.showNotBusinessHoursDialog()
-                    }
-                })
-                let appAction: UIAlertAction = UIAlertAction(title: L10n.rs0001S01LabelAboutDevit, style: .default, handler: { _ in
-                    // TODO: api呼び出しに変更
-                    if self.isBusinessTime(businessHourList[1]) {
-                        let url = URL(string: "tel://\(self.inquiryTelNumber())")!
-                        UIApplication.shared.openURLIfCanOpen(url)
-                    } else {
-                        self.showNotBusinessHoursDialog()
-                    }
-                })
-                let cancelAction: UIAlertAction = UIAlertAction(title: L10n.commonCancel, style: .cancel, handler: nil)
-                actionSheet.addAction(devitAction)
-                actionSheet.addAction(appAction)
-                actionSheet.addAction(cancelAction)
-                self.present(actionSheet, animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
-        
-        store.error
-            .drive(onNext: { [unowned self] error in
-                self.showError(error: error)
-            })
-            .disposed(by: disposeBag)
- */
     }
     
     func initGradientLayer() {
@@ -365,14 +224,6 @@ private extension RxStore where AnyStateType == ExchangeViewState {
         return stateDriver.distinctUntilChanged()
     }
     
-    var p2pConnectionState: Driver<P2PConnectionState> {
-        return state.mapDistinct { $0.p2pConnectionState }
-    }
-    
-    var connectionState: Driver<MCSessionState> {
-        return state.mapDistinct { $0.p2pConnectionState.connectionState }
-    }
-    
     var isReceivePeerModel: Driver<Bool> {
         return state.mapDistinct { $0.isReceivePeerModel }
     }
@@ -387,6 +238,33 @@ private extension RxStore where AnyStateType == ExchangeViewState {
     
     var isSendArchiveModel: Driver<Bool> {
         return state.mapDistinct { $0.isSendArchiveModel }
+    }
+    
+    var error: Driver<AnimediateError> {
+        return state.mapDistinct { $0.error }.skipNil()
+    }
+    
+}
+
+private extension RxStore where AnyStateType == P2PConnectionState {
+    var state: Driver<P2PConnectionState> {
+        return stateDriver.distinctUntilChanged()
+    }
+
+    var connectionState: Driver<MCSessionState> {
+        return state.mapDistinct { $0.connectionState }
+    }
+    
+    var isAdvertising: Driver<Bool> {
+        return state.mapDistinct { $0.isAdvertising }
+    }
+    
+    var isBrowsing: Driver<Bool> {
+        return state.mapDistinct { $0.isBrowsing }
+    }
+    
+    var isLoading: Driver<Bool> {
+        return state.mapDistinct { $0.isLoading }
     }
     
     var error: Driver<AnimediateError> {
