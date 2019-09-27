@@ -11,74 +11,48 @@ import Foundation
 import ReSwift
 import RxSwift
 
-public protocol P2PActionCreatable {
-    func sendAccountModel(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator
-    func sendArchiveModel(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator
+public protocol P2PSearchActionCreatable {
+    func startSerching(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator
 }
 
-public class P2PActionCreator: P2PActionCreatable {
+public class P2PSearchActionCreator: P2PSearchActionCreatable {
     
-     private let connector: P2PConnectable
-     
-     public init(connector: P2PConnectable) {
+    private let connector: P2PConnectable
+    
+    public init(connector: P2PConnectable) {
         self.connector = connector
-     }
+    }
     
     public func startSerching(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator {
         
         return { [weak self] state, store, callback in
-             callback { _, _ in P2PAction.StartSearching() }
-             
-             // ここにP2PConectivityの通信処理を書く。
-             // 通信した結果コネクションが繋がったらSuccess、１、二分待っても相手が見つからなかったらtimeoutのActionを発行する。
-             self?.connector.startSearching(serviceType: P2PConfig.serviceType, displayName: UserInfo.read().name)
+            callback { _, _ in P2PAction.StartSearching() }
+            
+            let observable = self?.connector.startSearching(serviceType: P2PConfig.serviceType, displayName: AccountModel.read().name)
+            observable!.session
                 .subscribe(
                     onNext: { newValue in
-                        let action = P2PAction.ChangeState(newState: newValue)
+                        let action = P2PAction.ChangeState(connectionState: newValue)
                         callback { _, _ in action }
-                }
-                )
+                })
+                .disposed(by: disposeBag)
+            
+            observable!.data
+                .subscribe(
+                    onNext: {
+                        switch $0 {
+                        case "PeerModel":
+                            let action = ExchangeViewAction.ReceivePeerModel()
+                            callback { _, _ in action }
+                        case "ArchiveModel":
+                            let action = ExchangeViewAction.ReceiveArchiveModel()
+                            callback { _, _ in action }
+                        default:
+                            fatalError()
+                        }
+                })
                 .disposed(by: disposeBag)
         }
     }
     
-    public func sendAccountModel(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator {
-        
-        return { [weak self] state, store, callback in
-            callback { _, _ in P2PAction.StartSearching() }
-            
-            // ここにP2PConectivityの通信処理を書く。
-            // 通信した結果コネクションが繋がったらSuccess、１、二分待っても相手が見つからなかったらtimeoutのActionを発行する。
-            self?.connector.startSearching(serviceType: P2PConfig.serviceType, displayName: UserInfo.read().name)
-                .subscribe(
-                    onNext: { newValue in
-                        let action = P2PAction.ChangeState(newState: newValue)
-                        callback { _, _ in action }
-                }
-                )
-                .disposed(by: disposeBag)
-        }
-    }
-    
-    public func sendArchiveModel(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator {
-        
-        return { [weak self] state, store, callback in
-            callback { _, _ in P2PAction.StartSearching() }
-            
-            // ここにP2PConectivityの通信処理を書く。
-            // 通信した結果コネクションが繋がったらSuccess、１、二分待っても相手が見つからなかったらtimeoutのActionを発行する。
-            self?.connector.startSearching(serviceType: P2PConfig.serviceType, displayName: UserInfo.read().name)
-                .subscribe(
-                    onSuccess: {
-                        let action = P2PAction.SendArchiveModelSuccess()
-                        callback { _, _ in action }
-                },
-                    onError: {
-                        let action = P2PAction.SSP5304RequestError(error: $0)
-                        callback { _, _ in action }
-                }
-                )
-                .disposed(by: disposeBag)
-        }
-    }
 }

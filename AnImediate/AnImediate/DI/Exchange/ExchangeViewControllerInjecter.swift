@@ -13,8 +13,8 @@ import SwinjectStoryboard
 
 final class ExchangeViewControllerInjecter {
     class func setup(container: Container) {
-        container.register(ExchangeSearchActionCreatable.self) { r in
-            ExchangeSearchActionCreator(connector: r.resolve(P2PConnectable.self)!)
+        container.register(P2PSearchActionCreatable.self) { r in
+            P2PSearchActionCreator(connector: r.resolve(P2PConnectable.self)!)
         }
         
         container.register(ExchangeAccountActionCreatable.self) { r in
@@ -26,7 +26,7 @@ final class ExchangeViewControllerInjecter {
         }
         
         container.storyboardInitCompleted(ExchangeVC.self) { r, c in
-            c.inject(ExchangeSearchActionCreator: r.resolve(ExchangeSearchActionCreatable.self)!, ExchangeAccountActionCreator: r.resolve(ExchangeAccountActionCreatable.self)!, ExchangeArchiveActionCreator: r.resolve(ExchangeArchiveActionCreatable.self)!)
+            c.inject(P2PSearchActionCreator: r.resolve(P2PSearchActionCreatable.self)!, ExchangeAccountActionCreator: r.resolve(ExchangeAccountActionCreatable.self)!, ExchangeArchiveActionCreator: r.resolve(ExchangeArchiveActionCreatable.self)!)
         }
     }
 }

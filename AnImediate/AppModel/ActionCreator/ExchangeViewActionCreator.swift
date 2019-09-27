@@ -11,52 +11,6 @@ import Foundation
 import ReSwift
 import RxSwift
 
-public protocol ExchangeSearchActionCreatable {
-    func startSerching(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator
-}
-
-public class ExchangeSearchActionCreator: ExchangeSearchActionCreatable {
-    
-    private let connector: P2PConnectable
-    
-    public init(connector: P2PConnectable) {
-        self.connector = connector
-    }
-    
-    public func startSerching(disposeBag: DisposeBag) -> Store<P2PConnectionState>.AsyncActionCreator {
-        
-        return { [weak self] state, store, callback in
-            callback { _, _ in P2PAction.StartSearching() }
-            
-            let observable = self?.connector.startSearching(serviceType: P2PConfig.serviceType, displayName: AccountModel.read().name)
-            observable!.session
-                .subscribe(
-                    onNext: { newValue in
-                        let action = P2PAction.ChangeState(connectionState: newValue)
-                        callback { _, _ in action }
-                })
-                .disposed(by: disposeBag)
-            
-            observable!.data
-                .subscribe(
-                    onNext: {
-                        switch $0 {
-                        case "PeerModel":
-                            let action = ExchangeViewAction.ReceivePeerModel()
-                            callback { _, _ in action }
-                        case "ArchiveModel":
-                            let action = ExchangeViewAction.ReceiveArchiveModel()
-                            callback { _, _ in action }
-                        default:
-                            fatalError()
-                        }
-                })
-                .disposed(by: disposeBag)
-        }
-    }
-    
-}
-
 public protocol ExchangeAccountActionCreatable {
     func sendAccountModel(disposeBag: DisposeBag) -> Store<ExchangeViewState>.AsyncActionCreator
 }

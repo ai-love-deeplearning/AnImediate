@@ -47,9 +47,9 @@ class ExchangeVC: UIViewController {
         return store.state
     }
     
-    private var ExchangeSearchActionCreator: ExchangeSearchActionCreatable! = nil {
+    private var P2PSearchActionCreator: P2PSearchActionCreatable! = nil {
         willSet {
-            if ExchangeSearchActionCreator != nil {
+            if P2PSearchActionCreator != nil {
                 fatalError()
             }
         }
@@ -71,8 +71,8 @@ class ExchangeVC: UIViewController {
         }
     }
     
-    func inject(ExchangeSearchActionCreator: ExchangeSearchActionCreatable, ExchangeAccountActionCreator: ExchangeAccountActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
-        self.ExchangeSearchActionCreator = ExchangeSearchActionCreator
+    func inject(P2PSearchActionCreator: P2PSearchActionCreatable, ExchangeAccountActionCreator: ExchangeAccountActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
+        self.P2PSearchActionCreator = P2PSearchActionCreator
         self.ExchangeAccountActionCreator = ExchangeAccountActionCreator
         self.ExchangeArchiveActionCreator = ExchangeArchiveActionCreator
     }
@@ -130,7 +130,7 @@ class ExchangeVC: UIViewController {
         
         bind()
         
-        self.p2pStore.dispatch(self.ExchangeSearchActionCreator.startSerching(disposeBag: self.disposeBag))
+        self.p2pStore.dispatch(self.P2PSearchActionCreator.startSerching(disposeBag: self.disposeBag))
 
     }
     

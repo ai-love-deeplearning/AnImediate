@@ -115,6 +115,7 @@
 		50DE79B0233DD233006C683E /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
 		50DE79B1233DD236006C683E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
 		50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3DD2339E95300D89478 /* P2PConnectivity.swift */; };
+		50DE79B9233E16A7006C683E /* P2PActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79B8233E16A7006C683E /* P2PActionCreator.swift */; };
 		50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */; };
 		50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */; };
 		50F9849122D4775600038A23 /* ExchangeDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeDataVC.swift */; };
@@ -328,6 +329,7 @@
 		50B380CC233798B50092B59C /* ExchangeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewState.swift; sourceTree = "<group>"; };
 		50B380CE233799BC0092B59C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		50B380D0233799FE0092B59C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		50DE79B8233E16A7006C683E /* P2PActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PActionCreator.swift; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
 		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
 		50F9849022D4775600038A23 /* ExchangeDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataVC.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				5042F35A2337A70100D89478 /* ExchangeViewActionCreator.swift */,
+				50DE79B8233E16A7006C683E /* P2PActionCreator.swift */,
 			);
 			path = ActionCreator;
 			sourceTree = "<group>";
@@ -1378,6 +1381,7 @@
 				50DE7999233DCA5E006C683E /* P2PAction.swift in Sources */,
 				50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */,
 				50DE799A233DCA5E006C683E /* ExchangeViewActionCreator.swift in Sources */,
+				50DE79B9233E16A7006C683E /* P2PActionCreator.swift in Sources */,
 				50DE799B233DCA5E006C683E /* AppReducer.swift in Sources */,
 				50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */,
 				50DE79B1233DD236006C683E /* Episode.swift in Sources */,
@@ -1895,7 +1899,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ai-love-deepLearning.AnImediate";
+				PRODUCT_BUNDLE_IDENTIFIER = "ai-love-deepLearning.AnImediate.kawa";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnImediate/AnImediate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
