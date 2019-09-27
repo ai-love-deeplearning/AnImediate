@@ -1,0 +1,32 @@
+//
+//  ExchangeViewControllerInjecter.swift
+//  AnImediate
+//
+//  Created by 川村周也 on 2019/09/24.
+//  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
+//
+
+import AppModel
+import Foundation
+import Swinject
+import SwinjectStoryboard
+
+final class ExchangeViewControllerInjecter {
+    class func setup(container: Container) {
+        container.register(ExchangeSearchActionCreatable.self) { r in
+            ExchangeSearchActionCreator(connector: r.resolve(P2PConnectable.self)!)
+        }
+        
+        container.register(ExchangeAccountActionCreatable.self) { r in
+            ExchangeAccountActionCreator(connector: r.resolve(P2PConnectable.self)!)
+        }
+        
+        container.register(ExchangeArchiveActionCreatable.self) { r in
+            ExchangeArchiveActionCreator(connector: r.resolve(P2PConnectable.self)!)
+        }
+        
+        container.storyboardInitCompleted(ExchangeVC.self) { r, c in
+            c.inject(ExchangeSearchActionCreator: r.resolve(ExchangeSearchActionCreatable.self)!, ExchangeAccountActionCreator: r.resolve(ExchangeAccountActionCreatable.self)!, ExchangeArchiveActionCreator: r.resolve(ExchangeArchiveActionCreatable.self)!)
+        }
+    }
+}

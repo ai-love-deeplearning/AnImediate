@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 target 'AnImediate' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic framework
+
   use_frameworks!
 
   # Pods for AnImediate
@@ -10,20 +10,31 @@ target 'AnImediate' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'MXParallaxHeader'
-  pod 'Tabman'
+  pod 'Tabman', '2.5.0'
   pod 'RSKImageCropper'
   pod 'Firebase/Database'
   pod 'CenteredCollectionView'
   pod 'RealmSwift'
+  pod 'ReSwift', '4.1.1'
+  pod 'RxSwift', '4.5'
+  pod 'RxCocoa', '4.5'
+  pod 'Swinject', '2.6.2'
+  pod 'SwinjectStoryboard'
 
   target 'AnImediateTests' do
     inherit! :search_paths
-    # Pods for testing
   end
 
   target 'AnImediateUITests' do
     inherit! :search_paths
-    # Pods for testing
+  end
+
+  target 'AppConfig' do
+    inherit! :search_paths
+  end
+
+  target 'AppModel' do
+    inherit! :search_paths
   end
 
 end

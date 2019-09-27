@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RkX-cZ-sjM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--設定-->
+        <scene sceneID="GAK-97-wRd">
+            <objects>
+                <viewController id="2ya-qL-F16" customClass="SettingVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iAt-w6-BLz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nHG-oP-0Wu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <color key="sectionIndexColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="wF6-ZC-7ob">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wF6-ZC-7ob" id="nGB-WG-KL5">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nHG-oP-0Wu" firstAttribute="bottom" secondItem="PhB-3J-0w8" secondAttribute="bottom" id="6po-Y3-cf8"/>
+                            <constraint firstItem="PhB-3J-0w8" firstAttribute="trailing" secondItem="nHG-oP-0Wu" secondAttribute="trailing" id="oWY-e9-VQS"/>
+                            <constraint firstItem="nHG-oP-0Wu" firstAttribute="leading" secondItem="PhB-3J-0w8" secondAttribute="leading" id="piF-T3-3Z3"/>
+                            <constraint firstItem="nHG-oP-0Wu" firstAttribute="top" secondItem="PhB-3J-0w8" secondAttribute="top" id="wza-u7-afm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PhB-3J-0w8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="b7w-b5-jY3"/>
+                    <connections>
+                        <outlet property="settingTableView" destination="nHG-oP-0Wu" id="nzW-OH-1bU"/>
+                        <segue destination="dIf-ne-gSH" kind="show" identifier="toAccount" id="bmR-ED-gqW"/>
+                        <segue destination="qo9-Wf-7Ah" kind="show" identifier="toMail" id="22s-R3-CL8"/>
+                        <segue destination="SW9-Zf-mUd" kind="presentation" identifier="toLogin" id="O99-P9-5uC"/>
+                        <segue destination="SCT-cz-kor" kind="show" identifier="toText" id="fW5-R4-tvf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aH-K9-Z7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="-262"/>
+        </scene>
+        <!--SettingText-->
+        <scene sceneID="oy2-c3-xBC">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SettingText" storyboardName="SettingText" id="SCT-cz-kor" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gX4-Kp-pbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1268" y="-1025"/>
+        </scene>
+        <!--Setting AccountVC-->
+        <scene sceneID="TpZ-cC-VPY">
+            <objects>
+                <viewController id="dIf-ne-gSH" customClass="SettingAccountVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPV-2r-aKb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L2W-3R-PYc">
+                                <rect key="frame" x="113.5" y="344" width="187" height="29"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="交換情報をリセットする">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="exResetBtnTapped:" destination="dIf-ne-gSH" eventType="touchUpInside" id="U56-3f-TUk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-Rf-9Xv">
+                                <rect key="frame" x="113.5" y="523" width="187" height="29"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="視聴情報をリセットする">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="wdResetBtnTapped:" destination="dIf-ne-gSH" eventType="touchUpInside" id="QgH-cL-MyD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L2W-3R-PYc" firstAttribute="centerX" secondItem="kPV-2r-aKb" secondAttribute="centerX" id="Epf-8K-z4C"/>
+                            <constraint firstItem="PDv-Rf-9Xv" firstAttribute="centerX" secondItem="kPV-2r-aKb" secondAttribute="centerX" id="Z2z-ju-zTl"/>
+                            <constraint firstItem="PDv-Rf-9Xv" firstAttribute="centerY" secondItem="kPV-2r-aKb" secondAttribute="centerY" multiplier="1.2" id="bgQ-Rn-NDY"/>
+                            <constraint firstItem="L2W-3R-PYc" firstAttribute="centerY" secondItem="kPV-2r-aKb" secondAttribute="centerY" multiplier="0.8" id="l10-ud-9h5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JNu-Wh-AgZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Su-Zp-GXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="-523"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="B29-i3-35u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="SW9-Zf-mUd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2bk-mW-XLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="349"/>
+        </scene>
+        <!--Send MailVC-->
+        <scene sceneID="DFc-wf-znb">
+            <objects>
+                <viewController id="qo9-Wf-7Ah" customClass="SendMailVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RJ1-YN-9ZX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="A8w-9G-QYL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U98-3I-qBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1241" y="141"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="ciS-Of-d9u">
+            <objects>
+                <navigationController id="RkX-cZ-sjM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="xNJ-Z1-e0F"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NhX-DX-BMQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2ya-qL-F16" kind="relationship" relationship="rootViewController" id="dAS-PK-V81"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCQ-6j-s7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-519" y="-263"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="setting" width="30" height="30"/>
+    </resources>
+</document>
