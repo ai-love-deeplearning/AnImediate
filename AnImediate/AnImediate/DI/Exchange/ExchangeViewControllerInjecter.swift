@@ -25,7 +25,7 @@ final class ExchangeViewControllerInjecter {
             ExchangeArchiveActionCreator(connector: r.resolve(P2PConnectable.self)!)
         }
         
-        container.storyboardInitCompleted(ExchangeVC.self) { r, c in
+        container.storyboardInitCompleted(ExchangeSearchVC.self) { r, c in
             c.inject(P2PSearchActionCreator: r.resolve(P2PSearchActionCreatable.self)!, ExchangeAccountActionCreator: r.resolve(ExchangeAccountActionCreatable.self)!, ExchangeArchiveActionCreator: r.resolve(ExchangeArchiveActionCreatable.self)!)
         }
     }

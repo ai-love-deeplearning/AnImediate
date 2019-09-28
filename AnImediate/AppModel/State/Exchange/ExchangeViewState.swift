@@ -7,18 +7,10 @@
 //
 
 import ReSwift
-import Realm
-import RealmSwift
 
-public struct ExchangeViewState: StateType  {
-    public internal(set) var isSendAccountModel = false
-    public internal(set) var isReceivePeerModel = false
-    public internal(set) var error: AnimediateError?
+public struct ExchangeViewState: StateType, Equatable {
+    public internal(set) var p2pConnectionState = P2PConnectionState()
+    public internal(set) var searchViewState = ExchangeSearchViewState()
+    public internal(set) var acceptViewState = ExchangeAcceptViewState()
 }
 
-extension ExchangeViewState: Equatable {
-    public static func == (lhs: ExchangeViewState, rhs: ExchangeViewState) -> Bool {
-        return lhs.isSendAccountModel == rhs.isSendAccountModel
-            && lhs.isReceivePeerModel == rhs.isReceivePeerModel
-    }
-}

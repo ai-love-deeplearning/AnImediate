@@ -14,7 +14,7 @@ import SwinjectStoryboard
 extension SwinjectStoryboard {
     class func setup() {
         
-        P2PInjector.setup(container: defaultContainer)
+        P2PConnectionInjector.setup(container: defaultContainer)
         
         ExchangeViewControllerInjecter.setup(container: defaultContainer)
     }

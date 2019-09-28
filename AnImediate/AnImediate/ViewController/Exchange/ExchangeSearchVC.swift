@@ -1,5 +1,5 @@
 //
-//  ExchangeVC.swift
+//  ExchangeSearchVC.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/06/27.
@@ -15,17 +15,17 @@ import RxCocoa
 import RxSwift
 import MultipeerConnectivity
 
-class ExchangeVC: UIViewController {
+class ExchangeSearchVC: UIViewController {
     
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var seachLLabel: UILabel!
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var seachLLabel: UILabel!
     
     var timer: Timer!
     var searchingTimer: Timer!
     var searchingTime: Int = 0
     var count = 0
     
-    var isRecieveWatch: Bool = false
+    //var isRecieveWatch: Bool = false
     
     var dateString = ""
     let now = NSDate()
@@ -36,15 +36,15 @@ class ExchangeVC: UIViewController {
     
     // 告知用の文字列（相手を検索するのに使用するIDの様なもの）
     // 一つのハイフンしか使用できず、15文字以下である必要がある
-    let serviceType = "fun-AnImediate"
+    //let serviceType = "fun-AnImediate"
     
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.exchangeStore)
-    private let p2pStore = RxStore(store: AppStore.instance.p2pStore)
+    //private let p2pStore = RxStore(store: AppStore.instance.p2pStore)
     
-    private var viewState: ExchangeViewState {
-        return store.state
+    private var viewState: ExchangeSearchViewState {
+        return store.state.searchViewState
     }
     
     private var P2PSearchActionCreator: P2PSearchActionCreatable! = nil {
@@ -113,15 +113,7 @@ class ExchangeVC: UIViewController {
         //let result = realm.objects(UserInfo.self)
         //myInfo = result[0].copy() as! UserInfo
         
-        // TODO:- インジケータの処理を分離
-        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotateAnimation.isRemovedOnCompletion = true
-        rotateAnimation.fromValue = 0
-        rotateAnimation.toValue = CGFloat.pi * 2.0
-        rotateAnimation.duration = 2.0 // 周期3秒
-        rotateAnimation.repeatCount = .infinity
-        
-        loadingView.layer.add(rotateAnimation, forKey: "rotateindicator")
+        animateIndicator()
         
         timer = Timer.scheduledTimer(timeInterval: 2.1, target: self, selector: #selector(self.labelAnimetion(_:)), userInfo: nil, repeats: true)
         timer.fire()
@@ -130,7 +122,7 @@ class ExchangeVC: UIViewController {
         
         bind()
         
-        self.p2pStore.dispatch(self.P2PSearchActionCreator.startSerching(disposeBag: self.disposeBag))
+        self.store.dispatch(self.P2PSearchActionCreator.startSerching(disposeBag: self.disposeBag))
 
     }
     
@@ -154,7 +146,7 @@ class ExchangeVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        p2pStore.connectionState
+        store.connectionState
             .drive(
                 onNext: {[unowned self] connectionState in
                     switch connectionState {
@@ -175,18 +167,19 @@ class ExchangeVC: UIViewController {
         
         store.isReceivePeerModel
             .drive(
-                onNext: { account in
-                    
+                onNext: { isReceivePeerModel in
+                    if isReceivePeerModel {
+                        
+                    }
             })
             .disposed(by: disposeBag)
         
-        store.isReceiveArchiveModel
+        store.peerID
             .drive(
-                onNext: { archives in
-                    
+                onNext: { peerID in
+                    self.store.dispatch(ExchangeSearchViewAction.ReceivePeerModel())
             })
             .disposed(by: disposeBag)
-        
         
     }
     
@@ -202,6 +195,18 @@ class ExchangeVC: UIViewController {
         gradientRingLayer.animateCircleTo(duration: duration, fromValue: 0, toValue: 0.99)
     }
     
+    func animateIndicator() {
+        // TODO:- インジケータの処理を分離
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.isRemovedOnCompletion = true
+        rotateAnimation.fromValue = 0
+        rotateAnimation.toValue = CGFloat.pi * 2.0
+        rotateAnimation.duration = 2.0 // 周期3秒
+        rotateAnimation.repeatCount = .infinity
+        
+        loadingView.layer.add(rotateAnimation, forKey: "rotateindicator")
+    }
+    
     @objc func notFound() {
         searchingTime += 1
         if searchingTime == 60 {
@@ -212,63 +217,56 @@ class ExchangeVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPopUpModal" {
-            let nextVC = segue.destination as! ExchangeDataVC
+            let nextVC = segue.destination as! ExchangeAcceptVC
             //nextVC.peerInfo = peerInfo
-            nextVC.isRecievedWatch = self.isRecieveWatch
+            //nextVC.isRecievedWatch = self.isRecieveWatch
         }
     }
 }
 
 private extension RxStore where AnyStateType == ExchangeViewState {
-    var state: Driver<ExchangeViewState> {
-        return stateDriver.distinctUntilChanged()
+    var state: Driver<ExchangeSearchViewState> {
+        return stateDriver.mapDistinct { $0.searchViewState }
     }
     
     var isReceivePeerModel: Driver<Bool> {
         return state.mapDistinct { $0.isReceivePeerModel }
     }
     
-    var isReceiveArchiveModel: Driver<Bool> {
-        return state.mapDistinct { $0.isReceiveArchiveModel }
-    }
-    
     var isSendAccountModel: Driver<Bool> {
         return state.mapDistinct { $0.isSendAccountModel }
     }
     
-    var isSendArchiveModel: Driver<Bool> {
-        return state.mapDistinct { $0.isSendArchiveModel }
-    }
-    
     var error: Driver<AnimediateError> {
         return state.mapDistinct { $0.error }.skipNil()
     }
     
-}
-
-private extension RxStore where AnyStateType == P2PConnectionState {
-    var state: Driver<P2PConnectionState> {
-        return stateDriver.distinctUntilChanged()
+    var p2pState: Driver<P2PConnectionState> {
+        return stateDriver.mapDistinct { $0.p2pConnectionState }
     }
-
+    
     var connectionState: Driver<MCSessionState> {
-        return state.mapDistinct { $0.connectionState }
+        return p2pState.mapDistinct { $0.connectionState }
+    }
+    
+    var peerID: Driver<String> {
+        return p2pState.mapDistinct { $0.peerID }
     }
     
     var isAdvertising: Driver<Bool> {
-        return state.mapDistinct { $0.isAdvertising }
+        return p2pState.mapDistinct { $0.isAdvertising }
     }
     
     var isBrowsing: Driver<Bool> {
-        return state.mapDistinct { $0.isBrowsing }
+        return p2pState.mapDistinct { $0.isBrowsing }
     }
     
     var isLoading: Driver<Bool> {
-        return state.mapDistinct { $0.isLoading }
+        return p2pState.mapDistinct { $0.isLoading }
     }
     
-    var error: Driver<AnimediateError> {
-        return state.mapDistinct { $0.error }.skipNil()
+    var p2pError: Driver<AnimediateError> {
+        return p2pState.mapDistinct { $0.error }.skipNil()
     }
     
 }

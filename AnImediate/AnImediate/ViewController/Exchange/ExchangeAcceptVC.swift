@@ -17,101 +17,136 @@ import RxSwift
 
 class ExchangeAcceptVC: UIViewController {
     
-    @IBOutlet weak var peerIcon: UIImageView!
-    @IBOutlet weak var peerName: UILabel!
+    @IBOutlet private weak var peerIcon: UIImageView!
+    @IBOutlet private weak var peerName: UILabel!
     
-    @IBOutlet weak var exchangeBtn: UIButton!
-    @IBOutlet weak var canselBtn: UIButton!
+    @IBOutlet private weak var acceptBtn: UIButton!
+    @IBOutlet private weak var cancelBtn: UIButton!
     
-    //var myInfo: AccountModel = AccountModel()
-    var myData: [ArchiveModel] = []
-    //var peerInfo: PeerModel = PeerModel()
-    var peerData: [ArchiveModel] = []
+    private var disposeBag = DisposeBag()
     
-    var recentlyDate = ""
-    var passTime = 0
-    var isAccepted = false
-    var isReceived = false
-    var isRecievedWatch = false
+    private let store = RxStore(store: AppStore.instance.exchangeStore)
+    
+    private var viewState: ExchangeAcceptViewState {
+        return store.state.acceptViewState
+    }
+    
+    private var P2PDisconnectActionCreator: P2PDisconnectActionCreatable! = nil {
+        willSet {
+            if P2PDisconnectActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+    
+    private var ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable! = nil {
+        willSet {
+            if ExchangeArchiveActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+    
+    func inject(P2PDisconnectActionCreator: P2PDisconnectActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
+        self.P2PDisconnectActionCreator = P2PDisconnectActionCreator
+        self.ExchangeArchiveActionCreator = ExchangeArchiveActionCreator
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //P2PConnectivity.exDelegate = self
-        setMyInfo()
+        
+        bindState()
+        bindViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.peerIcon.image = UIImage(data: self.peerInfo.iconData! as Data)!
-        //self.peerName.text =  self.peerInfo.name
+        
+        setPeerData()
+        
         self.navigationItem.hidesBackButton = true
-        setMyInfo()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if isAccepted {
-            
-        } else {
-            let realm = try! Realm()
-            //let result = realm.objects(PeerModel).filter("id == %@", peerInfo.id)
-            try! realm.write {
-                //realm.delete(result[0])
-            }
-        }
+        // TODO:- もしアクセプトボタンを押さずにviewが閉じたらRealmからアカウント情報を消す
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        exchangeBtn.layer.cornerRadius = exchangeBtn.frame.height / 2
-        canselBtn.layer.cornerRadius = canselBtn.frame.height / 2
+        acceptBtn.layer.cornerRadius = acceptBtn.frame.height / 2
+        cancelBtn.layer.cornerRadius = cancelBtn.frame.height / 2
     }
     
-    private func setMyInfo() {
-        let realm = try! Realm()
-        /*
-        let result = realm.objects(UserInfo.self)
-        let myDataResults = realm.objects(WatchData.self).filter("userId == %@", myInfo.id)
-        myInfo.id = result[0].id
-        myInfo.name = result[0].name
-        myInfo.comment = result[0].comment
-        myInfo.icon = result[0].icon
-        myInfo.background = result[0].background
-        myDataResults.forEach {
-            myData.append($0.copy() as! WatchData)
-        }*/
+    private func setPeerData() {
+        let id = store.state.p2pConnectionState.peerID
+        self.peerIcon.image = PeerModel.read(id: id).icon
+        self.peerName.text =  PeerModel.read(id: id).name
     }
     
-    @IBAction func acceptBtnTapped(_ sender: Any) {
-        print("accept")
-        self.isAccepted = true
-        do {
-            // WatchData → NSData
-            let codedInfo = try NSKeyedArchiver.archivedData(withRootObject: self.myData, requiringSecureCoding: false)
-            print(codedInfo)
-            // データの送信
-            //P2PConnectivity.manager.send(data: codedInfo)
-            
-            if self.isReceived || self.isRecievedWatch {
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-            
-        } catch {
-            fatalError("archivedData failed with error: \(error)")
-        }
+    private func bindViews() {
+        // acceptBtnに改名
+        acceptBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                // TODO もしすでにデータを受け取っていたら画面遷移する処理
+                // self.navigationController?.popToRootViewController(animated: true)
+                self.store.dispatch(self.ExchangeArchiveActionCreator.sendArchiveModel(disposeBag: self.disposeBag))
+            })
+            .disposed(by: disposeBag)
+        
+        cancelBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                // TODO:- 接続を切断して前の画面に遷移
+                /*
+                 let result = realm.objects(UserInfo.self).filter("id == %@", peerInfo.id)
+                 try! realm.write {
+                 realm.delete(result[0])
+                 }
+                 self.navigationController?.popViewController(animated: true)*/
+                //self.store.dispatch(self.ExchangeArchiveActionCreator.sendArchiveModel(disposeBag: self.disposeBag))
+            }).disposed(by: disposeBag)
     }
     
-    @IBAction func cancelBtnTapped(_ sender: Any) {
-        let realm = try! Realm()
-        /*
-        let result = realm.objects(UserInfo.self).filter("id == %@", peerInfo.id)
-        try! realm.write {
-            realm.delete(result[0])
-        }
-        self.navigationController?.popViewController(animated: true)*/
+    private func bindState() {
+        store.connectionState
+            .drive(
+                onNext: {[unowned self] connectionState in
+                    switch connectionState {
+                    case .notConnected:
+                        // TODO:- 接続が切断されたとき自分も切断してAlartを出す -> ok が押されたらアラートを消して画面遷移
+                        break
+                    case .connecting, .connected:
+                        // TODO:- ここに入ることはないはずだから何らかのエラーハンドリング
+                        break
+                    @unknown default:
+                        fatalError()
+                    }
+            })
+            .disposed(by: disposeBag)
+        
+        store.isSendArchiveModel
+            .drive(
+                onNext: { [unowned self] isSendAccountModel in
+                    // TODO:- 先に受け取っていたら画面遷移
+                    // TODO:- 受け取ってなかったら待機アニメーション
+                    //isSendAccountModel ? ResonaLottieProgressHUD.show() : ResonaLottieProgressHUD.dismiss()
+            })
+            .disposed(by: disposeBag)
+        
+        store.isReceiveArchiveModel
+            .drive(
+                onNext: { account in
+                    // TODO:- 受け取った通知を発行
+                    // TODO:- すでに自分が送信していたら画面遷移
+                    
+            })
+            .disposed(by: disposeBag)
+        
     }
-    
     
     func stringFromDate(date: Date, format: String) -> String {
         let formatter: DateFormatter = DateFormatter()
@@ -122,36 +157,19 @@ class ExchangeAcceptVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult" {
-            //P2PConnectivity.manager.stop()
-            DispatchQueue.main.async {
-                do {
-                    // WatchData → NSData
-                    let codedData = try NSKeyedArchiver.archivedData(withRootObject: self.peerData, requiringSecureCoding: false)
-                    UserDefaults.standard.set(codedData, forKey: "data")
-                } catch {
-                    fatalError("archivedData failed with error: \(error)")
-                }
-            }
+            self.store.dispatch(self.P2PDisconnectActionCreator.disconnect(disposeBag: disposeBag))
         }
     }
 
 }
 
 private extension RxStore where AnyStateType == ExchangeViewState {
-    var state: Driver<ExchangeViewState> {
-        return stateDriver.distinctUntilChanged()
-    }
-    
-    var isReceivePeerModel: Driver<Bool> {
-        return state.mapDistinct { $0.isReceivePeerModel }
+    var state: Driver<ExchangeAcceptViewState> {
+        return stateDriver.mapDistinct { $0.acceptViewState }
     }
     
     var isReceiveArchiveModel: Driver<Bool> {
         return state.mapDistinct { $0.isReceiveArchiveModel }
-    }
-    
-    var isSendAccountModel: Driver<Bool> {
-        return state.mapDistinct { $0.isSendAccountModel }
     }
     
     var isSendArchiveModel: Driver<Bool> {
@@ -162,54 +180,32 @@ private extension RxStore where AnyStateType == ExchangeViewState {
         return state.mapDistinct { $0.error }.skipNil()
     }
     
-}
-
-/*
-extension ExchangeDataVC: ExchangeDelegate {
-    func didRecieveData(data: Data) {
- 
-        print("watchDataReceive")
-        self.isReceived = true
-        DispatchQueue.main.async {
-            let realm = try! Realm()
-            
-            do {
-                // NSData → WatchData
-                if let decoded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [WatchData] {
-                    self.peerData = decoded
-                    // クエリによるデータの取得
-                    let results = realm.objects(WatchData.self).filter("userId == %@", decoded[0].userId)
-                    
-                    if results.isEmpty {
-                        decoded.forEach {
-                            $0.id = NSUUID().uuidString
-                        }
-                        
-                        try! realm.write {
-                            realm.add(decoded)
-                        }
-                    } else {
-                        decoded.forEach {
-                            $0.id = NSUUID().uuidString
-                        }
-                        // データの更新
-                        try! realm.write {
-                            realm.delete(results)
-                            realm.add(decoded)
-                        }
-                    }
-                } else {
-                    return
-                }
-                
-                if self.isAccepted { // 承認してるかつデータを受け取って登録していたら（相手も承認）
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                
-            } catch {
-                fatalError("archivedData failed with error: \(error)")
-            }
-        }
+    var p2pState: Driver<P2PConnectionState> {
+        return stateDriver.mapDistinct { $0.p2pConnectionState }
     }
-}*/
-
+    
+    var connectionState: Driver<MCSessionState> {
+        return p2pState.mapDistinct { $0.connectionState }
+    }
+    
+    var peerID: Driver<String> {
+        return p2pState.mapDistinct { $0.peerID }
+    }
+    
+    var isAdvertising: Driver<Bool> {
+        return p2pState.mapDistinct { $0.isAdvertising }
+    }
+    
+    var isBrowsing: Driver<Bool> {
+        return p2pState.mapDistinct { $0.isBrowsing }
+    }
+    
+    var isLoading: Driver<Bool> {
+        return p2pState.mapDistinct { $0.isLoading }
+    }
+    
+    var p2pError: Driver<AnimediateError> {
+        return p2pState.mapDistinct { $0.error }.skipNil()
+    }
+    
+}

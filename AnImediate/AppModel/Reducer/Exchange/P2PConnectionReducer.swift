@@ -1,5 +1,5 @@
 //
-//  P2PReducer.swift
+//  P2PConnectionReducer.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/09/23.
@@ -10,7 +10,7 @@ import Foundation
 import ReSwift
 import MultipeerConnectivity
 
-struct P2PReducer {
+struct P2PConnectionReducer {
     
     static func handleAction(action: Action, state: P2PConnectionState?) -> P2PConnectionState {
         var nextState = state ?? P2PConnectionState()
@@ -21,18 +21,19 @@ struct P2PReducer {
         
         switch action {
             
-        case is P2PAction.Initialize:
+        case is P2PConnectAction.Initialize:
             nextState = P2PConnectionState()
             nextState.connectionState = .notConnected
             
-        case is P2PAction.DismissErrorAlert:
+        case is P2PConnectAction.DismissErrorAlert:
             nextState.error = nil
             
-        case let action as P2PAction.ChangeState:
+        case let action as P2PConnectAction.ChangeState:
             nextState.connectionState = action.connectionState
             if action.connectionState == .notConnected {
                 nextState.isAdvertising = false
                 nextState.isBrowsing = false
+                nextState.peerID = ""
             } else {
                 nextState.isAdvertising = true
                 nextState.isBrowsing = true
@@ -40,14 +41,24 @@ struct P2PReducer {
             
             nextState.error = nil
             
-        case is P2PAction.SendAccountModelSuccess:
+        case is P2PConnectAction.Disconnect:
+            nextState.isAdvertising = false
+            nextState.isBrowsing = false
+            nextState.connectionState = .notConnected
+            nextState.error = nil
+            
+        case is P2PConnectAction.SendAccountModelSuccess:
             nextState.isLoading = false
             nextState.error = nil
             
-        case is P2PAction.SendArchiveModelSuccess:
+        case let action as P2PConnectAction.ReceivePeerID:
+            nextState.peerID = action.peerID
+            nextState.error = nil
+            
+        case is P2PConnectAction.SendArchiveModelSuccess:
             nextState.isLoading = false
             nextState.error = nil
-
+            
         default:
             break
             

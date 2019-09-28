@@ -11,6 +11,7 @@ import MultipeerConnectivity
 
 public struct P2PConnectionState: StateType {
     public internal(set) var connectionState: MCSessionState = .notConnected
+    public internal(set) var peerID = ""
     public internal(set) var isAdvertising = false
     public internal(set) var isBrowsing = false
     public internal(set) var isLoading = false
@@ -20,7 +21,8 @@ public struct P2PConnectionState: StateType {
 extension P2PConnectionState: Equatable {
     public static func == (lhs: P2PConnectionState, rhs: P2PConnectionState) -> Bool {
         return lhs.connectionState == rhs.connectionState
-        && lhs.isAdvertising == rhs.isBrowsing
-        && lhs.isLoading == rhs.isLoading
+            && lhs.peerID == rhs.peerID
+            && lhs.isAdvertising == rhs.isBrowsing
+            && lhs.isLoading == rhs.isLoading
     }
 }

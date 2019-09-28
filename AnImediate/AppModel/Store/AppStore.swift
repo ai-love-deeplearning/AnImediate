@@ -20,8 +20,4 @@ public class AppStore {
                                                       state: nil,
                                                       middleware: [])
     
-    public let p2pStore = Store<P2PConnectionState>(reducer: P2PReducer.handleAction,
-                                                        state: nil,
-                                                        middleware: [])
-    
 }

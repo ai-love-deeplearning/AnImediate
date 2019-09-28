@@ -13,11 +13,11 @@ import RealmSwift
 public class ArchiveModel: Object, NSCoding {
     
     @objc dynamic var id = ""
-    @objc dynamic var userId = ""
-    @objc dynamic var animeId = ""
-    @objc dynamic var animeStatus = ""
+    @objc public dynamic var userID = ""
+    @objc public dynamic var animeId = ""
+    @objc public dynamic var animeStatus = ""
     @objc dynamic var createdAt = ""
-    @objc dynamic var udatedAt = ""
+    @objc public dynamic var udatedAt = ""
     
     override public static func primaryKey() -> String {
         return "id"
@@ -33,20 +33,21 @@ public class ArchiveModel: Object, NSCoding {
         return realm.objects(self).filter("userId == %@", id)
     }
     
-    public static func readAsData() -> Data {
+    public static func readAsData() -> Data? {
         let model = read()
         guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false) else {
             // TODO:- 上手いエラーハンドリングを考える。
-            return Data()
+            return nil
         }
         return encoded
     }
     
-    public static func readAsData(uid: String) -> Data {
+    // TODO:- Dataとして読めるのは自分のデータだけ
+    public static func readAsData(uid: String) -> Data? {
         let model = read(id: uid)
         guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false) else {
             // TODO:- 上手いエラーハンドリングを考える。
-            return Data()
+            return nil
         }
         
         return encoded
@@ -54,7 +55,7 @@ public class ArchiveModel: Object, NSCoding {
     
     public static func set(archives: [ArchiveModel]) {
         let realm = try! Realm()
-        let model = read(id: archives.first!.userId)
+        let model = read(id: archives.first!.userID)
         
         archives.forEach {
             $0.id = NSUUID().uuidString
@@ -71,7 +72,7 @@ public class ArchiveModel: Object, NSCoding {
     
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
-        aCoder.encode(self.userId, forKey: "userId")
+        aCoder.encode(self.userID, forKey: "userId")
         aCoder.encode(self.animeId, forKey: "animeId")
         aCoder.encode(self.animeStatus, forKey: "animeStatus")
         aCoder.encode(self.createdAt, forKey: "createdAt")
@@ -80,7 +81,7 @@ public class ArchiveModel: Object, NSCoding {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init()
-        self.userId = aDecoder.decodeObject(forKey: "userId") as! String
+        self.userID = aDecoder.decodeObject(forKey: "userId") as! String
         self.animeId = aDecoder.decodeObject(forKey: "animeId") as! String
         self.animeStatus = aDecoder.decodeObject(forKey: "animeStatus") as! String
         self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
@@ -90,7 +91,7 @@ public class ArchiveModel: Object, NSCoding {
     required init() {
         super.init()
         self.id = ""
-        self.userId = ""
+        self.userID = ""
         self.animeId = ""
         self.animeStatus = ""
         self.createdAt = ""

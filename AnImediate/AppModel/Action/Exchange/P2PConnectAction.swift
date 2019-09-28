@@ -1,5 +1,5 @@
 //
-//  P2PAction.swift
+//  P2PConnectAction.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/09/23.
@@ -10,7 +10,7 @@ import Foundation
 import ReSwift
 import MultipeerConnectivity
 
-public struct P2PAction {
+public struct P2PConnectAction {
     
     public struct Initialize: Action {
         public init() {}
@@ -31,10 +31,21 @@ public struct P2PAction {
         }
     }
     
+    public struct Disconnect: Action {
+        public init() {}
+    }
+    
     public struct ChangeState: Action {
         public let connectionState: MCSessionState
         public init(connectionState: MCSessionState) {
             self.connectionState = connectionState
+        }
+    }
+    
+    public struct ReceivePeerID: Action {
+        public let peerID: String
+        public init(peerID: String) {
+            self.peerID = peerID
         }
     }
     

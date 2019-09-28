@@ -18,34 +18,13 @@ struct ExchangeViewReducer {
             return ExchangeViewState()
         }
         
-        switch action {
-            
-        case is ExchangeViewAction.Initialize:
-            nextState = ExchangeViewState()
-            
-        case is ExchangeViewAction.DismissErrorAlert:
-            nextState.error = nil
-            
-        case is ExchangeViewAction.SendAccountModel:
-            nextState.isSendAccountModel = true
-            nextState.error = nil
-            
-        case is ExchangeViewAction.SendArchiveModel:
-            nextState.isSendArchiveModel = true
-            nextState.error = nil
-            
-        case is ExchangeViewAction.ReceivePeerModel:
-            nextState.isReceivePeerModel = true
-            nextState.error = nil
-            
-        case is ExchangeViewAction.ReceiveArchiveModel:
-            nextState.isReceiveArchiveModel = true
-            nextState.error = nil
-
-        default:
-            break
-        }
+        nextState.p2pConnectionState = P2PConnectionReducer.handleAction(action: action, state: nextState.p2pConnectionState)
+        
+        nextState.searchViewState = ExchangeSearchViewReducer.handleAction(action: action, state: nextState.searchViewState)
+        nextState.acceptViewState = ExchangeAcceptViewReducer.handleAction(action: action, state: nextState.acceptViewState)
         
         return nextState
     }
 }
+        
+        

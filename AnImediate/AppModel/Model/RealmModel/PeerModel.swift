@@ -13,11 +13,12 @@ import RealmSwift
 public class PeerModel : Object, NSCoding, NSCopying {
     
     @objc dynamic var id = ""
-    @objc dynamic var name = ""
-    @objc dynamic var comment = ""
-    @objc dynamic var excangedAt = ""
+    @objc public dynamic var userID = ""
+    @objc public dynamic var name = ""
+    @objc public dynamic var comment = ""
+    @objc public dynamic var excangedAt = ""
     @objc dynamic var _icon: UIImage? = nil
-    @objc dynamic var icon: UIImage? {
+    @objc public dynamic var icon: UIImage? {
         set{
             self._icon = newValue
             if let value = newValue {
@@ -38,7 +39,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     @objc dynamic var iconData: NSData? = nil
     
     @objc dynamic var _background: UIImage? = nil
-    @objc dynamic var background: UIImage? {
+    @objc public dynamic var background: UIImage? {
         set{
             self._background = newValue
             if let value = newValue {
@@ -74,17 +75,6 @@ public class PeerModel : Object, NSCoding, NSCopying {
             realm.add(model)
         }
         return model
-    }
-    
-    public static func readAsData(uid: String) -> Data {
-        
-        let model = read(id: uid)
-        guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false) else {
-            // TODO:- 上手いエラーハンドリングを考える。
-            return Data()
-        }
-        
-        return encoded
     }
     
     public static func set(uid: String, name: String) {
@@ -134,11 +124,13 @@ public class PeerModel : Object, NSCoding, NSCopying {
         }
     }
     
+    // TODO:- exchangeAtに現在日時を入れる
     public static func set(uid: String, data: PeerModel) {
         let realm = try! Realm()
         
         let model = read(id: uid)
         try! realm.write {
+            model.userID = data.userID
             model.name = data.name
             model.comment = data.comment
             model.icon = data.icon
@@ -155,6 +147,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     public func copy(with zone: NSZone? = nil) -> Any {
         let copy = PeerModel()
         copy.id = id
+        copy.userID = userID
         copy.name = name
         copy.comment = comment
         copy.excangedAt = excangedAt
@@ -166,6 +159,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.userID, forKey: "userID")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.comment, forKey: "comment")
         aCoder.encode(self.excangedAt, forKey: "excangedAt")
@@ -176,6 +170,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     required public init?(coder aDecoder: NSCoder) {
         super.init()
         self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.userID = aDecoder.decodeObject(forKey: "userID") as! String
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.comment = aDecoder.decodeObject(forKey: "comment") as! String
         self.excangedAt = aDecoder.decodeObject(forKey: "excangedAt") as! String
@@ -187,6 +182,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     required init() {
         super.init()
         self.id = ""
+        self.userID = ""
         self.name = ""
         self.comment = ""
         self.excangedAt = ""

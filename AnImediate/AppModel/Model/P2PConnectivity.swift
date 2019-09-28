@@ -12,11 +12,11 @@ import RxSwift
 import MultipeerConnectivity
 
 public protocol P2PConnectable {
-    func startSearching(serviceType: String, displayName: String) -> (session: Observable<MCSessionState>, data: Observable<String>)
+    func startSearching(serviceType: String, displayName: String) -> (session: Observable<MCSessionState>, data: Observable<(type: String, id: String)>)
     func disconnect()
-    func sendAccountModel(data: Data) -> Single<Bool>
+    func sendAccountModel(data: Data?) -> Single<Bool>
     func noticeSuccessAccount()
-    func sendArchiveModel(data: Data) -> Single<Bool>
+    func sendArchiveModel(data: Data?) -> Single<Bool>
     func noticeSuccessArchive()
     //func ssp5304(contentType: String) -> Single<SSP5304Res>
 }
@@ -27,13 +27,13 @@ public class P2PConnectivity: NSObject, P2PConnectable {
     private var advertiser: MCNearbyServiceAdvertiser!
     private var browser: MCNearbyServiceBrowser!
     
-    private let sessiouStateVariable = Variable<MCSessionState>(.notConnected)
-    private var sessionObservable: Observable<MCSessionState> { return sessiouStateVariable.asObservable()}
+    private let sessiouStateSubject = PublishSubject<MCSessionState>()
+    private var sessionObservable: Observable<MCSessionState> { return sessiouStateSubject.asObservable()}
     
-    private let receiveDatasubject = PublishSubject<String>()
-    private var receiveDataObservable: Observable<String> { return receiveDatasubject.asObservable() }
+    private let receiveDataSubject = PublishSubject<(type: String, id: String)>()
+    private var receiveDataObservable: Observable<(type: String, id: String)> { return receiveDataSubject.asObservable() }
     
-    public func startSearching(serviceType: String, displayName: String) -> (session: Observable<MCSessionState>, data: Observable<String>) {
+    public func startSearching(serviceType: String, displayName: String) -> (session: Observable<MCSessionState>, data: Observable<(type: String, id: String)>) {
         let peerID = MCPeerID(displayName: displayName)
         
         self.session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .optional)
@@ -51,16 +51,18 @@ public class P2PConnectivity: NSObject, P2PConnectable {
     }
     
     public func disconnect() {
+        sessiouStateSubject.onCompleted()
+        receiveDataSubject.onCompleted()
         session.disconnect()
         advertiser.stopAdvertisingPeer()
         browser.stopBrowsingForPeers()
     }
     
     @discardableResult
-    public func sendAccountModel(data: Data) -> Single<Bool> {
+    public func sendAccountModel(data: Data?) -> Single<Bool> {
         return Single.create { observer -> Disposable in
             do {
-                try self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
+                try self.session.send(data!, toPeers: self.session.connectedPeers, with: .reliable)
             } catch {
                 observer(.error(error))
                 /*
@@ -78,10 +80,10 @@ public class P2PConnectivity: NSObject, P2PConnectable {
     }
     
     @discardableResult
-    public func sendArchiveModel(data: Data) -> Single<Bool> {
+    public func sendArchiveModel(data: Data?) -> Single<Bool> {
         return Single.create { observer -> Disposable in
             do {
-                try self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
+                try self.session.send(data!, toPeers: self.session.connectedPeers, with: .reliable)
             } catch {
                 observer(.error(error))
             }
@@ -107,11 +109,12 @@ extension P2PConnectivity: MCSessionDelegate {
     public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         // TODO:- 画面遷移の処理をVC側で記述
         if let decoded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? PeerModel {
-            PeerModel.set(uid: decoded.id, data: decoded)
-            receiveDatasubject.onNext("PeerModel")
+            PeerModel.set(uid: decoded.userID, data: decoded)
+            receiveDataSubject.onNext((type: "PeerModel", id: decoded.userID))
         } else if let decoded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [ArchiveModel] {
             ArchiveModel.set(archives: decoded)
-            receiveDatasubject.onNext("ArchiveModel")
+            // TODO:- 送られてきた履歴が空でない保証
+            receiveDataSubject.onNext((type: "ArchiveModel", id: decoded.first!.userID))
         } else {
             // TODO:- 予期せぬデータが送られてきたときのエラーハンドリング
             fatalError()
@@ -136,7 +139,7 @@ extension P2PConnectivity: MCSessionDelegate {
     
     public func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         //print(#function)
-        sessiouStateVariable.value = state
+        sessiouStateSubject.onNext(state)
     }
     
 }

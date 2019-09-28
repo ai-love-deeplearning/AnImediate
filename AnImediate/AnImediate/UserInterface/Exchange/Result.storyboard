@@ -224,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="1165" y="96"/>
         </scene>
-        <!--Exchange-->
+        <!--ExchangeSearch-->
         <scene sceneID="wQk-zd-038">
             <objects>
-                <viewControllerPlaceholder storyboardName="Exchange" id="r0d-pa-Kbq" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ExchangeSearch" id="r0d-pa-Kbq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aY-P5-oqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835" y="420"/>

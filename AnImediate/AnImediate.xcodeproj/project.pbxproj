@@ -45,11 +45,11 @@
 		32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23D22CC46C700BD5A76 /* DataManager.swift */; };
 		32FEDB2022E0AF9D00462E12 /* anime.realm in Resources */ = {isa = PBXBuildFile; fileRef = 32FEDB1F22E0AF9300462E12 /* anime.realm */; };
 		32FEDB2222E0CC5200462E12 /* EpisodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */; };
-		500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeVC.swift */; };
+		500DC47722C4DCD800C345C9 /* ExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
 		5027DEE9233DB9F900F4818F /* SwinjectStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DEE8233DB9F900F4818F /* SwinjectStoryboardExtension.swift */; };
-		5027DEEC233DBAD500F4818F /* P2PInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DEEB233DBAD500F4818F /* P2PInjector.swift */; };
+		5027DEEC233DBAD500F4818F /* P2PConnectionInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DEEB233DBAD500F4818F /* P2PConnectionInjector.swift */; };
 		503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */; };
 		503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */; };
 		503DD23822DB0748004B9746 /* AccordionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */; };
@@ -83,7 +83,7 @@
 		50A5966822C0A04A00378AAB /* AnImediateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5966722C0A04A00378AAB /* AnImediateTests.swift */; };
 		50A5967322C0A04A00378AAB /* AnImediateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5967222C0A04A00378AAB /* AnImediateUITests.swift */; };
 		50A5968122C0AD6400378AAB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968022C0AD6400378AAB /* Home.storyboard */; };
-		50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968222C0AD9C00378AAB /* Exchange.storyboard */; };
+		50A5968322C0AD9C00378AAB /* ExchangeSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968222C0AD9C00378AAB /* ExchangeSearch.storyboard */; };
 		50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968422C0ADC500378AAB /* AnimeList.storyboard */; };
 		50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968622C0ADD500378AAB /* Setting.storyboard */; };
 		50A5968922C0B09100378AAB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5968822C0B09100378AAB /* Login.storyboard */; };
@@ -97,12 +97,12 @@
 		50DE7995233DCA5E006C683E /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B380CE233799BC0092B59C /* AppStore.swift */; };
 		50DE7996233DCA5E006C683E /* RxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B380CA2337961A0092B59C /* RxStore.swift */; };
 		50DE7997233DCA5E006C683E /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3782337B78C00D89478 /* AppAction.swift */; };
-		50DE7998233DCA5E006C683E /* ExchangeViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3552337A4C200D89478 /* ExchangeViewAction.swift */; };
-		50DE7999233DCA5E006C683E /* P2PAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F381233889E900D89478 /* P2PAction.swift */; };
-		50DE799A233DCA5E006C683E /* ExchangeViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F35A2337A70100D89478 /* ExchangeViewActionCreator.swift */; };
+		50DE7998233DCA5E006C683E /* ExchangeSearchViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3552337A4C200D89478 /* ExchangeSearchViewAction.swift */; };
+		50DE7999233DCA5E006C683E /* P2PConnectAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F381233889E900D89478 /* P2PConnectAction.swift */; };
+		50DE799A233DCA5E006C683E /* ExchangeSearchViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F35A2337A70100D89478 /* ExchangeSearchViewActionCreator.swift */; };
 		50DE799B233DCA5E006C683E /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F37A2337B7CF00D89478 /* AppReducer.swift */; };
 		50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F35F2337A94000D89478 /* ExchangeViewReducer.swift */; };
-		50DE799D233DCA5E006C683E /* P2PReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3832338D9D200D89478 /* P2PReducer.swift */; };
+		50DE799D233DCA5E006C683E /* P2PConnectionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3832338D9D200D89478 /* P2PConnectionReducer.swift */; };
 		50DE799E233DCA5E006C683E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B380D0233799FE0092B59C /* AppState.swift */; };
 		50DE79A0233DCA5E006C683E /* ExchangeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B380CC233798B50092B59C /* ExchangeViewState.swift */; };
 		50DE79A1233DCA5E006C683E /* P2PConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F37C2337D66700D89478 /* P2PConnectionState.swift */; };
@@ -115,14 +115,21 @@
 		50DE79B0233DD233006C683E /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
 		50DE79B1233DD236006C683E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
 		50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3DD2339E95300D89478 /* P2PConnectivity.swift */; };
-		50DE79B9233E16A7006C683E /* P2PActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79B8233E16A7006C683E /* P2PActionCreator.swift */; };
+		50DE79B9233E16A7006C683E /* P2PConnectActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79B8233E16A7006C683E /* P2PConnectActionCreator.swift */; };
 		50DE79BB233E6A99006C683E /* ExchangeAcceptViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */; };
 		50DE79BF233E6EE5006C683E /* ExchangeAcceptViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */; };
 		50DE79C3233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79C2233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift */; };
+		50DE79C5233E70E9006C683E /* ExchangeAcceptViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79C4233E70E9006C683E /* ExchangeAcceptViewAction.swift */; };
+		50DE79C7233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79C6233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift */; };
+		50DE79C9233F1FCB006C683E /* ExchangeSearchViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79C8233F1FCB006C683E /* ExchangeSearchViewReducer.swift */; };
+		50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79CA233F201F006C683E /* ExchangeSearchViewState.swift */; };
+		50DE7A07233F7341006C683E /* RxUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A06233F7341006C683E /* RxUIKit.swift */; };
+		50DE7A09233F9D03006C683E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A08233F9D03006C683E /* StringExtension.swift */; };
+		50DE7A0B233F9DE4006C683E /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */; };
 		50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */; };
 		50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */; };
 		50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */; };
-		50F9849322D47C7D00038A23 /* ExchangeData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F9849222D47C7D00038A23 /* ExchangeData.storyboard */; };
+		50F9849322D47C7D00038A23 /* ExchangeAccept.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F9849222D47C7D00038A23 /* ExchangeAccept.storyboard */; };
 		65F247CE2440FF4684D1804A /* Pods_AppModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9C355E2523DAE65965ED1C /* Pods_AppModel.framework */; };
 		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
 		963B681622D22A33006988FE /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963B681522D22A33006988FE /* SettingText.storyboard */; };
@@ -253,27 +260,27 @@
 		32FEDB1A22DF5E1000462E12 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		32FEDB1F22E0AF9300462E12 /* anime.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = anime.realm; sourceTree = "<group>"; };
 		32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeVC.swift; sourceTree = "<group>"; };
-		500DC47622C4DCD800C345C9 /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
+		500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchVC.swift; sourceTree = "<group>"; };
 		50128DA0233B0BF700A35A97 /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
 		50165BB022C994EA00A038C8 /* BLEConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConnectivity.swift; sourceTree = "<group>"; };
 		50165BB222C995BC00A038C8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		50165BB422CAEAE300A038C8 /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
 		5027DEE8233DB9F900F4818F /* SwinjectStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboardExtension.swift; sourceTree = "<group>"; };
-		5027DEEB233DBAD500F4818F /* P2PInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PInjector.swift; sourceTree = "<group>"; };
+		5027DEEB233DBAD500F4818F /* P2PConnectionInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PConnectionInjector.swift; sourceTree = "<group>"; };
 		503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTableVC.swift; sourceTree = "<group>"; };
 		503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionSectionHeaderView.swift; sourceTree = "<group>"; };
 		503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccordionSectionHeaderView.xib; sourceTree = "<group>"; };
 		503DD23922DC3636004B9746 /* AccordionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionViewModel.swift; sourceTree = "<group>"; };
-		5042F3552337A4C200D89478 /* ExchangeViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewAction.swift; sourceTree = "<group>"; };
-		5042F35A2337A70100D89478 /* ExchangeViewActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewActionCreator.swift; sourceTree = "<group>"; };
+		5042F3552337A4C200D89478 /* ExchangeSearchViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchViewAction.swift; sourceTree = "<group>"; };
+		5042F35A2337A70100D89478 /* ExchangeSearchViewActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchViewActionCreator.swift; sourceTree = "<group>"; };
 		5042F35F2337A94000D89478 /* ExchangeViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewReducer.swift; sourceTree = "<group>"; };
 		5042F3752337B43C00D89478 /* AnimediateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimediateError.swift; sourceTree = "<group>"; };
 		5042F3782337B78C00D89478 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		5042F37A2337B7CF00D89478 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		5042F37C2337D66700D89478 /* P2PConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PConnectionState.swift; sourceTree = "<group>"; };
-		5042F381233889E900D89478 /* P2PAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PAction.swift; sourceTree = "<group>"; };
-		5042F3832338D9D200D89478 /* P2PReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PReducer.swift; sourceTree = "<group>"; };
+		5042F381233889E900D89478 /* P2PConnectAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PConnectAction.swift; sourceTree = "<group>"; };
+		5042F3832338D9D200D89478 /* P2PConnectionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PConnectionReducer.swift; sourceTree = "<group>"; };
 		5042F385233916DC00D89478 /* MapDistinct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDistinct.swift; sourceTree = "<group>"; };
 		5042F387233917DC00D89478 /* SkipNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipNil.swift; sourceTree = "<group>"; };
 		5042F38923391E2D00D89478 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
@@ -316,7 +323,7 @@
 		50A5967222C0A04A00378AAB /* AnImediateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnImediateUITests.swift; sourceTree = "<group>"; };
 		50A5967422C0A04A00378AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A5968022C0AD6400378AAB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		50A5968222C0AD9C00378AAB /* Exchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exchange.storyboard; sourceTree = "<group>"; };
+		50A5968222C0AD9C00378AAB /* ExchangeSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeSearch.storyboard; sourceTree = "<group>"; };
 		50A5968422C0ADC500378AAB /* AnimeList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeList.storyboard; sourceTree = "<group>"; };
 		50A5968622C0ADD500378AAB /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		50A5968822C0B09100378AAB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -332,14 +339,21 @@
 		50B380CC233798B50092B59C /* ExchangeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewState.swift; sourceTree = "<group>"; };
 		50B380CE233799BC0092B59C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		50B380D0233799FE0092B59C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		50DE79B8233E16A7006C683E /* P2PActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PActionCreator.swift; sourceTree = "<group>"; };
+		50DE79B8233E16A7006C683E /* P2PConnectActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PConnectActionCreator.swift; sourceTree = "<group>"; };
 		50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewState.swift; sourceTree = "<group>"; };
 		50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewReducer.swift; sourceTree = "<group>"; };
 		50DE79C2233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewControllerInjector.swift; sourceTree = "<group>"; };
+		50DE79C4233E70E9006C683E /* ExchangeAcceptViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewAction.swift; sourceTree = "<group>"; };
+		50DE79C6233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptViewActionCreator.swift; sourceTree = "<group>"; };
+		50DE79C8233F1FCB006C683E /* ExchangeSearchViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchViewReducer.swift; sourceTree = "<group>"; };
+		50DE79CA233F201F006C683E /* ExchangeSearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchViewState.swift; sourceTree = "<group>"; };
+		50DE7A06233F7341006C683E /* RxUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIKit.swift; sourceTree = "<group>"; };
+		50DE7A08233F9D03006C683E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
 		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
 		50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptVC.swift; sourceTree = "<group>"; };
-		50F9849222D47C7D00038A23 /* ExchangeData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeData.storyboard; sourceTree = "<group>"; };
+		50F9849222D47C7D00038A23 /* ExchangeAccept.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExchangeAccept.storyboard; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		61F5761D284AA9A3F054FE0A /* Pods-All-AnImediate-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
@@ -437,7 +451,7 @@
 		5027DEEA233DBAB700F4818F /* DI */ = {
 			isa = PBXGroup;
 			children = (
-				5027DEEB233DBAD500F4818F /* P2PInjector.swift */,
+				5027DEEB233DBAD500F4818F /* P2PConnectionInjector.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -468,7 +482,6 @@
 			children = (
 				50DE79BD233E6EA7006C683E /* Exchange */,
 				5042F37A2337B7CF00D89478 /* AppReducer.swift */,
-				5042F3832338D9D200D89478 /* P2PReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -488,7 +501,7 @@
 		5042F3622337A9EB00D89478 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				500DC47622C4DCD800C345C9 /* ExchangeVC.swift */,
+				500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */,
 				50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */,
 				50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */,
 				32A6411E22DC57AD002EF6F3 /* ResultVC.swift */,
@@ -541,6 +554,8 @@
 				5042F3772337B5D300D89478 /* RxExtension */,
 				32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */,
 				509D820922C364D800BF813F /* UIColorExtension.swift */,
+				50DE7A08233F9D03006C683E /* StringExtension.swift */,
+				50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */,
 				5042F38923391E2D00D89478 /* OptionalType.swift */,
 				5027DEE8233DB9F900F4818F /* SwinjectStoryboardExtension.swift */,
 			);
@@ -670,8 +685,8 @@
 		5042F3722337AE3E00D89478 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				50A5968222C0AD9C00378AAB /* Exchange.storyboard */,
-				50F9849222D47C7D00038A23 /* ExchangeData.storyboard */,
+				50A5968222C0AD9C00378AAB /* ExchangeSearch.storyboard */,
+				50F9849222D47C7D00038A23 /* ExchangeAccept.storyboard */,
 				32A6411C22DC53CB002EF6F3 /* Result.storyboard */,
 				321C6E3B22DC9C2900757F83 /* ResultUserCVCell.xib */,
 			);
@@ -701,6 +716,7 @@
 			children = (
 				5042F385233916DC00D89478 /* MapDistinct.swift */,
 				5042F387233917DC00D89478 /* SkipNil.swift */,
+				50DE7A06233F7341006C683E /* RxUIKit.swift */,
 			);
 			path = RxExtension;
 			sourceTree = "<group>";
@@ -854,7 +870,6 @@
 			children = (
 				50DE79BC233E6E81006C683E /* Exchange */,
 				50B380D0233799FE0092B59C /* AppState.swift */,
-				5042F37C2337D66700D89478 /* P2PConnectionState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -881,6 +896,8 @@
 			isa = PBXGroup;
 			children = (
 				50B380CC233798B50092B59C /* ExchangeViewState.swift */,
+				5042F37C2337D66700D89478 /* P2PConnectionState.swift */,
+				50DE79CA233F201F006C683E /* ExchangeSearchViewState.swift */,
 				50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */,
 			);
 			path = Exchange;
@@ -890,6 +907,8 @@
 			isa = PBXGroup;
 			children = (
 				5042F35F2337A94000D89478 /* ExchangeViewReducer.swift */,
+				5042F3832338D9D200D89478 /* P2PConnectionReducer.swift */,
+				50DE79C8233F1FCB006C683E /* ExchangeSearchViewReducer.swift */,
 				50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */,
 			);
 			path = Exchange;
@@ -898,8 +917,9 @@
 		50DE79C0233E6F02006C683E /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				50DE79B8233E16A7006C683E /* P2PActionCreator.swift */,
-				5042F35A2337A70100D89478 /* ExchangeViewActionCreator.swift */,
+				50DE79B8233E16A7006C683E /* P2PConnectActionCreator.swift */,
+				5042F35A2337A70100D89478 /* ExchangeSearchViewActionCreator.swift */,
+				50DE79C6233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -907,8 +927,9 @@
 		50DE79C1233E6F0C006C683E /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				5042F381233889E900D89478 /* P2PAction.swift */,
-				5042F3552337A4C200D89478 /* ExchangeViewAction.swift */,
+				5042F381233889E900D89478 /* P2PConnectAction.swift */,
+				5042F3552337A4C200D89478 /* ExchangeSearchViewAction.swift */,
+				50DE79C4233E70E9006C683E /* ExchangeAcceptViewAction.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1223,12 +1244,12 @@
 				50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */,
 				3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */,
 				32A6411B22DC38CD002EF6F3 /* AnimeListCardCVCell.xib in Resources */,
-				50F9849322D47C7D00038A23 /* ExchangeData.storyboard in Resources */,
+				50F9849322D47C7D00038A23 /* ExchangeAccept.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
 				963B681422D225DD006988FE /* license.txt in Resources */,
-				50A5968322C0AD9C00378AAB /* Exchange.storyboard in Resources */,
+				50A5968322C0AD9C00378AAB /* ExchangeSearch.storyboard in Resources */,
 				503DD23822DB0748004B9746 /* AccordionSectionHeaderView.xib in Resources */,
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
@@ -1411,28 +1432,32 @@
 			files = (
 				50DE79A6233DCA6D006C683E /* AnimediateError.swift in Sources */,
 				50DE79AC233DD21F006C683E /* AccountModel.swift in Sources */,
+				50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */,
 				50DE79B0233DD233006C683E /* Work.swift in Sources */,
 				50DE79A7233DCA6D006C683E /* P2PError.swift in Sources */,
 				50DE7995233DCA5E006C683E /* AppStore.swift in Sources */,
+				50DE79C7233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift in Sources */,
 				50DE79AE233DD225006C683E /* ArchiveModel.swift in Sources */,
 				50DE7996233DCA5E006C683E /* RxStore.swift in Sources */,
 				50DE7997233DCA5E006C683E /* AppAction.swift in Sources */,
 				50DE79AF233DD231006C683E /* WatchData.swift in Sources */,
-				50DE7998233DCA5E006C683E /* ExchangeViewAction.swift in Sources */,
-				50DE7999233DCA5E006C683E /* P2PAction.swift in Sources */,
+				50DE7998233DCA5E006C683E /* ExchangeSearchViewAction.swift in Sources */,
+				50DE7999233DCA5E006C683E /* P2PConnectAction.swift in Sources */,
 				50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */,
-				50DE799A233DCA5E006C683E /* ExchangeViewActionCreator.swift in Sources */,
-				50DE79B9233E16A7006C683E /* P2PActionCreator.swift in Sources */,
+				50DE799A233DCA5E006C683E /* ExchangeSearchViewActionCreator.swift in Sources */,
+				50DE79B9233E16A7006C683E /* P2PConnectActionCreator.swift in Sources */,
 				50DE79BF233E6EE5006C683E /* ExchangeAcceptViewReducer.swift in Sources */,
+				50DE79C5233E70E9006C683E /* ExchangeAcceptViewAction.swift in Sources */,
 				50DE799B233DCA5E006C683E /* AppReducer.swift in Sources */,
 				50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */,
 				50DE79B1233DD236006C683E /* Episode.swift in Sources */,
 				50DE79AD233DD222006C683E /* PeerModel.swift in Sources */,
-				50DE799D233DCA5E006C683E /* P2PReducer.swift in Sources */,
+				50DE799D233DCA5E006C683E /* P2PConnectionReducer.swift in Sources */,
 				50DE799E233DCA5E006C683E /* AppState.swift in Sources */,
 				50DE79A0233DCA5E006C683E /* ExchangeViewState.swift in Sources */,
+				50DE79C9233F1FCB006C683E /* ExchangeSearchViewReducer.swift in Sources */,
 				50DE79A1233DCA5E006C683E /* P2PConnectionState.swift in Sources */,
-				5027DEEC233DBAD500F4818F /* P2PInjector.swift in Sources */,
+				5027DEEC233DBAD500F4818F /* P2PConnectionInjector.swift in Sources */,
 				50DE79BB233E6A99006C683E /* ExchangeAcceptViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1472,18 +1497,21 @@
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
 				32FEDB2222E0CC5200462E12 /* EpisodeVC.swift in Sources */,
 				3226CD2922D583B80090937F /* InfoVC.swift in Sources */,
+				50DE7A0B233F9DE4006C683E /* CollectionExtension.swift in Sources */,
 				321C6E3F22DCB97200757F83 /* HomeWillSeeVC.swift in Sources */,
 				503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */,
 				32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */,
 				50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */,
+				50DE7A07233F7341006C683E /* RxUIKit.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
 				503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */,
 				32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */,
 				322B208C22DEDA31000B3096 /* MXResultScrollVC.swift in Sources */,
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
+				50DE7A09233F9D03006C683E /* StringExtension.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,
@@ -1497,7 +1525,7 @@
 				321C6E4522DCB9C700757F83 /* HomeSawVC.swift in Sources */,
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
-				500DC47722C4DCD800C345C9 /* ExchangeVC.swift in Sources */,
+				500DC47722C4DCD800C345C9 /* ExchangeSearchVC.swift in Sources */,
 				50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */,
 				321C6E3322DC866A00757F83 /* ResultMeCardVC.swift in Sources */,
 				5027DEE9233DB9F900F4818F /* SwinjectStoryboardExtension.swift in Sources */,
