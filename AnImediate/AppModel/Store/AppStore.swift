@@ -16,8 +16,23 @@ public class AppStore {
                                                state: nil,
                                                middleware: [])
     
+    public let homeStore = Store<HomeViewState>(reducer: HomeViewReducer.handleAction,
+                                                    state: nil,
+                                                    middleware: [])
+    
     public let exchangeStore = Store<ExchangeViewState>(reducer: ExchangeViewReducer.handleAction,
                                                       state: nil,
                                                       middleware: [])
     
+    public let animeListStore = Store<AnimeListViewState>(reducer: AnimeListViewReducer.handleAction,
+                                                        state: nil,
+                                                        middleware: [])
+    
+    public let searchStore = Store<SearchViewState>(reducer: SearchViewReducer.handleAction,
+                                                        state: nil,
+                                                        middleware: [])
+    
+    public let settingStore = Store<SettingViewState>(reducer: SettingViewReducer.handleAction,
+                                                        state: nil,
+                                                        middleware: [])
 }
