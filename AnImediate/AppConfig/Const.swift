@@ -23,6 +23,26 @@ public struct HomeBarTitles {
     public static let titles = ["見たい", "見てる", "見てない", "見た"]
 }
 
-public struct Fonts {
-    public static let titles = ["見たい", "見てる", "見てない", "見た"]
+public struct ProfileItem {
+    public static let editLabels = ["名前", "自己紹介"]
+}
+
+public struct UIImageToData {
+    public static let maxDataByte = 1024 * 1024 * 4
+    // 長辺の最大サイズ
+    public static let maxLongSide: CGFloat = 1024 * 2
+    
+    // JPEG形式の圧縮率（最低／最高／差分）
+    public static let qualityMin: CGFloat = 0.05
+    public static let qualityMax: CGFloat = 0.95
+    public static let qualityDif: CGFloat = 0.15
+    
+    // 実際に使用した圧縮率
+    public static let qualityUse: CGFloat = 0.0
+    
+}
+
+public enum cropType {
+    case icon
+    case back
 }

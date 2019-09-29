@@ -1,18 +1,13 @@
-// swiftlint:disable line_length
-// swiftlint:disable variable_name
+// Generated using Sourcery 0.17.0 — https://github.com/krzysztofzablocki/Sourcery
+// DO NOT EDIT
 
-
-
-{% for type in types.protocols where type.based.AutoVCInjectorable or type|annotated:"AutoVCInjectorable" %}{% if type.name != "AutoVCInjectorable" %}
-
-// sourcery:file:{{ type.name }}ViewControllerInjecter.swift
 
 import AppModel
 import Foundation
 import Swinject
 import SwinjectStoryboard
 
-final class {{ type.name }}ViewControllerInjecter {
+final class ProfileEditViewControllerInjecter {
     class func setup(container: Container) {
         container.register(ModuleActionCreatable.self) { r in
             ModuleActionCreator(connector: r.resolve(Mdulable.self)!)
@@ -26,13 +21,8 @@ final class {{ type.name }}ViewControllerInjecter {
             Example2ActionCreator(connector: r.resolve(Mdulable.self)!)
         }
 
-        container.storyboardInitCompleted({{ type.name }}VC.self) { r, c in
+        container.storyboardInitCompleted(ProfileEditVC.self) { r, c in
             c.inject(ModuleActionCreator: r.resolve(ModuleActionCreatable.self)!, Example1ActionCreator: r.resolve(Example1ActionCreatable.self)!, Example2ActionCreator: r.resolve(Example2ActionCreatable.self)!)
         }
     }
 }
-// sourcery:end
-
-{% endif %}{% endfor %}
-
-

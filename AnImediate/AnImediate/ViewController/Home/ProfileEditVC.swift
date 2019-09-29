@@ -11,41 +11,62 @@ import AppModel
 import UIKit
 import Photos
 import RealmSwift
+import ReSwift
+import RxSwift
+import RxCocoa
 import RSKImageCropper
 
-enum cropType {
-    case icon
-    case back
-}
-
+// TODO:- 初回登録と編集画面は分ける。
 class ProfileEditVC: UIViewController {
     
-    @IBOutlet weak var editTable: UITableView!
-    @IBOutlet weak var background: UIImageView!
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var iconBtn: UIButton!
-    @IBOutlet weak var cancelBtn: UIBarButtonItem!
+    @IBOutlet private weak var editTable: UITableView!
+    @IBOutlet private weak var background: UIImageView!
+    @IBOutlet private weak var icon: UIImageView!
+    @IBOutlet private weak var iconBtn: UIButton!
+    @IBOutlet private weak var backgroundBtn: UIButton!
+    @IBOutlet private weak var cancelBtn: UIBarButtonItem!
+    @IBOutlet private weak var saveBtn: UIBarButtonItem!
     
-    private let editLabels = ["名前", "自己紹介"]
-    
-    private var maxDataByte = 1024 * 1024 * 4
-    
-    /// 長辺の最大サイズ
-    public var maxLongSide: CGFloat = 1024 * 2
-    
-    /// JPEG形式の圧縮率（最低／最高／差分）
-    public var qualityMin: CGFloat = 0.05
-    public var qualityMax: CGFloat = 0.95
-    public var qualityDif: CGFloat = 0.15
-    
-    /// 実際に使用した圧縮率
-    public var qualityUse: CGFloat = 0.0
-    
-    /// リサイズ後の画像サイズ
-    public var resizedSize = CGSize()
-    
-    private var cropFlg: cropType = .icon
+    //private var cropFlg: cropType = .icon
     //private var profile: PeerModel = PeerModel()
+    
+    private var disposeBag = DisposeBag()
+    
+    private let store = RxStore(store: AppStore.instance.homeStore)
+    
+    private var viewState: ProfileEditViewState {
+        return store.state.profileEditViewState
+    }
+    
+    private var P2PSearchActionCreator: P2PSearchActionCreatable! = nil {
+        willSet {
+            if P2PSearchActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+    
+    private var ExchangeAccountActionCreator: ExchangeAccountActionCreatable! = nil {
+        willSet {
+            if ExchangeAccountActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+    
+    private var ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable! = nil {
+        willSet {
+            if ExchangeArchiveActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+    
+    func inject(P2PSearchActionCreator: P2PSearchActionCreatable, ExchangeAccountActionCreator: ExchangeAccountActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
+        self.P2PSearchActionCreator = P2PSearchActionCreator
+        self.ExchangeAccountActionCreator = ExchangeAccountActionCreator
+        self.ExchangeArchiveActionCreator = ExchangeArchiveActionCreator
+    }
     
     var nameText: String = ""
     var commentText: String = ""
@@ -54,22 +75,15 @@ class ProfileEditVC: UIViewController {
     
     var isFirstEdit: Bool = false
     
-    
-    private let realm = try! Realm()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         editTable.delegate = self
         editTable.dataSource = self
         
-        icon.image = iconImage
-        //profile.icon = iconImage
-        background.image = backImage
-        //profile.background = backImage
+        setViews()
         
-        icon.layer.cornerRadius = icon.frame.width * 0.5
-        iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
+        bindViews()
         
         if isFirstEdit {
             cancelBtn.isEnabled = false
@@ -80,28 +94,51 @@ class ProfileEditVC: UIViewController {
         }
     }
     
-    @IBAction func backgroundBtnTapped(_ sender: Any) {
-        cropFlg = .back
-        showCameraroll()
-    }
-    
-    @IBAction func iconBtntapped(_ sender: Any) {
-        cropFlg = .icon
-        showCameraroll()
-    }
-    
-    
-    @IBAction func cancelBtnTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func saveBtnTapped(_ sender: Any) {
-        /*
-        profile.name = (editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
-        profile.comment = (editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
+    private func setViews() {
+        icon.image = AccountModel.read().icon
+        background.image = AccountModel.read().background
         
-        updateProfile(data: profile)
-        dismiss(animated: true, completion: nil)*/
+        icon.layer.cornerRadius = icon.frame.width * 0.5
+        iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
+    }
+    
+    private func bindViews() {
+        iconBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                // TODO:- cropFlg.iconに設定
+                //self.store.dispatch()
+                self.cropFlg = .icon
+                self.showCameraroll()
+            })
+            .disposed(by: disposeBag)
+        
+        backgroundBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                self.cropFlg = .back
+                self.showCameraroll()
+            })
+            .disposed(by: disposeBag)
+        
+        cancelBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                self.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        saveBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                let model = AccountModel.read()
+                // TODO:- Stateからとってくるように変更
+                model.name = (self.editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
+                model.comment = (self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
+                AccountModel.set(data: model)
+                self.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -127,61 +164,9 @@ class ProfileEditVC: UIViewController {
         return topMostViewController
     }
     
-    func createProfile(data: PeerModel) {
-        /*
-        // プライマリーキーをユニークな文字列で生成
-        data.id = NSUUID().uuidString
-        
-        try! realm.write {
-            realm.add(data)
-        }*/
-    }
-    
-    func updateProfile(data: PeerModel) {
-        
-        let results = realm.objects(PeerModel.self)
-        
-        if results.isEmpty {
-            createProfile(data: data)
-        } else {
-            try! realm.write {
-                /*
-                results[0].name = data.name
-                results[0].comment = data.comment
-                results[0].icon = data.icon
-                results[0].background = data.background
-                 */
-            }
-        }
-    }
-    
-    func resizeImage(src: UIImage) -> UIImage {
-        
-        // リサイズが必要か？
-        let ss = src.size
-        if maxLongSide == 0 || ( ss.width <= maxLongSide && ss.height <= maxLongSide ) {
-            resizedSize = ss
-            return src
-        }
-        
-        // リサイズ後のサイズを計算
-        let ax = ss.width / maxLongSide
-        let ay = ss.height / maxLongSide
-        let ar = ax > ay ? ax : ay
-        let re = CGRect(x: 0, y: 0, width: ss.width / ar, height: ss.height / ar)
-        
-        // リサイズ
-        UIGraphicsBeginImageContext(re.size)
-        src.draw(in: re)
-        let dst = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        resizedSize = dst!.size
-        
-        return dst!
-    }
 }
 
+// TODO:- tableviewもRx化する。
 extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -196,7 +181,7 @@ extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProfileEditTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProfileEditTableViewCell
-        cell.titleLabel.text = editLabels[indexPath.row]
+        cell.titleLabel.text = ProfileItem.editLabels[indexPath.row]
         cell.titleLabel.textColor = .deepMagenta()
         cell.titleLabel.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         
@@ -208,8 +193,6 @@ extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
-        
-        
         
         return cell
     }
@@ -273,12 +256,12 @@ extension ProfileEditVC: RSKImageCropViewControllerDelegate, RSKImageCropViewCon
     func imageCropViewControllerCustomMaskPath(_ controller: RSKImageCropViewController) -> UIBezierPath {
         let rect: CGRect = controller.maskRect
         
-        let point1: CGPoint = CGPoint(x: rect.minX, y: rect.maxY)
-        let point2: CGPoint = CGPoint(x: rect.maxX, y: rect.maxY)
-        let point3: CGPoint = CGPoint(x: rect.maxX, y: rect.minY)
-        let point4: CGPoint = CGPoint(x: rect.minX, y: rect.minY)
+        let point1 = CGPoint(x: rect.minX, y: rect.maxY)
+        let point2 = CGPoint(x: rect.maxX, y: rect.maxY)
+        let point3 = CGPoint(x: rect.maxX, y: rect.minY)
+        let point4 = CGPoint(x: rect.minX, y: rect.minY)
         
-        let square: UIBezierPath = UIBezierPath()
+        let square = UIBezierPath()
         square.move(to: point1)
         square.addLine(to: point2)
         square.addLine(to: point3)
@@ -299,16 +282,14 @@ extension ProfileEditVC: RSKImageCropViewControllerDelegate, RSKImageCropViewCon
     
     //完了を押した後の処理
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
-        /*
+        
         switch cropFlg {
         case .back:
-            background.image = croppedImage
-            profile.background = resizeImage(src: croppedImage)
+            background.image = croppedImage.resizeSameAspect()
         case .icon:
-            icon.image = croppedImage
-            profile.icon = resizeImage(src: croppedImage)
+            icon.image = croppedImage.resizeSameAspect()
         }
-        dismiss(animated: true)*/
+        dismiss(animated: true)
     }
 }
 

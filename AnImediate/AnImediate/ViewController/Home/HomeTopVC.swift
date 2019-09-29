@@ -1,5 +1,5 @@
 //
-//  HomeVC.swift
+//  HomeTopVC.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/06/25.
@@ -12,9 +12,10 @@ import UIKit
 import Tabman
 import Pageboy
 
-class HomeVC: TabmanViewController {
+class HomeTopVC: TabmanViewController {
     
     // ページングメニューに対応したビューコントローラ
+    // TODO:- リソース管理はSwiftGenを使いたい
     private lazy var viewControllers: [UIViewController] = {
         [
             storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.willSee),
@@ -57,9 +58,9 @@ class HomeVC: TabmanViewController {
 
 }
 
-extension HomeVC: PageboyViewControllerDataSource, TMBarDataSource {
+extension HomeTopVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        return TMBarItem(title: barTitles[index])
+        return TMBarItem(title: HomeBarTitles.titles[index])
     }
     
     
@@ -80,8 +81,4 @@ extension HomeVC: PageboyViewControllerDataSource, TMBarDataSource {
         let title = "Page \(index)"
         return TMBarItem(title: title)
     }*/
-}
-
-extension TMBar {
-    
 }

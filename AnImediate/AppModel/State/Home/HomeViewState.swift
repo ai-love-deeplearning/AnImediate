@@ -8,10 +8,12 @@
 
 import ReSwift
 
-public struct HomeViewState: StateType, Equatable {
-    /*
-    public internal(set) var p2pConnectionState = P2PConnectionState()
-    public internal(set) var searchViewState = ExchangeSearchViewState()
-    public internal(set) var acceptViewState = ExchangeAcceptViewState()
- */
+public struct HomeViewState: StateType {
+    public internal(set) var profileEditViewState = ProfileEditViewState()
+}
+
+extension  HomeViewState: Equatable {
+    public static func == (lhs: HomeViewState, rhs: HomeViewState) -> Bool {
+        return lhs.profileEditViewState ==  rhs.profileEditViewState
+    }
 }

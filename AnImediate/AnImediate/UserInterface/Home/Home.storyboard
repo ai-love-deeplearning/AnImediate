@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="1600" y="-78"/>
         </scene>
-        <!--HomeVC-->
+        <!--Home TopVC-->
         <scene sceneID="thc-yl-AQg">
             <objects>
-                <viewController id="m4F-Pg-XCP" customClass="HomeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="m4F-Pg-XCP" customClass="HomeTopVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cS8-8z-Bxa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

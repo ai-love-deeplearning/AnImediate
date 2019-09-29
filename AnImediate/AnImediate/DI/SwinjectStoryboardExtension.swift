@@ -19,6 +19,7 @@ extension SwinjectStoryboard {
         
         // MARK:- Home
         HomeViewControllerInjector.setup(container: defaultContainer)
+        ProfileEditViewControllerInjecter.setup(container: defaultContainer)
         
         // MARK:- Exchange
         ExchangeViewControllerInjecter.setup(container: defaultContainer)

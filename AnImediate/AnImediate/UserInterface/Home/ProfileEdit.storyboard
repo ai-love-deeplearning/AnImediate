@@ -31,9 +31,6 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="backgroundBtnTapped:" destination="iMQ-lw-JSb" eventType="touchUpInside" id="MCJ-4r-qHp"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="woD-De-zcT">
                                 <rect key="frame" x="157" y="245" width="100" height="100"/>
@@ -49,9 +46,6 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="iconBtntapped:" destination="iMQ-lw-JSb" eventType="touchUpInside" id="N01-pm-faF"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="iv5-8K-azQ">
                                 <rect key="frame" x="0.0" y="375" width="414" height="487"/>
@@ -121,23 +115,19 @@
                     <navigationItem key="navigationItem" title="編集" id="0Vk-dO-obk">
                         <barButtonItem key="leftBarButtonItem" title="キャンセル" id="UfB-Vw-3kP">
                             <color key="tintColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                            <connections>
-                                <action selector="cancelBtnTapped:" destination="iMQ-lw-JSb" id="YGU-xn-ZKE"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="J0h-Bt-KTM">
                             <color key="tintColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                            <connections>
-                                <action selector="saveBtnTapped:" destination="iMQ-lw-JSb" id="vzY-4y-CCB"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="background" destination="o4k-A9-gnw" id="agi-7o-f23"/>
+                        <outlet property="backgroundBtn" destination="x2y-BS-kZE" id="c1e-Tx-YMv"/>
                         <outlet property="cancelBtn" destination="UfB-Vw-3kP" id="r46-9G-KX0"/>
                         <outlet property="editTable" destination="iv5-8K-azQ" id="Vpf-bR-dkQ"/>
                         <outlet property="icon" destination="woD-De-zcT" id="ORl-pK-Qlg"/>
                         <outlet property="iconBtn" destination="3Mj-kx-FHd" id="TGM-pA-Jzk"/>
+                        <outlet property="saveBtn" destination="J0h-Bt-KTM" id="zdN-Wx-4aQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zeq-M2-XiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

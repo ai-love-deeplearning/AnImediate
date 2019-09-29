@@ -18,6 +18,7 @@ target 'AnImediate' do
   pod 'ReSwift', '4.1.1'
   pod 'RxSwift', '4.5'
   pod 'RxCocoa', '4.5'
+  pod 'RxDataSources', '3.1.0'
   pod 'Swinject', '2.6.2'
   pod 'SwinjectStoryboard'
   pod 'SwiftRichString', '2.1.0'
@@ -38,5 +39,10 @@ target 'AnImediate' do
   target 'AppModel' do
     inherit! :search_paths
   end
+
+  target 'RxMultiPeerWrapper' do
+    inherit! :search_paths
+  end
+
 
 end

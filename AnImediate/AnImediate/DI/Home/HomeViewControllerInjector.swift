@@ -26,7 +26,7 @@ final class HomeViewControllerInjector {
             ExchangeArchiveActionCreator(connector: r.resolve(P2PConnectable.self)!)
         }
         
-        container.storyboardInitCompleted(HomeVC.self) { r, c in
+        container.storyboardInitCompleted(HomeTopVC.self) { r, c in
             c.inject(P2PSearchActionCreator: r.resolve(P2PSearchActionCreatable.self)!, ExchangeAccountActionCreator: r.resolve(ExchangeAccountActionCreatable.self)!, ExchangeArchiveActionCreator: r.resolve(ExchangeArchiveActionCreatable.self)!)
         }*/
     }
