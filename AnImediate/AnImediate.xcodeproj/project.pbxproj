@@ -137,6 +137,7 @@
 		50DE7A34233FBB62006C683E /* AnimeListViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A33233FBB62006C683E /* AnimeListViewControllerInjector.swift */; };
 		50DE7A36233FBB7B006C683E /* SearchViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A35233FBB7B006C683E /* SearchViewControllerInjector.swift */; };
 		50DE7A38233FBB96006C683E /* SettingViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A37233FBB96006C683E /* SettingViewControllerInjector.swift */; };
+		50DE7A3C233FC6E8006C683E /* UIStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A3B233FC6E8006C683E /* UIStyleExtension.swift */; };
 		50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */; };
 		50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */; };
 		50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */; };
@@ -372,6 +373,7 @@
 		50DE7A33233FBB62006C683E /* AnimeListViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewControllerInjector.swift; sourceTree = "<group>"; };
 		50DE7A35233FBB7B006C683E /* SearchViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerInjector.swift; sourceTree = "<group>"; };
 		50DE7A37233FBB96006C683E /* SettingViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewControllerInjector.swift; sourceTree = "<group>"; };
+		50DE7A3B233FC6E8006C683E /* UIStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyleExtension.swift; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
 		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
 		50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptVC.swift; sourceTree = "<group>"; };
@@ -580,12 +582,9 @@
 		5042F3652337AB0700D89478 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				50DE7A39233FC61A006C683E /* UIKitExtension */,
+				50DE7A3A233FC636006C683E /* FoundationExtension */,
 				5042F3772337B5D300D89478 /* RxExtension */,
-				32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */,
-				509D820922C364D800BF813F /* UIColorExtension.swift */,
-				50DE7A08233F9D03006C683E /* StringExtension.swift */,
-				50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */,
-				5042F38923391E2D00D89478 /* OptionalType.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1125,6 +1124,26 @@
 			children = (
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		50DE7A39233FC61A006C683E /* UIKitExtension */ = {
+			isa = PBXGroup;
+			children = (
+				32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */,
+				509D820922C364D800BF813F /* UIColorExtension.swift */,
+				50DE7A3B233FC6E8006C683E /* UIStyleExtension.swift */,
+			);
+			path = UIKitExtension;
+			sourceTree = "<group>";
+		};
+		50DE7A3A233FC636006C683E /* FoundationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5042F38923391E2D00D89478 /* OptionalType.swift */,
+				50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */,
+				50DE7A08233F9D03006C683E /* StringExtension.swift */,
+			);
+			path = FoundationExtension;
 			sourceTree = "<group>";
 		};
 		59FB79C804F93F0C7E94E561 /* Frameworks */ = {
@@ -1715,6 +1734,7 @@
 				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
 				50DE7A09233F9D03006C683E /* StringExtension.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
+				50DE7A3C233FC6E8006C683E /* UIStyleExtension.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				50DE7A32233FBB44006C683E /* HomeViewControllerInjector.swift in Sources */,
 				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,

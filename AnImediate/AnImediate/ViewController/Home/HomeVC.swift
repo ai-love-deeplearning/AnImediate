@@ -6,6 +6,8 @@
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
+import AppModel
 import UIKit
 import Tabman
 import Pageboy
@@ -15,14 +17,12 @@ class HomeVC: TabmanViewController {
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
-            storyboard!.instantiateViewController(withIdentifier: "willSeeSB"),
-            storyboard!.instantiateViewController(withIdentifier: "seeingSB"),
-            storyboard!.instantiateViewController(withIdentifier: "notSeeSB"),
-            storyboard!.instantiateViewController(withIdentifier: "sawSB")
+            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.willSee),
+            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.seeing),
+            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.notSee),
+            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.saw)
         ]
     }()
-    
-    let barTitles = ["見たい", "見てる", "見てない", "見た"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,4 +80,8 @@ extension HomeVC: PageboyViewControllerDataSource, TMBarDataSource {
         let title = "Page \(index)"
         return TMBarItem(title: title)
     }*/
+}
+
+extension TMBar {
+    
 }

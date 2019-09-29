@@ -14,12 +14,14 @@ import SwinjectStoryboard
 extension SwinjectStoryboard {
     class func setup() {
         
-        // MARK:-  Home
+        // MARK:- Module(Request)
+        P2PConnectionInjector.setup(container: defaultContainer)
+        
+        // MARK:- Home
         HomeViewControllerInjector.setup(container: defaultContainer)
         
         // MARK:- Exchange
         ExchangeViewControllerInjecter.setup(container: defaultContainer)
-        P2PConnectionInjector.setup(container: defaultContainer)
         ExchangeAcceptViewControllerInjector.setup(container: defaultContainer)
         
         // MARK:-  AnimeList

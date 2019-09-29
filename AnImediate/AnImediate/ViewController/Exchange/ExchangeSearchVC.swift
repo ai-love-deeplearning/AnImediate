@@ -17,6 +17,7 @@ import MultipeerConnectivity
 
 class ExchangeSearchVC: UIViewController {
     
+    // TODO:- インジケータはカスタムViewにする。
     @IBOutlet private weak var loadingView: UIView!
     @IBOutlet private weak var seachLLabel: UILabel!
     
@@ -34,14 +35,9 @@ class ExchangeSearchVC: UIViewController {
     //var myInfo: UserInfo = UserInfo()
     //var peerInfo: UserInfo = UserInfo()
     
-    // 告知用の文字列（相手を検索するのに使用するIDの様なもの）
-    // 一つのハイフンしか使用できず、15文字以下である必要がある
-    //let serviceType = "fun-AnImediate"
-    
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.exchangeStore)
-    //private let p2pStore = RxStore(store: AppStore.instance.p2pStore)
     
     private var viewState: ExchangeSearchViewState {
         return store.state.searchViewState
@@ -79,6 +75,10 @@ class ExchangeSearchVC: UIViewController {
     
     @objc func labelAnimetion(_ tm: Timer) {
         // TODO:- これもRxでもっと上手くできる。
+        // TODO:- AnimationLabel(strs: [String], duration: Double)
+        // TODO:- sartAnimation() -> void
+        // TODO:- stopAnimation() -> void
+        // TODO:- みたいなクラスを作る？
         switch count {
         case 0:
             seachLLabel.text = "Searching.  "
@@ -96,13 +96,14 @@ class ExchangeSearchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //P2PConnectivity.manager.exDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initGradientLayer()
         
+        // TODO:- フォーマット処理をModel層に分離
+        // TODO:- 交換日時の設定は他のどこかで行なっているはず？
         self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         self.dateString = self.formatter.string(from: now as Date)
         
@@ -142,7 +143,6 @@ class ExchangeSearchVC: UIViewController {
             .drive(
                 onNext: { [unowned self] isSendAccountModel in
                 // TODO:- 先に受け取っていたら画面遷移
-                //isSendAccountModel ? ResonaLottieProgressHUD.show() : ResonaLottieProgressHUD.dismiss()
             })
             .disposed(by: disposeBag)
         
@@ -207,6 +207,7 @@ class ExchangeSearchVC: UIViewController {
         loadingView.layer.add(rotateAnimation, forKey: "rotateindicator")
     }
     
+    // TODO:- notfoundに飛ばす処理もRxで行う
     @objc func notFound() {
         searchingTime += 1
         if searchingTime == 60 {
@@ -215,6 +216,7 @@ class ExchangeSearchVC: UIViewController {
         }
     }
     
+    // TODO:- 余裕があったら画面遷移はCoodinatorを使いたい
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPopUpModal" {
             let nextVC = segue.destination as! ExchangeAcceptVC

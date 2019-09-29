@@ -133,7 +133,6 @@ class ExchangeAcceptVC: UIViewController {
                 onNext: { [unowned self] isSendAccountModel in
                     // TODO:- 先に受け取っていたら画面遷移
                     // TODO:- 受け取ってなかったら待機アニメーション
-                    //isSendAccountModel ? ResonaLottieProgressHUD.show() : ResonaLottieProgressHUD.dismiss()
             })
             .disposed(by: disposeBag)
         
@@ -148,6 +147,7 @@ class ExchangeAcceptVC: UIViewController {
         
     }
     
+    // TODO:- フォーマットの処理はModel層に分離
     func stringFromDate(date: Date, format: String) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
