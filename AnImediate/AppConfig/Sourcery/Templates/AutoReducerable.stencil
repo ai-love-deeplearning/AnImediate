@@ -1,0 +1,53 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+
+{% for type in types.protocols where type.based.AutoReducerable or type|annotated:"AutoReducerable" %}{% if type.name != "AutoReducerable" %}
+
+// sourcery:file:{{ type.name }}Reducer.swift
+
+import Foundation
+import ReSwift
+
+struct {{ type.name }}Reducer {
+
+    static func handleAction(action: Action, state: {{ type.name }}State?) -> {{ type.name }}State {
+        var nextState = state ?? {{ type.name }}State()
+
+        if action is AppAction.InitializeApplication {
+            return {{ type.name }}State()
+        }
+
+        if action is AppAction.InitializeApplication {
+            return {{ type.name }}State()
+        }
+
+        switch action {
+
+        case is {{ type.name }}Action.Initialize:
+            nextState = {{ type.name }}State()
+
+        case is {{ type.name }}Action.DismissErrorAlert:
+            nextState.error = nil
+
+        case is {{ type.name }}Action.ExampleAction1:
+            nextState.exampleState1 = true
+            nextState.error = nil
+
+        case let action as {{ type.name }}Action.ExampleAction2:
+            nextState.member = action.member
+            nextState.error = nil
+
+        default:
+            break
+        }
+
+        return nextState
+    }
+}
+// sourcery:end
+
+{% endif %}{% endfor %}
+
+

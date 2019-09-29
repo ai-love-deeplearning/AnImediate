@@ -1,0 +1,21 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+
+{% for type in types.protocols where type.based.AutoViewStatable or type|annotated:"AutoViewStatable" %}{% if type.name != "AutoViewStatable" %}
+
+// sourcery:file:{{ type.name }}ViewState.swift
+
+import ReSwift
+
+public struct {{ type.name }}ViewState: StateType, Equatable {
+    public internal(set) var moduleState = ModuleState()
+    public internal(set) var operation1State = Operation1State()
+    public internal(set) var operation2State = Operation2State()
+}
+// sourcery:end
+
+{% endif %}{% endfor %}
+
+

@@ -1,0 +1,133 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+
+{% for type in types.protocols where type.based.AutoViewControllerable or type|annotated:"AutoViewControllerable" %}{% if type.name != "AutoViewControllerable" %}
+
+// sourcery:file:{{ type.name }}VC.swift
+
+import AppModel
+import UIKit
+import Realm
+import RealmSwift
+import ReSwift
+import RxCocoa
+import RxSwift
+
+class {{ type.name }}VC: UIViewController {
+
+    @IBOutlet private weak var sampleBtn: UIButton!
+
+    private var disposeBag = DisposeBag()
+
+    private let store = RxStore(store: AppStore.instance.exampleStore)
+
+    private var viewState: {{ type.name }}ViewState {
+        return store.state.exampleViewState
+    }
+
+    private var ModuleActionCreator: ModuleActionCreatable! = nil {
+        willSet {
+            if ModuleActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+
+    private var Example1ActionCreator: Example1ActionCreatable! = nil {
+        willSet {
+            if Example1ActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+
+    private var Example2ActionCreator: Example2ActionCreatable! = nil {
+        willSet {
+            if Example2ActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+
+    func inject(ModuleActionCreator: ModuleActionCreatable, Example1ActionCreator: Example1ActionCreatable, Example2ActionCreator: Example2ActionCreatable) {
+            self.ModuleActionCreator = ModuleActionCreator
+            self.Example1ActionCreator = Example1ActionCreator
+            self.Example2ActionCreator = Example2ActionCreator
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindViews()
+        bindState()
+    }
+
+    private func bindViews() {
+        sampleBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: { [unowned self] in
+                // tapEvent()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func bindState() {
+        store.member1
+            .drive(
+                onNext: {[unowned self] member1 in
+                switch member1 {
+                case .case1:
+                    break
+                case .cce2:
+                    break
+                @unknown default:
+                    fatalError()
+                }
+            })
+            .disposed(by: disposeBag)
+
+        store.member2
+            .drive(
+                onNext: { [unowned self] member2 in
+                    member2 ? exampleFunction1() : exampleFunction2()
+            })
+            .disposed(by: disposeBag)
+
+        store.error
+            .drive(
+                onNext: { [unowned self] error in
+                    // errorHundle()
+                })
+            .disposed(by: disposeBag)
+    }
+
+}
+
+private extension RxStore where AnyStateType == RootViewState {
+
+    var state: Driver<{{ type.name }}ViewState> {
+        return stateDriver.mapDistinct { $0.exampleViewState }
+    }
+
+    var member1: Driver<Type> {
+        return state.mapDistinct { $0.member1 }
+    }
+
+    var member2: Driver<Type> {
+        return state.mapDistinct { $0.member2 }
+    }
+
+    var error: Driver<CustomError> {
+        return state.mapDistinct { $0.error }.skipNil()
+    }
+}
+// sourcery:end
+
+{% endif %}{% endfor %}
+
+
