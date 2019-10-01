@@ -3,6 +3,7 @@
 ## Sourceryを使ったコード自動生成
 
 ターミナルで以下のコマンドを叩く
+
 `$ ./sourcery --sources <sources path> --templates <templates path> --output <output path>`
 
 * Animediate用
@@ -16,3 +17,14 @@
 `./Pods/Sourcery/bin/sourcery --sources ./AppConfig/Sourcery/Sources/<source name>.swift --templates ./AppConfig/Sourcery/Templates --output ./AppConfig/Sourcery/Generated`
 
 1. 生成されたファイルを該当ディレクトリに移動して使用する。`*****.generated.swift`はいらないので削除する。
+
+
+## SwiftGen
+
+* StoryBoardを追加、編集したとき
+* Colors.xmlを編集したとき
+* Assets.xcassetsを編集したとき
+
+ターミナルで以下のコマンドを叩く
+
+`./Pods/SwiftGen/bin/swiftgen`
