@@ -26,7 +26,4 @@ public class ModuleInjector {
     }
 }
 // sourcery:end
-
 {% endif %}{% endfor %}
-
-

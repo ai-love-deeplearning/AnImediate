@@ -28,7 +28,4 @@ struct {{ type.name }}ViewReducer {
     }
 }
 // sourcery:end
-
 {% endif %}{% endfor %}
-
-

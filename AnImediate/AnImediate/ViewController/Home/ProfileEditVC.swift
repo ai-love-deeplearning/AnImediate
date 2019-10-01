@@ -14,6 +14,7 @@ import RealmSwift
 import ReSwift
 import RxSwift
 import RxCocoa
+import RxDataSources
 import RSKImageCropper
 
 // TODO:- 初回登録と編集画面は分ける。
@@ -37,6 +38,10 @@ class ProfileEditVC: UIViewController {
     private var viewState: ProfileEditViewState {
         return store.state.profileEditViewState
     }
+    
+    private var dataSource: RxTableViewSectionedReloadDataSource<ProfileSectionModel>!
+    private var sectionModels: [ProfileSectionModel]!
+    private var dataRelay = BehaviorRelay<[ProfileSectionModel]>(value: [])
     
     private var P2PSearchActionCreator: P2PSearchActionCreatable! = nil {
         willSet {
@@ -82,8 +87,10 @@ class ProfileEditVC: UIViewController {
         editTable.dataSource = self
         
         setViews()
-        
+        //initSectionModels()
+        //initTable()
         bindViews()
+        //fetch()
         
         if isFirstEdit {
             cancelBtn.isEnabled = false
@@ -103,12 +110,37 @@ class ProfileEditVC: UIViewController {
     }
     
     private func bindViews() {
+        /*
+        // dataRelayの変更をキャッチしてdataSourceにデータを流す
+        dataRelay.asObservable()
+            .bind(to: editTable.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        // アイテム削除時
+        editTable.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self, let sectionModel = strongSelf.sectionModels.first else { return }
+                var items = sectionModel.items
+                items.remove(at: indexPath.row)
+                
+                strongSelf.sectionModels = [ProfileSectionModel(items: items)]
+                // dataRelayにデータを流し込む
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
+        
+        editTable.rx.modelSelected(ProfileSectionModel.self)
+            .subscribe(onNext: { [weak self] item in
+                // didselect
+                
+            })
+            .disposed(by: disposeBag)
+        */
         iconBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
                 // TODO:- cropFlg.iconに設定
-                //self.store.dispatch()
-                self.cropFlg = .icon
+                self.store.dispatch(ProfileEditViewAction.CangeCropType(cropType: .icon))
                 self.showCameraroll()
             })
             .disposed(by: disposeBag)
@@ -116,7 +148,7 @@ class ProfileEditVC: UIViewController {
         backgroundBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
-                self.cropFlg = .back
+                self.store.dispatch(ProfileEditViewAction.CangeCropType(cropType: .back))
                 self.showCameraroll()
             })
             .disposed(by: disposeBag)
@@ -131,11 +163,14 @@ class ProfileEditVC: UIViewController {
         saveBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
-                let model = AccountModel.read()
                 // TODO:- Stateからとってくるように変更
-                model.name = (self.editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
-                model.comment = (self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
-                AccountModel.set(data: model)
+                let name = (self.editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
+                let comment = (self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
+                AccountModel.set(name: name)
+                AccountModel.set(comment: comment)
+                AccountModel.set(icon: self.icon.image!)
+                AccountModel.set(background: self.background.image!)
+                self.store.dispatch(ProfileEditViewAction.Registered())
                 self.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -164,6 +199,45 @@ class ProfileEditVC: UIViewController {
         return topMostViewController
     }
     
+}
+
+extension ProfileEditVC {
+    private func initSectionModels() {
+        let items = [
+            ProfileModel(name:"test1", comment: "comment1"),
+            ProfileModel(name:"test2", comment: "comment2"),
+            ProfileModel(name:"test3", comment: "comment3")]
+        sectionModels = [ProfileSectionModel(items: items)]
+    }
+    
+    private func initTable() {
+        dataSource = RxTableViewSectionedReloadDataSource<ProfileSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                // 引数名通り、与えられたデータを利用してcellを生成する
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                         for: IndexPath(row: indexPath.row, section: 0))
+                cell.textLabel?.text = item.name
+                cell.accessoryType = .disclosureIndicator
+                
+                return cell
+        }, canEditRowAtIndexPath: { _, _ in
+            // この引数を設定しないと、Cellの削除アクションができない
+            return true
+        })
+    }
+    
+    // 初期表示用のデータフェッチする処理
+    private func fetch() {
+        // sectionModelsを利用して
+        Observable.just(sectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                
+                // dataRelayにデータを流し込む
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 // TODO:- tableviewもRx化する。
@@ -215,7 +289,7 @@ extension ProfileEditVC: UIImagePickerControllerDelegate, UINavigationController
         let image = info[.originalImage] as! UIImage
         let imageCropVC: RSKImageCropViewController = RSKImageCropViewController(image: image)
         
-        switch cropFlg {
+        switch viewState.cropType {
         case .back:
             imageCropVC.cropMode = .custom
         case .icon:
@@ -283,7 +357,7 @@ extension ProfileEditVC: RSKImageCropViewControllerDelegate, RSKImageCropViewCon
     //完了を押した後の処理
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
         
-        switch cropFlg {
+        switch viewState.cropType {
         case .back:
             background.image = croppedImage.resizeSameAspect()
         case .icon:

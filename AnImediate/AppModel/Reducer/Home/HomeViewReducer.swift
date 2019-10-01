@@ -17,9 +17,9 @@ struct HomeViewReducer {
         if action is AppAction.InitializeApplication {
             return HomeViewState()
         }
-        /*
-        nextState.p2pConnectionState = P2PConnectionReducer.handleAction(action: action, state: nextState.p2pConnectionState)
         
+        nextState.profileEditViewState = ProfileEditViewReducer.handleAction(action: action, state: nextState.profileEditViewState)
+        /*
         nextState.searchViewState = ExchangeSearchViewReducer.handleAction(action: action, state: nextState.searchViewState)
         nextState.acceptViewState = ExchangeAcceptViewReducer.handleAction(action: action, state: nextState.acceptViewState)*/
         

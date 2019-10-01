@@ -2,11 +2,10 @@
 // swiftlint:disable variable_name
 
 
-
-{% for type in types.protocols where type.based.AutoActionCreatable or type|annotated:"AutoActionCreatable" %}{% if type.name != "AutoActionCreatable" %}
+{% for type in types.protocols where type.based.AutoActionCreatable or type|annotated:"AutoActionCreatable" %}
+{% if type.name != "AutoActionCreatable" %}
 
 // sourcery:file:{{ type.name }}ActionCreator.swift
-
 import AppConfig
 import Foundation
 import ReSwift
@@ -45,7 +44,4 @@ class {{ type.name }}ActionCreator: {{ type.name }}ActionCreatable {
 
 }
 // sourcery:end
-
 {% endif %}{% endfor %}
-
-

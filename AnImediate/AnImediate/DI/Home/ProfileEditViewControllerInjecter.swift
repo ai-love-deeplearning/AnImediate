@@ -9,6 +9,7 @@ import SwinjectStoryboard
 
 final class ProfileEditViewControllerInjecter {
     class func setup(container: Container) {
+        /*
         container.register(ModuleActionCreatable.self) { r in
             ModuleActionCreator(connector: r.resolve(Mdulable.self)!)
         }
@@ -23,6 +24,6 @@ final class ProfileEditViewControllerInjecter {
 
         container.storyboardInitCompleted(ProfileEditVC.self) { r, c in
             c.inject(ModuleActionCreator: r.resolve(ModuleActionCreatable.self)!, Example1ActionCreator: r.resolve(Example1ActionCreatable.self)!, Example2ActionCreator: r.resolve(Example2ActionCreatable.self)!)
-        }
+        }*/
     }
 }

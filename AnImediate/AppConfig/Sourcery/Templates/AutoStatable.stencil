@@ -24,7 +24,4 @@ extension {{ type.name }}State: Equatable {
     }
 }
 // sourcery:end
-
 {% endif %}{% endfor %}
-
-

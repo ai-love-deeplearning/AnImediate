@@ -4,7 +4,17 @@
 import AppConfig
 import ReSwift
 
-public struct ProfileEditViewState: StateType, Equatable {
+public struct ProfileEditViewState: StateType {
+    
     public internal(set) var isFirstEdit = true
-    public internal(set) var cropType: cropType?
+    public internal(set) var cropType: cropType = .icon
+    public internal(set) var error: AnimediateError?
+}
+
+extension ProfileEditViewState: Equatable {
+    public static func == (lhs: ProfileEditViewState, rhs: ProfileEditViewState) -> Bool {
+        return lhs.isFirstEdit ==  rhs.isFirstEdit
+        && lhs.cropType == rhs.cropType
+        && lhs.error == rhs.error
+    }
 }

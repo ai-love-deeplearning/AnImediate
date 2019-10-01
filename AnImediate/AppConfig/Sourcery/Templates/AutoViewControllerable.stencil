@@ -127,7 +127,4 @@ private extension RxStore where AnyStateType == RootViewState {
     }
 }
 // sourcery:end
-
 {% endif %}{% endfor %}
-
-

@@ -39,4 +39,5 @@ public extension UIImage {
         
         return resizedImage
     }
+    
 }

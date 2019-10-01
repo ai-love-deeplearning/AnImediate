@@ -12,7 +12,7 @@ public struct HomeViewState: StateType {
     public internal(set) var profileEditViewState = ProfileEditViewState()
 }
 
-extension  HomeViewState: Equatable {
+extension HomeViewState: Equatable {
     public static func == (lhs: HomeViewState, rhs: HomeViewState) -> Bool {
         return lhs.profileEditViewState ==  rhs.profileEditViewState
     }

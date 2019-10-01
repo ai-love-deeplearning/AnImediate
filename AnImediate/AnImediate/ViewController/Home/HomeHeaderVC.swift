@@ -21,9 +21,7 @@ class HomeHeaderVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
-    private let realm = try! Realm()
-    
-    private var isProfileEmpty = false
+    private let store = RxStore(store: AppStore.instance.homeStore)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,18 +40,11 @@ class HomeHeaderVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let results = realm.objects(PeerModel.self)
-        if results.isEmpty {
-            isProfileEmpty = true
+        if store.state.profileEditViewState.isFirstEdit {
+            // AccountModelを参照して空だったら初回登録
             self.performSegue(withIdentifier: "toEdit", sender: nil)
         } else {
-            /*
-            isProfileEmpty = false
-            nameLabel.text = results[0].name
-            commentLabel.text = results[0].comment
-            iconView.image = results[0].icon
-            backView.image = results[0].background
-             */
+            setViews()
         }
     }
     
@@ -65,13 +56,18 @@ class HomeHeaderVC: UIViewController {
         parallaxHeader?.minimumHeight = statusBarHeight + navBarHeight
     }
     
+    private func setViews() {
+        let model = AccountModel.read()
+        nameLabel.text = model.name
+        commentLabel.text = model.comment
+        iconView.image = model.icon
+        backView.image = model.background
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toEdit", isProfileEmpty {
+        if segue.identifier == "toEdit" {
             let nc: UINavigationController = segue.destination as! UINavigationController
             let nextVC = nc.topViewController as! ProfileEditVC
-            nextVC.isFirstEdit = true
-            nextVC.iconImage = iconView.image!
-            nextVC.backImage = backView.image!
             print("profile is empty")
         }
     }

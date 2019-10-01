@@ -13,7 +13,8 @@ import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    //private var appCoordinator: AppCoordinator
     var window: UIWindow?
     let dataManager = DataManager()
 
@@ -34,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window?.makeKeyAndVisible()
         }
+        
+        // TODO:- 初回導線のモデルを作成して状態を管理
+        // TODO:- それ以外にもアプリ起動時に読み込ませたい状態はここで管理
         
         //Realmのマイグレーション処理
         

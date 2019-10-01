@@ -233,7 +233,7 @@ public class AccountModel : Object, NSCoding, NSCopying {
     
     required init() {
         super.init()
-        self.id = ""
+        self.id = "0"
         self.userID = ""
         self.name = ""
         self.comment = ""

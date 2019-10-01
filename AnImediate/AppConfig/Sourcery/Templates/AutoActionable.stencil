@@ -2,11 +2,9 @@
 // swiftlint:disable variable_name
 
 
-
 {% for type in types.protocols where type.based.AutoActionable or type|annotated:"AutoActionable" %}{% if type.name != "AutoActionable" %}
 
 // sourcery:file:{{ type.name }}Action.swift
-
 import Foundation
 import ReSwift
 
@@ -33,7 +31,4 @@ public struct {{ type.name }}Action {
 
 }
 // sourcery:end
-
 {% endif %}{% endfor %}
-
-

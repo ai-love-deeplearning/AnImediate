@@ -23,6 +23,8 @@ target 'AnImediate' do
   pod 'SwinjectStoryboard'
   pod 'SwiftRichString', '2.1.0'
   pod 'Sourcery'
+  pod 'SwiftGen'
+  pod 'IBAnimatable'
 
   target 'AnImediateTests' do
     inherit! :search_paths

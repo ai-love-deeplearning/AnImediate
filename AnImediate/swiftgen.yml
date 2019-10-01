@@ -1,0 +1,21 @@
+ib:
+  inputs:
+   - AnImediate/UserInterface
+  outputs:
+    - templateName: scenes-swift4
+      output: AnImediate/Constants/StoryboardScenes.swift
+    - templateName: segues-swift4
+      output: AnImediate/Constants/StoryboardSegues.swift
+
+xcassets:
+  - inputs: AnImediate/Assets.xcassets
+    outputs:
+      - templateName: swift4
+        output: AnImediate/Constants/Images.swift
+        params:
+          forceProvidesNamespaces: true
+colors:
+    inputs: AnImediate/SupportingFiles/colors.xml
+    outputs:
+        templateName: swift4
+        output: AnImediate/Constants/Colors.swift

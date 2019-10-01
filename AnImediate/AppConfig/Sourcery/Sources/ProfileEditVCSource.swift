@@ -8,14 +8,6 @@
 
 import Foundation
 
-protocol AutoActionable {}
-
-protocol AutoViewReducerable {}
-
-protocol AutoViewStatable {}
-
-protocol AutoVCInjectorable {}
-
 protocol ProfileEditView: AutoActionable {}
 
 protocol ProfileEdit: AutoViewReducerable, AutoViewStatable, AutoVCInjectorable  {}
