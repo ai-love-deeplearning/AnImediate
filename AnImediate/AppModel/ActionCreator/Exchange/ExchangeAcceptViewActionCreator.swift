@@ -28,9 +28,7 @@ public class ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable {
         return { [weak self] state, store, callback in
             callback { _, _ in ExchangeAcceptViewAction.SendArchiveModel() }
             
-            // ここにP2PConectivityの通信処理を書く。
-            // 通信した結果コネクションが繋がったらSuccess、１、二分待っても相手が見つからなかったらtimeoutのActionを発行する。
-            self?.connector.sendArchiveModel(data: ArchiveModel.readAsData())
+            self?.connector.sendArchiveModel(data: ArchiveModel.readAsData(id: AccountModel.read().id))
                 .subscribe(
                     onSuccess: { _ in
                         let action = P2PConnectAction.SendArchiveModelSuccess()

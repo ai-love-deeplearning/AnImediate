@@ -24,7 +24,7 @@ class ThisTermCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    public func bindData(work: Work) {
+    public func bindData(work: AnimeModel) {
         /*
         animeId = work.animeId
         imageURL = work.imageUrl

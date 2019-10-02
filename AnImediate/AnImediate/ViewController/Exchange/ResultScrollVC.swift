@@ -30,7 +30,7 @@ class ResultScrollVC: TabmanViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultVC.scrollDelegate = self
+        //resultVC.scrollDelegate = self
         
         self.dataSource = self
         
@@ -56,23 +56,23 @@ class ResultScrollVC: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
     }
 }
-
+/*
 extension ResultScrollVC: ResultScrollDelegate {
     func reload() {
         switch currentIndex! {
         case 0:
-            (viewControllers[0] as! ResultRecommCardVC).fetchWork()
+            (viewControllers[0] as! ResultRecommCardVC).fetchAnimeModel()
         case 1:
-            (viewControllers[1] as! ResultMeCardVC).fetchWork()
+            (viewControllers[1] as! ResultMeCardVC).fetchAnimeModel()
         case 2:
-            (viewControllers[2] as! ResultYouCardVC).fetchWork()
+            (viewControllers[2] as! ResultYouCardVC).fetchAnimeModel()
         case 3:
-            (viewControllers[3] as! ResultBothCardVC).fetchWork()
+            (viewControllers[3] as! ResultBothCardVC).fetchAnimeModel()
         default:
             break
         }
     }
-}
+ }*/
 
 extension ResultScrollVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {

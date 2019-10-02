@@ -17,7 +17,7 @@ class ResultRecommCardVC: UIViewController {
     
     let realm = try! Realm()
     
-    public var works: [Work] = []
+    public var works: [AnimeModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +25,10 @@ class ResultRecommCardVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupCV()
-        fetchWork()
+        fetchAnimeModel()
     }
     
-    public func fetchWork() {
+    public func fetchAnimeModel() {
     }
     
     private func setupCV() {

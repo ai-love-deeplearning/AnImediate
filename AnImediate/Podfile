@@ -11,7 +11,7 @@ target 'AnImediate' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'MXParallaxHeader', '1.0.0'
-  pod 'Tabman', '2.6.1'
+  pod 'Tabman', '2.5.0'
   pod 'RSKImageCropper', '2.2.3'
   pod 'CenteredCollectionView', '2.2.1'
   pod 'RealmSwift', '3.18.0'

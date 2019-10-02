@@ -20,7 +20,7 @@ class AnimeListCardVC: UIViewController {
     
     private var isRegister: Bool = false
     
-    //public var works = Array<Work>(repeating: Work(), count: 20)
+    //public var works = Array<AnimeModel>(repeating: AnimeModel(), count: 20)
     
     let realm = try! Realm()
     let now = NSDate()

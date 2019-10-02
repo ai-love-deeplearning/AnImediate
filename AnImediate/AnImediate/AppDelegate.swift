@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         newObject!["id"] = String(nextID)
                         nextID += 1
                     }
-                    migration.enumerateObjects(ofType: Work.className()) { oldObject, newObject in
+                    migration.enumerateObjects(ofType: AnimeModel.className()) { oldObject, newObject in
                         newObject!["id"] = String(nextID)
                         nextID += 1
                     }

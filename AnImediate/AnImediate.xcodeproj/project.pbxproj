@@ -112,7 +112,7 @@
 		50DE79AC233DD21F006C683E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB222C995BC00A038C8 /* AccountModel.swift */; };
 		50DE79AD233DD222006C683E /* PeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50992177233CB5EC00B77C65 /* PeerModel.swift */; };
 		50DE79AE233DD225006C683E /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50128DA0233B0BF700A35A97 /* ArchiveModel.swift */; };
-		50DE79B0233DD233006C683E /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* Work.swift */; };
+		50DE79B0233DD233006C683E /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* AnimeModel.swift */; };
 		50DE79B1233DD236006C683E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
 		50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3DD2339E95300D89478 /* P2PConnectivity.swift */; };
 		50DE79B9233E16A7006C683E /* P2PConnectActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79B8233E16A7006C683E /* P2PConnectActionCreator.swift */; };
@@ -195,6 +195,15 @@
 		50FD22A923435E07007F11E7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22A623435E06007F11E7 /* Colors.swift */; };
 		50FD22AA23435E07007F11E7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22A723435E06007F11E7 /* Images.swift */; };
 		50FD22AB23435E07007F11E7 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22A823435E06007F11E7 /* StoryboardScenes.swift */; };
+		50FD22AF23438269007F11E7 /* HomeArchiveListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22AE23438269007F11E7 /* HomeArchiveListVC.swift */; };
+		50FD22B1234388A8007F11E7 /* HomeArchiveVCSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22B0234388A8007F11E7 /* HomeArchiveVCSource.swift */; };
+		50FD22BA23438A00007F11E7 /* HomeArchiveListViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22B3234389BD007F11E7 /* HomeArchiveListViewAction.swift */; };
+		50FD22BB23438B76007F11E7 /* HomeArchiveListViewControllerInjecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22B2234389BC007F11E7 /* HomeArchiveListViewControllerInjecter.swift */; };
+		50FD22BC23438D31007F11E7 /* HomeArchiveListViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22B5234389BD007F11E7 /* HomeArchiveListViewReducer.swift */; };
+		50FD22BD23438D42007F11E7 /* HomeArchiveListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22B4234389BD007F11E7 /* HomeArchiveListViewState.swift */; };
+		50FD22BF2343A018007F11E7 /* HomeArchiveSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */; };
+		50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */; };
+		50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */; };
 		65F247CE2440FF4684D1804A /* Pods_AppModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9C355E2523DAE65965ED1C /* Pods_AppModel.framework */; };
 		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
 		963B681622D22A33006988FE /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963B681522D22A33006988FE /* SettingText.storyboard */; };
@@ -329,7 +338,7 @@
 		3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListVC.swift; sourceTree = "<group>"; };
 		3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomCollectionViewCell.swift; sourceTree = "<group>"; };
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
-		3238B00022C1D25A00C8D3DD /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		3238B00022C1D25A00C8D3DD /* AnimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
 		32A6410C22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsHeaderVC.swift; sourceTree = "<group>"; };
 		32A6411422DC387D002EF6F3 /* AnimeListCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCardVC.swift; sourceTree = "<group>"; };
 		32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeListCard.storyboard; sourceTree = "<group>"; };
@@ -511,6 +520,15 @@
 		50FD22A723435E06007F11E7 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		50FD22A823435E06007F11E7 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		50FD22AC23435E7D007F11E7 /* MXParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MXParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50FD22AE23438269007F11E7 /* HomeArchiveListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveListVC.swift; sourceTree = "<group>"; };
+		50FD22B0234388A8007F11E7 /* HomeArchiveVCSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveVCSource.swift; sourceTree = "<group>"; };
+		50FD22B2234389BC007F11E7 /* HomeArchiveListViewControllerInjecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeArchiveListViewControllerInjecter.swift; sourceTree = "<group>"; };
+		50FD22B3234389BD007F11E7 /* HomeArchiveListViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeArchiveListViewAction.swift; sourceTree = "<group>"; };
+		50FD22B4234389BD007F11E7 /* HomeArchiveListViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeArchiveListViewState.swift; sourceTree = "<group>"; };
+		50FD22B5234389BD007F11E7 /* HomeArchiveListViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeArchiveListViewReducer.swift; sourceTree = "<group>"; };
+		50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveSectionModel.swift; sourceTree = "<group>"; };
+		50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveCellModel.swift; sourceTree = "<group>"; };
+		50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCardCell.swift; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		61F5761D284AA9A3F054FE0A /* Pods-All-AnImediate-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
@@ -634,11 +652,11 @@
 		5042F35023379E2B00D89478 /* RealmModel */ = {
 			isa = PBXGroup;
 			children = (
+				50FD227C23418594007F11E7 /* CommonStateModel.swift */,
 				50165BB222C995BC00A038C8 /* AccountModel.swift */,
 				50992177233CB5EC00B77C65 /* PeerModel.swift */,
 				50128DA0233B0BF700A35A97 /* ArchiveModel.swift */,
-				50FD227C23418594007F11E7 /* CommonStateModel.swift */,
-				3238B00022C1D25A00C8D3DD /* Work.swift */,
+				3238B00022C1D25A00C8D3DD /* AnimeModel.swift */,
 				32FEDB1A22DF5E1000462E12 /* Episode.swift */,
 			);
 			path = RealmModel;
@@ -705,6 +723,7 @@
 			children = (
 				50A5969222C1F16C00378AAB /* HomeTopVC.swift */,
 				50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */,
+				50FD22AE23438269007F11E7 /* HomeArchiveListVC.swift */,
 				321C6E3E22DCB97200757F83 /* HomeWillSeeVC.swift */,
 				321C6E4022DCB99600757F83 /* HomeSeeingVC.swift */,
 				321C6E4222DCB9B000757F83 /* HomeNotSeeVC.swift */,
@@ -782,6 +801,7 @@
 		5042F3692337AC6300D89478 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1140,6 +1160,7 @@
 			children = (
 				50DE7A31233FBB44006C683E /* HomeViewControllerInjector.swift */,
 				50DE7FE72341405A006C683E /* HomeHeaderViewControllerInjecter.swift */,
+				50FD22B2234389BC007F11E7 /* HomeArchiveListViewControllerInjecter.swift */,
 				50DE7A7C2340F0E6006C683E /* ProfileEditViewControllerInjecter.swift */,
 			);
 			path = Home;
@@ -1174,6 +1195,7 @@
 			children = (
 				50DE7A20233FB731006C683E /* HomeViewState.swift */,
 				50DE7FE62341405A006C683E /* HomeHeaderViewState.swift */,
+				50FD22B4234389BD007F11E7 /* HomeArchiveListViewState.swift */,
 				50DE7A7D2340F0E6006C683E /* ProfileEditViewState.swift */,
 			);
 			path = Home;
@@ -1239,6 +1261,7 @@
 			children = (
 				50DE7A29233FB7D2006C683E /* HomeViewReducer.swift */,
 				50DE7FE52341405A006C683E /* HomeHeaderViewReducer.swift */,
+				50FD22B5234389BD007F11E7 /* HomeArchiveListViewReducer.swift */,
 				50DE7A7A2340F0E6006C683E /* ProfileEditViewReducer.swift */,
 			);
 			path = Home;
@@ -1290,6 +1313,7 @@
 			isa = PBXGroup;
 			children = (
 				50DE7FE42341405A006C683E /* HomeHeaderViewAction.swift */,
+				50FD22B3234389BD007F11E7 /* HomeArchiveListViewAction.swift */,
 				50DE7A7B2340F0E6006C683E /* ProfileEditViewAction.swift */,
 			);
 			path = Home;
@@ -1332,6 +1356,7 @@
 				50DE7FE2234133F4006C683E /* AutoCreatableSource.swift */,
 				50DE7A782340ED1F006C683E /* ProfileEditVCSource.swift */,
 				50DE7FE023413391006C683E /* HomeHeaderVCSource.swift */,
+				50FD22B0234388A8007F11E7 /* HomeArchiveVCSource.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1407,6 +1432,8 @@
 			children = (
 				50FD227F234282B7007F11E7 /* ProfileEditSectionModel.swift */,
 				50FD22812342836A007F11E7 /* ProfileEditCellModel.swift */,
+				50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */,
+				50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */,
 			);
 			path = RxDataSource;
 			sourceTree = "<group>";
@@ -2052,6 +2079,7 @@
 				50DE7FE3234133F5006C683E /* AutoCreatableSource.swift in Sources */,
 				5042F3B0233927D000D89478 /* ErrorCode.swift in Sources */,
 				5042F3B2233927DE00D89478 /* Const.swift in Sources */,
+				50FD22B1234388A8007F11E7 /* HomeArchiveVCSource.swift in Sources */,
 				50DE7A792340ED1F006C683E /* ProfileEditVCSource.swift in Sources */,
 				50DE7FE123413391006C683E /* HomeHeaderVCSource.swift in Sources */,
 			);
@@ -2077,13 +2105,14 @@
 				50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */,
 				50FD227D23418594007F11E7 /* CommonStateModel.swift in Sources */,
 				50DE7A2A233FB7D2006C683E /* HomeViewReducer.swift in Sources */,
-				50DE79B0233DD233006C683E /* Work.swift in Sources */,
+				50DE79B0233DD233006C683E /* AnimeModel.swift in Sources */,
 				50DE79A7233DCA6D006C683E /* P2PError.swift in Sources */,
 				50DE7FED23414070006C683E /* HomeHeaderViewReducer.swift in Sources */,
 				50DE7995233DCA5E006C683E /* AppStore.swift in Sources */,
 				50DE79C7233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift in Sources */,
 				50DE79AE233DD225006C683E /* ArchiveModel.swift in Sources */,
 				50DE7996233DCA5E006C683E /* RxStore.swift in Sources */,
+				50FD22BC23438D31007F11E7 /* HomeArchiveListViewReducer.swift in Sources */,
 				50DE7FDF23413041006C683E /* ProfileEditViewAction.swift in Sources */,
 				50DE7997233DCA5E006C683E /* AppAction.swift in Sources */,
 				50DE7A28233FB77B006C683E /* SettingViewState.swift in Sources */,
@@ -2099,21 +2128,25 @@
 				50DE7A23233FB74D006C683E /* AnimeListViewState.swift in Sources */,
 				50DE79C5233E70E9006C683E /* ExchangeAcceptViewAction.swift in Sources */,
 				50DE7FEE23414077006C683E /* HomeHeaderViewState.swift in Sources */,
+				50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */,
 				50DE7A30233FB81B006C683E /* SettingViewReducer.swift in Sources */,
 				50DE799B233DCA5E006C683E /* AppReducer.swift in Sources */,
 				50DE7A2E233FB80B006C683E /* SearchViewReducer.swift in Sources */,
 				50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */,
 				50DE7A2C233FB7F4006C683E /* AnimeListViewReducer.swift in Sources */,
 				50DE79B1233DD236006C683E /* Episode.swift in Sources */,
+				50FD22BA23438A00007F11E7 /* HomeArchiveListViewAction.swift in Sources */,
 				50DE79AD233DD222006C683E /* PeerModel.swift in Sources */,
 				50DE799D233DCA5E006C683E /* P2PConnectionReducer.swift in Sources */,
 				50DE799E233DCA5E006C683E /* AppState.swift in Sources */,
 				50DE79A0233DCA5E006C683E /* ExchangeViewState.swift in Sources */,
 				50DE79C9233F1FCB006C683E /* ExchangeSearchViewReducer.swift in Sources */,
 				50DE79A1233DCA5E006C683E /* P2PConnectionState.swift in Sources */,
+				50FD22BD23438D42007F11E7 /* HomeArchiveListViewState.swift in Sources */,
 				5027DEEC233DBAD500F4818F /* P2PConnectionInjector.swift in Sources */,
 				50DE7A842340F2E8006C683E /* ProfileEditViewState.swift in Sources */,
 				50DE79BB233E6A99006C683E /* ExchangeAcceptViewState.swift in Sources */,
+				50FD22BF2343A018007F11E7 /* HomeArchiveSectionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2147,6 +2180,7 @@
 				50FD2299234341BE007F11E7 /* ExchangeCoordinator.swift in Sources */,
 				32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */,
 				50FD229523434181007F11E7 /* AnimeListCoordinator.swift in Sources */,
+				50FD22AF23438269007F11E7 /* HomeArchiveListVC.swift in Sources */,
 				32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */,
 				321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */,
 				50DE79C3233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift in Sources */,
@@ -2172,6 +2206,7 @@
 				50DE7A07233F7341006C683E /* RxUIKit.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
 				50FD229023433FBB007F11E7 /* TabBarCoordinator.swift in Sources */,
+				50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
 				503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */,
 				32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */,
@@ -2183,6 +2218,7 @@
 				50FD228E23433F64007F11E7 /* NavigationCoordinator.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				50DE7A32233FBB44006C683E /* HomeViewControllerInjector.swift in Sources */,
+				50FD22BB23438B76007F11E7 /* HomeArchiveListViewControllerInjecter.swift in Sources */,
 				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,
 				50FD2293234340F0007F11E7 /* MainTabCoordinator.swift in Sources */,
 				50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */,
@@ -2661,7 +2697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ai-love-deepLearning.AnImediate.kawa";
+				PRODUCT_BUNDLE_IDENTIFIER = "ai-love-deepLearning.AnImediate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnImediate/AnImediate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2686,7 +2722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ai-love-deepLearning.AnImediate.kawa";
+				PRODUCT_BUNDLE_IDENTIFIER = "ai-love-deepLearning.AnImediate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AnImediate/AnImediate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

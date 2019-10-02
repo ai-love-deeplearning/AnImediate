@@ -19,8 +19,8 @@ public struct {{ type.name }}State: StateType  {
 
 extension {{ type.name }}State: Equatable {
     public static func == (lhs: {{ type.name }}State, rhs: {{ type.name }}State) -> Bool {
-    return lhs.exampleState1 == rhs.exampleState1
-    && lhs.exampleState2 == rhs.exampleState2
+        return lhs.exampleState1 == rhs.exampleState1
+        && lhs.exampleState2 == rhs.exampleState2
     }
 }
 // sourcery:end

@@ -28,19 +28,19 @@ class AnimeListVC: UIViewController {
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     var autoScrollTimer = Timer()
     /*
-    private var recomWorks = Array<Work>(repeating: Work(), count: 5) {
+    private var recomAnimeModels = Array<AnimeModel>(repeating: AnimeModel(), count: 5) {
         didSet {
             recomCollectionView.reloadData()
             startAutoScroll(duration: 7.0)
         }
     }*/
-    private var thisTermWorks: [Work] = [] {
+    private var thisTermAnimeModels: [AnimeModel] = [] {
         didSet {
             thisTermCollectionView.reloadData()
         }
     }
     /*
-    private var rankingWorks = Array<Work>(repeating: Work(), count: 20) {
+    private var rankingAnimeModels = Array<AnimeModel>(repeating: AnimeModel(), count: 20) {
         didSet {
             rankingCollectionView.reloadData()
         }
@@ -61,9 +61,9 @@ class AnimeListVC: UIViewController {
         /*
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
         let seedRealm = try! Realm(configuration: config)
-        let works = seedRealm.objects(Work.self)
-        for i in 0..<self.recomWorks.count {
-            self.recomWorks[i] = works[Int.random(in: 0..<100)]
+        let works = seedRealm.objects(AnimeModel.self)
+        for i in 0..<self.recomAnimeModels.count {
+            self.recomAnimeModels[i] = works[Int.random(in: 0..<100)]
         }*/
     }
     
@@ -71,14 +71,14 @@ class AnimeListVC: UIViewController {
         /*
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
         let seedRealm = try! Realm(configuration: config)
-        let works = seedRealm.objects(Work.self)
+        let works = seedRealm.objects(AnimeModel.self)
         for i in 0..<works.count {
             if works[i].seasonNameText == "2019年夏" {
-                self.thisTermWorks.append(works[i])
+                self.thisTermAnimeModels.append(works[i])
             }
         }
-        while self.thisTermWorks.count != 20 {
-            self.thisTermWorks.removeLast()
+        while self.thisTermAnimeModels.count != 20 {
+            self.thisTermAnimeModels.removeLast()
         }*/
     }
     
@@ -86,9 +86,9 @@ class AnimeListVC: UIViewController {
         /*
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
         let seedRealm = try! Realm(configuration: config)
-        let works = seedRealm.objects(Work.self)
-        for i in 0..<self.rankingWorks.count {
-            self.rankingWorks[i] = works[i]
+        let works = seedRealm.objects(AnimeModel.self)
+        for i in 0..<self.rankingAnimeModels.count {
+            self.rankingAnimeModels[i] = works[i]
         }*/
     }
     
@@ -126,12 +126,12 @@ class AnimeListVC: UIViewController {
             break
         case "fromThisTerm":
             let nextVC = segue.destination as! AnimeListCardVC
-            //nextVC.works = self.thisTermWorks
+            //nextVC.works = self.thisTermAnimeModels
             nextVC.navigationItem.title = "今期アニメ"
             break
         case "fromRank":
             let nextVC = segue.destination as! AnimeListCardVC
-            //nextVC.works = self.rankingWorks
+            //nextVC.works = self.rankingAnimeModels
             nextVC.navigationItem.title = "ランキング"
             break
         default:
@@ -149,8 +149,8 @@ extension AnimeListVC: UICollectionViewDelegate {
         switch collectionView.tag {
         case 1: break
             /*
-            let recomWork = recomWorks[indexPath.row]
-            recomCell.bindData(work: recomWork)
+            let recomAnimeModel = recomAnimeModels[indexPath.row]
+            recomCell.bindData(work: recomAnimeModel)
             
             UserDefaults.standard.set(recomCell.animeId, forKey: "animeId")
             UserDefaults.standard.set(recomCell.imageURL, forKey: "imageURL")
@@ -158,8 +158,8 @@ extension AnimeListVC: UICollectionViewDelegate {
             UserDefaults.standard.set(recomCell.seasonText, forKey: "season")*/
         case 2: break
             /*
-            let thisWork = thisTermWorks[indexPath.row]
-            cell.bindData(work: thisWork)
+            let thisAnimeModel = thisTermAnimeModels[indexPath.row]
+            cell.bindData(work: thisAnimeModel)
             
             UserDefaults.standard.set(cell.animeId, forKey: "animeId")
             UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
@@ -167,9 +167,9 @@ extension AnimeListVC: UICollectionViewDelegate {
             UserDefaults.standard.set(cell.seasonText, forKey: "season")*/
         case 3: break
             /*
-            let rankingWork = rankingWorks[indexPath.row]
+            let rankingAnimeModel = rankingAnimeModels[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
-            cell.bindData(work:rankingWork)
+            cell.bindData(work:rankingAnimeModel)
             
             UserDefaults.standard.set(cell.animeId, forKey: "animeId")
             UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
@@ -212,15 +212,15 @@ extension AnimeListVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         /*
-        self.pageControl.numberOfPages = recomWorks.count
+        self.pageControl.numberOfPages = recomAnimeModels.count
         
         switch collectionView.tag {
         case 1:
-            return recomWorks.count
+            return recomAnimeModels.count
         case 2:
-            return thisTermWorks.count
+            return thisTermAnimeModels.count
         case 3:
-            return rankingWorks.count
+            return rankingAnimeModels.count
         default:
             break
         }*/
@@ -235,18 +235,18 @@ extension AnimeListVC: UICollectionViewDataSource {
         switch collectionView.tag {
         case 1: break
             /*
-            let recomWork = recomWorks[indexPath.row]
-            recomCell.bindData(work: recomWork)*/
+            let recomAnimeModel = recomAnimeModels[indexPath.row]
+            recomCell.bindData(work: recomAnimeModel)*/
         case 2:
             /*
-            let thisWork = thisTermWorks[indexPath.row]
-            cell.bindData(work: thisWork)*/
+            let thisAnimeModel = thisTermAnimeModels[indexPath.row]
+            cell.bindData(work: thisAnimeModel)*/
             return cell
         case 3:
             /*
-            let rankingWork = rankingWorks[indexPath.row]
+            let rankingAnimeModel = rankingAnimeModels[indexPath.row]
             cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
-            cell.bindData(work: rankingWork)*/
+            cell.bindData(work: rankingAnimeModel)*/
             return cell
         default:
             break

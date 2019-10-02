@@ -17,7 +17,7 @@ class ResultMeCardVC: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     
     var flag = false
-    public var works: [Work] = [] {
+    public var works: [AnimeModel] = [] {
         didSet {
             cardCV.reloadData()
         }
@@ -31,12 +31,12 @@ class ResultMeCardVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupCV()
-        fetchWork()
+        fetchAnimeModel()
     }
     
-    public func fetchWork() {
+    public func fetchAnimeModel() {
         /*
-        var work = [Work]()
+        var work = [AnimeModel]()
         
         let userInfo = realm.objects(PeerModel.self)
         let myResults = realm.objects(WatchData.self).filter("userId==%@ && animeStatus=='見た'", userInfo[0].id)
@@ -56,7 +56,7 @@ class ResultMeCardVC: UIViewController {
                 let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
                 let seedRealm = try! Realm(configuration: config)
                 
-                let workResults = seedRealm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
+                let workResults = seedRealm.objects(AnimeModel.self).filter("animeId == %@", myResults[i].animeId)
                 work.append(workResults[0])
             }
             self.works = work
@@ -69,7 +69,7 @@ class ResultMeCardVC: UIViewController {
             emptyView.isHidden = true
         }
         
-        work = [Work]()*/
+        work = [AnimeModel]()*/
     }
     
     private func setupCV() {

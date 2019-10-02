@@ -14,42 +14,43 @@ import RealmSwift
 class HomeWillSeeVC: UIViewController {
 
     @IBOutlet weak var cardCV: UICollectionView!
-    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet private weak var cardTable: UITableView!
+    @IBOutlet private weak var emptyView: UIView!
     
-    let realm = try! Realm()
-    
-    public var works: [Work] = [] {
+    //let realm = try! Realm()
+    /*
+    public var works: [AnimeModel] = [] {
         didSet {
             cardCV.reloadData()
         }
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchWork()
+        fetchAnimeModel()
         setupCV()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchWork()
+        fetchAnimeModel()
         setupCV()
     }
     
-    private func fetchWork() {
+    private func fetchAnimeModel() {
         /*
-        var work = [Work]()
+        var work = [AnimeModel]()
         
         let userInfo = realm.objects(PeerModel.self)
         
         if userInfo.isEmpty {
             
         } else {
-            let myResults = realm.objects(ArchiveModel.self).filter("userId == %@ && animeStatus == '見たい'", userInfo[0].id)
+            let myResults = realm.objects(ArchiveModel.self).filter("userId == %@ && animeStatus == '見たい'", userInfo[0].id, AnimeStatusType.will)
             for i in 0..<myResults.count {
                 let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
                 let seedRealm = try! Realm(configuration: config)
                 
-                let workResults = seedRealm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
+                let workResults = seedRealm.objects(AnimeModel.self).filter("animeId == %@", myResults[i].animeId)
                 if workResults.isEmpty {
                     
                 } else {
@@ -64,14 +65,14 @@ class HomeWillSeeVC: UIViewController {
                 emptyView.isHidden = true
             }
             
-            work = [Work]()
+            work = [AnimeModel]()
         }*/
     }
     
     private func setupCV() {
         
-        self.cardCV.delegate = self
-        self.cardCV.dataSource = self
+        //self.cardCV.delegate = self
+        //self.cardCV.dataSource = self
         self.cardCV.showsVerticalScrollIndicator = false
         self.cardCV.register(UINib(nibName: "AnimeListCardCVCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
         
@@ -93,23 +94,23 @@ class HomeWillSeeVC: UIViewController {
     }
 }
 
-extension HomeWillSeeVC: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = cardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
-        
-        let work = works[indexPath.row]
-        cell.bindData(work: work)
-        
-        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
-        UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
-        UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
-        UserDefaults.standard.set(cell.seasonText, forKey: "season")
-        
-        performSegue(withIdentifier: "toDetails", sender: nil)
-    }
-}
-
+//extension HomeWillSeeVC: UICollectionViewDelegate {
+//    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let cell = cardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
+//        
+//        let work = works[indexPath.row]
+//        cell.bindData(work: work)
+//        
+//        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
+//        UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
+//        UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
+//        UserDefaults.standard.set(cell.seasonText, forKey: "season")
+//        
+//        performSegue(withIdentifier: "toDetails", sender: nil)
+//    }
+//}
+/*
 extension HomeWillSeeVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,4 +125,4 @@ extension HomeWillSeeVC: UICollectionViewDataSource {
         
         return cell
     }
-}
+}*/

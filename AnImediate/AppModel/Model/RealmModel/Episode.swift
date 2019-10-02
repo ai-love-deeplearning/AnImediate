@@ -12,11 +12,11 @@ import RealmSwift
 
 public class Episode: Object {
     @objc dynamic var id = 0
+    @objc dynamic var animeTitle = ""
+    @objc dynamic var episodeTitle = ""
     @objc dynamic var sortNumber = 0
     @objc dynamic var numberText = ""
-    @objc dynamic var title = ""
-    @objc dynamic var animeId = 0
-    @objc dynamic var animeTitle = ""
+    @objc dynamic var anicctID = 0
     
     override public static func primaryKey() -> String? {
         return "id"
@@ -24,23 +24,22 @@ public class Episode: Object {
     
     public init(value: [String: Any]) {
         super.init()
-        
         self.id = value["id"] as? Int ?? 0
+        self.anicctID = value["animeId"] as? Int ?? 0
+        self.animeTitle = value["animeTitle"] as? String ?? ""
+        self.episodeTitle = value["episodeTitle"] as? String ?? ""
         self.sortNumber = value["sortNumber"] as? Int ?? 0
         self.numberText = value["numberText"] as? String ?? ""
-        self.title = value["title"] as? String ?? ""
-        self.animeId = value["animeId"] as? Int ?? 0
-        self.animeTitle = value["animeTitle"] as? String ?? ""
     }
     
     required init() {
         super.init()
         self.id = 0
+        self.anicctID = 0
+        self.animeTitle = ""
+        self.episodeTitle = ""
         self.sortNumber = 0
         self.numberText = ""
-        self.title = ""
-        self.animeId = 0
-        self.animeTitle = ""
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
