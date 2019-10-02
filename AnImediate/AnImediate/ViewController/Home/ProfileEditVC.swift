@@ -156,6 +156,7 @@ class ProfileEditVC: UIViewController {
         cancelBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
+                self.store.dispatch(ProfileEditViewAction.Registered())
                 self.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -168,8 +169,8 @@ class ProfileEditVC: UIViewController {
                 let comment = (self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
                 AccountModel.set(name: name)
                 AccountModel.set(comment: comment)
-                AccountModel.set(icon: self.icon.image!)
-                AccountModel.set(background: self.background.image!)
+                AccountModel.set(icon: self.icon.image!.resizeSameAspect()!)
+                AccountModel.set(background: self.background.image!.resizeSameAspect()!)
                 self.store.dispatch(ProfileEditViewAction.Registered())
                 self.dismiss(animated: true, completion: nil)
             })

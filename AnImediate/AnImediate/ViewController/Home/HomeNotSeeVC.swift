@@ -26,12 +26,12 @@ class HomeNotSeeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchAnimeModel()
-        setupCV()
+//        fetchAnimeModel()
+//        setupCV()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchAnimeModel()
+//        fetchAnimeModel()
     }
     
     private func fetchAnimeModel() {
