@@ -10,10 +10,12 @@ import ReSwift
 
 public struct HomeViewState: StateType {
     public internal(set) var profileEditViewState = ProfileEditViewState()
+    public internal(set) var homeArchiveListViewState = HomeArchiveListViewState()
 }
 
 extension HomeViewState: Equatable {
     public static func == (lhs: HomeViewState, rhs: HomeViewState) -> Bool {
         return lhs.profileEditViewState ==  rhs.profileEditViewState
+        && lhs.homeArchiveListViewState ==  rhs.homeArchiveListViewState
     }
 }

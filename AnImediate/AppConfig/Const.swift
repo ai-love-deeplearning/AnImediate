@@ -46,3 +46,10 @@ public enum cropType {
     case icon
     case back
 }
+
+public enum AnimeStatusType: String {
+    case none = "見てない"
+    case did = "見た"
+    case will = "見たい"
+   case now = "見てる"
+}

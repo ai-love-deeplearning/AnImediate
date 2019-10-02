@@ -19,9 +19,8 @@ struct HomeViewReducer {
         }
         
         nextState.profileEditViewState = ProfileEditViewReducer.handleAction(action: action, state: nextState.profileEditViewState)
-        /*
-        nextState.searchViewState = ExchangeSearchViewReducer.handleAction(action: action, state: nextState.searchViewState)
-        nextState.acceptViewState = ExchangeAcceptViewReducer.handleAction(action: action, state: nextState.acceptViewState)*/
+        
+        nextState.homeArchiveListViewState = HomeArchiveListViewReducer.handleAction(action: action, state: nextState.homeArchiveListViewState)
         
         return nextState
     }

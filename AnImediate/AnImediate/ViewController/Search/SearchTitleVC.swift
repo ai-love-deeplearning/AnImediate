@@ -17,7 +17,7 @@ class SearchTitleVC: UIViewController {
     @IBOutlet weak var cardCV: UICollectionView!
     @IBOutlet weak var emptyView: UIView!
     
-    public var works: [Work] = [] {
+    public var works: [AnimeModel] = [] {
         didSet {
             cardCV.reloadData()
         }
@@ -35,18 +35,18 @@ class SearchTitleVC: UIViewController {
         searchBar.delegate = self
     }
     
-    private func fetchWork() {
+    private func fetchAnimeModel() {
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
         let seedRealm = try! Realm(configuration: config)
         
-        let results = seedRealm.objects(Work.self).filter("title CONTAINS %@", self.searchBar.text ?? "")
-        var resultWork = [Work]()
+        let results = seedRealm.objects(AnimeModel.self).filter("title CONTAINS %@", self.searchBar.text ?? "")
+        var resultAnimeModel = [AnimeModel]()
         
         for i in 0..<results.count {
-            resultWork.append(results[i])
+            resultAnimeModel.append(results[i])
         }
-        self.works = resultWork
-        resultWork = [Work]()
+        self.works = resultAnimeModel
+        resultAnimeModel = [AnimeModel]()
     }
     
     private func setupCV() {
@@ -77,7 +77,7 @@ extension SearchTitleVC: UICollectionViewDelegate, UISearchBarDelegate {
         
         self.emptyView.isHidden = true
         
-        fetchWork()
+        fetchAnimeModel()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

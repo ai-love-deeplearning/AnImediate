@@ -30,8 +30,8 @@ class DataManager: NSObject {
                 return info as? [String: Any]
             }
             
-            let work = value.map { (value: [String: Any]) -> Work in
-                return Work(value: value)
+            let work = value.map { (value: [String: Any]) -> AnimeModel in
+                return AnimeModel(value: value)
             }
             
             for i in 0..<work.count {
@@ -40,7 +40,7 @@ class DataManager: NSObject {
                 }
             }
             print(work.count)
-            print("100% Complete Works")
+            print("100% Complete AnimeModels")
             
         }) { (error) in
             print(error)
@@ -64,7 +64,7 @@ class DataManager: NSObject {
                 }
             }
             print(episode.count)
-            print("100% CompleteWorks Episodes")
+            print("100% CompleteAnimeModels Episodes")
             
         }) { (error) in
             print(error)

@@ -18,7 +18,7 @@ class HomeNotSeeVC: UIViewController {
     
     let realm = try! Realm()
     
-    public var works: [Work] = [] {
+    public var works: [AnimeModel] = [] {
         didSet {
             cardCV.reloadData()
         }
@@ -26,17 +26,17 @@ class HomeNotSeeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchWork()
+        fetchAnimeModel()
         setupCV()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchWork()
+        fetchAnimeModel()
     }
     
-    private func fetchWork() {
+    private func fetchAnimeModel() {
         /*
-        var work = [Work]()
+        var work = [AnimeModel]()
         
         let userInfo = realm.objects(PeerModel.self)
         let myResults = realm.objects(ArchiveModel.self).filter("userId == %@ && animeStatus == '見てない'", userInfo[0].id)
@@ -45,7 +45,7 @@ class HomeNotSeeVC: UIViewController {
             let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
             let seedRealm = try! Realm(configuration: config)
             
-            let workResults = seedRealm.objects(Work.self).filter("animeId == %@", myResults[i].animeId)
+            let workResults = seedRealm.objects(AnimeModel.self).filter("animeId == %@", myResults[i].animeId)
             if workResults.isEmpty {
                 
             } else {
@@ -60,7 +60,7 @@ class HomeNotSeeVC: UIViewController {
             emptyView.isHidden = true
         }
         
-        work = [Work]()
+        work = [AnimeModel]()
  */
     }
     

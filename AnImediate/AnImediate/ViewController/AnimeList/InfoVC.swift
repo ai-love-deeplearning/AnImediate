@@ -28,7 +28,7 @@ class InfoVC: UIViewController {
     var pickerView = UIPickerView()
     //var watchData = WatchData()
     /*
-    private var similarWorks = Array<Work>(repeating: Work(), count: 10) {
+    private var similarAnimeModels = Array<AnimeModel>(repeating: AnimeModel(), count: 10) {
         didSet {
             similarCollectionView.reloadData()
         }
@@ -60,10 +60,10 @@ class InfoVC: UIViewController {
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
         let seedRealm = try! Realm(configuration: config)
         
-        let works = seedRealm.objects(Work.self)
+        let works = seedRealm.objects(AnimeModel.self)
         
-        for i in 0..<self.similarWorks.count {
-            self.similarWorks[i] = works[Int.random(in: 0..<1000)]
+        for i in 0..<self.similarAnimeModels.count {
+            self.similarAnimeModels[i] = works[Int.random(in: 0..<1000)]
         }*/
     }
     
@@ -112,7 +112,7 @@ class InfoVC: UIViewController {
             break
         case "toSimilar":
             let nextVC = segue.destination as! AnimeListCardVC
-            //nextVC.works = self.similarWorks
+            //nextVC.works = self.similarAnimeModels
             nextVC.navigationItem.title = "類似作品"
             break
         default:
@@ -164,9 +164,9 @@ extension InfoVC: UICollectionViewDelegate, UIPickerViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = similarCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
-        //let similarWork = similarWorks[indexPath.row]
+        //let similarAnimeModel = similarAnimeModels[indexPath.row]
         
-        //cell.bindData(work: similarWork)
+        //cell.bindData(work: similarAnimeModel)
         
         UserDefaults.standard.set(cell.animeId, forKey: "animeId")
         UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
@@ -192,16 +192,16 @@ extension InfoVC: UICollectionViewDataSource, UIPickerViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return similarWorks.count
+        //return similarAnimeModels.count
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = similarCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
-        //let similarWork = similarWorks[indexPath.row]
+        //let similarAnimeModel = similarAnimeModels[indexPath.row]
         
-        //cell.bindData(work: similarWork)
+        //cell.bindData(work: similarAnimeModel)
         
         return cell
     }

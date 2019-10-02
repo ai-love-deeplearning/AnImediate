@@ -14,9 +14,9 @@ import RealmSwift
 class ResultYouCardVC: UIViewController {
     @IBOutlet weak var cardCV: UICollectionView!
     @IBOutlet weak var emptyView: UIView!
-    
+    /*
     var flag = false
-    public var works: [Work] = [] {
+    public var works: [AnimeModel] = [] {
         didSet {
             cardCV.reloadData()
         }
@@ -30,12 +30,12 @@ class ResultYouCardVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupCV()
-        fetchWork()
+        fetchAnimeModel()
     }
     
-    public func fetchWork() {
+    public func fetchAnimeModel() {
         /*
-        var work = [Work]()
+        var work = [AnimeModel]()
         
         let userInfo = realm.objects(PeerModel.self)
         let myResults = realm.objects(ArchiveModel.self).filter("userId==%@ && animeStatus=='見た'", userInfo[0].id)
@@ -55,7 +55,7 @@ class ResultYouCardVC: UIViewController {
                 let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
                 let seedRealm = try! Realm(configuration: config)
                 
-                let workResults = seedRealm.objects(Work.self).filter("animeId == %@", partResults[i].animeId)
+                let workResults = seedRealm.objects(AnimeModel.self).filter("animeId == %@", partResults[i].animeId)
                 work.append(workResults[0])
             }
             self.works = work
@@ -68,7 +68,7 @@ class ResultYouCardVC: UIViewController {
             emptyView.isHidden = true
         }
         
-        work = [Work]()*/
+        work = [AnimeModel]()*/
     }
     
     private func setupCV() {
@@ -121,5 +121,5 @@ extension ResultYouCardVC: UICollectionViewDataSource {
         cell.bindData(work: work)
         
         return cell
-    }
+    }*/
 }
