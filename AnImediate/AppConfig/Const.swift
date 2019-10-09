@@ -8,6 +8,42 @@
 
 import Foundation
 
+
+public struct AnimediateConfig {
+    public static var dateString: String {
+        get {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            return formatter.string(from: NSDate() as Date)
+        }
+    }
+    // TODO:- 上のdateStringから計算してreturnするようにしたい
+    public static let CurrentTerm = "2019年秋"
+}
+
+public struct FirebaseTables {
+    public static let works = "works"
+    public static let episodes = "episodes"
+}
+
+public struct FirebaseWorks {
+    public static let anikoreID = "anikoreId"
+    public static let animeID = "animeId"
+    public static let cast = "cast"
+    public static let company = "company"
+    public static let episodesCount = "episodesCount"
+    public static let imageURL = "imageUrl"
+    public static let manager = "manager"
+    public static let officialSiteURL = "officialSiteUrl"
+    public static let reviewsCount = "reviewsCount"
+    public static let seasonNameText = "seasonNameText"
+    public static let synopsis = "synopsis"
+    public static let syobocalTid = "syobocalTid"
+    public static let title = "title"
+    public static let watchersCount = "watchersCount"
+    public static let wikipediaURL = "wikipediaUrl"
+}
+
 public struct P2PConfig {
     public static let serviceType = "fun-AnImediate"
 }
@@ -48,8 +84,18 @@ public enum cropType {
 }
 
 public enum AnimeStatusType: String {
-    case none = "見てない"
+    case none = ""
+    case yet = "見てない"
     case did = "見た"
     case will = "見たい"
-   case now = "見てる"
+    case now = "見てる"
+}
+
+public struct AnimeStatusPickerItems {
+    public static let items = ["", "見たい", "見てる", "見てない", "見た"]
+}
+
+public enum AnimeCardContentType: String {
+    case currentTerm = "今期"
+    case ranking = "ランキング"
 }

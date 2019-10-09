@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Anime List CardVC-->
+        <!--Title-->
         <scene sceneID="sVc-al-H40">
             <objects>
                 <viewController id="JfI-Vg-aLP" customClass="AnimeListCardVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,26 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JiK-9P-kzo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NYr-gb-V2A">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vtd-gI-xeM">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="yhc-LX-QDH" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimeCardCell" rowHeight="200" id="gq8-QJ-xHJ" customClass="AnimeCardTableViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gq8-QJ-xHJ" id="ypM-5R-wWj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-CP-rJN">
                                 <rect key="frame" x="100" y="809" width="214" height="43"/>
                                 <subviews>
@@ -47,11 +41,8 @@
                                         <state key="normal" title="登録">
                                             <color key="titleColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="registerBtnTapped:" destination="JfI-Vg-aLP" eventType="touchUpInside" id="cOO-i1-sMO"/>
-                                        </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ステータス" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9L-JV-qUf">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ステータス" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9L-JV-qUf" customClass="AnimeStatusTextField" customModule="AnImediate" customModuleProvider="target">
                                         <rect key="frame" x="15" y="3" width="99" height="37.5"/>
                                         <color key="textColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                         <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
@@ -102,20 +93,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JiK-9P-kzo" firstAttribute="trailing" secondItem="9vR-iE-aQK" secondAttribute="trailing" id="Bcm-Bg-7zZ"/>
-                            <constraint firstItem="JiK-9P-kzo" firstAttribute="bottom" secondItem="9vR-iE-aQK" secondAttribute="bottom" id="K2x-9M-Maq"/>
+                            <constraint firstItem="NYr-gb-V2A" firstAttribute="bottom" secondItem="9vR-iE-aQK" secondAttribute="bottom" id="26I-qz-jos"/>
+                            <constraint firstItem="9vR-iE-aQK" firstAttribute="trailing" secondItem="NYr-gb-V2A" secondAttribute="trailing" id="Lg7-I0-kAi"/>
                             <constraint firstItem="mUk-CP-rJN" firstAttribute="centerX" secondItem="nfx-b9-f8J" secondAttribute="centerX" id="Qw8-2V-axP"/>
                             <constraint firstItem="mUk-CP-rJN" firstAttribute="leading" secondItem="9vR-iE-aQK" secondAttribute="leading" constant="100" id="SJs-TS-sdD"/>
-                            <constraint firstItem="JiK-9P-kzo" firstAttribute="top" secondItem="9vR-iE-aQK" secondAttribute="top" id="V3l-BO-Pnj"/>
+                            <constraint firstItem="NYr-gb-V2A" firstAttribute="top" secondItem="9vR-iE-aQK" secondAttribute="top" id="ddI-sW-bjJ"/>
                             <constraint firstItem="mUk-CP-rJN" firstAttribute="trailing" secondItem="9vR-iE-aQK" secondAttribute="trailing" constant="-100" id="iVG-Tv-1um"/>
-                            <constraint firstItem="JiK-9P-kzo" firstAttribute="leading" secondItem="9vR-iE-aQK" secondAttribute="leading" id="pwr-VR-ipT"/>
                             <constraint firstItem="9vR-iE-aQK" firstAttribute="bottom" secondItem="mUk-CP-rJN" secondAttribute="bottom" constant="10" id="tOX-4Q-cZz"/>
+                            <constraint firstItem="NYr-gb-V2A" firstAttribute="leading" secondItem="9vR-iE-aQK" secondAttribute="leading" id="vVF-jk-lAX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9vR-iE-aQK"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="HHs-Or-9jU">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="5qv-pf-Pdt"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="animeListCardCV" destination="JiK-9P-kzo" id="klL-eA-c99"/>
+                        <outlet property="animeCardTable" destination="NYr-gb-V2A" id="PaW-zU-sso"/>
                         <outlet property="floatingView" destination="mUk-CP-rJN" id="z22-Na-077"/>
+                        <outlet property="registerBtn" destination="SWQ-9s-OjF" id="jNt-9Z-xrO"/>
+                        <outlet property="registerModeBtn" destination="5qv-pf-Pdt" id="Y4g-dh-Mvf"/>
                         <outlet property="statusTextField" destination="P9L-JV-qUf" id="jI4-PM-ZMS"/>
                         <segue destination="1yf-b6-kZT" kind="show" identifier="toDetails" id="7wH-pB-3am"/>
                     </connections>

@@ -1,11 +1,8 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
 
-target 'AnImediate' do
 
+abstract_target 'Any' do # 実際のターゲット名とかぶらなければなんでもいい
+  # platform :ios, '12.2'
   use_frameworks!
-
-  # Pods for AnImediate
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
@@ -26,25 +23,23 @@ target 'AnImediate' do
   pod 'SwiftGen', '6.1.0'
   pod 'IBAnimatable', '6.0.0'
 
+
+  target 'AnImediate' do
+  end
+
   target 'AnImediateTests' do
-    inherit! :search_paths
   end
 
   target 'AnImediateUITests' do
-    inherit! :search_paths
   end
 
   target 'AppConfig' do
-    inherit! :search_paths
   end
 
   target 'AppModel' do
-    inherit! :search_paths
   end
 
   target 'RxMultiPeerWrapper' do
-    inherit! :search_paths
   end
-
 
 end

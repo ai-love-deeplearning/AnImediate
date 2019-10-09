@@ -17,11 +17,12 @@ struct AnimeListViewReducer {
         if action is AppAction.InitializeApplication {
             return AnimeListViewState()
         }
-        /*
-        nextState.p2pConnectionState = P2PConnectionReducer.handleAction(action: action, state: nextState.p2pConnectionState)
         
-        nextState.searchViewState = ExchangeSearchViewReducer.handleAction(action: action, state: nextState.searchViewState)
-        nextState.acceptViewState = ExchangeAcceptViewReducer.handleAction(action: action, state: nextState.acceptViewState)*/
+        nextState.topViewState = AnimeListTopViewReducer.handleAction(action: action, state: nextState.topViewState)
+        
+        nextState.cardViewState = AnimeListCardViewReducer.handleAction(action: action, state: nextState.cardViewState)
+        
+        nextState.detailViewState = AnimeDetailInfoViewReducer.handleAction(action: action, state: nextState.detailViewState)
         
         return nextState
     }

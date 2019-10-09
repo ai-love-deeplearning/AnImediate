@@ -9,9 +9,7 @@
 import ReSwift
 
 public struct AnimeListViewState: StateType, Equatable {
-    /*
-     public internal(set) var p2pConnectionState = P2PConnectionState()
-     public internal(set) var searchViewState = ExchangeSearchViewState()
-     public internal(set) var acceptViewState = ExchangeAcceptViewState()
-     */
+     public internal(set) var topViewState = AnimeListTopViewState()
+     public internal(set) var cardViewState = AnimeListCardViewState()
+     public internal(set) var detailViewState = AnimeDetailInfoViewState()
 }

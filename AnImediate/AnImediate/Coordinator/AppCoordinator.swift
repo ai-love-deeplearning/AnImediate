@@ -11,16 +11,7 @@ import AppModel
 import Foundation
 import ReSwift
 
-public enum InitialViewType {
-    case firstRegister(transitionType: TransitionType)
-    case deposit(transitionType: TransitionType)
-    case login
-    case none
-    case invalidate
-}
-
 final class AppCoordinator {
-    
     private let window: UIWindow
     private let rootCoordinator: Coordinator
     
@@ -34,5 +25,4 @@ final class AppCoordinator {
         window.rootViewController = rootCoordinator.presenter
         window.makeKeyAndVisible()
     }
-    //以下遷移の定義が続く
 }

@@ -241,7 +241,7 @@ extension ProfileEditVC {
     }
 }
 
-// TODO:- tableviewもRx化する。
+// TODO:- tableviewにする意味ないと思う
 extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2

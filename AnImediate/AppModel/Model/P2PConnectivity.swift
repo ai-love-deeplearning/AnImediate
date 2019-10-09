@@ -18,7 +18,6 @@ public protocol P2PConnectable {
     func noticeSuccessAccount()
     func sendArchiveModel(data: Data?) -> Single<Bool>
     func noticeSuccessArchive()
-    //func ssp5304(contentType: String) -> Single<SSP5304Res>
 }
 
 public class P2PConnectivity: NSObject, P2PConnectable {

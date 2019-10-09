@@ -34,7 +34,7 @@
         <!--Item-->
         <scene sceneID="91X-Aw-vaz">
             <objects>
-                <viewController storyboardIdentifier="info" id="1Jd-7C-4QH" customClass="InfoVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="info" id="1Jd-7C-4QH" customClass="AnimeDetailInfoVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kc6-dE-7gV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="aU7-bh-566" customClass="ThisTermCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="aU7-bh-566" userLabel="similarCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -238,10 +238,10 @@
             </objects>
             <point key="canvasLocation" x="1252" y="130"/>
         </scene>
-        <!--EpisodeVC-->
+        <!--Anime Detail EpisodesVC-->
         <scene sceneID="2dR-yv-UH3">
             <objects>
-                <viewController storyboardIdentifier="episodes" id="sjd-Zx-HPy" customClass="EpisodeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="episodes" id="sjd-Zx-HPy" customClass="AnimeDetailEpisodesVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCp-PZ-mMY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -400,10 +400,10 @@
             </objects>
             <point key="canvasLocation" x="3259" y="-246"/>
         </scene>
-        <!--Anime Details HeaderVC-->
+        <!--Anime Detail HeaderVC-->
         <scene sceneID="6Q9-Tl-2cm">
             <objects>
-                <viewController id="Wa8-eG-onf" customClass="AnimeDetailsHeaderVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wa8-eG-onf" customClass="AnimeDetailHeaderVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mjd-Xc-3Cx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -446,20 +446,20 @@
                     </view>
                     <size key="freeformSize" width="414" height="242"/>
                     <connections>
-                        <outlet property="animeImageTopConstraint" destination="b77-2Z-HkZ" id="iW3-JY-6j7"/>
-                        <outlet property="animeImageView" destination="I8T-Tw-rFK" id="uWK-eJ-d27"/>
-                        <outlet property="backEffectView" destination="AYR-9x-xLY" id="ni6-EY-27S"/>
-                        <outlet property="backImageView" destination="g5T-9d-ij8" id="SRm-P8-XiB"/>
+                        <outlet property="animeImageTopConstraint" destination="b77-2Z-HkZ" id="sjv-KV-sEL"/>
+                        <outlet property="animeImageView" destination="I8T-Tw-rFK" id="qlx-BQ-ygg"/>
+                        <outlet property="backEffectView" destination="AYR-9x-xLY" id="RRt-Tq-rgX"/>
+                        <outlet property="backImageView" destination="g5T-9d-ij8" id="Jqr-eh-DMn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bd0-l6-PTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-845.08928571428567"/>
         </scene>
-        <!--Anime DetailsVC-->
+        <!--Anime Detail TopVC-->
         <scene sceneID="mka-vA-zX8">
             <objects>
-                <viewController storyboardIdentifier="animeDetail" id="xuu-Tz-16A" customClass="AnimeDetailsVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="animeDetail" id="xuu-Tz-16A" customClass="AnimeDetailTopVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMd-mK-FXJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -70,7 +70,7 @@ class ExchangeAcceptVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // TODO:- もしアクセプトボタンを押さずにviewが閉じたらRealmからアカウント情報を消す
+        // TODO:- もしアクセプトボタンを押さずにviewが閉じたらRealmから交換相手のアカウント情報を消す
         
     }
     
