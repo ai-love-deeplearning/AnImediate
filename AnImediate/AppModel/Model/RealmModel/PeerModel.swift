@@ -5,7 +5,7 @@
 //  Created by 川村周也 on 2019/09/26.
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
-
+import AppConfig
 import Foundation
 import Realm
 import RealmSwift
@@ -124,7 +124,6 @@ public class PeerModel : Object, NSCoding, NSCopying {
         }
     }
     
-    // TODO:- exchangeAtに現在日時を入れる
     public static func set(uid: String, data: PeerModel) {
         let realm = try! Realm()
         
@@ -135,7 +134,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
             model.comment = data.comment
             model.icon = data.icon
             model.background = data.background
-            model.excangedAt = data.excangedAt
+            model.excangedAt = AnimediateConfig.dateString
         }
     }
     
@@ -181,7 +180,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     
     required init() {
         super.init()
-        self.id = ""
+        self.id = NSUUID().uuidString
         self.userID = ""
         self.name = ""
         self.comment = ""

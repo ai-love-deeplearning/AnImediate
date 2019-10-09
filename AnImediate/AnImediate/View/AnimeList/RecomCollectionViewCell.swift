@@ -15,23 +15,22 @@ class RecomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recomImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var animeId = ""
-    var imageURL = ""
-    var seasonText = ""
+    private var annictID = ""
+    private var imageURL = ""
+    private var seasonText = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    public func bindData(work: AnimeModel) {
-        /*
-        animeId = work.animeId
-        imageURL = work.imageUrl
-        titleLabel.text = work.title
-        seasonText = work.seasonNameText
+    public func setData(anime: AnimeModel) {
+        annictID = anime.annictID
+        imageURL = anime.imageUrl
+        titleLabel.text = anime.title
+        seasonText = anime.seasonNameText
         
-        setIconImageView(imageUrlString: work.imageUrl)
-        recomImageView.contentMode = .scaleAspectFill*/
+        setIconImageView(imageUrlString: anime.imageUrl)
+        recomImageView.contentMode = .scaleAspectFill
     }
     
     private func setIconImageView(imageUrlString: String) {

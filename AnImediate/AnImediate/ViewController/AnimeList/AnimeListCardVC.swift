@@ -9,51 +9,156 @@
 import AppConfig
 import AppModel
 import UIKit
+import ReSwift
+import RxSwift
+import RxCocoa
+import RxDataSources
 import RealmSwift
 
 class AnimeListCardVC: UIViewController {
 
-    @IBOutlet weak var animeListCardCV: UICollectionView!
+    @IBOutlet private weak var animeCardTable: UITableView!
+    @IBOutlet private weak var registerModeBtn: UIBarButtonItem!
+    @IBOutlet private weak var floatingView: UIView!
+    @IBOutlet private weak var statusTextField: AnimeStatusTextField!
+    @IBOutlet private weak var registerBtn: UIButton!
     
-    @IBOutlet weak var floatingView: UIView!
-    @IBOutlet weak var statusTextField: UITextField!
+    private var disposeBag = DisposeBag()
     
-    private var isRegister: Bool = false
+    private let store = RxStore(store: AppStore.instance.animeListStore)
     
-    //public var works = Array<AnimeModel>(repeating: AnimeModel(), count: 20)
+    private var viewState: AnimeListCardViewState {
+        return store.state.cardViewState
+    }
     
-    let realm = try! Realm()
-    let now = NSDate()
-    let formatter = DateFormatter()
-    private let statusList = ["", "見たい", "見てる", "見た", "見てない"]
-    var dateString = ""
-    var pickerView = UIPickerView()
+    private var dataSource: RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>!
+    private var sectionModels: [AnimeCardSectionModel]!
+    private var dataRelay = BehaviorRelay<[AnimeCardSectionModel]>(value: [])
+    
+
+//    var pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCV()
-        setupPickerView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登録", style: .plain, target: self, action: #selector(changeRegisterMode))
     }
     
-    private func setupPickerView() {
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
-        let doneItem = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(done))
-        let blankItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancel))
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        // TODO:- contentTypeに応じてナビゲーションのタイトルを変更
+        initSectionModels()
+        initTable()
+        bindViews()
+        bindState()
+    }
+    
+    private func bindViews() {
         
-        doneItem.tintColor = .deepMagenta()
-        cancelItem.tintColor = .deepMagenta()
-        toolbar.backgroundColor = .white
-        toolbar.setItems([cancelItem, blankItem, doneItem], animated: true)
+        dataRelay.asObservable()
+            .bind(to: animeCardTable.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
-        self.pickerView.showsSelectionIndicator = true
-        self.pickerView.backgroundColor = .white
+        // アイテム削除時
+        animeCardTable.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self, let sectionModel = strongSelf.sectionModels.first else { return }
+                var items = sectionModel.items
+                items.remove(at: indexPath.row)
+                
+                strongSelf.sectionModels = [AnimeCardSectionModel(items: items)]
+                // dataRelayにデータを流し込む
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
         
-        self.statusTextField.inputView = pickerView
-        self.statusTextField.inputAccessoryView = toolbar
+        animeCardTable.rx.itemSelected
+            .subscribe(
+                onNext: { [unowned self] indexPath in
+                    let cell = self.animeCardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
+                    if self.viewState.isRegisterMode {
+                        cell.border()
+                    } else {
+                        self.animeCardTable.deselectRow(at: indexPath, animated: false)
+                    }
+            })
+            .disposed(by: disposeBag)
+        
+        animeCardTable.rx.itemDeselected
+            .subscribe(
+                onNext: { [unowned self] indexPath in
+                    let cell = self.animeCardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
+                    cell.unborder()
+            })
+            .disposed(by: disposeBag)
+        
+//        animeCardTable.rx.modelSelected(AnimeCardSectionModel.self)
+//            .subscribe(
+//                onNext: { [unowned self] item in
+//                    // TODO:- もし登録モードじゃなかったら該当セルのアニメ詳細に遷移する
+//                    guard self.viewState.isRegisterMode else {
+//                        // TODO:- 該当セルのannictIDを取得
+//                        // TODO:- AnimeDetailInfoViewStateにdispatch
+////                        self.store.dispatch(AnimeDetailInfoViewAction.Initialize(item))
+//                        self.performSegue(withIdentifier: "toDetails", sender: nil)
+//                        return
+//                    }
+//            })
+//            .disposed(by: disposeBag)
+        
+        registerModeBtn.rx.tap.asDriver()
+            .coolTime().drive(
+                onNext: { [unowned self] in
+                    self.store.dispatch(AnimeListCardViewAction.ChangeMode())
+            })
+            .disposed(by: disposeBag)
+        
+        statusTextField.rx.text.orEmpty.asObservable()
+            .subscribe { [unowned self] in
+                // TODO:- Pickerならいらない説
+                // ここでViewModelに値の更新を通知する
+            }
+            .disposed(by: disposeBag)
+        
+        registerBtn.rx.tap.asDriver()
+            .coolTime().drive(
+                onNext: { [unowned self] in
+                    let selectedIndexes = self.animeCardTable.indexPathsForSelectedRows!
+                    
+                    if self.statusTextField.text!.isEmpty {
+                        self.showAlert(title: "エラー", message: "ステータスを設定してください")
+                        return
+                    } else {
+                        let msg = "\(self.statusTextField.text!)に \(String(selectedIndexes.count))件のデータを登録しました"
+                        self.showAlert(title: "登録", message: msg)
+                    }
+                    
+                    if selectedIndexes.isNotEmpty {
+                        
+                        let selectedAnimes = selectedIndexes.map { self.sectionModels.first!.items[$0.row] }
+                        
+                        selectedAnimes.forEach {
+                            let uid = AccountModel.read().userID
+                            let status = self.statusTextField.text!
+                            ArchiveModel.set(userID: uid, annictID: $0.annictID, animeStatus: status)
+                        }
+                        
+                    }
+                    self.store.dispatch(AnimeListCardViewAction.ChangeMode())
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindState() {
+        store.isRegisterMode
+            .drive(
+                onNext: { [unowned self] isRegisterMode in
+                    self.floatingView.isHidden = !isRegisterMode
+                    self.registerModeBtn.title = isRegisterMode ? "キャンセル" : "登録"
+                    self.registerModeBtn.tintColor = isRegisterMode ? .lightGray : .deepMagenta()
+                    // 複数選択可にする
+                    self.animeCardTable.allowsMultipleSelection = isRegisterMode
+                    self.animeCardTable.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,99 +166,7 @@ class AnimeListCardVC: UIViewController {
         floatingView.layer.cornerRadius = floatingView.frame.height / 2
     }
     
-    private func setupCV() {
-    
-        self.animeListCardCV.delegate = self
-        self.animeListCardCV.dataSource = self
-        self.animeListCardCV.showsVerticalScrollIndicator = false
-        self.animeListCardCV.register(UINib(nibName: "AnimeListCardCVCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.bounds.width*0.9, height: 130)
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        self.animeListCardCV.collectionViewLayout = layout
-    }
-    
-    @objc func changeRegisterMode() {
-        if isRegister {
-            isRegister = false
-            floatingView.isHidden = true
-            self.navigationItem.rightBarButtonItem!.tintColor = .deepMagenta()
-            self.navigationItem.rightBarButtonItem!.title = "登録"
-            if animeListCardCV.indexPathsForSelectedItems!.isEmpty {
-                
-            } else {
-                animeListCardCV.indexPathsForSelectedItems?.forEach{
-                    let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: $0) as! AnimeListCardCVCell
-                    cell.layer.borderColor = UIColor.clear.cgColor
-                    cell.layer.borderWidth = 0
-                    animeListCardCV.deselectItem(at: $0, animated: false)
-                }
-                animeListCardCV.reloadData()
-            }
-            animeListCardCV.allowsMultipleSelection = false
-        } else {
-            isRegister = true
-            floatingView.isHidden = false
-            self.navigationItem.rightBarButtonItem!.tintColor = .lightGray
-            self.navigationItem.rightBarButtonItem!.title = "キャンセル"
-            // 複数選択可にする
-            animeListCardCV.allowsMultipleSelection = true
-            
-        }
-    }
-    
-    @IBAction func registerBtnTapped(_ sender: Any) {
-        self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        self.dateString = self.formatter.string(from: now as Date)
-        if animeListCardCV.indexPathsForSelectedItems!.isEmpty {
-            changeRegisterMode()
-            return
-        }
-        /*
-        animeListCardCV.indexPathsForSelectedItems!.forEach{
-            
-            let work = self.works[$0.row]
-            
-            let watchData = ArchiveModel()
-            
-            if self.statusTextField.text != "" {
-                let userInfo = realm.objects(PeerModel.self)
-                let results = realm.objects(ArchiveModel.self).filter("animeId == %@ && userId == %@", work.animeId, userInfo[0].id)
-                
-                if results.isEmpty {
-                    watchData.id = NSUUID().uuidString
-                    watchData.userId = userInfo[0].id
-                    watchData.animeId = work.animeId
-                    watchData.animeStatus = self.statusTextField.text ?? ""
-                    watchData.createdAt = self.dateString
-                    
-                    try! realm.write {
-                        realm.add(watchData)
-                    }
-                    
-                } else {
-                    try! realm.write {
-                        results[0].animeStatus = self.statusTextField.text ?? ""
-                        results[0].udatedAt = self.dateString
-                    }
-                }
-            }
-        }*/
-        
-        if self.statusTextField.text! == "" {
-            showAlert(title: "エラー", message: "ステータスを設定してください")
-        } else {
-            let msg: String = "\(self.statusTextField.text!)に \(String(animeListCardCV.indexPathsForSelectedItems!.count))件のデータを登録しました"
-            showAlert(title: "登録", message: msg)
-        }
-        
-        changeRegisterMode()
-        
-    }
-    
-    func showAlert(title: String, message: String) {
+    private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         self.present(alert, animated: true, completion: {
             // アラートを閉じる
@@ -163,92 +176,57 @@ class AnimeListCardVC: UIViewController {
         })
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetails" {
-        }
-    }
 }
 
-extension AnimeListCardVC: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-        if isRegister {
-            let cell = collectionView.cellForItem(at: indexPath) as! AnimeListCardCVCell
-            cell.layer.borderColor = UIColor.deepMagenta().cgColor
-            cell.layer.borderWidth = 2
-        } else {
-            /*
-            let cell = collectionView.cellForItem(at: indexPath) as! AnimeListCardCVCell
-            let work = works[indexPath.row]
-            cell.bindData(work: work)
-            
-            UserDefaults.standard.set(cell.animeId, forKey: "animeId")
-            UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
-            UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
-            UserDefaults.standard.set(cell.seasonText, forKey: "season")
-            collectionView.deselectItem(at: indexPath, animated: false)
-            performSegue(withIdentifier: "toDetails", sender: nil)*/
-        }
+extension AnimeListCardVC {
+    private func initSectionModels() {
+        let items = AnimeModel.readCurrentTerm()
+        sectionModels = [AnimeCardSectionModel(items: Array(items))]
+        fetch()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! AnimeListCardCVCell
-        if isRegister {
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.layer.borderWidth = 0
-        }
-    }
-    
-}
-
-extension AnimeListCardVC: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return self.works.count
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = animeListCardCV.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! AnimeListCardCVCell
-        if cell.isSelected {
-            cell.layer.borderColor = UIColor.deepMagenta().cgColor
-            cell.layer.borderWidth = 2
-        } else {
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.layer.borderWidth = 0
-        }
-        /*
-        let work = self.works[indexPath.row]
-        cell.bindData(work: work)*/
+    private func initTable() {
         
-        return cell
+        animeCardTable.register(UINib(nibName: "AnimeCardTableCell", bundle: nil), forCellReuseIdentifier: "AnimeCardCell")
+        
+        dataSource = RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                // 引数名通り、与えられたデータを利用してcellを生成する
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeCardTableViewCell
+
+                cell.anime = item
+                _ = cell.isSelected ? cell.border() : cell.unborder()
+                
+                return cell
+        }, canEditRowAtIndexPath: { _, _ in
+            return true
+        })
+    }
+    
+    // 初期表示用のデータフェッチする処理
+    private func fetch() {
+        // sectionModelsを利用して
+        Observable.just(sectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                // dataRelayにデータを流し込む
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
-extension AnimeListCardVC: UIPickerViewDelegate, UIPickerViewDataSource {
-    @objc func done() {
-        self.statusTextField.endEditing(true)
+private extension RxStore where AnyStateType == AnimeListViewState {
+    var state: Driver<AnimeListCardViewState> {
+        return stateDriver.mapDistinct { $0.cardViewState }
     }
     
-    @objc func cancel() {
-        self.statusTextField.endEditing(true)
-        self.statusTextField.text = ""
+    var isRegisterMode: Driver<Bool> {
+        return state.mapDistinct { $0.isRegisterMode }
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.statusTextField.text = statusList[row]
+    var error: Driver<AnimediateError> {
+        return state.mapDistinct { $0.error }.skipNil()
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.statusList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.statusList[row]
-    }
 }

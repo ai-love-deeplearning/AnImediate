@@ -14,6 +14,8 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import RealmSwift
+import Firebase
+import FirebaseAuth
 
 class HomeArchiveListVC: UIViewController {
     
@@ -37,10 +39,50 @@ class HomeArchiveListVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        disposeBag = DisposeBag()
+        initSectionModels()
+        initTable()
+        bindViews()
+        bindState()
+        fetch()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        disposeBag = DisposeBag()
     }
     
     private func bindViews() {
         
+        //archiveTable.register(ArchiveCardCell.self, forCellReuseIdentifier: "ArchiveCardCell")
+        
+//        archiveTable.rx
+//            .setDelegate(self)
+//            .disposed(by: disposeBag)
+        
+        dataRelay.asObservable()
+            .bind(to: archiveTable.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        // アイテム削除時
+        archiveTable.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self, let sectionModel = strongSelf.sectionModels.first else { return }
+                var items = sectionModel.items
+                items.remove(at: indexPath.row)
+                
+                strongSelf.sectionModels = [HomeArchiveSectionModel(items: items)]
+                // dataRelayにデータを流し込む
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
+        
+        archiveTable.rx.modelSelected(ProfileSectionModel.self)
+            .subscribe(onNext: { [weak self] item in
+                // didselect
+                
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindState() {
@@ -65,7 +107,7 @@ class HomeArchiveListVC: UIViewController {
 extension HomeArchiveListVC {
     private func initSectionModels() {
         let items = [
-            HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: ""),
+            HomeArchiveModel(title: "ソードアート・オンライン", synopsis: "", season: "2014年春", image: UIImage(), registerCount: ""),
             HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: ""),
             HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: "")]
         sectionModels = [HomeArchiveSectionModel(items: items)]
@@ -75,10 +117,11 @@ extension HomeArchiveListVC {
         dataSource = RxTableViewSectionedReloadDataSource<HomeArchiveSectionModel>(
             configureCell: { _, tableView, indexPath, item in
                 // 引数名通り、与えられたデータを利用してcellを生成する
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! ArchiveCardCell
-                let archives = ArchiveModel.read(id: AccountModel.read().userID).filter("animeStatus == %@", self.viewState.statusType)
-                let item =  AnimeModel.read(id: archives[indexPath.row].annictID)
-                cell.anime = item
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ArchiveCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! ArchiveCardCell
+                // TODO:- ここでarchiveが0だとクラッシュ
+//                let archives = ArchiveModel.read(id: AccountModel.read().userID).filter("animeStatus == %@", self.viewState.statusType.rawValue)
+//                let item =  AnimeModel.read(id: archives[indexPath.row].annictID)
+//                cell.anime = item
                 cell.accessoryType = .disclosureIndicator
                 
                 return cell

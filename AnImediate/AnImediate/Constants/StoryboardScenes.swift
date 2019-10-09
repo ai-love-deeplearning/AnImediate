@@ -18,11 +18,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<MXScrollViewController>(storyboard: AnimeDetails.self)
 
-    internal static let animeDetail = SceneType<AnimeDetailsVC>(storyboard: AnimeDetails.self, identifier: "animeDetail")
+    internal static let animeDetail = SceneType<AnimeDetailTopVC>(storyboard: AnimeDetails.self, identifier: "animeDetail")
 
-    internal static let episodes = SceneType<EpisodeVC>(storyboard: AnimeDetails.self, identifier: "episodes")
+    internal static let episodes = SceneType<AnimeDetailEpisodesVC>(storyboard: AnimeDetails.self, identifier: "episodes")
 
-    internal static let info = SceneType<InfoVC>(storyboard: AnimeDetails.self, identifier: "info")
+    internal static let info = SceneType<AnimeDetailInfoVC>(storyboard: AnimeDetails.self, identifier: "info")
 
     internal static let reviews = SceneType<UIKit.UIViewController>(storyboard: AnimeDetails.self, identifier: "reviews")
 
@@ -52,6 +52,8 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Home"
 
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Home.self)
+
+    internal static let homeArchiveListSB = SceneType<HomeArchiveListVC>(storyboard: Home.self, identifier: "HomeArchiveListSB")
 
     internal static let notSeeSB = SceneType<HomeNotSeeVC>(storyboard: Home.self, identifier: "notSeeSB")
 

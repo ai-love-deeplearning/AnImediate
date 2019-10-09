@@ -8,6 +8,14 @@
 
 import AppConfig
 
-public struct AnimediateError: Error, Equatable {
-    
+public enum AnimediateError: Error {
+    case unknown
+}
+
+extension AnimediateError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unknown: return "unknown error happened"
+        }
+    }
 }

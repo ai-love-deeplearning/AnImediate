@@ -16,6 +16,7 @@ extension SwinjectStoryboard {
         
         // MARK:- Module(Request)
         P2PConnectionInjector.setup(container: defaultContainer)
+        FirebaseRequestInjector.setup(container: defaultContainer)
         
         // MARK:- Home
         HomeViewControllerInjector.setup(container: defaultContainer)
@@ -27,7 +28,7 @@ extension SwinjectStoryboard {
         ExchangeAcceptViewControllerInjector.setup(container: defaultContainer)
         
         // MARK:-  AnimeList
-        AnimeListViewControllerInjector.setup(container: defaultContainer)
+        AnimeListTopViewControllerInjector.setup(container: defaultContainer)
         
         // MARK:-  Search
         SearchViewControllerInjector.setup(container: defaultContainer)

@@ -12,9 +12,9 @@ import Foundation
 public extension UIImage {
     private func chechResizeIsNeeded(image: UIImage, longSide: CGFloat) -> Bool {
         if UIImageToData.maxLongSide == 0 || longSide <= UIImageToData.maxLongSide {
-            return false
+            return true
         }
-        return true
+        return false
     }
     
     func resizeSameAspect() -> UIImage? {
@@ -22,7 +22,6 @@ public extension UIImage {
         let longSide = max(self.size.width, self.size.height)
         
         /// リサイズ後の画像サイズ
-        //private var resizedSize = CGSize()
         if chechResizeIsNeeded(image: self, longSide: longSide) {
             return self
         }
@@ -32,7 +31,8 @@ public extension UIImage {
         let newSize = CGSize(width: self.size.width * aspectRatio, height: self.size.height * aspectRatio)
         
         // リサイズ
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        //UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        UIGraphicsBeginImageContext(newSize)
         draw(in: CGRect(origin: .zero, size: newSize))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

@@ -25,7 +25,7 @@ class HomeHeaderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
         parallaxHeader?.delegate = self
         parallaxHeader?.height = 400
         parallaxHeader?.mode = .fill
@@ -42,7 +42,7 @@ class HomeHeaderVC: UIViewController {
         
         if store.state.profileEditViewState.isFirstEdit {
             // AccountModelを参照して空だったら初回登録
-            self.performSegue(withIdentifier: "toEdit", sender: nil)
+            //self.performSegue(withIdentifier: "toEdit", sender: nil)
         } else {
             setViews()
         }

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07DC3953691B87B56A4AFF5F /* Pods_RxMultiPeerWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B617EFD85C22E6B7813C80 /* Pods_RxMultiPeerWrapper.framework */; };
-		10422A1A64633E000E85882A /* Pods_AnImediateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCAB57F523E445CEC838C2B1 /* Pods_AnImediateUITests.framework */; };
 		321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */; };
 		321C6E2F22DC68FA00757F83 /* ResultScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */; };
 		321C6E3322DC866A00757F83 /* ResultMeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */; };
@@ -23,13 +21,13 @@
 		321C6E4522DCB9C700757F83 /* HomeSawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4422DCB9C700757F83 /* HomeSawVC.swift */; };
 		321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */; };
 		3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */; };
-		3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */; };
-		3226CD2922D583B80090937F /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2822D583B80090937F /* InfoVC.swift */; };
+		3226CD2522D575EC0090937F /* AnimeDetailTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailTopVC.swift */; };
+		3226CD2922D583B80090937F /* AnimeDetailInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2822D583B80090937F /* AnimeDetailInfoVC.swift */; };
 		322B208C22DEDA31000B3096 /* MXResultScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B208B22DEDA30000B3096 /* MXResultScrollVC.swift */; };
-		3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */; };
+		3238AFFB22C1D23700C8D3DD /* AnimeListTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFA22C1D23700C8D3DD /* AnimeListTopVC.swift */; };
 		3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */; };
 		3238AFFF22C1D25200C8D3DD /* RecomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */; };
-		32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6410C22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift */; };
+		32A6410D22D5C8E2002EF6F3 /* AnimeDetailHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6410C22D5C8E2002EF6F3 /* AnimeDetailHeaderVC.swift */; };
 		32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411422DC387D002EF6F3 /* AnimeListCardVC.swift */; };
 		32A6411722DC389A002EF6F3 /* AnimeListCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */; };
 		32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */; };
@@ -40,12 +38,15 @@
 		32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA22D22CB219A00BD5A76 /* Search.storyboard */; };
 		32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */; };
 		32CDA23222CB21D300BD5A76 /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23122CB21D300BD5A76 /* SearchResult.storyboard */; };
-		32CDA23522CB228700BD5A76 /* ThisTermCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */; };
-		32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */; };
+		32CDA23522CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23322CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.swift */; };
+		32CDA23622CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA23422CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.xib */; };
 		32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */; };
-		32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23D22CC46C700BD5A76 /* DataManager.swift */; };
 		32FEDB2022E0AF9D00462E12 /* anime.realm in Resources */ = {isa = PBXBuildFile; fileRef = 32FEDB1F22E0AF9300462E12 /* anime.realm */; };
-		32FEDB2222E0CC5200462E12 /* EpisodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */; };
+		32FEDB2222E0CC5200462E12 /* AnimeDetailEpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB2122E0CC5200462E12 /* AnimeDetailEpisodesVC.swift */; };
+		5001BEDB234D9833005C0B8A /* AnimeDetailEpisodeViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED3234D981A005C0B8A /* AnimeDetailEpisodeViewAction.swift */; };
+		5001BEDC234D983A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED5234D981A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift */; };
+		5001BEDD234D9843005C0B8A /* AnimeDetailEpisodeViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED4234D981A005C0B8A /* AnimeDetailEpisodeViewReducer.swift */; };
+		5001BEDE234D984C005C0B8A /* AnimeDetailEpisodeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED6234D981A005C0B8A /* AnimeDetailEpisodeViewState.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
@@ -75,8 +76,34 @@
 		50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */; };
 		50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */; };
 		50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */; };
+		507DA8A623489A2C001BCA6B /* AnimeStatusTextFiewld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA8A523489A2C001BCA6B /* AnimeStatusTextFiewld.swift */; };
+		507DA8A923489F65001BCA6B /* AnimediatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA8A823489F65001BCA6B /* AnimediatePickerView.swift */; };
+		507DA8AA2349FF41001BCA6B /* FirebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA23D22CC46C700BD5A76 /* FirebaseRequest.swift */; };
+		507DA8B1234A6B0A001BCA6B /* AnimeListTopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA8B0234A6B0A001BCA6B /* AnimeListTopCoordinator.swift */; };
+		507DA937234BAB93001BCA6B /* FirebaseRequestInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA936234BAB93001BCA6B /* FirebaseRequestInjector.swift */; };
+		507DA939234C245F001BCA6B /* AnimeHorizontalCollectionSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA938234C245F001BCA6B /* AnimeHorizontalCollectionSectionModel.swift */; };
+		507DA93B234C2511001BCA6B /* AnimeHorizontalCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA93A234C2511001BCA6B /* AnimeHorizontalCellModel.swift */; };
+		507DA93D234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA93C234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift */; };
+		507DA93F234C25B3001BCA6B /* AnimeListRecomCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA93E234C25B3001BCA6B /* AnimeListRecomCellModel.swift */; };
+		507DA955234CEA10001BCA6B /* AnimeDetailVCSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA954234CEA10001BCA6B /* AnimeDetailVCSource.swift */; };
+		507DA95A234CEBEF001BCA6B /* AnimeDetailInfoViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA956234CEBEE001BCA6B /* AnimeDetailInfoViewReducer.swift */; };
+		507DA95B234CEBEF001BCA6B /* AnimeDetailInfoViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA957234CEBEF001BCA6B /* AnimeDetailInfoViewState.swift */; };
+		507DA95C234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA958234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift */; };
+		507DA95D234CEBEF001BCA6B /* AnimeDetailInfoViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DA959234CEBEF001BCA6B /* AnimeDetailInfoViewAction.swift */; };
 		509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820922C364D800BF813F /* UIColorExtension.swift */; };
 		509D820C22C3710900BF813F /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D820B22C3710900BF813F /* SettingVC.swift */; };
+		509F60992346E3A900F95B55 /* AnimeListVCSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60982346E3A900F95B55 /* AnimeListVCSource.swift */; };
+		509F60AA2346E58600F95B55 /* AnimeListTopViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F609A2346E4D900F95B55 /* AnimeListTopViewReducer.swift */; };
+		509F60AB2346E5AE00F95B55 /* AnimeListTopViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F609B2346E4D900F95B55 /* AnimeListTopViewState.swift */; };
+		509F60AD2346E80700F95B55 /* AnimeCardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 509F60AC2346E80700F95B55 /* AnimeCardTableCell.xib */; };
+		509F60AF2346F9BC00F95B55 /* AnimeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60AE2346F9BC00F95B55 /* AnimeCardTableViewCell.swift */; };
+		509F60B62346FF6200F95B55 /* AnimeListCardViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60B12346FF4F00F95B55 /* AnimeListCardViewState.swift */; };
+		509F60B72346FF9C00F95B55 /* AnimeListCardViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60B22346FF4F00F95B55 /* AnimeListCardViewReducer.swift */; };
+		509F60B82347041000F95B55 /* AnimeListCardViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60B02346FF4F00F95B55 /* AnimeListCardViewAction.swift */; };
+		509F60B92347042500F95B55 /* AnimeListTopViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F609C2346E4DA00F95B55 /* AnimeListTopViewActionCreator.swift */; };
+		509F60BA2347044300F95B55 /* AnimeListTopViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F609D2346E4DA00F95B55 /* AnimeListTopViewAction.swift */; };
+		509F60BC2347311800F95B55 /* AnimeListCardSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60BB2347311800F95B55 /* AnimeListCardSectionModel.swift */; };
+		509F60BE2347314700F95B55 /* AnimeCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F60BD2347314700F95B55 /* AnimeCardCellModel.swift */; };
 		50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965222C0A04900378AAB /* AppDelegate.swift */; };
 		50A5965522C0A04900378AAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5965422C0A04900378AAB /* ViewController.swift */; };
 		50A5965822C0A04900378AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A5965622C0A04900378AAB /* Main.storyboard */; };
@@ -113,7 +140,7 @@
 		50DE79AD233DD222006C683E /* PeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50992177233CB5EC00B77C65 /* PeerModel.swift */; };
 		50DE79AE233DD225006C683E /* ArchiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50128DA0233B0BF700A35A97 /* ArchiveModel.swift */; };
 		50DE79B0233DD233006C683E /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238B00022C1D25A00C8D3DD /* AnimeModel.swift */; };
-		50DE79B1233DD236006C683E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* Episode.swift */; };
+		50DE79B1233DD236006C683E /* AnimeEpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDB1A22DF5E1000462E12 /* AnimeEpisodeModel.swift */; };
 		50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3DD2339E95300D89478 /* P2PConnectivity.swift */; };
 		50DE79B9233E16A7006C683E /* P2PConnectActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79B8233E16A7006C683E /* P2PConnectActionCreator.swift */; };
 		50DE79BB233E6A99006C683E /* ExchangeAcceptViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */; };
@@ -135,7 +162,7 @@
 		50DE7A2E233FB80B006C683E /* SearchViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A2D233FB80B006C683E /* SearchViewReducer.swift */; };
 		50DE7A30233FB81B006C683E /* SettingViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A2F233FB81B006C683E /* SettingViewReducer.swift */; };
 		50DE7A32233FBB44006C683E /* HomeViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A31233FBB44006C683E /* HomeViewControllerInjector.swift */; };
-		50DE7A34233FBB62006C683E /* AnimeListViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A33233FBB62006C683E /* AnimeListViewControllerInjector.swift */; };
+		50DE7A34233FBB62006C683E /* AnimeListTopViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A33233FBB62006C683E /* AnimeListTopViewControllerInjector.swift */; };
 		50DE7A36233FBB7B006C683E /* SearchViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A35233FBB7B006C683E /* SearchViewControllerInjector.swift */; };
 		50DE7A38233FBB96006C683E /* SettingViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A37233FBB96006C683E /* SettingViewControllerInjector.swift */; };
 		50DE7A3C233FC6E8006C683E /* UIStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A3B233FC6E8006C683E /* UIStyleExtension.swift */; };
@@ -204,15 +231,17 @@
 		50FD22BF2343A018007F11E7 /* HomeArchiveSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */; };
 		50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */; };
 		50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */; };
-		65F247CE2440FF4684D1804A /* Pods_AppModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9C355E2523DAE65965ED1C /* Pods_AppModel.framework */; };
+		557CD37394327F89BF51A7D8 /* Pods_Any_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE223F1591F1D5CA65BB98E /* Pods_Any_AnImediate.framework */; };
+		5ECF8128982ED87265F52843 /* Pods_Any_AppConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87C7B6E01E6D8C196ED0C4 /* Pods_Any_AppConfig.framework */; };
+		705715626DFEB5B1BCF7A44C /* Pods_Any_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FB52A117CD72A29992CE7 /* Pods_Any_AnImediateTests.framework */; };
+		76BCD7EEA047F87327E12F70 /* Pods_Any_AppModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A032AA1C1F69B93F57434995 /* Pods_Any_AppModel.framework */; };
 		963B681422D225DD006988FE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 963B681322D225DD006988FE /* license.txt */; };
 		963B681622D22A33006988FE /* SettingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963B681522D22A33006988FE /* SettingText.storyboard */; };
 		963B681822D22A63006988FE /* SettingTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B681722D22A63006988FE /* SettingTextVC.swift */; };
 		9643AE2222C6080800899B61 /* SendMailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643AE2122C6080800899B61 /* SendMailVC.swift */; };
 		9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9643AE2322C608E800899B61 /* MessageUI.framework */; };
-		9ADE71C965A6069F3C45DF39 /* Pods_AppConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994E255776D21755142DBFFA /* Pods_AppConfig.framework */; };
-		CD59A32782CAAF15C7CBFF1B /* Pods_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */; };
-		F9CDF48D49B696D44BE3B7A3 /* Pods_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5EA6F63EA195BC6E7494EB /* Pods_AnImediate.framework */; };
+		AE10354855E23CF54F7C84C7 /* Pods_Any_AnImediateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC810AA3F0C0C6E97710498 /* Pods_Any_AnImediateUITests.framework */; };
+		CE3BC46B1A0D2C38C987277D /* Pods_Any_RxMultiPeerWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B91F09B5400E6D70E4816A /* Pods_Any_RxMultiPeerWrapper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,12 +341,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02947722F539082733EED8A0 /* Pods-Any-AppModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AppModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AppModel/Pods-Any-AppModel.debug.xcconfig"; sourceTree = "<group>"; };
 		1183A92187BBD00D1FC51CA5 /* Pods-RxMultiPeerWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMultiPeerWrapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxMultiPeerWrapper/Pods-RxMultiPeerWrapper.release.xcconfig"; sourceTree = "<group>"; };
 		146844B08C078F7FF670B356 /* Pods-AnImediate-All-AppModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-All-AppModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-All-AppModel/Pods-AnImediate-All-AppModel.release.xcconfig"; sourceTree = "<group>"; };
 		1BB56B12C1BD327A176BE537 /* Pods-All-AnImediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate/Pods-All-AnImediate.release.xcconfig"; sourceTree = "<group>"; };
 		1C288EFDC399B6A668A02C8D /* Pods-AppModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppModel/Pods-AppModel.debug.xcconfig"; sourceTree = "<group>"; };
 		21F287B88FBDE6722B6F27FC /* Pods-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
 		2C9EA718FD3E49A7C50B150B /* Pods-AnImediate-AppModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-AppModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-AppModel/Pods-AnImediate-AppModel.release.xcconfig"; sourceTree = "<group>"; };
+		2D3A3F58E211127E5D64169D /* Pods-Any-RxMultiPeerWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-RxMultiPeerWrapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-RxMultiPeerWrapper/Pods-Any-RxMultiPeerWrapper.release.xcconfig"; sourceTree = "<group>"; };
+		3067F451DF4B9122A84C7A8D /* Pods-Any-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderVC.swift; sourceTree = "<group>"; };
 		321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScrollVC.swift; sourceTree = "<group>"; };
 		321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMeCardVC.swift; sourceTree = "<group>"; };
@@ -332,14 +364,14 @@
 		321C6E4422DCB9C700757F83 /* HomeSawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSawVC.swift; sourceTree = "<group>"; };
 		321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleVC.swift; sourceTree = "<group>"; };
 		3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetails.storyboard; sourceTree = "<group>"; };
-		3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsVC.swift; sourceTree = "<group>"; };
-		3226CD2822D583B80090937F /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		3226CD2422D575EC0090937F /* AnimeDetailTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailTopVC.swift; sourceTree = "<group>"; };
+		3226CD2822D583B80090937F /* AnimeDetailInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailInfoVC.swift; sourceTree = "<group>"; };
 		322B208B22DEDA30000B3096 /* MXResultScrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXResultScrollVC.swift; sourceTree = "<group>"; };
-		3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListVC.swift; sourceTree = "<group>"; };
+		3238AFFA22C1D23700C8D3DD /* AnimeListTopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListTopVC.swift; sourceTree = "<group>"; };
 		3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomCollectionViewCell.swift; sourceTree = "<group>"; };
 		3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecomCollectionViewCell.xib; sourceTree = "<group>"; };
 		3238B00022C1D25A00C8D3DD /* AnimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
-		32A6410C22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsHeaderVC.swift; sourceTree = "<group>"; };
+		32A6410C22D5C8E2002EF6F3 /* AnimeDetailHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailHeaderVC.swift; sourceTree = "<group>"; };
 		32A6411422DC387D002EF6F3 /* AnimeListCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCardVC.swift; sourceTree = "<group>"; };
 		32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeListCard.storyboard; sourceTree = "<group>"; };
 		32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCardCVCell.swift; sourceTree = "<group>"; };
@@ -350,14 +382,18 @@
 		32CDA22D22CB219A00BD5A76 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		32CDA23122CB21D300BD5A76 /* SearchResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
-		32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisTermCollectionViewCell.swift; sourceTree = "<group>"; };
-		32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThisTermCollectionViewCell.xib; sourceTree = "<group>"; };
+		32CDA23322CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
+		32CDA23422CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeHorizontalCollectionViewCell.xib; sourceTree = "<group>"; };
 		32CDA23922CB46CE00BD5A76 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		32CDA23D22CC46C700BD5A76 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		32FEDB1A22DF5E1000462E12 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		32CDA23D22CC46C700BD5A76 /* FirebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequest.swift; sourceTree = "<group>"; };
+		32FEDB1A22DF5E1000462E12 /* AnimeEpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeEpisodeModel.swift; sourceTree = "<group>"; };
 		32FEDB1F22E0AF9300462E12 /* anime.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = anime.realm; sourceTree = "<group>"; };
-		32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeVC.swift; sourceTree = "<group>"; };
-		48B617EFD85C22E6B7813C80 /* Pods_RxMultiPeerWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMultiPeerWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32FEDB2122E0CC5200462E12 /* AnimeDetailEpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodesVC.swift; sourceTree = "<group>"; };
+		3C506B404CD3B54475B37CB5 /* Pods-Any-RxMultiPeerWrapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-RxMultiPeerWrapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-RxMultiPeerWrapper/Pods-Any-RxMultiPeerWrapper.debug.xcconfig"; sourceTree = "<group>"; };
+		5001BED3234D981A005C0B8A /* AnimeDetailEpisodeViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewAction.swift; sourceTree = "<group>"; };
+		5001BED4234D981A005C0B8A /* AnimeDetailEpisodeViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewReducer.swift; sourceTree = "<group>"; };
+		5001BED5234D981A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewActionCreator.swift; sourceTree = "<group>"; };
+		5001BED6234D981A005C0B8A /* AnimeDetailEpisodeViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewState.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchVC.swift; sourceTree = "<group>"; };
 		50128DA0233B0BF700A35A97 /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
@@ -403,10 +439,35 @@
 		50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileEdit.storyboard; sourceTree = "<group>"; };
 		50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditTableViewCell.swift; sourceTree = "<group>"; };
+		507DA8A523489A2C001BCA6B /* AnimeStatusTextFiewld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeStatusTextFiewld.swift; sourceTree = "<group>"; };
+		507DA8A823489F65001BCA6B /* AnimediatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimediatePickerView.swift; sourceTree = "<group>"; };
+		507DA8B0234A6B0A001BCA6B /* AnimeListTopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListTopCoordinator.swift; sourceTree = "<group>"; };
+		507DA936234BAB93001BCA6B /* FirebaseRequestInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequestInjector.swift; sourceTree = "<group>"; };
+		507DA938234C245F001BCA6B /* AnimeHorizontalCollectionSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHorizontalCollectionSectionModel.swift; sourceTree = "<group>"; };
+		507DA93A234C2511001BCA6B /* AnimeHorizontalCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHorizontalCellModel.swift; sourceTree = "<group>"; };
+		507DA93C234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListRecomCollectionSectionModel.swift; sourceTree = "<group>"; };
+		507DA93E234C25B3001BCA6B /* AnimeListRecomCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListRecomCellModel.swift; sourceTree = "<group>"; };
+		507DA954234CEA10001BCA6B /* AnimeDetailVCSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailVCSource.swift; sourceTree = "<group>"; };
+		507DA956234CEBEE001BCA6B /* AnimeDetailInfoViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailInfoViewReducer.swift; sourceTree = "<group>"; };
+		507DA957234CEBEF001BCA6B /* AnimeDetailInfoViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailInfoViewState.swift; sourceTree = "<group>"; };
+		507DA958234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailInfoViewActionCreator.swift; sourceTree = "<group>"; };
+		507DA959234CEBEF001BCA6B /* AnimeDetailInfoViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailInfoViewAction.swift; sourceTree = "<group>"; };
 		5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
 		50992177233CB5EC00B77C65 /* PeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerModel.swift; sourceTree = "<group>"; };
 		509D820922C364D800BF813F /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		509D820B22C3710900BF813F /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		509F60982346E3A900F95B55 /* AnimeListVCSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListVCSource.swift; sourceTree = "<group>"; };
+		509F609A2346E4D900F95B55 /* AnimeListTopViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListTopViewReducer.swift; sourceTree = "<group>"; };
+		509F609B2346E4D900F95B55 /* AnimeListTopViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListTopViewState.swift; sourceTree = "<group>"; };
+		509F609C2346E4DA00F95B55 /* AnimeListTopViewActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListTopViewActionCreator.swift; sourceTree = "<group>"; };
+		509F609D2346E4DA00F95B55 /* AnimeListTopViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListTopViewAction.swift; sourceTree = "<group>"; };
+		509F60AC2346E80700F95B55 /* AnimeCardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeCardTableCell.xib; sourceTree = "<group>"; };
+		509F60AE2346F9BC00F95B55 /* AnimeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardTableViewCell.swift; sourceTree = "<group>"; };
+		509F60B02346FF4F00F95B55 /* AnimeListCardViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListCardViewAction.swift; sourceTree = "<group>"; };
+		509F60B12346FF4F00F95B55 /* AnimeListCardViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListCardViewState.swift; sourceTree = "<group>"; };
+		509F60B22346FF4F00F95B55 /* AnimeListCardViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeListCardViewReducer.swift; sourceTree = "<group>"; };
+		509F60BB2347311800F95B55 /* AnimeListCardSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCardSectionModel.swift; sourceTree = "<group>"; };
+		509F60BD2347314700F95B55 /* AnimeCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCardCellModel.swift; sourceTree = "<group>"; };
 		50A5964F22C0A04900378AAB /* AnImediate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnImediate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A5965222C0A04900378AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50A5965422C0A04900378AAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -456,7 +517,7 @@
 		50DE7A2D233FB80B006C683E /* SearchViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewReducer.swift; sourceTree = "<group>"; };
 		50DE7A2F233FB81B006C683E /* SettingViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewReducer.swift; sourceTree = "<group>"; };
 		50DE7A31233FBB44006C683E /* HomeViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerInjector.swift; sourceTree = "<group>"; };
-		50DE7A33233FBB62006C683E /* AnimeListViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewControllerInjector.swift; sourceTree = "<group>"; };
+		50DE7A33233FBB62006C683E /* AnimeListTopViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListTopViewControllerInjector.swift; sourceTree = "<group>"; };
 		50DE7A35233FBB7B006C683E /* SearchViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerInjector.swift; sourceTree = "<group>"; };
 		50DE7A37233FBB96006C683E /* SettingViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewControllerInjector.swift; sourceTree = "<group>"; };
 		50DE7A3B233FC6E8006C683E /* UIStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyleExtension.swift; sourceTree = "<group>"; };
@@ -498,6 +559,7 @@
 		50DE7FE52341405A006C683E /* HomeHeaderViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewReducer.swift; sourceTree = "<group>"; };
 		50DE7FE62341405A006C683E /* HomeHeaderViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewState.swift; sourceTree = "<group>"; };
 		50DE7FE72341405A006C683E /* HomeHeaderViewControllerInjecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewControllerInjecter.swift; sourceTree = "<group>"; };
+		50F03B93D320BCA9626F2734 /* Pods-Any-AppModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AppModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AppModel/Pods-Any-AppModel.release.xcconfig"; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
 		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
 		50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAcceptVC.swift; sourceTree = "<group>"; };
@@ -531,32 +593,40 @@
 		50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCardCell.swift; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
+		616AEF9A7C106E0EBAFE5F06 /* Pods-Any-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
 		61F5761D284AA9A3F054FE0A /* Pods-All-AnImediate-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
 		665357749D70922B3D5E3634 /* Pods-All-AnImediate-AppModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppModel/Pods-All-AnImediate-AppModel.release.xcconfig"; sourceTree = "<group>"; };
 		6717DEF0FF378864CB27511E /* Pods-AnImediate-All-AppModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-All-AppModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-All-AppModel/Pods-AnImediate-All-AppModel.debug.xcconfig"; sourceTree = "<group>"; };
 		68ACAECC12A32E6C9A44AA70 /* Pods-All-AnImediate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate/Pods-All-AnImediate.debug.xcconfig"; sourceTree = "<group>"; };
+		7722232FFB41C072BFC7307E /* Pods-Any-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AppConfig/Pods-Any-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
+		7BE223F1591F1D5CA65BB98E /* Pods_Any_AnImediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Any_AnImediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87B91F09B5400E6D70E4816A /* Pods_Any_RxMultiPeerWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Any_RxMultiPeerWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89B43A60998ABBFA8A0BF6CB /* Pods-Any-AnImediate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediate/Pods-Any-AnImediate.debug.xcconfig"; sourceTree = "<group>"; };
+		943FB52A117CD72A29992CE7 /* Pods_Any_AnImediateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Any_AnImediateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9442A7DBC1F085E5C3469449 /* Pods-All-AnImediate-AppModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppModel/Pods-All-AnImediate-AppModel.debug.xcconfig"; sourceTree = "<group>"; };
 		963B681322D225DD006988FE /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		963B681522D22A33006988FE /* SettingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingText.storyboard; sourceTree = "<group>"; };
 		963B681722D22A63006988FE /* SettingTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextVC.swift; sourceTree = "<group>"; };
 		9643AE2122C6080800899B61 /* SendMailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMailVC.swift; sourceTree = "<group>"; };
 		9643AE2322C608E800899B61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		994E255776D21755142DBFFA /* Pods_AppConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C3D8E310FF60482C720760 /* Pods-Any-AnImediateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateUITests/Pods-Any-AnImediateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B5FA5706237BC969497AD47 /* Pods-AnImediate-All-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-All-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-All-AppConfig/Pods-AnImediate-All-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
+		9CC810AA3F0C0C6E97710498 /* Pods_Any_AnImediateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Any_AnImediateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A032AA1C1F69B93F57434995 /* Pods_Any_AppModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Any_AppModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0943A56BAB2AA17C280C5B6 /* Pods-AnImediate-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-AppConfig/Pods-AnImediate-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
 		B0E9B47C3A4EA7396AA01598 /* Pods-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateTests/Pods-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B56DAC5BB28AD6268BD99F0F /* Pods-Any-AnImediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediate/Pods-Any-AnImediate.release.xcconfig"; sourceTree = "<group>"; };
 		B68E9BB81DF5216782F7EB60 /* Pods-AnImediateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateUITests/Pods-AnImediateUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		CA5EA6F63EA195BC6E7494EB /* Pods_AnImediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnImediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnImediateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA19B2D6CB3992D303188179 /* Pods-RxMultiPeerWrapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMultiPeerWrapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxMultiPeerWrapper/Pods-RxMultiPeerWrapper.debug.xcconfig"; sourceTree = "<group>"; };
 		DB3D0BC74577CAE7C2E60B55 /* Pods-AppModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppModel/Pods-AppModel.release.xcconfig"; sourceTree = "<group>"; };
 		DD787ED54CF61781983C4639 /* Pods-AnImediate-AppModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-AppModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-AppModel/Pods-AnImediate-AppModel.debug.xcconfig"; sourceTree = "<group>"; };
+		DD87C7B6E01E6D8C196ED0C4 /* Pods_Any_AppConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Any_AppConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E036FF8A7B545649DCA0C695 /* Pods-Any-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AppConfig/Pods-Any-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
 		E67BAE0318602FDEF4A648DB /* Pods-AnImediate-All-AppConfig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-All-AppConfig.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-All-AppConfig/Pods-AnImediate-All-AppConfig.release.xcconfig"; sourceTree = "<group>"; };
-		EB9C355E2523DAE65965ED1C /* Pods_AppModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9050079A775510A11442070 /* Pods-Any-AnImediateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateUITests/Pods-Any-AnImediateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC37CF02F491BD4700AF8D47 /* Pods-AnImediateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediateUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediateUITests/Pods-AnImediateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE0226A2FFB630F77D4C884F /* Pods-AnImediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate.release.xcconfig"; sourceTree = "<group>"; };
 		F2F1841C0D6B6399DCDA42B0 /* Pods-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate-AppConfig/Pods-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
-		FCAB57F523E445CEC838C2B1 /* Pods_AnImediateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnImediateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBAE68DAB7B5D57B7618542 /* Pods-AnImediate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnImediate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnImediate/Pods-AnImediate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -565,7 +635,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ADE71C965A6069F3C45DF39 /* Pods_AppConfig.framework in Frameworks */,
+				5ECF8128982ED87265F52843 /* Pods_Any_AppConfig.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5042F3E02339F0E800D89478 /* AppConfig.framework in Frameworks */,
-				65F247CE2440FF4684D1804A /* Pods_AppModel.framework in Frameworks */,
+				76BCD7EEA047F87327E12F70 /* Pods_Any_AppModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,8 +671,8 @@
 				5042F3D42339D56600D89478 /* AppModel.framework in Frameworks */,
 				9643AE2422C608E800899B61 /* MessageUI.framework in Frameworks */,
 				5042F3A7233927A700D89478 /* AppConfig.framework in Frameworks */,
-				F9CDF48D49B696D44BE3B7A3 /* Pods_AnImediate.framework in Frameworks */,
 				50DE7FB5234113F3006C683E /* RxMultiPeerWrapper.framework in Frameworks */,
+				557CD37394327F89BF51A7D8 /* Pods_Any_AnImediate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +680,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD59A32782CAAF15C7CBFF1B /* Pods_AnImediateTests.framework in Frameworks */,
+				705715626DFEB5B1BCF7A44C /* Pods_Any_AnImediateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +688,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10422A1A64633E000E85882A /* Pods_AnImediateUITests.framework in Frameworks */,
+				AE10354855E23CF54F7C84C7 /* Pods_Any_AnImediateUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +696,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07DC3953691B87B56A4AFF5F /* Pods_RxMultiPeerWrapper.framework in Frameworks */,
+				CE3BC46B1A0D2C38C987277D /* Pods_Any_RxMultiPeerWrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				5027DEEB233DBAD500F4818F /* P2PConnectionInjector.swift */,
+				507DA936234BAB93001BCA6B /* FirebaseRequestInjector.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -657,7 +728,7 @@
 				50992177233CB5EC00B77C65 /* PeerModel.swift */,
 				50128DA0233B0BF700A35A97 /* ArchiveModel.swift */,
 				3238B00022C1D25A00C8D3DD /* AnimeModel.swift */,
-				32FEDB1A22DF5E1000462E12 /* Episode.swift */,
+				32FEDB1A22DF5E1000462E12 /* AnimeEpisodeModel.swift */,
 			);
 			path = RealmModel;
 			sourceTree = "<group>";
@@ -788,12 +859,12 @@
 		5042F3682337AC0600D89478 /* AnimeList */ = {
 			isa = PBXGroup;
 			children = (
-				3238AFFA22C1D23700C8D3DD /* AnimeListVC.swift */,
-				32A6410C22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift */,
-				3226CD2422D575EC0090937F /* AnimeDetailsVC.swift */,
-				3226CD2822D583B80090937F /* InfoVC.swift */,
-				32FEDB2122E0CC5200462E12 /* EpisodeVC.swift */,
+				3238AFFA22C1D23700C8D3DD /* AnimeListTopVC.swift */,
 				32A6411422DC387D002EF6F3 /* AnimeListCardVC.swift */,
+				32A6410C22D5C8E2002EF6F3 /* AnimeDetailHeaderVC.swift */,
+				3226CD2422D575EC0090937F /* AnimeDetailTopVC.swift */,
+				3226CD2822D583B80090937F /* AnimeDetailInfoVC.swift */,
+				32FEDB2122E0CC5200462E12 /* AnimeDetailEpisodesVC.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -817,8 +888,9 @@
 			isa = PBXGroup;
 			children = (
 				32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */,
-				32CDA23322CB228700BD5A76 /* ThisTermCollectionViewCell.swift */,
+				32CDA23322CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.swift */,
 				3238AFFC22C1D24700C8D3DD /* RecomCollectionViewCell.swift */,
+				509F60AE2346F9BC00F95B55 /* AnimeCardTableViewCell.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -872,11 +944,12 @@
 			isa = PBXGroup;
 			children = (
 				50A5968422C0ADC500378AAB /* AnimeList.storyboard */,
+				32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */,
 				3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */,
 				3238AFFE22C1D25200C8D3DD /* RecomCollectionViewCell.xib */,
-				32CDA23422CB228700BD5A76 /* ThisTermCollectionViewCell.xib */,
-				32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */,
+				32CDA23422CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.xib */,
 				32A6411922DC38CD002EF6F3 /* AnimeListCardCVCell.xib */,
+				509F60AC2346E80700F95B55 /* AnimeCardTableCell.xib */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -994,9 +1067,60 @@
 			children = (
 				50FD227E23428296007F11E7 /* RxDataSource */,
 				5042F35023379E2B00D89478 /* RealmModel */,
+				32CDA23D22CC46C700BD5A76 /* FirebaseRequest.swift */,
 				5042F3DD2339E95300D89478 /* P2PConnectivity.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		507DA8A723489A38001BCA6B /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				507DA8A823489F65001BCA6B /* AnimediatePickerView.swift */,
+				507DA8A523489A2C001BCA6B /* AnimeStatusTextFiewld.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		507DA8AB234A6AA3001BCA6B /* AnimeList */ = {
+			isa = PBXGroup;
+			children = (
+				50FD229423434181007F11E7 /* AnimeListCoordinator.swift */,
+				507DA8B0234A6B0A001BCA6B /* AnimeListTopCoordinator.swift */,
+			);
+			path = AnimeList;
+			sourceTree = "<group>";
+		};
+		507DA8AC234A6AAF001BCA6B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				50FD229C234341F3007F11E7 /* SettingCoordinator.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		507DA8AD234A6AB7001BCA6B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				50FD229A234341CF007F11E7 /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		507DA8AE234A6ABF001BCA6B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				50FD229623434194007F11E7 /* SearchCoordinator.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		507DA8AF234A6AC9001BCA6B /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				50FD2298234341BE007F11E7 /* ExchangeCoordinator.swift */,
+			);
+			path = Exchange;
 			sourceTree = "<group>";
 		};
 		50A5964622C0A04900378AAB = {
@@ -1042,13 +1166,13 @@
 				50A5968C22C0B51900378AAB /* LoginVC.swift */,
 				50A5969022C19F7A00378AAB /* SignUpVC.swift */,
 				963B681322D225DD006988FE /* license.txt */,
-				32CDA23D22CC46C700BD5A76 /* DataManager.swift */,
+				507DA8A723489A38001BCA6B /* UIComponents */,
 				5042F3652337AB0700D89478 /* Extension */,
 				5042F3B62339D47D00D89478 /* DI */,
-				5042F3612337A99200D89478 /* ViewController */,
-				5042F3642337AA7100D89478 /* UserInterface */,
 				50FD22832343068D007F11E7 /* Coordinator */,
+				5042F3612337A99200D89478 /* ViewController */,
 				5042F3662337AB9C00D89478 /* View */,
+				5042F3642337AA7100D89478 /* UserInterface */,
 				50FD228A23433C3B007F11E7 /* Constants */,
 				50FD22A423435B50007F11E7 /* SupportingFiles */,
 				50A5969422C2F2E200378AAB /* Assets.xcassets */,
@@ -1169,7 +1293,7 @@
 		50DE7A0D233FB523006C683E /* AnimeList */ = {
 			isa = PBXGroup;
 			children = (
-				50DE7A33233FBB62006C683E /* AnimeListViewControllerInjector.swift */,
+				50DE7A33233FBB62006C683E /* AnimeListTopViewControllerInjector.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -1205,6 +1329,10 @@
 			isa = PBXGroup;
 			children = (
 				50DE7A22233FB74D006C683E /* AnimeListViewState.swift */,
+				509F609B2346E4D900F95B55 /* AnimeListTopViewState.swift */,
+				509F60B12346FF4F00F95B55 /* AnimeListCardViewState.swift */,
+				507DA957234CEBEF001BCA6B /* AnimeDetailInfoViewState.swift */,
+				5001BED6234D981A005C0B8A /* AnimeDetailEpisodeViewState.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -1252,6 +1380,10 @@
 			isa = PBXGroup;
 			children = (
 				50DE7A2B233FB7F4006C683E /* AnimeListViewReducer.swift */,
+				509F609A2346E4D900F95B55 /* AnimeListTopViewReducer.swift */,
+				509F60B22346FF4F00F95B55 /* AnimeListCardViewReducer.swift */,
+				507DA956234CEBEE001BCA6B /* AnimeDetailInfoViewReducer.swift */,
+				5001BED4234D981A005C0B8A /* AnimeDetailEpisodeViewReducer.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -1277,6 +1409,9 @@
 		50DE7A1A233FB692006C683E /* AnimeList */ = {
 			isa = PBXGroup;
 			children = (
+				509F609C2346E4DA00F95B55 /* AnimeListTopViewActionCreator.swift */,
+				507DA958234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift */,
+				5001BED5234D981A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -1305,6 +1440,10 @@
 		50DE7A1E233FB6AE006C683E /* AnimeList */ = {
 			isa = PBXGroup;
 			children = (
+				509F609D2346E4DA00F95B55 /* AnimeListTopViewAction.swift */,
+				509F60B02346FF4F00F95B55 /* AnimeListCardViewAction.swift */,
+				507DA959234CEBEF001BCA6B /* AnimeDetailInfoViewAction.swift */,
+				5001BED3234D981A005C0B8A /* AnimeDetailEpisodeViewAction.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -1357,6 +1496,8 @@
 				50DE7A782340ED1F006C683E /* ProfileEditVCSource.swift */,
 				50DE7FE023413391006C683E /* HomeHeaderVCSource.swift */,
 				50FD22B0234388A8007F11E7 /* HomeArchiveVCSource.swift */,
+				509F60982346E3A900F95B55 /* AnimeListVCSource.swift */,
+				507DA954234CEA10001BCA6B /* AnimeDetailVCSource.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1434,6 +1575,12 @@
 				50FD22812342836A007F11E7 /* ProfileEditCellModel.swift */,
 				50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */,
 				50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */,
+				509F60BB2347311800F95B55 /* AnimeListCardSectionModel.swift */,
+				509F60BD2347314700F95B55 /* AnimeCardCellModel.swift */,
+				507DA938234C245F001BCA6B /* AnimeHorizontalCollectionSectionModel.swift */,
+				507DA93A234C2511001BCA6B /* AnimeHorizontalCellModel.swift */,
+				507DA93C234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift */,
+				507DA93E234C25B3001BCA6B /* AnimeListRecomCellModel.swift */,
 			);
 			path = RxDataSource;
 			sourceTree = "<group>";
@@ -1441,13 +1588,13 @@
 		50FD22832343068D007F11E7 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				507DA8AB234A6AA3001BCA6B /* AnimeList */,
+				507DA8AE234A6ABF001BCA6B /* Search */,
+				507DA8AF234A6AC9001BCA6B /* Exchange */,
+				507DA8AD234A6AB7001BCA6B /* Home */,
+				507DA8AC234A6AAF001BCA6B /* Setting */,
 				50FD22842343070B007F11E7 /* AppCoordinator.swift */,
 				50FD2292234340F0007F11E7 /* MainTabCoordinator.swift */,
-				50FD229423434181007F11E7 /* AnimeListCoordinator.swift */,
-				50FD229623434194007F11E7 /* SearchCoordinator.swift */,
-				50FD2298234341BE007F11E7 /* ExchangeCoordinator.swift */,
-				50FD229A234341CF007F11E7 /* HomeCoordinator.swift */,
-				50FD229C234341F3007F11E7 /* SettingCoordinator.swift */,
 				50FD229123433FCE007F11E7 /* Protocols */,
 			);
 			path = Coordinator;
@@ -1498,12 +1645,12 @@
 				5042F3E5233A006B00D89478 /* RealmSwift.framework */,
 				5042F3E32339FBF400D89478 /* RealmSwift.framework */,
 				9643AE2322C608E800899B61 /* MessageUI.framework */,
-				CC790C0ACAC6A6F023CCB81C /* Pods_AnImediateTests.framework */,
-				FCAB57F523E445CEC838C2B1 /* Pods_AnImediateUITests.framework */,
-				CA5EA6F63EA195BC6E7494EB /* Pods_AnImediate.framework */,
-				994E255776D21755142DBFFA /* Pods_AppConfig.framework */,
-				EB9C355E2523DAE65965ED1C /* Pods_AppModel.framework */,
-				48B617EFD85C22E6B7813C80 /* Pods_RxMultiPeerWrapper.framework */,
+				7BE223F1591F1D5CA65BB98E /* Pods_Any_AnImediate.framework */,
+				943FB52A117CD72A29992CE7 /* Pods_Any_AnImediateTests.framework */,
+				9CC810AA3F0C0C6E97710498 /* Pods_Any_AnImediateUITests.framework */,
+				DD87C7B6E01E6D8C196ED0C4 /* Pods_Any_AppConfig.framework */,
+				A032AA1C1F69B93F57434995 /* Pods_Any_AppModel.framework */,
+				87B91F09B5400E6D70E4816A /* Pods_Any_RxMultiPeerWrapper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1537,6 +1684,18 @@
 				DB3D0BC74577CAE7C2E60B55 /* Pods-AppModel.release.xcconfig */,
 				DA19B2D6CB3992D303188179 /* Pods-RxMultiPeerWrapper.debug.xcconfig */,
 				1183A92187BBD00D1FC51CA5 /* Pods-RxMultiPeerWrapper.release.xcconfig */,
+				89B43A60998ABBFA8A0BF6CB /* Pods-Any-AnImediate.debug.xcconfig */,
+				B56DAC5BB28AD6268BD99F0F /* Pods-Any-AnImediate.release.xcconfig */,
+				3067F451DF4B9122A84C7A8D /* Pods-Any-AnImediateTests.debug.xcconfig */,
+				616AEF9A7C106E0EBAFE5F06 /* Pods-Any-AnImediateTests.release.xcconfig */,
+				98C3D8E310FF60482C720760 /* Pods-Any-AnImediateUITests.debug.xcconfig */,
+				E9050079A775510A11442070 /* Pods-Any-AnImediateUITests.release.xcconfig */,
+				7722232FFB41C072BFC7307E /* Pods-Any-AppConfig.debug.xcconfig */,
+				E036FF8A7B545649DCA0C695 /* Pods-Any-AppConfig.release.xcconfig */,
+				02947722F539082733EED8A0 /* Pods-Any-AppModel.debug.xcconfig */,
+				50F03B93D320BCA9626F2734 /* Pods-Any-AppModel.release.xcconfig */,
+				3C506B404CD3B54475B37CB5 /* Pods-Any-RxMultiPeerWrapper.debug.xcconfig */,
+				2D3A3F58E211127E5D64169D /* Pods-Any-RxMultiPeerWrapper.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1656,8 +1815,8 @@
 				50A5964B22C0A04900378AAB /* Sources */,
 				50A5964C22C0A04900378AAB /* Frameworks */,
 				50A5964D22C0A04900378AAB /* Resources */,
-				36C54A20FF5A64875A2467E8 /* [CP] Embed Pods Frameworks */,
 				5042F3AC233927A700D89478 /* Embed Frameworks */,
+				28A387412B1D26458A832FD7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1679,6 +1838,7 @@
 				50A5965F22C0A04A00378AAB /* Sources */,
 				50A5966022C0A04A00378AAB /* Frameworks */,
 				50A5966122C0A04A00378AAB /* Resources */,
+				5E8CEE3DB682D15F12699E12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1698,6 +1858,7 @@
 				50A5966A22C0A04A00378AAB /* Sources */,
 				50A5966B22C0A04A00378AAB /* Frameworks */,
 				50A5966C22C0A04A00378AAB /* Resources */,
+				D5B183D587A917665021CABF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1881,11 +2042,12 @@
 				50A5968522C0ADC500378AAB /* AnimeList.storyboard in Resources */,
 				50A5968F22C0BAD900378AAB /* GoogleService-Info.plist in Resources */,
 				50A5965822C0A04900378AAB /* Main.storyboard in Resources */,
-				32CDA23622CB228700BD5A76 /* ThisTermCollectionViewCell.xib in Resources */,
+				32CDA23622CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.xib in Resources */,
 				321C6E3D22DC9C2900757F83 /* ResultUserCVCell.xib in Resources */,
 				32CDA23222CB21D300BD5A76 /* SearchResult.storyboard in Resources */,
 				32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */,
 				50A5968122C0AD6400378AAB /* Home.storyboard in Resources */,
+				509F60AD2346E80700F95B55 /* AnimeCardTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1920,21 +2082,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		36C54A20FF5A64875A2467E8 /* [CP] Embed Pods Frameworks */ = {
+		28A387412B1D26458A832FD7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediate/Pods-Any-AnImediate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediate/Pods-Any-AnImediate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnImediate/Pods-AnImediate-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediate/Pods-Any-AnImediate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5DF277F518EF89C13028463A /* [CP] Check Pods Manifest.lock */ = {
@@ -1952,11 +2114,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RxMultiPeerWrapper-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Any-RxMultiPeerWrapper-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8CEE3DB682D15F12699E12 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6841F1C93BB31280EAD5585A /* [CP] Check Pods Manifest.lock */ = {
@@ -1974,7 +2153,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnImediateUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Any-AnImediateUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1996,7 +2175,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppConfig-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Any-AppConfig-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2018,7 +2197,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppModel-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Any-AppModel-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2040,11 +2219,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnImediateTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Any-AnImediateTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5B183D587A917665021CABF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediateUITests/Pods-Any-AnImediateUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediateUITests/Pods-Any-AnImediateUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Any-AnImediateUITests/Pods-Any-AnImediateUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBDD59C72116393AE18D4E40 /* [CP] Check Pods Manifest.lock */ = {
@@ -2062,7 +2258,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnImediate-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Any-AnImediate-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2078,10 +2274,12 @@
 			files = (
 				50DE7FE3234133F5006C683E /* AutoCreatableSource.swift in Sources */,
 				5042F3B0233927D000D89478 /* ErrorCode.swift in Sources */,
+				509F60992346E3A900F95B55 /* AnimeListVCSource.swift in Sources */,
 				5042F3B2233927DE00D89478 /* Const.swift in Sources */,
 				50FD22B1234388A8007F11E7 /* HomeArchiveVCSource.swift in Sources */,
 				50DE7A792340ED1F006C683E /* ProfileEditVCSource.swift in Sources */,
 				50DE7FE123413391006C683E /* HomeHeaderVCSource.swift in Sources */,
+				507DA955234CEA10001BCA6B /* AnimeDetailVCSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2098,20 +2296,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				50DE79A6233DCA6D006C683E /* AnimediateError.swift in Sources */,
+				507DA8AA2349FF41001BCA6B /* FirebaseRequest.swift in Sources */,
 				50DE79AC233DD21F006C683E /* AccountModel.swift in Sources */,
 				50DE7A21233FB731006C683E /* HomeViewState.swift in Sources */,
 				50FD22822342836A007F11E7 /* ProfileEditCellModel.swift in Sources */,
 				50DE7A832340F2D9006C683E /* ProfileEditViewReducer.swift in Sources */,
 				50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */,
 				50FD227D23418594007F11E7 /* CommonStateModel.swift in Sources */,
+				507DA937234BAB93001BCA6B /* FirebaseRequestInjector.swift in Sources */,
+				5001BEDD234D9843005C0B8A /* AnimeDetailEpisodeViewReducer.swift in Sources */,
 				50DE7A2A233FB7D2006C683E /* HomeViewReducer.swift in Sources */,
+				509F60B82347041000F95B55 /* AnimeListCardViewAction.swift in Sources */,
+				507DA95C234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift in Sources */,
 				50DE79B0233DD233006C683E /* AnimeModel.swift in Sources */,
 				50DE79A7233DCA6D006C683E /* P2PError.swift in Sources */,
 				50DE7FED23414070006C683E /* HomeHeaderViewReducer.swift in Sources */,
+				507DA93F234C25B3001BCA6B /* AnimeListRecomCellModel.swift in Sources */,
+				509F60AB2346E5AE00F95B55 /* AnimeListTopViewState.swift in Sources */,
 				50DE7995233DCA5E006C683E /* AppStore.swift in Sources */,
+				507DA939234C245F001BCA6B /* AnimeHorizontalCollectionSectionModel.swift in Sources */,
+				509F60BC2347311800F95B55 /* AnimeListCardSectionModel.swift in Sources */,
+				509F60B62346FF6200F95B55 /* AnimeListCardViewState.swift in Sources */,
+				507DA93D234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift in Sources */,
 				50DE79C7233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift in Sources */,
+				509F60B92347042500F95B55 /* AnimeListTopViewActionCreator.swift in Sources */,
 				50DE79AE233DD225006C683E /* ArchiveModel.swift in Sources */,
 				50DE7996233DCA5E006C683E /* RxStore.swift in Sources */,
+				5001BEDB234D9833005C0B8A /* AnimeDetailEpisodeViewAction.swift in Sources */,
+				5001BEDE234D984C005C0B8A /* AnimeDetailEpisodeViewState.swift in Sources */,
+				507DA95D234CEBEF001BCA6B /* AnimeDetailInfoViewAction.swift in Sources */,
 				50FD22BC23438D31007F11E7 /* HomeArchiveListViewReducer.swift in Sources */,
 				50DE7FDF23413041006C683E /* ProfileEditViewAction.swift in Sources */,
 				50DE7997233DCA5E006C683E /* AppAction.swift in Sources */,
@@ -2120,23 +2333,31 @@
 				50DE7FEC23414067006C683E /* HomeHeaderViewAction.swift in Sources */,
 				50FD2280234282B7007F11E7 /* ProfileEditSectionModel.swift in Sources */,
 				50DE7999233DCA5E006C683E /* P2PConnectAction.swift in Sources */,
+				507DA95B234CEBEF001BCA6B /* AnimeDetailInfoViewState.swift in Sources */,
 				50DE79B7233DEDC9006C683E /* P2PConnectivity.swift in Sources */,
 				50DE799A233DCA5E006C683E /* ExchangeSearchViewActionCreator.swift in Sources */,
 				50DE79B9233E16A7006C683E /* P2PConnectActionCreator.swift in Sources */,
 				50DE7A25233FB75A006C683E /* SearchViewState.swift in Sources */,
 				50DE79BF233E6EE5006C683E /* ExchangeAcceptViewReducer.swift in Sources */,
+				509F60B72346FF9C00F95B55 /* AnimeListCardViewReducer.swift in Sources */,
 				50DE7A23233FB74D006C683E /* AnimeListViewState.swift in Sources */,
 				50DE79C5233E70E9006C683E /* ExchangeAcceptViewAction.swift in Sources */,
+				507DA95A234CEBEF001BCA6B /* AnimeDetailInfoViewReducer.swift in Sources */,
 				50DE7FEE23414077006C683E /* HomeHeaderViewState.swift in Sources */,
 				50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */,
 				50DE7A30233FB81B006C683E /* SettingViewReducer.swift in Sources */,
 				50DE799B233DCA5E006C683E /* AppReducer.swift in Sources */,
 				50DE7A2E233FB80B006C683E /* SearchViewReducer.swift in Sources */,
+				5001BEDC234D983A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift in Sources */,
 				50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */,
+				509F60AA2346E58600F95B55 /* AnimeListTopViewReducer.swift in Sources */,
+				507DA93B234C2511001BCA6B /* AnimeHorizontalCellModel.swift in Sources */,
 				50DE7A2C233FB7F4006C683E /* AnimeListViewReducer.swift in Sources */,
-				50DE79B1233DD236006C683E /* Episode.swift in Sources */,
+				509F60BE2347314700F95B55 /* AnimeCardCellModel.swift in Sources */,
+				50DE79B1233DD236006C683E /* AnimeEpisodeModel.swift in Sources */,
 				50FD22BA23438A00007F11E7 /* HomeArchiveListViewAction.swift in Sources */,
 				50DE79AD233DD222006C683E /* PeerModel.swift in Sources */,
+				509F60BA2347044300F95B55 /* AnimeListTopViewAction.swift in Sources */,
 				50DE799D233DCA5E006C683E /* P2PConnectionReducer.swift in Sources */,
 				50DE799E233DCA5E006C683E /* AppState.swift in Sources */,
 				50DE79A0233DCA5E006C683E /* ExchangeViewState.swift in Sources */,
@@ -2178,25 +2399,27 @@
 				50DE7A822340F1A0006C683E /* ProfileEditViewControllerInjecter.swift in Sources */,
 				50DE7FEF23414087006C683E /* HomeHeaderViewControllerInjecter.swift in Sources */,
 				50FD2299234341BE007F11E7 /* ExchangeCoordinator.swift in Sources */,
-				32A6410D22D5C8E2002EF6F3 /* AnimeDetailsHeaderVC.swift in Sources */,
+				32A6410D22D5C8E2002EF6F3 /* AnimeDetailHeaderVC.swift in Sources */,
 				50FD229523434181007F11E7 /* AnimeListCoordinator.swift in Sources */,
 				50FD22AF23438269007F11E7 /* HomeArchiveListVC.swift in Sources */,
-				32CDA23E22CC46C700BD5A76 /* DataManager.swift in Sources */,
+				507DA8A623489A2C001BCA6B /* AnimeStatusTextFiewld.swift in Sources */,
 				321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */,
 				50DE79C3233E6F6B006C683E /* ExchangeAcceptViewControllerInjector.swift in Sources */,
-				3238AFFB22C1D23700C8D3DD /* AnimeListVC.swift in Sources */,
+				3238AFFB22C1D23700C8D3DD /* AnimeListTopVC.swift in Sources */,
 				963B681822D22A63006988FE /* SettingTextVC.swift in Sources */,
 				9643AE2222C6080800899B61 /* SendMailVC.swift in Sources */,
 				321C6E3922DC86D300757F83 /* ResultBothCardVC.swift in Sources */,
+				507DA8B1234A6B0A001BCA6B /* AnimeListTopCoordinator.swift in Sources */,
 				50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */,
-				32FEDB2222E0CC5200462E12 /* EpisodeVC.swift in Sources */,
-				3226CD2922D583B80090937F /* InfoVC.swift in Sources */,
+				32FEDB2222E0CC5200462E12 /* AnimeDetailEpisodesVC.swift in Sources */,
+				3226CD2922D583B80090937F /* AnimeDetailInfoVC.swift in Sources */,
 				50DE7A752340B73E006C683E /* UIImageExtension.swift in Sources */,
 				50DE7A38233FBB96006C683E /* SettingViewControllerInjector.swift in Sources */,
 				50FD228923430946007F11E7 /* AppCoordinator.swift in Sources */,
 				50DE7A0B233F9DE4006C683E /* CollectionExtension.swift in Sources */,
 				50FD229B234341CF007F11E7 /* HomeCoordinator.swift in Sources */,
 				321C6E3F22DCB97200757F83 /* HomeWillSeeVC.swift in Sources */,
+				509F60AF2346F9BC00F95B55 /* AnimeCardTableViewCell.swift in Sources */,
 				503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */,
@@ -2206,12 +2429,13 @@
 				50DE7A07233F7341006C683E /* RxUIKit.swift in Sources */,
 				3238AFFD22C1D24700C8D3DD /* RecomCollectionViewCell.swift in Sources */,
 				50FD229023433FBB007F11E7 /* TabBarCoordinator.swift in Sources */,
+				507DA8A923489F65001BCA6B /* AnimediatePickerView.swift in Sources */,
 				50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
 				503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */,
 				32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */,
 				322B208C22DEDA31000B3096 /* MXResultScrollVC.swift in Sources */,
-				3226CD2522D575EC0090937F /* AnimeDetailsVC.swift in Sources */,
+				3226CD2522D575EC0090937F /* AnimeDetailTopVC.swift in Sources */,
 				50DE7A09233F9D03006C683E /* StringExtension.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				50DE7A3C233FC6E8006C683E /* UIStyleExtension.swift in Sources */,
@@ -2225,7 +2449,7 @@
 				5042F388233917DC00D89478 /* SkipNil.swift in Sources */,
 				50FD22AB23435E07007F11E7 /* StoryboardScenes.swift in Sources */,
 				50FD2287234308F4007F11E7 /* Coordinator.swift in Sources */,
-				50DE7A34233FBB62006C683E /* AnimeListViewControllerInjector.swift in Sources */,
+				50DE7A34233FBB62006C683E /* AnimeListTopViewControllerInjector.swift in Sources */,
 				321C6E4122DCB99600757F83 /* HomeSeeingVC.swift in Sources */,
 				5042F3B92339D50600D89478 /* ExchangeViewControllerInjecter.swift in Sources */,
 				321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */,
@@ -2243,7 +2467,7 @@
 				321C6E3322DC866A00757F83 /* ResultMeCardVC.swift in Sources */,
 				5027DEE9233DB9F900F4818F /* SwinjectStoryboardExtension.swift in Sources */,
 				321C6E4322DCB9B000757F83 /* HomeNotSeeVC.swift in Sources */,
-				32CDA23522CB228700BD5A76 /* ThisTermCollectionViewCell.swift in Sources */,
+				32CDA23522CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2368,7 +2592,7 @@
 /* Begin XCBuildConfiguration section */
 		5042F3AA233927A700D89478 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */;
+			baseConfigurationReference = 7722232FFB41C072BFC7307E /* Pods-Any-AppConfig.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -2397,7 +2621,7 @@
 		};
 		5042F3AB233927A700D89478 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21F287B88FBDE6722B6F27FC /* Pods-AppConfig.release.xcconfig */;
+			baseConfigurationReference = E036FF8A7B545649DCA0C695 /* Pods-Any-AppConfig.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -2466,7 +2690,7 @@
 		};
 		5042F3D72339D56600D89478 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C288EFDC399B6A668A02C8D /* Pods-AppModel.debug.xcconfig */;
+			baseConfigurationReference = 02947722F539082733EED8A0 /* Pods-Any-AppModel.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2497,7 +2721,7 @@
 		};
 		5042F3D82339D56600D89478 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB3D0BC74577CAE7C2E60B55 /* Pods-AppModel.release.xcconfig */;
+			baseConfigurationReference = 50F03B93D320BCA9626F2734 /* Pods-Any-AppModel.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2683,7 +2907,7 @@
 		};
 		50A5967822C0A04A00378AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDBAE68DAB7B5D57B7618542 /* Pods-AnImediate.debug.xcconfig */;
+			baseConfigurationReference = 89B43A60998ABBFA8A0BF6CB /* Pods-Any-AnImediate.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2708,7 +2932,7 @@
 		};
 		50A5967922C0A04A00378AAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE0226A2FFB630F77D4C884F /* Pods-AnImediate.release.xcconfig */;
+			baseConfigurationReference = B56DAC5BB28AD6268BD99F0F /* Pods-Any-AnImediate.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2732,7 +2956,7 @@
 		};
 		50A5967B22C0A04A00378AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0E9B47C3A4EA7396AA01598 /* Pods-AnImediateTests.debug.xcconfig */;
+			baseConfigurationReference = 3067F451DF4B9122A84C7A8D /* Pods-Any-AnImediateTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2754,7 +2978,7 @@
 		};
 		50A5967C22C0A04A00378AAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5098E2373B4F5EBAB8EFCFE3 /* Pods-AnImediateTests.release.xcconfig */;
+			baseConfigurationReference = 616AEF9A7C106E0EBAFE5F06 /* Pods-Any-AnImediateTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2776,7 +3000,7 @@
 		};
 		50A5967E22C0A04A00378AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B68E9BB81DF5216782F7EB60 /* Pods-AnImediateUITests.debug.xcconfig */;
+			baseConfigurationReference = 98C3D8E310FF60482C720760 /* Pods-Any-AnImediateUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2797,7 +3021,7 @@
 		};
 		50A5967F22C0A04A00378AAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC37CF02F491BD4700AF8D47 /* Pods-AnImediateUITests.release.xcconfig */;
+			baseConfigurationReference = E9050079A775510A11442070 /* Pods-Any-AnImediateUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2818,7 +3042,7 @@
 		};
 		50DE7FB8234113F3006C683E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA19B2D6CB3992D303188179 /* Pods-RxMultiPeerWrapper.debug.xcconfig */;
+			baseConfigurationReference = 3C506B404CD3B54475B37CB5 /* Pods-Any-RxMultiPeerWrapper.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -2847,7 +3071,7 @@
 		};
 		50DE7FB9234113F3006C683E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1183A92187BBD00D1FC51CA5 /* Pods-RxMultiPeerWrapper.release.xcconfig */;
+			baseConfigurationReference = 2D3A3F58E211127E5D64169D /* Pods-Any-RxMultiPeerWrapper.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

@@ -15,22 +15,23 @@ import Pageboy
 class HomeTopVC: TabmanViewController {
     
     // ページングメニューに対応したビューコントローラ
-    // TODO:- リソース管理はSwiftGenを使いたい
     private lazy var viewControllers: [UIViewController] = {
         [
-            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.willSee),
-            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.seeing),
-            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.notSee),
-            storyboard!.instantiateViewController(withIdentifier: HomeSBIdentifier.saw)
+            StoryboardScene.Home.homeArchiveListSB.instantiate(),
+            StoryboardScene.Home.homeArchiveListSB.instantiate(),
+            StoryboardScene.Home.homeArchiveListSB.instantiate(),
+            StoryboardScene.Home.homeArchiveListSB.instantiate()
         ]
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.dataSource = self
-        
         initBars()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
     }
     
     override func didReceiveMemoryWarning() {

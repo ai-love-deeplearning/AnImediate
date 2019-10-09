@@ -26,15 +26,6 @@ class ExchangeSearchVC: UIViewController {
     var searchingTime: Int = 0
     var count = 0
     
-    //var isRecieveWatch: Bool = false
-    
-    var dateString = ""
-    let now = NSDate()
-    let formatter = DateFormatter()
-    
-    //var myInfo: UserInfo = UserInfo()
-    //var peerInfo: UserInfo = UserInfo()
-    
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.exchangeStore)
@@ -75,10 +66,10 @@ class ExchangeSearchVC: UIViewController {
     
     @objc func labelAnimetion(_ tm: Timer) {
         // TODO:- これもRxでもっと上手くできる。
-        // TODO:- AnimationLabel(strs: [String], duration: Double)
-        // TODO:- sartAnimation() -> void
-        // TODO:- stopAnimation() -> void
-        // TODO:- みたいなクラスを作る？
+        // AnimationLabel(strs: [String], duration: Double)
+        // sartAnimation() -> void
+        // stopAnimation() -> void
+        // みたいなクラスを作る？
         switch count {
         case 0:
             seachLLabel.text = "Searching.  "
@@ -100,16 +91,8 @@ class ExchangeSearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         initGradientLayer()
-        
-        // TODO:- フォーマット処理をModel層に分離
-        // TODO:- 交換日時の設定は他のどこかで行なっているはず？
-        self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        self.dateString = self.formatter.string(from: now as Date)
-        
-        //self.peerInfo.excangedAt = self.dateString
-        
-        let realm = try! Realm()
         
         //let result = realm.objects(UserInfo.self)
         //myInfo = result[0].copy() as! UserInfo
@@ -220,8 +203,6 @@ class ExchangeSearchVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPopUpModal" {
             let nextVC = segue.destination as! ExchangeAcceptVC
-            //nextVC.peerInfo = peerInfo
-            //nextVC.isRecievedWatch = self.isRecieveWatch
         }
     }
 }

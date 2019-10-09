@@ -39,7 +39,7 @@
         <!--アニメ一覧-->
         <scene sceneID="HJQ-Tw-ELQ">
             <objects>
-                <viewController id="N8A-Mw-lFo" customClass="AnimeListVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="N8A-Mw-lFo" customClass="AnimeListTopVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IqX-5B-ZZc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,27 +97,6 @@
                                     <segue destination="rQn-V9-TeV" kind="show" identifier="fromRank" id="tdx-GJ-nQV"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY">
-                                <rect key="frame" x="0.0" y="621" width="414" height="134.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HdP-jf-K9y">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="R7g-t3-Irj" customClass="ThisTermCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-Bl-Ey3">
                                 <rect key="frame" x="0.0" y="417" width="414" height="134"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,7 +107,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="xIh-EI-F9t" customClass="ThisTermCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="xIh-EI-F9t" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -141,6 +120,27 @@
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY">
+                                <rect key="frame" x="0.0" y="621" width="414" height="134.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HdP-jf-K9y">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rankingCell" id="R7g-t3-Irj" userLabel="rankingCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -176,10 +176,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pageControl" destination="tqp-eQ-FLf" id="cuh-Sj-gT7"/>
-                        <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="Bti-zO-cnn"/>
-                        <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="Hik-5Z-TKc"/>
-                        <outlet property="thisTermCollectionView" destination="jQf-Bl-Ey3" id="WAr-ZE-kBa"/>
+                        <outlet property="currentTermCollectionView" destination="jQf-Bl-Ey3" id="9FM-86-1Ex"/>
+                        <outlet property="pageControl" destination="tqp-eQ-FLf" id="zmI-V6-14a"/>
+                        <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="mT7-6e-rrr"/>
+                        <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="MIi-vL-uwD"/>
                         <segue destination="jmJ-MB-Ky7" kind="show" identifier="toDetails" id="ZRv-Q9-ctg"/>
                     </connections>
                 </viewController>
