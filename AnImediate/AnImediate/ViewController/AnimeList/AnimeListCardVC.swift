@@ -180,8 +180,16 @@ class AnimeListCardVC: UIViewController {
 
 extension AnimeListCardVC {
     private func initSectionModels() {
-        let items = AnimeModel.readCurrentTerm()
-        sectionModels = [AnimeCardSectionModel(items: Array(items))]
+        var items: [AnimeModel] = []
+        
+        switch viewState.contentType {
+        case .currentTerm:
+            items = Array(AnimeModel.readCurrentTerm())
+        case .ranking:
+            items = Array(AnimeModel.readAllRanking())
+        }
+        
+        sectionModels = [AnimeCardSectionModel(items: items)]
         fetch()
     }
     

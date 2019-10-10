@@ -176,8 +176,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="currentTermBtn" destination="duw-R2-icd" id="c7X-Uq-Rom"/>
                         <outlet property="currentTermCollectionView" destination="jQf-Bl-Ey3" id="9FM-86-1Ex"/>
                         <outlet property="pageControl" destination="tqp-eQ-FLf" id="zmI-V6-14a"/>
+                        <outlet property="rankingBtn" destination="EOI-cc-Dkj" id="Wjp-Ft-jpX"/>
                         <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="mT7-6e-rrr"/>
                         <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="MIi-vL-uwD"/>
                         <segue destination="jmJ-MB-Ky7" kind="show" identifier="toDetails" id="ZRv-Q9-ctg"/>

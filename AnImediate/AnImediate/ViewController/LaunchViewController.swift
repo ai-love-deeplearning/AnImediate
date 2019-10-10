@@ -87,6 +87,7 @@ class LaunchViewController: UIViewController {
         }
     }
     
+    // TODO:- データ読み込み中はUIでProgressを出したり、何かしら表示したい
     private func fetch() {
         if !viewState.isAnimeFetched {
             self.store.dispatch(LaunchViewActionCreator.startFetchingAnime(disposeBag: disposeBag))

@@ -37,10 +37,10 @@ public class AnimeModel: Object {
         return realm.objects(self).filter("seasonNameText == %@", AnimediateConfig.CurrentTerm)
     }
     // TODO :- ランキング取得処理
-//    public static func readRanking() -> Results<AnimeModel> {
-//        let realm = try! Realm()
-//        return realm.objects(self).filter("seasonNameText == %@", AnimediateConfig.CurrentTerm)
-//    }
+    public static func readAllRanking() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
     
     public static func read(annictID: String) -> AnimeModel {
         let realm = try! Realm()

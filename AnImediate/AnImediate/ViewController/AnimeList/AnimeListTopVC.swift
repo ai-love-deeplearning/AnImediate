@@ -29,6 +29,8 @@ class AnimeListTopVC: UIViewController {
     @IBOutlet weak var currentTermCollectionView: UICollectionView!
     @IBOutlet weak var rankingCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var currentTermBtn: UIButton!
+    @IBOutlet weak var rankingBtn: UIButton!
     
     weak var delegate: AnimeListTopVCDelegate?
     
@@ -71,16 +73,15 @@ class AnimeListTopVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         disposeBag = DisposeBag()
-        // TODO:- AppDelegateで全アイテム取得のActionをdispatchする
-        //self.store.dispatch(self.AnimeListTopViewActionCreator.getData(disposeBag: disposeBag))
         
-        // TODO:- Rrealmに情報があるかないかで処理を分岐
-        self.store.dispatch(self.AnimeListTopViewActionCreator.getCurrentTerm(disposeBag: disposeBag))
+        // TODO:- ActionCreatorの処理を変更
+//        self.store.dispatch(self.AnimeListTopViewActionCreator.getCurrentTerm(disposeBag: disposeBag))
         // TODO:- 今は同じ処理だから除外
         //self.store.dispatch(self.AnimeListTopViewActionCreator.getRanking(disposeBag: disposeBag))
         
-        fetchRecom()
+//        fetchRecom()
         fetchRanking()
+        fetchCurrentTerm()
         initCollectionViews()
         setupCCView()
         setupCV(cv: self.currentTermCollectionView)
@@ -92,6 +93,10 @@ class AnimeListTopVC: UIViewController {
     
     private func bindViews() {
         recomCollectionView.register(UINib(nibName: "RecomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "recomCell")
+        
+        currentTermCollectionView.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
+        
+        rankingCollectionView.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "rankingCell")
         
         recomDataRelay.asObservable()
             .bind(to: recomCollectionView.rx.items(dataSource: recomDataSource))
@@ -149,13 +154,28 @@ class AnimeListTopVC: UIViewController {
         rankingCollectionView.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-//                    let rankingAnimeModel = rankingAnimeModels[indexPath.row]
-//                    cell = rankingCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! ThisTermCollectionViewCell
-//                    cell.bindData(work:rankingAnimeModel)
+                    guard let anime = self.rankingSectionModels.first?.items[indexPath.row] else { return }
+                    self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
             })
             .disposed(by: disposeBag)
         
+        currentTermBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(
+                onNext: { [unowned self] in
+                    // TODO:- 画面遷移の処理もこっちで書くべきか検討
+                    self.store.dispatch(AnimeListCardViewAction.Initialize(contentType: .currentTerm))
+            })
+            .disposed(by: disposeBag)
+        
+        rankingBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(
+                onNext: { [unowned self] in
+                    self.store.dispatch(AnimeListCardViewAction.Initialize(contentType: .ranking))
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindState() {
@@ -170,7 +190,7 @@ class AnimeListTopVC: UIViewController {
             .drive(
                 onNext: { [unowned self] currentTerm in
                     // collectionViewに反映
-                    self.fetchCurrentTerm()
+//                    self.fetchCurrentTerm()
             })
             .disposed(by: disposeBag)
         
@@ -178,6 +198,7 @@ class AnimeListTopVC: UIViewController {
             .drive(
                 onNext: { [unowned self] ranking in
                     // TODO:- 受け取ったのでStateに反映
+//                    self.fetchRanking()
             })
             .disposed(by: disposeBag)
     }
@@ -214,7 +235,6 @@ class AnimeListTopVC: UIViewController {
     private func setupCV(cv: UICollectionView) {
         //cv.delegate = self
         cv.showsHorizontalScrollIndicator = false
-        cv.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: cv.bounds.width*0.25, height: cv.bounds.height)
@@ -255,11 +275,8 @@ extension AnimeListTopVC: UICollectionViewDelegate {
 extension AnimeListTopVC {
     
     private func fetchCurrentTerm() {
-        guard let currentItems = viewState.currentTerm else {
-            return
-        }
-        
-        currentSectionModels = [AnimeHorizontalCollectionSectionModel(items: currentItems)]
+        let currentItem = Array(AnimeModel.readCurrentTerm())
+        currentSectionModels = [AnimeHorizontalCollectionSectionModel(items: currentItem)]
         
         Observable.just(currentSectionModels)
             .subscribe(onNext: { [weak self] _ in
@@ -271,11 +288,9 @@ extension AnimeListTopVC {
     }
     
     private func fetchRanking() {
-        guard let rankingItems = viewState.ranking else {
-            return
-        }
+        let rankingItems = Array(AnimeModel.readAllRanking()[0 ..< 50])
         
-        rankingSectionModels = [AnimeHorizontalCollectionSectionModel(items: Array(rankingItems))]
+        rankingSectionModels = [AnimeHorizontalCollectionSectionModel(items: rankingItems)]
         
         Observable.just(rankingSectionModels)
             .subscribe(onNext: { [weak self] _ in
@@ -328,9 +343,8 @@ extension AnimeListTopVC {
             configureCell: { [weak self] (_, collectinView, indexPath, item) in
                 guard let strongSelf = self else { return UICollectionViewCell() }
                 let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "rankingCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeHorizontalCollectionViewCell
-                
+
                 cell.setData(anime: item)
-                
                 return cell
         })
     }
@@ -341,7 +355,7 @@ private extension RxStore where AnyStateType == AnimeListViewState {
     var state: Driver<AnimeListTopViewState> {
         return stateDriver.mapDistinct { $0.topViewState }
     }
-    
+    // TODO:- Realmにすでにデータが入っているはずなのでいらない? or 最新状態を更新するために使う
     var recommend: Driver<[AnimeModel]> {
         return state.mapDistinct { $0.recommend }.skipNil()
     }
