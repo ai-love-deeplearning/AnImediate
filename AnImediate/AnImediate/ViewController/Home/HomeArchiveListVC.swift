@@ -120,7 +120,7 @@ extension HomeArchiveListVC {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ArchiveCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! ArchiveCardCell
                 // TODO:- ここでarchiveが0だとクラッシュ
 //                let archives = ArchiveModel.read(id: AccountModel.read().userID).filter("animeStatus == %@", self.viewState.statusType.rawValue)
-//                let item =  AnimeModel.read(id: archives[indexPath.row].annictID)
+//                let item =  AnimeModel.read(annictID: archives[indexPath.row].annictID)
 //                cell.anime = item
                 cell.accessoryType = .disclosureIndicator
                 

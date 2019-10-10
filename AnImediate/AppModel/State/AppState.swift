@@ -9,7 +9,7 @@
 import ReSwift
 
 public struct AppState: StateType, Equatable {
-    public internal(set) var exchangeViewState = ExchangeViewState()
+    public internal(set) var launchViewState = LaunchViewState()
 }
 
 public enum TransitionType {

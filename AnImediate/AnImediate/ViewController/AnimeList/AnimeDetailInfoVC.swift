@@ -8,20 +8,22 @@
 
 import AppConfig
 import AppModel
-import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 import RealmSwift
 
 class AnimeDetailInfoVC: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var seasonLabel: UILabel!
-    @IBOutlet weak var statusTextField: AnimeStatusTextField!
-    @IBOutlet weak var similarCollectionView: UICollectionView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var synopsisLabel: UILabel!
+    @IBOutlet private weak var seasonLabel: UILabel!
+    @IBOutlet private weak var statusTextField: AnimeStatusTextField!
+    @IBOutlet private weak var similarCollectionView: UICollectionView!
     
     let realm = try! Realm()
     let now = NSDate()
     let formatter = DateFormatter()
-    let statusList = ["", "見たい", "見てる", "見た", "見てない"]
     
     var dateString = ""
     var animeId = ""
@@ -34,12 +36,19 @@ class AnimeDetailInfoVC: UIViewController {
         }
     }*/
     
+    private var disposeBag = DisposeBag()
+    
+    private let store = RxStore(store: AppStore.instance.animeListStore)
+    
+    private var viewState: AnimeDetailInfoViewState {
+        return store.state.detailInfoViewState
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.animeId = UserDefaults.standard.string(forKey: "animeId")!
-//        titleLabel.text = UserDefaults.standard.string(forKey: "title")!
-//        seasonLabel.text = "放送年：" + UserDefaults.standard.string(forKey: "season")!
+        bindState()
+        
         /*
         let userInfo = realm.objects(PeerModel.self)
         let results = realm.objects(ArchiveModel.self).filter("animeId == %@ && userId == %@", self.animeId, userInfo[0].id)
@@ -55,6 +64,27 @@ class AnimeDetailInfoVC: UIViewController {
         setupCV(cv: similarCollectionView)*/
     }
     
+    private func bindState() {
+        
+        if viewState.animeModel != nil {
+            self.animeId = viewState.animeModel!.annictID
+            titleLabel.text = viewState.animeModel!.title
+            synopsisLabel.text = viewState.animeModel!.synopsis
+            seasonLabel.text = "放送年：" + viewState.animeModel!.seasonNameText
+        }
+        
+        store.animeModel
+            .drive(
+                onNext: { [unowned self] anime in
+                    self.animeId = self.viewState.animeModel!.annictID
+                    self.titleLabel.text = self.viewState.animeModel!.title
+                    self.synopsisLabel.text = self.viewState.animeModel!.synopsis
+                    self.seasonLabel.text = "放送年：" + self.viewState.animeModel!.seasonNameText
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
     private func fetchSimilar() {
         /*
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
@@ -65,26 +95,6 @@ class AnimeDetailInfoVC: UIViewController {
         for i in 0..<self.similarAnimeModels.count {
             self.similarAnimeModels[i] = works[Int.random(in: 0..<1000)]
         }*/
-    }
-    
-    private func setupPickerView() {
-//        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
-//        let doneItem = UIBarButtonItem(title: "登録", style: .done, target: self, action: #selector(done))
-//        let blankItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//        let cancelItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancel))
-//
-//        doneItem.tintColor = .deepMagenta()
-//        cancelItem.tintColor = .deepMagenta()
-//        toolbar.backgroundColor = .white
-//        toolbar.setItems([cancelItem, blankItem, doneItem], animated: true)
-//
-//        self.pickerView.delegate = self
-//        self.pickerView.dataSource = self
-//        self.pickerView.showsSelectionIndicator = true
-//        self.pickerView.backgroundColor = .white
-//
-//        self.statusTextField.inputView = pickerView
-//        self.statusTextField.inputAccessoryView = toolbar
     }
     
     private func setupCV(cv: UICollectionView) {
@@ -100,10 +110,6 @@ class AnimeDetailInfoVC: UIViewController {
         cv.showsHorizontalScrollIndicator = false
         cv.register(UINib(nibName: "ThisTermCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
         cv.collectionViewLayout = layout
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        cancel()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -154,42 +160,16 @@ extension AnimeDetailInfoVC: UICollectionViewDelegate, UIPickerViewDelegate {
         }*/
     }
     
-    @objc func cancel() {
-        self.statusTextField.endEditing(true)
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.statusTextField.text = statusList[row]
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = similarCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! AnimeHorizontalCollectionViewCell
+        _ = similarCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! AnimeHorizontalCollectionViewCell
         //let similarAnimeModel = similarAnimeModels[indexPath.row]
         
         //cell.bindData(work: similarAnimeModel)
-        
-//        UserDefaults.standard.set(cell.animeId, forKey: "animeId")
-//        UserDefaults.standard.set(cell.imageURL, forKey: "imageURL")
-//        UserDefaults.standard.set(cell.titleLabel.text, forKey: "title")
-//        UserDefaults.standard.set(cell.seasonText, forKey: "season")
-        
         performSegue(withIdentifier: "toDetails", sender: nil)
     }
 }
 
-extension AnimeDetailInfoVC: UICollectionViewDataSource, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.statusList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.statusList[row]
-    }
+extension AnimeDetailInfoVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return similarAnimeModels.count
@@ -205,4 +185,19 @@ extension AnimeDetailInfoVC: UICollectionViewDataSource, UIPickerViewDataSource 
         
         return cell
     }
+}
+
+private extension RxStore where AnyStateType == AnimeListViewState {
+    var state: Driver<AnimeDetailInfoViewState> {
+        return stateDriver.mapDistinct { $0.detailInfoViewState }
+    }
+    
+    var animeModel: Driver<AnimeModel> {
+        return state.mapDistinct { $0.animeModel }.skipNil()
+    }
+    
+    var error: Driver<AnimediateError> {
+        return state.mapDistinct { $0.error }.skipNil()
+    }
+    
 }

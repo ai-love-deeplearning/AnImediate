@@ -44,20 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure()
         }
         
-        //自動ログイン
-        if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let initialViewController = storyboard.instantiateInitialViewController()
-            
-            self.window?.rootViewController = initialViewController
-            
-            self.window?.makeKeyAndVisible()
-        }
-        
-        // TODO:- 初回導線のモデルを作成して状態を管理
-        // TODO:- それ以外にもアプリ起動時に読み込ませたい状態はここで管理
-        
         //Realmのマイグレーション処理
         
         var config = Realm.Configuration(

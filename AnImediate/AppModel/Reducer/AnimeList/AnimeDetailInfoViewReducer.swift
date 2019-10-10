@@ -14,10 +14,6 @@ struct AnimeDetailInfoViewReducer {
             return AnimeDetailInfoViewState()
         }
 
-        if action is AppAction.InitializeApplication {
-            return AnimeDetailInfoViewState()
-        }
-
         switch action {
 
         case let action as AnimeDetailInfoViewAction.Initialize:

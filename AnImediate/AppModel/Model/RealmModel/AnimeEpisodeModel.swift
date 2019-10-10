@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 
 public class AnimeEpisodeModel: Object {
-    @objc dynamic var id = 0
+    @objc dynamic var id = ""
     @objc dynamic var animeTitle = ""
     @objc dynamic var episodeTitle = ""
     @objc dynamic var sortNumber = 0
@@ -22,9 +22,32 @@ public class AnimeEpisodeModel: Object {
         return "id"
     }
     
+    public static func read(annictID: String) -> AnimeEpisodeModel {
+        let realm = try! Realm()
+        
+        if let model = realm.object(ofType: self, forPrimaryKey: annictID) {
+            return model
+        }
+        
+        let model = AnimeEpisodeModel()
+        try! realm.write {
+            realm.add(model, update: .modified)
+        }
+        return model
+        
+    }
+    
+    public static func set(models: [AnimeEpisodeModel]) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.add(models, update: .modified)
+        }
+    }
+    
     public init(value: [String: Any]) {
         super.init()
-        self.id = value["id"] as? Int ?? 0
+        self.id = value["id"] as? String ?? NSUUID().uuidString
         self.anicctID = value["animeId"] as? Int ?? 0
         self.animeTitle = value["animeTitle"] as? String ?? ""
         self.episodeTitle = value["episodeTitle"] as? String ?? ""
@@ -34,7 +57,7 @@ public class AnimeEpisodeModel: Object {
     
     required init() {
         super.init()
-        self.id = 0
+        self.id = NSUUID().uuidString
         self.anicctID = 0
         self.animeTitle = ""
         self.episodeTitle = ""

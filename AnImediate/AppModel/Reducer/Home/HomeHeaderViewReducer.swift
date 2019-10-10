@@ -15,7 +15,8 @@ struct HomeHeaderViewReducer {
         }
 
         switch action {
-
+            
+        // TODO:- CommonModelのisRegisterdをViewstateに反映
         case is HomeHeaderViewAction.Initialize:
             nextState = HomeHeaderViewState()
 

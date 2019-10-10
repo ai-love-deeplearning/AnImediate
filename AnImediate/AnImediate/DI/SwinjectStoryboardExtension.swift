@@ -18,6 +18,9 @@ extension SwinjectStoryboard {
         P2PConnectionInjector.setup(container: defaultContainer)
         FirebaseRequestInjector.setup(container: defaultContainer)
         
+        // MARK:- Launch
+        LaunchViewControllerInjector.setup(container: defaultContainer)
+        
         // MARK:- Home
         HomeViewControllerInjector.setup(container: defaultContainer)
         HomeArchiveListViewControllerInjecter.setup(container: defaultContainer)

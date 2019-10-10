@@ -13,6 +13,8 @@ import RxSwift
 public class CommonStateModel: Object {
     @objc dynamic var id = "0"
     @objc public dynamic var isRegistered = false
+    @objc public dynamic var isAnimeFetched = false
+    @objc public dynamic var isEpisodeFetched = false
     @objc dynamic var createdAt = ""
     @objc public dynamic var udatedAt = ""
     
@@ -32,4 +34,32 @@ public class CommonStateModel: Object {
         }
         return model
     }
+    
+    public static func set(isRegistered: Bool) {
+        let realm = try! Realm()
+        
+        let model = read()
+        try! realm.write {
+            model.isRegistered = isRegistered
+        }
+    }
+    
+    public static func set(isAnimeFetched: Bool) {
+        let realm = try! Realm()
+        
+        let model = read()
+        try! realm.write {
+            model.isAnimeFetched = isAnimeFetched
+        }
+    }
+    
+    public static func set(isEpisodeFetched: Bool) {
+        let realm = try! Realm()
+        
+        let model = read()
+        try! realm.write {
+            model.isEpisodeFetched = isEpisodeFetched
+        }
+    }
+    
 }

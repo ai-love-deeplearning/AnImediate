@@ -16,12 +16,13 @@ import RealmSwift
 public protocol FirebaseRequestable {
     func fetchCurrentTermAnime(term: String) -> Single<[AnimeModel]>
     func fetchRankingAnime(term: String) -> Single<[AnimeModel]>
-    func getData()
+    func fetchAllAnime() -> Single<[AnimeModel]>
+    func fetchAllEpisodes() -> Single<[AnimeEpisodeModel]>
 }
 
 public class FirebaseRequest: NSObject, FirebaseRequestable {
-    let realm = try! Realm()
-    let realmPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/anime.realm"
+//    let realm = try! Realm()
+//    let realmPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/anime.realm"
     
     var ref: DatabaseReference!
     
@@ -91,65 +92,64 @@ public class FirebaseRequest: NSObject, FirebaseRequestable {
         }
     }
     
-    public func getData() {
-        ref = Database.database().reference()
-        // アニメ作品情報を取得＆realmに登録
-        ref.child(FirebaseTables.works).observe(.value, with: { (snapshot) in
-            guard let info = snapshot.value as? [Any] else {return}
+    public func fetchAllAnime() -> Single<[AnimeModel]> {
+        return Single.create { singleEvent in
+            let disposable = Disposables.create()
             
-            let values = info.compactMap { (info) -> [String: Any]? in
-                return info as? [String: Any]
-            }
+            self.ref = Database.database().reference()
             
-            let works = values.map { (value: [String: Any]) -> AnimeModel in
-                return AnimeModel(value: value)
-            }
-            
-            // TODO:- firebaseから持ってくるのよりここが重い
-            // TODO:- Rx化して差分更新したい
-//            for i in 0..<works.count {
-//                try! self.realm.write {
-//                    self.realm.add(works[i])
-//                }
-//            }
-            try! self.realm.write {
-                self.realm.add(works, update: .all)
-            }
-            print(works.count)
-            print("100% Complete AnimeModels")
-            
-        }) { (error) in
-            print(error)
-        }
-        
-        // アニメのエピソード情報を取得＆realmに登録
-        ref.child(FirebaseTables.episodes).observe(.value, with: { (snapshot) in
-            guard let info = snapshot.value as? [Any] else {return}
-            
-            let values = info.compactMap { (info) -> [String: Any]? in
-                return info as? [String: Any]
-            }
-            
-            let episodes = values.map { (value: [String: Any]) -> AnimeEpisodeModel in
-                return AnimeEpisodeModel(value: value)
-            }
-            
-            try! self.realm.write {
-                self.realm.add(episodes, update: .all)
-            }
+            self.ref.child(FirebaseTables.works).observe(.value, with: { (snapshot) in
+                guard let info = snapshot.value as? [Any] else {return}
                 
-//            for i in 0..<episodes.count {
-//                try! self.realm.write {
-//                    self.realm.add(episodes[i])
-//                }
-//            }
-            print(episodes.count)
-            print("100% CompleteAnimeModels Episodes")
+                let values = info.compactMap { (info) -> [String: Any]? in
+                    return info as? [String: Any]
+                }
+                
+                let anime = values.map { (value: [String: Any]) -> AnimeModel in
+                    return AnimeModel(value: value)
+                }
+                
+                AnimeModel.set(models: anime)
+                
+                singleEvent(.success(anime))
+                print("100% Complete AnimeModels")
             
-        }) { (error) in
-            print(error)
+            }) { (error) in
+                singleEvent(.error(AnimediateError.unknown))
+            }
+            return disposable
         }
-        
-        try! Realm().writeCopy(toFile: URL(string: realmPath)!, encryptionKey: Data(base64Encoded: "anime"))
     }
+    
+    public func fetchAllEpisodes() -> Single<[AnimeEpisodeModel]> {
+        return Single.create { singleEvent in
+            let disposable = Disposables.create()
+            
+            self.ref = Database.database().reference()
+            
+            // アニメのエピソード情報を取得＆realmに登録
+            self.ref.child(FirebaseTables.episodes).observe(.value, with: { (snapshot) in
+                guard let info = snapshot.value as? [Any] else {return}
+                
+                let values = info.compactMap { (info) -> [String: Any]? in
+                    return info as? [String: Any]
+                }
+                
+                let episodes = values.map { (value: [String: Any]) -> AnimeEpisodeModel in
+                    return AnimeEpisodeModel(value: value)
+                }
+                
+                AnimeEpisodeModel.set(models: episodes)
+                
+                singleEvent(.success(episodes))
+                print("100% CompleteAnimeModels Episodes")
+                
+            }) { (error) in
+                singleEvent(.error(AnimediateError.unknown))
+            }
+            
+            return disposable
+        }
+    }
+    
 }

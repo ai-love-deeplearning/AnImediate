@@ -17,7 +17,7 @@ public struct AppReducer {
         }
         
         return AppState(
-            exchangeViewState: ExchangeViewReducer.handleAction(action: action, state: state?.exchangeViewState)
+            launchViewState: LaunchViewReducer.handleAction(action: action, state: state?.launchViewState)
         )
     }
 }

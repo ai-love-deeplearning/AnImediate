@@ -47,6 +47,13 @@
 		5001BEDC234D983A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED5234D981A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift */; };
 		5001BEDD234D9843005C0B8A /* AnimeDetailEpisodeViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED4234D981A005C0B8A /* AnimeDetailEpisodeViewReducer.swift */; };
 		5001BEDE234D984C005C0B8A /* AnimeDetailEpisodeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BED6234D981A005C0B8A /* AnimeDetailEpisodeViewState.swift */; };
+		5001BEE0234DC8F3005C0B8A /* LaunchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEDF234DC8F3005C0B8A /* LaunchViewState.swift */; };
+		5001BEE2234DC9DF005C0B8A /* LaunchViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEE1234DC9DF005C0B8A /* LaunchViewReducer.swift */; };
+		5001BEE4234DCB40005C0B8A /* LaunchViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEE3234DCB40005C0B8A /* LaunchViewAction.swift */; };
+		5001BEE6234DD19E005C0B8A /* LaunchViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEE5234DD19E005C0B8A /* LaunchViewActionCreator.swift */; };
+		5001BEE8234DEF23005C0B8A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEE7234DEF23005C0B8A /* LaunchViewController.swift */; };
+		5001BEEA234E0D9A005C0B8A /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5001BEE9234E0D9A005C0B8A /* Launch.storyboard */; };
+		5001BEEC234E1609005C0B8A /* LaunchViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEEB234E1609005C0B8A /* LaunchViewControllerInjector.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
@@ -394,6 +401,13 @@
 		5001BED4234D981A005C0B8A /* AnimeDetailEpisodeViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewReducer.swift; sourceTree = "<group>"; };
 		5001BED5234D981A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewActionCreator.swift; sourceTree = "<group>"; };
 		5001BED6234D981A005C0B8A /* AnimeDetailEpisodeViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeDetailEpisodeViewState.swift; sourceTree = "<group>"; };
+		5001BEDF234DC8F3005C0B8A /* LaunchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewState.swift; sourceTree = "<group>"; };
+		5001BEE1234DC9DF005C0B8A /* LaunchViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewReducer.swift; sourceTree = "<group>"; };
+		5001BEE3234DCB40005C0B8A /* LaunchViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewAction.swift; sourceTree = "<group>"; };
+		5001BEE5234DD19E005C0B8A /* LaunchViewActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewActionCreator.swift; sourceTree = "<group>"; };
+		5001BEE7234DEF23005C0B8A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		5001BEE9234E0D9A005C0B8A /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		5001BEEB234E1609005C0B8A /* LaunchViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewControllerInjector.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchVC.swift; sourceTree = "<group>"; };
 		50128DA0233B0BF700A35A97 /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
@@ -736,6 +750,7 @@
 		5042F3592337A6DB00D89478 /* ActionCreator */ = {
 			isa = PBXGroup;
 			children = (
+				5001BEE5234DD19E005C0B8A /* LaunchViewActionCreator.swift */,
 				50DE7A1B233FB699006C683E /* Home */,
 				50DE79C0233E6F02006C683E /* Exchange */,
 				50DE7A1A233FB692006C683E /* AnimeList */,
@@ -748,12 +763,13 @@
 		5042F35C2337A71D00D89478 /* Reducer */ = {
 			isa = PBXGroup;
 			children = (
+				5042F37A2337B7CF00D89478 /* AppReducer.swift */,
+				5001BEE1234DC9DF005C0B8A /* LaunchViewReducer.swift */,
 				50DE7A18233FB64B006C683E /* Home */,
 				50DE79BD233E6EA7006C683E /* Exchange */,
 				50DE7A17233FB644006C683E /* AnimeList */,
 				50DE7A16233FB63D006C683E /* Search */,
 				50DE7A14233FB624006C683E /* Setting */,
-				5042F37A2337B7CF00D89478 /* AppReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -761,6 +777,7 @@
 		5042F3612337A99200D89478 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5001BEE7234DEF23005C0B8A /* LaunchViewController.swift */,
 				5042F3632337AA0100D89478 /* Home */,
 				5042F3622337A9EB00D89478 /* Exchange */,
 				5042F3682337AC0600D89478 /* AnimeList */,
@@ -816,6 +833,7 @@
 				50A5968822C0B09100378AAB /* Login.storyboard */,
 				50A5968A22C0B11100378AAB /* SignUp.storyboard */,
 				50A5965622C0A04900378AAB /* Main.storyboard */,
+				5001BEE9234E0D9A005C0B8A /* Launch.storyboard */,
 				50A5965B22C0A04A00378AAB /* LaunchScreen.storyboard */,
 			);
 			path = UserInterface;
@@ -1018,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				5027DEE8233DB9F900F4818F /* SwinjectStoryboardExtension.swift */,
+				5001BEEB234E1609005C0B8A /* LaunchViewControllerInjector.swift */,
 				50DE7A0C233FB512006C683E /* Home */,
 				5042F3B72339D48E00D89478 /* Exchange */,
 				50DE7A0D233FB523006C683E /* AnimeList */,
@@ -1205,12 +1224,13 @@
 		50B380D323379BA40092B59C /* State */ = {
 			isa = PBXGroup;
 			children = (
+				50B380D0233799FE0092B59C /* AppState.swift */,
+				5001BEDF234DC8F3005C0B8A /* LaunchViewState.swift */,
 				50DE7A10233FB5C5006C683E /* Home */,
 				50DE79BC233E6E81006C683E /* Exchange */,
 				50DE7A11233FB5CF006C683E /* AnimeList */,
 				50DE7A12233FB5D8006C683E /* Search */,
 				50DE7A13233FB5E5006C683E /* Setting */,
-				50B380D0233799FE0092B59C /* AppState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -1227,12 +1247,13 @@
 		50B380D523379BC80092B59C /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				5042F3782337B78C00D89478 /* AppAction.swift */,
+				5001BEE3234DCB40005C0B8A /* LaunchViewAction.swift */,
 				50DE7A1F233FB6B5006C683E /* Home */,
 				50DE79C1233E6F0C006C683E /* Exchange */,
 				50DE7A1E233FB6AE006C683E /* AnimeList */,
 				50DE7A1D233FB6A9006C683E /* Search */,
 				50DE7A1C233FB6A3006C683E /* Setting */,
-				5042F3782337B78C00D89478 /* AppAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -2033,6 +2054,7 @@
 				3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */,
 				32A6411B22DC38CD002EF6F3 /* AnimeListCardCVCell.xib in Resources */,
 				50F9849322D47C7D00038A23 /* ExchangeAccept.storyboard in Resources */,
+				5001BEEA234E0D9A005C0B8A /* Launch.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
@@ -2301,6 +2323,7 @@
 				50DE7A21233FB731006C683E /* HomeViewState.swift in Sources */,
 				50FD22822342836A007F11E7 /* ProfileEditCellModel.swift in Sources */,
 				50DE7A832340F2D9006C683E /* ProfileEditViewReducer.swift in Sources */,
+				5001BEE6234DD19E005C0B8A /* LaunchViewActionCreator.swift in Sources */,
 				50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */,
 				50FD227D23418594007F11E7 /* CommonStateModel.swift in Sources */,
 				507DA937234BAB93001BCA6B /* FirebaseRequestInjector.swift in Sources */,
@@ -2308,6 +2331,7 @@
 				50DE7A2A233FB7D2006C683E /* HomeViewReducer.swift in Sources */,
 				509F60B82347041000F95B55 /* AnimeListCardViewAction.swift in Sources */,
 				507DA95C234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift in Sources */,
+				5001BEE4234DCB40005C0B8A /* LaunchViewAction.swift in Sources */,
 				50DE79B0233DD233006C683E /* AnimeModel.swift in Sources */,
 				50DE79A7233DCA6D006C683E /* P2PError.swift in Sources */,
 				50DE7FED23414070006C683E /* HomeHeaderViewReducer.swift in Sources */,
@@ -2331,6 +2355,7 @@
 				50DE7A28233FB77B006C683E /* SettingViewState.swift in Sources */,
 				50DE7998233DCA5E006C683E /* ExchangeSearchViewAction.swift in Sources */,
 				50DE7FEC23414067006C683E /* HomeHeaderViewAction.swift in Sources */,
+				5001BEE2234DC9DF005C0B8A /* LaunchViewReducer.swift in Sources */,
 				50FD2280234282B7007F11E7 /* ProfileEditSectionModel.swift in Sources */,
 				50DE7999233DCA5E006C683E /* P2PConnectAction.swift in Sources */,
 				507DA95B234CEBEF001BCA6B /* AnimeDetailInfoViewState.swift in Sources */,
@@ -2356,6 +2381,7 @@
 				509F60BE2347314700F95B55 /* AnimeCardCellModel.swift in Sources */,
 				50DE79B1233DD236006C683E /* AnimeEpisodeModel.swift in Sources */,
 				50FD22BA23438A00007F11E7 /* HomeArchiveListViewAction.swift in Sources */,
+				5001BEE0234DC8F3005C0B8A /* LaunchViewState.swift in Sources */,
 				50DE79AD233DD222006C683E /* PeerModel.swift in Sources */,
 				509F60BA2347044300F95B55 /* AnimeListTopViewAction.swift in Sources */,
 				50DE799D233DCA5E006C683E /* P2PConnectionReducer.swift in Sources */,
@@ -2398,6 +2424,7 @@
 				32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */,
 				50DE7A822340F1A0006C683E /* ProfileEditViewControllerInjecter.swift in Sources */,
 				50DE7FEF23414087006C683E /* HomeHeaderViewControllerInjecter.swift in Sources */,
+				5001BEE8234DEF23005C0B8A /* LaunchViewController.swift in Sources */,
 				50FD2299234341BE007F11E7 /* ExchangeCoordinator.swift in Sources */,
 				32A6410D22D5C8E2002EF6F3 /* AnimeDetailHeaderVC.swift in Sources */,
 				50FD229523434181007F11E7 /* AnimeListCoordinator.swift in Sources */,
@@ -2431,6 +2458,7 @@
 				50FD229023433FBB007F11E7 /* TabBarCoordinator.swift in Sources */,
 				507DA8A923489F65001BCA6B /* AnimediatePickerView.swift in Sources */,
 				50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */,
+				5001BEEC234E1609005C0B8A /* LaunchViewControllerInjector.swift in Sources */,
 				509D820C22C3710900BF813F /* SettingVC.swift in Sources */,
 				503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */,
 				32A6411522DC387E002EF6F3 /* AnimeListCardVC.swift in Sources */,

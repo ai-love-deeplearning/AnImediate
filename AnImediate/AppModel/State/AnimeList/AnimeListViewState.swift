@@ -11,5 +11,6 @@ import ReSwift
 public struct AnimeListViewState: StateType, Equatable {
      public internal(set) var topViewState = AnimeListTopViewState()
      public internal(set) var cardViewState = AnimeListCardViewState()
-     public internal(set) var detailViewState = AnimeDetailInfoViewState()
+     public internal(set) var detailInfoViewState = AnimeDetailInfoViewState()
+     public internal(set) var detailEpisodeViewState = AnimeDetailEpisodeViewState()
 }

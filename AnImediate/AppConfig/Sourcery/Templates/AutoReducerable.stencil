@@ -19,10 +19,6 @@ struct {{ type.name }}Reducer {
             return {{ type.name }}State()
         }
 
-        if action is AppAction.InitializeApplication {
-            return {{ type.name }}State()
-        }
-
         switch action {
 
         case is {{ type.name }}Action.Initialize:

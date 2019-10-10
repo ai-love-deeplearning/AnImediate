@@ -32,7 +32,7 @@ class AnimeDetailHeaderVC: UIViewController {
     private let store = RxStore(store: AppStore.instance.animeListStore)
     
     private var viewState: AnimeDetailInfoViewState {
-        return store.state.detailViewState
+        return store.state.detailInfoViewState
     }
     
     override func viewDidLoad() {
@@ -101,7 +101,7 @@ extension AnimeDetailHeaderVC: MXParallaxHeaderDelegate {
 
 private extension RxStore where AnyStateType == AnimeListViewState {
     var state: Driver<AnimeDetailInfoViewState> {
-        return stateDriver.mapDistinct { $0.detailViewState }
+        return stateDriver.mapDistinct { $0.detailInfoViewState }
     }
     
     var animeModel: Driver<AnimeModel> {

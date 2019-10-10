@@ -14,10 +14,6 @@ struct AnimeListCardViewReducer {
             return AnimeListCardViewState()
         }
 
-        if action is AppAction.InitializeApplication {
-            return AnimeListCardViewState()
-        }
-
         switch action {
 
         case let action as AnimeListCardViewAction.Initialize:

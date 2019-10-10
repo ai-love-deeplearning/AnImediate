@@ -42,10 +42,10 @@ public class AnimeModel: Object {
 //        return realm.objects(self).filter("seasonNameText == %@", AnimediateConfig.CurrentTerm)
 //    }
     
-    public static func read(id: String) -> AnimeModel {
+    public static func read(annictID: String) -> AnimeModel {
         let realm = try! Realm()
         
-        if let model = realm.object(ofType: self, forPrimaryKey: id) {
+        if let model = realm.object(ofType: self, forPrimaryKey: annictID) {
             return model
         }
         

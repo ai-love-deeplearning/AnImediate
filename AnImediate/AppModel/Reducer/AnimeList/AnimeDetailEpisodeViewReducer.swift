@@ -14,10 +14,6 @@ struct AnimeDetailEpisodeViewReducer {
             return AnimeDetailEpisodeViewState()
         }
 
-        if action is AppAction.InitializeApplication {
-            return AnimeDetailEpisodeViewState()
-        }
-
         switch action {
 
         case is AnimeDetailEpisodeViewAction.Initialize:

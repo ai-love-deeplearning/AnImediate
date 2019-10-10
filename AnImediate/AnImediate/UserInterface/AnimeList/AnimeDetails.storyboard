@@ -214,6 +214,7 @@
                         <outlet property="seasonLabel" destination="9k0-Om-cWe" id="BMN-My-Tnl"/>
                         <outlet property="similarCollectionView" destination="4vG-cA-sRr" id="Ylh-bq-FWw"/>
                         <outlet property="statusTextField" destination="Axn-Fn-9Oh" id="c9q-DR-b0N"/>
+                        <outlet property="synopsisLabel" destination="RnV-sz-eEa" id="c50-hQ-Cqw"/>
                         <outlet property="titleLabel" destination="AIi-5g-d5b" id="GPu-cn-Pg3"/>
                         <segue destination="3fp-zl-glm" kind="show" identifier="toDetails" id="PSy-5b-Vma"/>
                     </connections>

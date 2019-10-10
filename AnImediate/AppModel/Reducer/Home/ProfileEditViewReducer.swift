@@ -25,7 +25,7 @@ struct ProfileEditViewReducer {
         case let action as ProfileEditViewAction.CangeCropType:
             nextState.cropType = action.cropType
             nextState.error = nil
-            
+        // TODO:- RealmのisRegisteredを変更
         case let action as ProfileEditViewAction.Registered:
             nextState.isFirstEdit = false
             nextState.error = nil
@@ -33,11 +33,6 @@ struct ProfileEditViewReducer {
         default:
             break
         }
-/*
-        nextState.moduleState = ModuleReducer.handleAction(action: action, state: nextState.moduleState)
-
-        nextState.operation1ViewState = ProfileEditOperation1ViewReducer.handleAction(action: action, state: nextState.operation1ViewState)
-        nextState.acceptViewState = ProfileEditOperation2ViewReducer.handleAction(action: action, state: nextState.operation2ViewState)*/
 
         return nextState
     }
