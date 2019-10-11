@@ -12,29 +12,20 @@ import RealmSwift
 
 public class AnimeEpisodeModel: Object {
     @objc dynamic var id = ""
-    @objc dynamic var animeTitle = ""
-    @objc dynamic var episodeTitle = ""
-    @objc dynamic var sortNumber = 0
-    @objc dynamic var numberText = ""
-    @objc dynamic var anicctID = 0
+    @objc public dynamic var animeTitle = ""
+    @objc public dynamic var anicctID = 0
+    @objc public dynamic var episodeTitle = ""
+    @objc public dynamic var sortNumber = 0
+    @objc public dynamic var numberText = ""
     
     override public static func primaryKey() -> String? {
         return "id"
     }
     
-    public static func read(annictID: String) -> AnimeEpisodeModel {
+    // TODO:- annictIDをStringに変更(Firebaseから直す必要あり)
+    public static func read(annictID: String) -> Results<AnimeEpisodeModel>{
         let realm = try! Realm()
-        
-        if let model = realm.object(ofType: self, forPrimaryKey: annictID) {
-            return model
-        }
-        
-        let model = AnimeEpisodeModel()
-        try! realm.write {
-            realm.add(model, update: .modified)
-        }
-        return model
-        
+        return realm.objects(self).filter("anicctID == %@", Int(annictID)!)
     }
     
     public static func set(models: [AnimeEpisodeModel]) {
@@ -50,7 +41,7 @@ public class AnimeEpisodeModel: Object {
         self.id = value["id"] as? String ?? NSUUID().uuidString
         self.anicctID = value["animeId"] as? Int ?? 0
         self.animeTitle = value["animeTitle"] as? String ?? ""
-        self.episodeTitle = value["episodeTitle"] as? String ?? ""
+        self.episodeTitle = value["title"] as? String ?? ""
         self.sortNumber = value["sortNumber"] as? Int ?? 0
         self.numberText = value["numberText"] as? String ?? ""
     }

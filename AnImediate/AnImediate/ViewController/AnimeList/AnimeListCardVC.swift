@@ -208,9 +208,10 @@ extension AnimeListCardVC {
         
         animeCardTable.register(UINib(nibName: "AnimeCardTableCell", bundle: nil), forCellReuseIdentifier: "AnimeCardCell")
         
+        animeCardTable.tableFooterView = UIView(frame: .zero)
+        
         dataSource = RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>(
             configureCell: { _, tableView, indexPath, item in
-                // 引数名通り、与えられたデータを利用してcellを生成する
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeCardTableViewCell
 
                 cell.anime = item
@@ -224,11 +225,9 @@ extension AnimeListCardVC {
     
     // 初期表示用のデータフェッチする処理
     private func fetch() {
-        // sectionModelsを利用して
         Observable.just(sectionModels)
             .subscribe(onNext: { [weak self] _ in
                 guard let strongSelf = self else { return }
-                // dataRelayにデータを流し込む
                 strongSelf.dataRelay.accept(strongSelf.sectionModels)
             })
             .disposed(by: disposeBag)

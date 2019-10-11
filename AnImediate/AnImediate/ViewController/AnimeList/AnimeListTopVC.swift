@@ -26,8 +26,8 @@ protocol AnimeListTopVCDelegate: AnyObject {
 class AnimeListTopVC: UIViewController {
     
     @IBOutlet weak var recomCollectionView: UICollectionView!
-    @IBOutlet weak var currentTermCollectionView: UICollectionView!
-    @IBOutlet weak var rankingCollectionView: UICollectionView!
+    @IBOutlet weak var currentTermCollectionView: AnimeHorizontalCollectionView!
+    @IBOutlet weak var rankingCollectionView: AnimeHorizontalCollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var currentTermBtn: UIButton!
     @IBOutlet weak var rankingBtn: UIButton!
@@ -55,15 +55,15 @@ class AnimeListTopVC: UIViewController {
     }
     
     // TODO:- 各セクションモデルの実装
-    private var recomDataSource:  RxCollectionViewSectionedReloadDataSource<AnimeListRecomCollectionSectionModel>!
+    private var recomDataSource: RxCollectionViewSectionedReloadDataSource<AnimeListRecomCollectionSectionModel>!
     private var recomSectionModels: [AnimeListRecomCollectionSectionModel]!
     private var recomDataRelay = BehaviorRelay<[AnimeListRecomCollectionSectionModel]>(value: [])
     
-    private var currentDataSource:  RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
+    private var currentDataSource: RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
     private var currentSectionModels: [AnimeHorizontalCollectionSectionModel]!
     private var currentDataRelay = BehaviorRelay<[AnimeHorizontalCollectionSectionModel]>(value: [])
     
-    private var rankingDataSource:  RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
+    private var rankingDataSource: RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
     private var rankingSectionModels: [AnimeHorizontalCollectionSectionModel]!
     private var rankingDataRelay = BehaviorRelay<[AnimeHorizontalCollectionSectionModel]>(value: [])
     
@@ -80,15 +80,16 @@ class AnimeListTopVC: UIViewController {
         //self.store.dispatch(self.AnimeListTopViewActionCreator.getRanking(disposeBag: disposeBag))
         
 //        fetchRecom()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchRanking()
         fetchCurrentTerm()
         initCollectionViews()
         setupCCView()
-        setupCV(cv: self.currentTermCollectionView)
-        setupCV(cv: self.rankingCollectionView)
         bindViews()
         bindState()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -152,6 +153,7 @@ class AnimeListTopVC: UIViewController {
                 onNext: { [unowned self] indexPath in
                     guard let anime = self.currentSectionModels.first?.items[indexPath.row] else { return }
                     self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
+                    self.store.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
             })
             .disposed(by: disposeBag)
@@ -161,6 +163,7 @@ class AnimeListTopVC: UIViewController {
                 onNext: { [unowned self] indexPath in
                     guard let anime = self.rankingSectionModels.first?.items[indexPath.row] else { return }
                     self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
+                    self.store.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
             })
             .disposed(by: disposeBag)
@@ -235,18 +238,6 @@ class AnimeListTopVC: UIViewController {
                 self.recomCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
             }
         })
-    }
-    
-    private func setupCV(cv: UICollectionView) {
-        //cv.delegate = self
-        cv.showsHorizontalScrollIndicator = false
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: cv.bounds.width*0.25, height: cv.bounds.height)
-        layout.minimumLineSpacing = 0.3
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
-        cv.collectionViewLayout = layout
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

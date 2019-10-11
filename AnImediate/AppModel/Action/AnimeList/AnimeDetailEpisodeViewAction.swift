@@ -7,7 +7,10 @@ import ReSwift
 public struct AnimeDetailEpisodeViewAction {
 
     public struct Initialize: Action {
-        public init() {}
+        public let animeModel: AnimeModel
+        public init(animeModel: AnimeModel) {
+            self.animeModel = animeModel
+        }
     }
 
     public struct DismissErrorAlert: Action {

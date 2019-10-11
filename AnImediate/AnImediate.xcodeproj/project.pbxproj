@@ -239,6 +239,7 @@
 		50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */; };
 		50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */; };
 		50FE930E23501DD4003393AD /* AnimeHorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */; };
+		50FE93102350381B003393AD /* AnimeEpisodeTableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE930F2350381B003393AD /* AnimeEpisodeTableSectionModel.swift */; };
 		557CD37394327F89BF51A7D8 /* Pods_Any_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE223F1591F1D5CA65BB98E /* Pods_Any_AnImediate.framework */; };
 		5ECF8128982ED87265F52843 /* Pods_Any_AppConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87C7B6E01E6D8C196ED0C4 /* Pods_Any_AppConfig.framework */; };
 		705715626DFEB5B1BCF7A44C /* Pods_Any_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FB52A117CD72A29992CE7 /* Pods_Any_AnImediateTests.framework */; };
@@ -607,6 +608,7 @@
 		50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveCellModel.swift; sourceTree = "<group>"; };
 		50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCardCell.swift; sourceTree = "<group>"; };
 		50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHorizontalCollectionView.swift; sourceTree = "<group>"; };
+		50FE930F2350381B003393AD /* AnimeEpisodeTableSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeEpisodeTableSectionModel.swift; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		616AEF9A7C106E0EBAFE5F06 /* Pods-Any-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1605,6 +1607,7 @@
 				507DA93A234C2511001BCA6B /* AnimeHorizontalCellModel.swift */,
 				507DA93C234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift */,
 				507DA93E234C25B3001BCA6B /* AnimeListRecomCellModel.swift */,
+				50FE930F2350381B003393AD /* AnimeEpisodeTableSectionModel.swift */,
 			);
 			path = RxDataSource;
 			sourceTree = "<group>";
@@ -2324,6 +2327,7 @@
 				507DA8AA2349FF41001BCA6B /* FirebaseRequest.swift in Sources */,
 				50DE79AC233DD21F006C683E /* AccountModel.swift in Sources */,
 				50DE7A21233FB731006C683E /* HomeViewState.swift in Sources */,
+				50FE93102350381B003393AD /* AnimeEpisodeTableSectionModel.swift in Sources */,
 				50FD22822342836A007F11E7 /* ProfileEditCellModel.swift in Sources */,
 				50DE7A832340F2D9006C683E /* ProfileEditViewReducer.swift in Sources */,
 				5001BEE6234DD19E005C0B8A /* LaunchViewActionCreator.swift in Sources */,

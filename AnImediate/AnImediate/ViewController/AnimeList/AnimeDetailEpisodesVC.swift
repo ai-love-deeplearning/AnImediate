@@ -9,6 +9,10 @@
 import AppConfig
 import AppModel
 import UIKit
+import ReSwift
+import RxSwift
+import RxCocoa
+import RxDataSources
 import RealmSwift
 
 class AnimeDetailEpisodesVC: UIViewController {
@@ -16,57 +20,90 @@ class AnimeDetailEpisodesVC: UIViewController {
     @IBOutlet weak var episodeTableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
     
-    var episodes: [AnimeEpisodeModel] = []
-    var animeId: Int = 0
+    private var disposeBag = DisposeBag()
+    
+    private let store = RxStore(store: AppStore.instance.animeListStore)
+    
+    private var viewState: AnimeDetailEpisodeViewState {
+        return store.state.detailEpisodeViewState
+    }
+    
+    private var episodeDataSource: RxTableViewSectionedReloadDataSource<AnimeEpisodeTableSectionModel>!
+    private var episodeSectionModels: [AnimeEpisodeTableSectionModel]!
+    private var episodeDataRelay = BehaviorRelay<[AnimeEpisodeTableSectionModel]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchEpisode()
-        setupTableView()
     }
     
-    private func fetchEpisode() {
-        // TODO:- firebaseRequestで行う
-        // Realmでreadして該当データがあるか検索
-        // あったらそれを表示、なかったらActionCreatorをdispatch
-        // 入ってきた値をRxStoreでbindしてdatasourceに流す
-        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
-        let seedRealm = try! Realm(configuration: config)
-        
-        self.animeId = Int(UserDefaults.standard.string(forKey: "animeId")!)!
-        let episodesResult = seedRealm.objects(AnimeEpisodeModel.self).filter("animeId == %@", self.animeId)
-        
-        episodesResult.forEach {
-            self.episodes.append($0)
-        }
-        //self.episodes.sort {$0.sortNumber < $1.sortNumber}
-        
-        if !self.episodes.isEmpty {
-            self.emptyView.isHidden = true
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        disposeBag = DisposeBag()
+        initSectionModels()
+        initTable()
+        bindViews()
     }
     
-    private func setupTableView() {
-        
-        self.episodeTableView.delegate = self
-        self.episodeTableView.dataSource = self
-        self.episodeTableView.tableFooterView = UIView(frame: .zero)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        disposeBag = DisposeBag()
+    }
+    
+    private func bindViews() {
+        episodeDataRelay.asObservable()
+            .bind(to: episodeTableView.rx.items(dataSource: episodeDataSource))
+            .disposed(by: disposeBag)
     }
     
 }
 
-extension AnimeDetailEpisodesVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.episodes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
-        /*
-        cell.textLabel?.text = self.episodes[indexPath.row].numberText + "：" + self.episodes[indexPath.row].title*/
+extension AnimeDetailEpisodesVC {
+    private func initSectionModels() {
+        let animeID = viewState.animeModel?.annictID
+        let items = Array(AnimeEpisodeModel.read(annictID: animeID!))
         
-        return cell
+        emptyView.isHidden = !items.isEmpty
+        
+        episodeSectionModels = [AnimeEpisodeTableSectionModel(items: items)]
+        
+        Observable.just(episodeSectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.episodeDataRelay.accept(strongSelf.episodeSectionModels)
+            })
+            .disposed(by: disposeBag)
     }
+
+    private func initTable() {
+        
+        episodeTableView.tableFooterView = UIView(frame: .zero)
+        episodeTableView.allowsSelection = false
+        
+        episodeDataSource = RxTableViewSectionedReloadDataSource<AnimeEpisodeTableSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: IndexPath(row: indexPath.row, section: 0))
+                
+                cell.textLabel?.text = item.numberText + "：" + item.episodeTitle
+                
+                return cell
+        }, canEditRowAtIndexPath: { _, _ in
+            return true
+        })
+    }
+
+}
+
+private extension RxStore where AnyStateType == AnimeListViewState {
+    var state: Driver<AnimeDetailEpisodeViewState> {
+        return stateDriver.mapDistinct { $0.detailEpisodeViewState }
+    }
+    
+    var animeModel: Driver<AnimeModel> {
+        return state.mapDistinct { $0.animeModel }.skipNil()
+    }
+    
+    var error: Driver<AnimediateError> {
+        return state.mapDistinct { $0.error }.skipNil()
+    }
+    
 }

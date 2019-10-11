@@ -16,8 +16,9 @@ struct AnimeDetailEpisodeViewReducer {
 
         switch action {
 
-        case is AnimeDetailEpisodeViewAction.Initialize:
+        case let action as AnimeDetailEpisodeViewAction.Initialize:
             nextState = AnimeDetailEpisodeViewState()
+            nextState.animeModel = action.animeModel
 
         case is AnimeDetailEpisodeViewAction.DismissErrorAlert:
             nextState.error = nil

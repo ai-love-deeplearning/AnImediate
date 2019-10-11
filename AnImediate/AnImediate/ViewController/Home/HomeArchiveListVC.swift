@@ -114,6 +114,9 @@ extension HomeArchiveListVC {
     }
     
     private func initTable() {
+        
+        archiveTable.tableFooterView = UIView(frame: .zero)
+        
         dataSource = RxTableViewSectionedReloadDataSource<HomeArchiveSectionModel>(
             configureCell: { _, tableView, indexPath, item in
                 // 引数名通り、与えられたデータを利用してcellを生成する

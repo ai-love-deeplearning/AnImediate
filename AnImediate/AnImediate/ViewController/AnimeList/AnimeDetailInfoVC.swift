@@ -8,6 +8,7 @@
 
 import AppConfig
 import AppModel
+import ReSwift
 import RxSwift
 import RxCocoa
 import RxDataSources
@@ -22,14 +23,6 @@ class AnimeDetailInfoVC: UIViewController {
     @IBOutlet private weak var similarCollectionView: AnimeHorizontalCollectionView!
     @IBOutlet weak var similarBtn: UIButton!
     
-    let realm = try! Realm()
-    let now = NSDate()
-    let formatter = DateFormatter()
-    
-    var dateString = ""
-    var animeId = ""
-    var pickerView = UIPickerView()
-    
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.animeListStore)
@@ -38,12 +31,17 @@ class AnimeDetailInfoVC: UIViewController {
         return store.state.detailInfoViewState
     }
     
-    private var similarDataSource:  RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
+    private var similarDataSource: RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
     private var similarSectionModels: [AnimeHorizontalCollectionSectionModel]!
     private var similarDataRelay = BehaviorRelay<[AnimeHorizontalCollectionSectionModel]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        disposeBag = DisposeBag()
         fetchSimilar()
         initCollectionViews()
         bindViews()
@@ -71,11 +69,11 @@ class AnimeDetailInfoVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        statusTextField.rx.text.orEmpty.asObservable()
-            .subscribe { [unowned self] in
-                // TODO:- Pickerならいらない説
-            }
-            .disposed(by: disposeBag)
+//        statusTextField.rx.text.orEmpty.asObservable()
+//            .subscribe { [unowned self] in
+//                // TODO:- Pickerならいらない説
+//            }
+//            .disposed(by: disposeBag)
         
         statusTextField.rx.controlEvent(.editingDidEnd).asDriver()
             .drive(onNext: { [weak self] in
@@ -100,7 +98,6 @@ class AnimeDetailInfoVC: UIViewController {
     private func bindState() {
         
         if viewState.animeModel != nil {
-            self.animeId = viewState.animeModel!.annictID
             titleLabel.text = viewState.animeModel!.title
             synopsisLabel.text = viewState.animeModel!.synopsis
             seasonLabel.text = "放送年：" + viewState.animeModel!.seasonNameText
@@ -109,7 +106,6 @@ class AnimeDetailInfoVC: UIViewController {
         store.animeModel
             .drive(
                 onNext: { [unowned self] anime in
-                    self.animeId = self.viewState.animeModel!.annictID
                     self.titleLabel.text = self.viewState.animeModel!.title
                     self.synopsisLabel.text = self.viewState.animeModel!.synopsis
                     self.seasonLabel.text = "放送年：" + self.viewState.animeModel!.seasonNameText
