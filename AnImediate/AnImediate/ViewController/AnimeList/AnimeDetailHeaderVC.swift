@@ -55,6 +55,11 @@ class AnimeDetailHeaderVC: UIViewController {
         animeImageTopConstraint.constant = statusBarHeight+navBarHeight
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        disposeBag = DisposeBag()
+    }
+    
     private func bindState() {
         if viewState.animeModel != nil {
             self.imageURL = viewState.animeModel!.imageUrl

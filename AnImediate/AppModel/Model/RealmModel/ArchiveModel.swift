@@ -24,23 +24,14 @@ public class ArchiveModel: Object, NSCoding {
         return "id"
     }
     
-    public static func read(id: String) -> Results<ArchiveModel>{
+    public static func read(uid: String) -> Results<ArchiveModel>{
         let realm = try! Realm()
-        return realm.objects(self).filter("userID == %@", id)
-    }
-    
-    public static func readAsData(id: String) -> Data? {
-        let model = read(id: id)
-        guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false) else {
-            // TODO:- 上手いエラーハンドリングを考える。
-            return nil
-        }
-        return encoded
+        return realm.objects(self).filter("userID == %@", uid)
     }
     
     // TODO:- Dataとして読めるのは自分のデータだけ
     public static func readAsData(uid: String) -> Data? {
-        let model = read(id: uid)
+        let model = read(uid: uid)
         guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false) else {
             // TODO:- 上手いエラーハンドリングを考える。
             return nil
@@ -51,7 +42,7 @@ public class ArchiveModel: Object, NSCoding {
     
     public static func set(userID: String, annictID: String, animeStatus: String) {
         let realm = try! Realm()
-        let model = read(id: userID)
+        let model = read(uid: userID)
         
         let archive = ArchiveModel()
         
@@ -70,19 +61,32 @@ public class ArchiveModel: Object, NSCoding {
         }
     }
     
+    public static func set(archive: ArchiveModel) {
+        let realm = try! Realm()
+        let model = read(uid: archive.userID)
+        
+        if model.isEmpty {
+            archive.createdAt = AnimediateConfig.dateString
+        } else {
+            archive.createdAt = AnimediateConfig.dateString
+        }
+        
+        try! realm.write {
+            realm.add(archive, update: .modified)
+        }
+        
+    }
+    
     public static func set(archives: [ArchiveModel]) {
         let realm = try! Realm()
-        let model = read(id: archives.first!.userID)
+        let model = read(uid: archives.first!.userID)
         
         archives.forEach {
             $0.id = NSUUID().uuidString
         }
         
         try! realm.write {
-            if !model.isEmpty {
-                realm.delete(model)
-            }
-            realm.add(archives)
+            realm.add(archives, update: .modified)
         }
         
     }

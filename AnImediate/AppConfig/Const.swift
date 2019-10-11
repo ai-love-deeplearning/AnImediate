@@ -98,4 +98,6 @@ public struct AnimeStatusPickerItems {
 public enum AnimeCardContentType: String {
     case currentTerm = "今期"
     case ranking = "ランキング"
+    case similar = "似ている作品"
+    case broadcast = "放送年"
 }

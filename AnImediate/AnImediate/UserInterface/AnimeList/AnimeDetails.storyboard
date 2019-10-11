@@ -101,7 +101,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4vG-cA-sRr">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4vG-cA-sRr" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="465" width="414" height="124"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LRS-xQ-q3i">
@@ -111,7 +111,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="aU7-bh-566" userLabel="similarCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="similarCell" id="aU7-bh-566" userLabel="similarCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -212,6 +212,7 @@
                     <size key="freeformSize" width="414" height="730"/>
                     <connections>
                         <outlet property="seasonLabel" destination="9k0-Om-cWe" id="BMN-My-Tnl"/>
+                        <outlet property="similarBtn" destination="Qyp-m3-SGT" id="DXg-3z-1m8"/>
                         <outlet property="similarCollectionView" destination="4vG-cA-sRr" id="Ylh-bq-FWw"/>
                         <outlet property="statusTextField" destination="Axn-Fn-9Oh" id="c9q-DR-b0N"/>
                         <outlet property="synopsisLabel" destination="RnV-sz-eEa" id="c50-hQ-Cqw"/>

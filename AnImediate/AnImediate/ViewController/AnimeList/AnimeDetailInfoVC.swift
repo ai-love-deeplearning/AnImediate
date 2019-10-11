@@ -19,7 +19,8 @@ class AnimeDetailInfoVC: UIViewController {
     @IBOutlet private weak var synopsisLabel: UILabel!
     @IBOutlet private weak var seasonLabel: UILabel!
     @IBOutlet private weak var statusTextField: AnimeStatusTextField!
-    @IBOutlet private weak var similarCollectionView: UICollectionView!
+    @IBOutlet private weak var similarCollectionView: AnimeHorizontalCollectionView!
+    @IBOutlet weak var similarBtn: UIButton!
     
     let realm = try! Realm()
     let now = NSDate()
@@ -28,13 +29,6 @@ class AnimeDetailInfoVC: UIViewController {
     var dateString = ""
     var animeId = ""
     var pickerView = UIPickerView()
-    //var watchData = WatchData()
-    /*
-    private var similarAnimeModels = Array<AnimeModel>(repeating: AnimeModel(), count: 10) {
-        didSet {
-            similarCollectionView.reloadData()
-        }
-    }*/
     
     private var disposeBag = DisposeBag()
     
@@ -44,24 +38,63 @@ class AnimeDetailInfoVC: UIViewController {
         return store.state.detailInfoViewState
     }
     
+    private var similarDataSource:  RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>!
+    private var similarSectionModels: [AnimeHorizontalCollectionSectionModel]!
+    private var similarDataRelay = BehaviorRelay<[AnimeHorizontalCollectionSectionModel]>(value: [])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bindState()
-        
-        /*
-        let userInfo = realm.objects(PeerModel.self)
-        let results = realm.objects(ArchiveModel.self).filter("animeId == %@ && userId == %@", self.animeId, userInfo[0].id)
-        if results.count != 0 {
-            self.statusTextField.text = results[0].animeStatus
-        }
-        
-        similarCollectionView.delegate = self
-        similarCollectionView.dataSource = self
-        
         fetchSimilar()
-        setupPickerView()
-        setupCV(cv: similarCollectionView)*/
+        initCollectionViews()
+        bindViews()
+        bindState()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        disposeBag = DisposeBag()
+    }
+    
+    private func bindViews() {
+        similarCollectionView.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "similarCell")
+        
+        similarDataRelay.asObservable()
+            .bind(to: similarCollectionView.rx.items(dataSource: similarDataSource))
+            .disposed(by: disposeBag)
+        
+        similarCollectionView.rx.itemSelected
+            .subscribe(
+                onNext: { [unowned self] indexPath in
+                    guard let anime = self.similarSectionModels.first?.items[indexPath.row] else { return }
+                    self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
+                    self.performSegue(withIdentifier: "toDetails", sender: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        statusTextField.rx.text.orEmpty.asObservable()
+            .subscribe { [unowned self] in
+                // TODO:- Pickerならいらない説
+            }
+            .disposed(by: disposeBag)
+        
+        statusTextField.rx.controlEvent(.editingDidEnd).asDriver()
+            .drive(onNext: { [weak self] in
+                guard let strongSelf = self else { return }
+                if strongSelf.statusTextField.text != "" {
+                    let userTD = AccountModel.read().userID
+                    let archive = ArchiveModel.read(uid: userTD).filter("annictID == %@", strongSelf.viewState.animeModel?.annictID)
+                    
+                    ArchiveModel.set(archive: archive.first!)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        similarBtn.rx.tap.asDriver()
+            .coolTime()
+            .drive(onNext: {
+                self.store.dispatch(AnimeListCardViewAction.Initialize(contentType: .ranking))
+                self.performSegue(withIdentifier: "toDetails", sender: nil)
+            }).disposed(by: disposeBag)
     }
     
     private func bindState() {
@@ -85,40 +118,12 @@ class AnimeDetailInfoVC: UIViewController {
         
     }
     
-    private func fetchSimilar() {
-        /*
-        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
-        let seedRealm = try! Realm(configuration: config)
-        
-        let works = seedRealm.objects(AnimeModel.self)
-        
-        for i in 0..<self.similarAnimeModels.count {
-            self.similarAnimeModels[i] = works[Int.random(in: 0..<1000)]
-        }*/
-    }
-    
-    private func setupCV(cv: UICollectionView) {
-        let layout = UICollectionViewFlowLayout()
-        
-        layout.itemSize = CGSize(width: cv.bounds.width*0.25, height: cv.bounds.height)
-        layout.minimumLineSpacing = 0.3
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
-        
-        cv.delegate = self
-        cv.dataSource = self
-        cv.showsHorizontalScrollIndicator = false
-        cv.register(UINib(nibName: "ThisTermCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "thisTermCell")
-        cv.collectionViewLayout = layout
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "toDetails":
             break
         case "toSimilar":
             let nextVC = segue.destination as! AnimeListCardVC
-            //nextVC.works = self.similarAnimeModels
             nextVC.navigationItem.title = "類似作品"
             break
         default:
@@ -127,64 +132,37 @@ class AnimeDetailInfoVC: UIViewController {
     }
 }
 
-extension AnimeDetailInfoVC: UICollectionViewDelegate, UIPickerViewDelegate {
+extension AnimeDetailInfoVC {
     
-    @objc func done() {
-        self.statusTextField.endEditing(true)
+    private func fetchSimilar() {
+        // TODO:- 似ている作品のfetchメソッドを実装
+        let similarItems = Array(AnimeModel.readAllRanking()[0 ..< 50])
         
-        self.formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        self.dateString = self.formatter.string(from: now as Date)
+        similarSectionModels = [AnimeHorizontalCollectionSectionModel(items: similarItems)]
         
-        /*
-        if self.statusTextField.text != "" {
-            let userInfo = realm.objects(PeerModel.self)
-            let results = realm.objects(ArchiveModel.self).filter("animeId == %@ && userId == %@", self.animeId, userInfo[0].id)
-            
-            if results.isEmpty {
-                self.watchData.id = NSUUID().uuidString
-                self.watchData.userId = userInfo[0].id
-                self.watchData.animeId = self.animeId
-                self.watchData.animeStatus = self.statusTextField.text ?? ""
-                self.watchData.createdAt = self.dateString
+        Observable.just(similarSectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.similarDataRelay.accept(strongSelf.similarSectionModels)
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func initCollectionViews() {
+        similarDataSource = RxCollectionViewSectionedReloadDataSource<AnimeHorizontalCollectionSectionModel>(
+            configureCell: { [weak self] (_, collectinView, indexPath, item) in
+                guard let strongSelf = self else { return UICollectionViewCell() }
+                // 引数名通り、与えられたデータを利用してcellを生成する
+                let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "similarCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeHorizontalCollectionViewCell
                 
-                try! realm.write {
-                    realm.add(watchData)
-                }
+                cell.setData(anime: item)
                 
-            } else {
-                try! realm.write {
-                    results[0].animeStatus = self.statusTextField.text ?? ""
-                    results[0].udatedAt = self.dateString
-                }
-            }
-        }*/
+                return cell
+        })
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        _ = similarCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! AnimeHorizontalCollectionViewCell
-        //let similarAnimeModel = similarAnimeModels[indexPath.row]
-        
-        //cell.bindData(work: similarAnimeModel)
-        performSegue(withIdentifier: "toDetails", sender: nil)
-    }
-}
-
-extension AnimeDetailInfoVC: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return similarAnimeModels.count
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = similarCollectionView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: indexPath) as! AnimeHorizontalCollectionViewCell
-        //let similarAnimeModel = similarAnimeModels[indexPath.row]
-        
-        //cell.bindData(work: similarAnimeModel)
-        
-        return cell
-    }
 }
 
 private extension RxStore where AnyStateType == AnimeListViewState {

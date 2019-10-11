@@ -51,13 +51,18 @@ class AnimeListCardVC: UIViewController {
         bindState()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        disposeBag = DisposeBag()
+    }
+    
     private func bindViews() {
         
         dataRelay.asObservable()
             .bind(to: animeCardTable.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        // アイテム削除時
+        // TODO:- アイテムの削除を無効化したい
         animeCardTable.rx.itemDeleted
             .subscribe(onNext: { [weak self] indexPath in
                 guard let strongSelf = self, let sectionModel = strongSelf.sectionModels.first else { return }
@@ -186,6 +191,12 @@ extension AnimeListCardVC {
         case .currentTerm:
             items = Array(AnimeModel.readCurrentTerm())
         case .ranking:
+            items = Array(AnimeModel.readAllRanking())
+        case .similar:
+            // TODO:- 似ている作品取得メソッドを実装
+            items = Array(AnimeModel.readAllRanking())
+        case .broadcast:
+            // TODO:- 放送年取得メソッドを実装
             items = Array(AnimeModel.readAllRanking())
         }
         

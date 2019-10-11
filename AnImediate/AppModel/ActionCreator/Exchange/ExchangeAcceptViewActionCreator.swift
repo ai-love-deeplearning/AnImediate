@@ -28,7 +28,7 @@ public class ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable {
         return { [weak self] state, store, callback in
             callback { _, _ in ExchangeAcceptViewAction.SendArchiveModel() }
             
-            self?.connector.sendArchiveModel(data: ArchiveModel.readAsData(id: AccountModel.read().id))
+            self?.connector.sendArchiveModel(data: ArchiveModel.readAsData(uid: AccountModel.read().id))
                 .subscribe(
                     onSuccess: { _ in
                         let action = P2PConnectAction.SendArchiveModelSuccess()

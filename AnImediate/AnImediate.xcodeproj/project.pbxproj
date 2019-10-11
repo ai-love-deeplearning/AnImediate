@@ -238,6 +238,7 @@
 		50FD22BF2343A018007F11E7 /* HomeArchiveSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */; };
 		50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */; };
 		50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */; };
+		50FE930E23501DD4003393AD /* AnimeHorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */; };
 		557CD37394327F89BF51A7D8 /* Pods_Any_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE223F1591F1D5CA65BB98E /* Pods_Any_AnImediate.framework */; };
 		5ECF8128982ED87265F52843 /* Pods_Any_AppConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87C7B6E01E6D8C196ED0C4 /* Pods_Any_AppConfig.framework */; };
 		705715626DFEB5B1BCF7A44C /* Pods_Any_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FB52A117CD72A29992CE7 /* Pods_Any_AnImediateTests.framework */; };
@@ -605,6 +606,7 @@
 		50FD22BE2343A018007F11E7 /* HomeArchiveSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveSectionModel.swift; sourceTree = "<group>"; };
 		50FD22C02343A02B007F11E7 /* HomeArchiveCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveCellModel.swift; sourceTree = "<group>"; };
 		50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCardCell.swift; sourceTree = "<group>"; };
+		50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHorizontalCollectionView.swift; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		616AEF9A7C106E0EBAFE5F06 /* Pods-Any-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1097,6 +1099,7 @@
 			children = (
 				507DA8A823489F65001BCA6B /* AnimediatePickerView.swift */,
 				507DA8A523489A2C001BCA6B /* AnimeStatusTextFiewld.swift */,
+				50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -2442,6 +2445,7 @@
 				3226CD2922D583B80090937F /* AnimeDetailInfoVC.swift in Sources */,
 				50DE7A752340B73E006C683E /* UIImageExtension.swift in Sources */,
 				50DE7A38233FBB96006C683E /* SettingViewControllerInjector.swift in Sources */,
+				50FE930E23501DD4003393AD /* AnimeHorizontalCollectionView.swift in Sources */,
 				50FD228923430946007F11E7 /* AppCoordinator.swift in Sources */,
 				50DE7A0B233F9DE4006C683E /* CollectionExtension.swift in Sources */,
 				50FD229B234341CF007F11E7 /* HomeCoordinator.swift in Sources */,
