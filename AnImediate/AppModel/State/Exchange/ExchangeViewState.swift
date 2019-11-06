@@ -12,5 +12,7 @@ public struct ExchangeViewState: StateType, Equatable {
     public internal(set) var p2pConnectionState = P2PConnectionState()
     public internal(set) var searchViewState = ExchangeSearchViewState()
     public internal(set) var acceptViewState = ExchangeAcceptViewState()
+    public internal(set) var topViewState = ExchangeTopViewState()
+    public internal(set) var resultViewState = ExchangeResultViewState()
 }
 

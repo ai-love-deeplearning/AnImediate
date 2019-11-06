@@ -36,6 +36,11 @@ class AnimeHorizontalCollectionViewCell: UICollectionViewCell {
         iconImageView.cornerRadius = iconImageView.bounds.width / 2
     }
     
+    public func setData(user: PeerModel) {
+         self.titleLabel.text = user.name
+         self.iconImageView.image = user.icon
+    }
+    
     private func setIconImageView(imageUrlString: String) {
         guard let iconImageUrl = URL(string: imageUrlString) else {return}
         let session = URLSession(configuration: .default)

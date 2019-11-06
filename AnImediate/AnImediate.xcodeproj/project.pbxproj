@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */; };
-		321C6E2F22DC68FA00757F83 /* ResultScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */; };
+		321C6E2F22DC68FA00757F83 /* ExchangeResultTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2E22DC68FA00757F83 /* ExchangeResultTopVC.swift */; };
 		321C6E3322DC866A00757F83 /* ResultMeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */; };
-		321C6E3522DC869000757F83 /* ResultRecommCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */; };
+		321C6E3522DC869000757F83 /* ExchangeResultCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3422DC869000757F83 /* ExchangeResultCardVC.swift */; };
 		321C6E3722DC86B500757F83 /* ResultYouCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */; };
 		321C6E3922DC86D300757F83 /* ResultBothCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */; };
 		321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */; };
@@ -32,8 +32,8 @@
 		32A6411722DC389A002EF6F3 /* AnimeListCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */; };
 		32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */; };
 		32A6411B22DC38CD002EF6F3 /* AnimeListCardCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A6411922DC38CD002EF6F3 /* AnimeListCardCVCell.xib */; };
-		32A6411D22DC53CB002EF6F3 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A6411C22DC53CB002EF6F3 /* Result.storyboard */; };
-		32A6411F22DC57AD002EF6F3 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411E22DC57AD002EF6F3 /* ResultVC.swift */; };
+		32A6411D22DC53CB002EF6F3 /* Exchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A6411C22DC53CB002EF6F3 /* Exchange.storyboard */; };
+		32A6411F22DC57AD002EF6F3 /* ExchangeTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411E22DC57AD002EF6F3 /* ExchangeTopVC.swift */; };
 		32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA22B22CB218800BD5A76 /* SearchVC.swift */; };
 		32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA22D22CB219A00BD5A76 /* Search.storyboard */; };
 		32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */; };
@@ -240,6 +240,16 @@
 		50FD22C32343AB44007F11E7 /* ArchiveCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */; };
 		50FE930E23501DD4003393AD /* AnimeHorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */; };
 		50FE93102350381B003393AD /* AnimeEpisodeTableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE930F2350381B003393AD /* AnimeEpisodeTableSectionModel.swift */; };
+		50FE931223506DAD003393AD /* ExchangeVCSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE931123506DAD003393AD /* ExchangeVCSource.swift */; };
+		50FE931B23506F24003393AD /* ExchangeTopViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE931523506EEE003393AD /* ExchangeTopViewAction.swift */; };
+		50FE931C23506F2A003393AD /* ExchangeTopViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE931323506EED003393AD /* ExchangeTopViewActionCreator.swift */; };
+		50FE931D23506F3E003393AD /* ExchangeTopViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE931423506EEE003393AD /* ExchangeTopViewReducer.swift */; };
+		50FE931E23506F46003393AD /* ExchangeTopViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE931623506EEE003393AD /* ExchangeTopViewState.swift */; };
+		50FE935E23556269003393AD /* PeerHorizontalCollectionSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE935D23556269003393AD /* PeerHorizontalCollectionSectionModel.swift */; };
+		50FE93672355AE26003393AD /* ExchangeResultViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE93602355AE18003393AD /* ExchangeResultViewAction.swift */; };
+		50FE93682355AE38003393AD /* ExchangeResultViewActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE935F2355AE18003393AD /* ExchangeResultViewActionCreator.swift */; };
+		50FE93692355AE4F003393AD /* ExchangeResultViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE93622355AE19003393AD /* ExchangeResultViewReducer.swift */; };
+		50FE936A2355AE56003393AD /* ExchangeResultViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE93612355AE19003393AD /* ExchangeResultViewState.swift */; };
 		557CD37394327F89BF51A7D8 /* Pods_Any_AnImediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE223F1591F1D5CA65BB98E /* Pods_Any_AnImediate.framework */; };
 		5ECF8128982ED87265F52843 /* Pods_Any_AppConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87C7B6E01E6D8C196ED0C4 /* Pods_Any_AppConfig.framework */; };
 		705715626DFEB5B1BCF7A44C /* Pods_Any_AnImediateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FB52A117CD72A29992CE7 /* Pods_Any_AnImediateTests.framework */; };
@@ -360,9 +370,9 @@
 		2D3A3F58E211127E5D64169D /* Pods-Any-RxMultiPeerWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-RxMultiPeerWrapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-RxMultiPeerWrapper/Pods-Any-RxMultiPeerWrapper.release.xcconfig"; sourceTree = "<group>"; };
 		3067F451DF4B9122A84C7A8D /* Pods-Any-AnImediateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderVC.swift; sourceTree = "<group>"; };
-		321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScrollVC.swift; sourceTree = "<group>"; };
+		321C6E2E22DC68FA00757F83 /* ExchangeResultTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultTopVC.swift; sourceTree = "<group>"; };
 		321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMeCardVC.swift; sourceTree = "<group>"; };
-		321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRecommCardVC.swift; sourceTree = "<group>"; };
+		321C6E3422DC869000757F83 /* ExchangeResultCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultCardVC.swift; sourceTree = "<group>"; };
 		321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultYouCardVC.swift; sourceTree = "<group>"; };
 		321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBothCardVC.swift; sourceTree = "<group>"; };
 		321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultUserCVCell.swift; sourceTree = "<group>"; };
@@ -385,8 +395,8 @@
 		32A6411622DC389A002EF6F3 /* AnimeListCard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeListCard.storyboard; sourceTree = "<group>"; };
 		32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCardCVCell.swift; sourceTree = "<group>"; };
 		32A6411922DC38CD002EF6F3 /* AnimeListCardCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeListCardCVCell.xib; sourceTree = "<group>"; };
-		32A6411C22DC53CB002EF6F3 /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
-		32A6411E22DC57AD002EF6F3 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		32A6411C22DC53CB002EF6F3 /* Exchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exchange.storyboard; sourceTree = "<group>"; };
+		32A6411E22DC57AD002EF6F3 /* ExchangeTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTopVC.swift; sourceTree = "<group>"; };
 		32CDA22B22CB218800BD5A76 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		32CDA22D22CB219A00BD5A76 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
@@ -609,6 +619,16 @@
 		50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCardCell.swift; sourceTree = "<group>"; };
 		50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHorizontalCollectionView.swift; sourceTree = "<group>"; };
 		50FE930F2350381B003393AD /* AnimeEpisodeTableSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeEpisodeTableSectionModel.swift; sourceTree = "<group>"; };
+		50FE931123506DAD003393AD /* ExchangeVCSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVCSource.swift; sourceTree = "<group>"; };
+		50FE931323506EED003393AD /* ExchangeTopViewActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeTopViewActionCreator.swift; sourceTree = "<group>"; };
+		50FE931423506EEE003393AD /* ExchangeTopViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeTopViewReducer.swift; sourceTree = "<group>"; };
+		50FE931523506EEE003393AD /* ExchangeTopViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeTopViewAction.swift; sourceTree = "<group>"; };
+		50FE931623506EEE003393AD /* ExchangeTopViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeTopViewState.swift; sourceTree = "<group>"; };
+		50FE935D23556269003393AD /* PeerHorizontalCollectionSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerHorizontalCollectionSectionModel.swift; sourceTree = "<group>"; };
+		50FE935F2355AE18003393AD /* ExchangeResultViewActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeResultViewActionCreator.swift; sourceTree = "<group>"; };
+		50FE93602355AE18003393AD /* ExchangeResultViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeResultViewAction.swift; sourceTree = "<group>"; };
+		50FE93612355AE19003393AD /* ExchangeResultViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeResultViewState.swift; sourceTree = "<group>"; };
+		50FE93622355AE19003393AD /* ExchangeResultViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeResultViewReducer.swift; sourceTree = "<group>"; };
 		57C2D368C58BA28ABCD1956B /* Pods-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppConfig/Pods-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		60F914549C0680DE6E18F317 /* Pods-All-AnImediate-AppConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-AnImediate-AppConfig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-AnImediate-AppConfig/Pods-All-AnImediate-AppConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		616AEF9A7C106E0EBAFE5F06 /* Pods-Any-AnImediateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AnImediateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AnImediateTests/Pods-Any-AnImediateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -794,14 +814,13 @@
 		5042F3622337A9EB00D89478 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				32A6411E22DC57AD002EF6F3 /* ExchangeTopVC.swift */,
 				500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */,
 				50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */,
 				50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */,
-				32A6411E22DC57AD002EF6F3 /* ResultVC.swift */,
-				321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */,
 				321C6E2C22DC648500757F83 /* ResultHeaderVC.swift */,
-				321C6E2E22DC68FA00757F83 /* ResultScrollVC.swift */,
-				321C6E3422DC869000757F83 /* ResultRecommCardVC.swift */,
+				321C6E2E22DC68FA00757F83 /* ExchangeResultTopVC.swift */,
+				321C6E3422DC869000757F83 /* ExchangeResultCardVC.swift */,
 				321C6E3222DC866A00757F83 /* ResultMeCardVC.swift */,
 				321C6E3622DC86B500757F83 /* ResultYouCardVC.swift */,
 				321C6E3822DC86D300757F83 /* ResultBothCardVC.swift */,
@@ -920,6 +939,7 @@
 		5042F36C2337AC8800D89478 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */,
 				50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */,
 			);
 			path = Exchange;
@@ -979,9 +999,9 @@
 		5042F3722337AE3E00D89478 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				32A6411C22DC53CB002EF6F3 /* Exchange.storyboard */,
 				50A5968222C0AD9C00378AAB /* ExchangeSearch.storyboard */,
 				50F9849222D47C7D00038A23 /* ExchangeAccept.storyboard */,
-				32A6411C22DC53CB002EF6F3 /* Result.storyboard */,
 				321C6E3B22DC9C2900757F83 /* ResultUserCVCell.xib */,
 			);
 			path = Exchange;
@@ -1268,8 +1288,10 @@
 			children = (
 				50B380CC233798B50092B59C /* ExchangeViewState.swift */,
 				5042F37C2337D66700D89478 /* P2PConnectionState.swift */,
+				50FE931623506EEE003393AD /* ExchangeTopViewState.swift */,
 				50DE79CA233F201F006C683E /* ExchangeSearchViewState.swift */,
 				50DE79BA233E6A99006C683E /* ExchangeAcceptViewState.swift */,
+				50FE93612355AE19003393AD /* ExchangeResultViewState.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1279,8 +1301,10 @@
 			children = (
 				5042F35F2337A94000D89478 /* ExchangeViewReducer.swift */,
 				5042F3832338D9D200D89478 /* P2PConnectionReducer.swift */,
+				50FE931423506EEE003393AD /* ExchangeTopViewReducer.swift */,
 				50DE79C8233F1FCB006C683E /* ExchangeSearchViewReducer.swift */,
 				50DE79BE233E6EE5006C683E /* ExchangeAcceptViewReducer.swift */,
+				50FE93622355AE19003393AD /* ExchangeResultViewReducer.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1289,8 +1313,10 @@
 			isa = PBXGroup;
 			children = (
 				50DE79B8233E16A7006C683E /* P2PConnectActionCreator.swift */,
+				50FE931323506EED003393AD /* ExchangeTopViewActionCreator.swift */,
 				5042F35A2337A70100D89478 /* ExchangeSearchViewActionCreator.swift */,
 				50DE79C6233E71D4006C683E /* ExchangeAcceptViewActionCreator.swift */,
+				50FE935F2355AE18003393AD /* ExchangeResultViewActionCreator.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1299,8 +1325,10 @@
 			isa = PBXGroup;
 			children = (
 				5042F381233889E900D89478 /* P2PConnectAction.swift */,
+				50FE931523506EEE003393AD /* ExchangeTopViewAction.swift */,
 				5042F3552337A4C200D89478 /* ExchangeSearchViewAction.swift */,
 				50DE79C4233E70E9006C683E /* ExchangeAcceptViewAction.swift */,
+				50FE93602355AE18003393AD /* ExchangeResultViewAction.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -1524,6 +1552,7 @@
 				50FD22B0234388A8007F11E7 /* HomeArchiveVCSource.swift */,
 				509F60982346E3A900F95B55 /* AnimeListVCSource.swift */,
 				507DA954234CEA10001BCA6B /* AnimeDetailVCSource.swift */,
+				50FE931123506DAD003393AD /* ExchangeVCSource.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1608,6 +1637,7 @@
 				507DA93C234C2599001BCA6B /* AnimeListRecomCollectionSectionModel.swift */,
 				507DA93E234C25B3001BCA6B /* AnimeListRecomCellModel.swift */,
 				50FE930F2350381B003393AD /* AnimeEpisodeTableSectionModel.swift */,
+				50FE935D23556269003393AD /* PeerHorizontalCollectionSectionModel.swift */,
 			);
 			path = RxDataSource;
 			sourceTree = "<group>";
@@ -2050,7 +2080,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FEDB2022E0AF9D00462E12 /* anime.realm in Resources */,
-				32A6411D22DC53CB002EF6F3 /* Result.storyboard in Resources */,
+				32A6411D22DC53CB002EF6F3 /* Exchange.storyboard in Resources */,
 				963B681622D22A33006988FE /* SettingText.storyboard in Resources */,
 				50A5968922C0B09100378AAB /* Login.storyboard in Resources */,
 				50A5965D22C0A04A00378AAB /* LaunchScreen.storyboard in Resources */,
@@ -2304,6 +2334,7 @@
 				5042F3B0233927D000D89478 /* ErrorCode.swift in Sources */,
 				509F60992346E3A900F95B55 /* AnimeListVCSource.swift in Sources */,
 				5042F3B2233927DE00D89478 /* Const.swift in Sources */,
+				50FE931223506DAD003393AD /* ExchangeVCSource.swift in Sources */,
 				50FD22B1234388A8007F11E7 /* HomeArchiveVCSource.swift in Sources */,
 				50DE7A792340ED1F006C683E /* ProfileEditVCSource.swift in Sources */,
 				50DE7FE123413391006C683E /* HomeHeaderVCSource.swift in Sources */,
@@ -2329,12 +2360,15 @@
 				50DE7A21233FB731006C683E /* HomeViewState.swift in Sources */,
 				50FE93102350381B003393AD /* AnimeEpisodeTableSectionModel.swift in Sources */,
 				50FD22822342836A007F11E7 /* ProfileEditCellModel.swift in Sources */,
+				50FE93682355AE38003393AD /* ExchangeResultViewActionCreator.swift in Sources */,
 				50DE7A832340F2D9006C683E /* ProfileEditViewReducer.swift in Sources */,
 				5001BEE6234DD19E005C0B8A /* LaunchViewActionCreator.swift in Sources */,
+				50FE935E23556269003393AD /* PeerHorizontalCollectionSectionModel.swift in Sources */,
 				50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */,
 				50FD227D23418594007F11E7 /* CommonStateModel.swift in Sources */,
 				507DA937234BAB93001BCA6B /* FirebaseRequestInjector.swift in Sources */,
 				5001BEDD234D9843005C0B8A /* AnimeDetailEpisodeViewReducer.swift in Sources */,
+				50FE931C23506F2A003393AD /* ExchangeTopViewActionCreator.swift in Sources */,
 				50DE7A2A233FB7D2006C683E /* HomeViewReducer.swift in Sources */,
 				509F60B82347041000F95B55 /* AnimeListCardViewAction.swift in Sources */,
 				507DA95C234CEBEF001BCA6B /* AnimeDetailInfoViewActionCreator.swift in Sources */,
@@ -2343,8 +2377,10 @@
 				50DE79A7233DCA6D006C683E /* P2PError.swift in Sources */,
 				50DE7FED23414070006C683E /* HomeHeaderViewReducer.swift in Sources */,
 				507DA93F234C25B3001BCA6B /* AnimeListRecomCellModel.swift in Sources */,
+				50FE93692355AE4F003393AD /* ExchangeResultViewReducer.swift in Sources */,
 				509F60AB2346E5AE00F95B55 /* AnimeListTopViewState.swift in Sources */,
 				50DE7995233DCA5E006C683E /* AppStore.swift in Sources */,
+				50FE931D23506F3E003393AD /* ExchangeTopViewReducer.swift in Sources */,
 				507DA939234C245F001BCA6B /* AnimeHorizontalCollectionSectionModel.swift in Sources */,
 				509F60BC2347311800F95B55 /* AnimeListCardSectionModel.swift in Sources */,
 				509F60B62346FF6200F95B55 /* AnimeListCardViewState.swift in Sources */,
@@ -2375,6 +2411,8 @@
 				50DE7A23233FB74D006C683E /* AnimeListViewState.swift in Sources */,
 				50DE79C5233E70E9006C683E /* ExchangeAcceptViewAction.swift in Sources */,
 				507DA95A234CEBEF001BCA6B /* AnimeDetailInfoViewReducer.swift in Sources */,
+				50FE931B23506F24003393AD /* ExchangeTopViewAction.swift in Sources */,
+				50FE936A2355AE56003393AD /* ExchangeResultViewState.swift in Sources */,
 				50DE7FEE23414077006C683E /* HomeHeaderViewState.swift in Sources */,
 				50FD22C12343A02B007F11E7 /* HomeArchiveCellModel.swift in Sources */,
 				50DE7A30233FB81B006C683E /* SettingViewReducer.swift in Sources */,
@@ -2383,9 +2421,11 @@
 				5001BEDC234D983A005C0B8A /* AnimeDetailEpisodeViewActionCreator.swift in Sources */,
 				50DE799C233DCA5E006C683E /* ExchangeViewReducer.swift in Sources */,
 				509F60AA2346E58600F95B55 /* AnimeListTopViewReducer.swift in Sources */,
+				50FE931E23506F46003393AD /* ExchangeTopViewState.swift in Sources */,
 				507DA93B234C2511001BCA6B /* AnimeHorizontalCellModel.swift in Sources */,
 				50DE7A2C233FB7F4006C683E /* AnimeListViewReducer.swift in Sources */,
 				509F60BE2347314700F95B55 /* AnimeCardCellModel.swift in Sources */,
+				50FE93672355AE26003393AD /* ExchangeResultViewAction.swift in Sources */,
 				50DE79B1233DD236006C683E /* AnimeEpisodeModel.swift in Sources */,
 				50FD22BA23438A00007F11E7 /* HomeArchiveListViewAction.swift in Sources */,
 				5001BEE0234DC8F3005C0B8A /* LaunchViewState.swift in Sources */,
@@ -2418,15 +2458,15 @@
 			files = (
 				50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */,
 				50A5969122C19F7A00378AAB /* SignUpVC.swift in Sources */,
-				321C6E2F22DC68FA00757F83 /* ResultScrollVC.swift in Sources */,
+				321C6E2F22DC68FA00757F83 /* ExchangeResultTopVC.swift in Sources */,
 				32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */,
 				50A5969322C1F16C00378AAB /* HomeTopVC.swift in Sources */,
 				5042F386233916DC00D89478 /* MapDistinct.swift in Sources */,
 				50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */,
-				32A6411F22DC57AD002EF6F3 /* ResultVC.swift in Sources */,
+				32A6411F22DC57AD002EF6F3 /* ExchangeTopVC.swift in Sources */,
 				503DD23A22DC3636004B9746 /* AccordionViewModel.swift in Sources */,
 				5042F38A23391E2D00D89478 /* OptionalType.swift in Sources */,
-				321C6E3522DC869000757F83 /* ResultRecommCardVC.swift in Sources */,
+				321C6E3522DC869000757F83 /* ExchangeResultCardVC.swift in Sources */,
 				50FD229723434194007F11E7 /* SearchCoordinator.swift in Sources */,
 				32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */,
 				50DE7A822340F1A0006C683E /* ProfileEditViewControllerInjecter.swift in Sources */,
