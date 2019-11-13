@@ -74,11 +74,6 @@ class AnimeListTopVC: UIViewController {
         super.viewDidLoad()
         disposeBag = DisposeBag()
         
-        // TODO:- ActionCreatorの処理を変更
-//        self.store.dispatch(self.AnimeListTopViewActionCreator.getCurrentTerm(disposeBag: disposeBag))
-        // TODO:- 今は同じ処理だから除外
-        //self.store.dispatch(self.AnimeListTopViewActionCreator.getRanking(disposeBag: disposeBag))
-        
 //        fetchRecom()
     }
     
@@ -331,6 +326,7 @@ extension AnimeListTopVC {
                 let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "thisTermCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeHorizontalCollectionViewCell
                 
                 cell.setData(anime: item)
+                cell.setImage("iconImages/\(item.annictID).jpg")
                 
                 return cell
         })

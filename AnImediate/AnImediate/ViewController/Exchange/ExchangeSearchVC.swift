@@ -167,7 +167,8 @@ class ExchangeSearchVC: UIViewController {
     }
     
     func initGradientLayer() {
-        let gradientRingLayer = WCGraintCircleLayer(bounds: loadingView.bounds, position: CGPoint(x: loadingView.frame.width/2, y: loadingView.frame.height/2), fromColor: .deepMagenta(), toColor: UIColor.white, linewidth: 8.0, toValue: 0)
+//        let gradientRingLayer = WCGraintCircleLayer(bounds: loadingView.bounds, position: CGPoint(x: loadingView.frame.width/2, y: loadingView.frame.height/2), fromColor: .deepMagenta(), toColor: UIColor.white, linewidth: 8.0, toValue: 0)
+        let gradientRingLayer = WCGraintCircleLayer(bounds: loadingView.bounds, position: CGPoint(x: loadingView.frame.width/2, y: loadingView.frame.height/2), fromColor: .white, toColor: .deepMagenta(), linewidth: 8.0, toValue: 0)
         if loadingView.layer.sublayers != nil {
             loadingView.layer.sublayers!.forEach {
                 $0.removeFromSuperlayer()
