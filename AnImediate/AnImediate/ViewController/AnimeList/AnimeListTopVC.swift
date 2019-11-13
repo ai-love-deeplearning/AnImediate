@@ -337,6 +337,8 @@ extension AnimeListTopVC {
                 let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "rankingCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeHorizontalCollectionViewCell
 
                 cell.setData(anime: item)
+                cell.setImage("iconImages/\(item.annictID).jpg")
+                
                 return cell
         })
     }

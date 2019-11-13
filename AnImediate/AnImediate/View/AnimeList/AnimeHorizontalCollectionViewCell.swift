@@ -9,6 +9,7 @@
 import AppConfig
 import AppModel
 import UIKit
+import Firebase
 import FirebaseUI
 
 class AnimeHorizontalCollectionViewCell: UICollectionViewCell {
@@ -38,8 +39,6 @@ class AnimeHorizontalCollectionViewCell: UICollectionViewCell {
     
     public func setImage(_ imageRef: String) {
         let reference = Storage.storage().reference().child(imageRef)
-        // TODO:- No image画像を作る
-        // TODO:- 画像がない奴はこれで自動的にNo Imageになるのでは？
         let placeholderImage = UIImage(named: "pic")
         iconImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }

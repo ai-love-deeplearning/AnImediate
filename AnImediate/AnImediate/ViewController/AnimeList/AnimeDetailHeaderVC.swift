@@ -12,6 +12,7 @@ import UIKit
 import ReSwift
 import RxSwift
 import RxCocoa
+import FirebaseUI
 import MXParallaxHeader
 
 class AnimeDetailHeaderVC: UIViewController {
@@ -62,34 +63,23 @@ class AnimeDetailHeaderVC: UIViewController {
     
     private func bindState() {
         if viewState.animeModel != nil {
-            self.imageURL = viewState.animeModel!.imageUrl
-            setIconImageView(imageUrlString: imageURL)
+            setImage()
         }
         store.animeModel
             .drive(
                 onNext: { [unowned self] anime in
-                    self.imageURL = anime.imageUrl
-                    self.setIconImageView(imageUrlString: self.imageURL)
+                    self.setImage()
             })
             .disposed(by: disposeBag)
     }
     
-    private func setIconImageView(imageUrlString: String) {
-        guard let iconImageUrl = URL(string: imageUrlString) else {return}
-        let session = URLSession(configuration: .default)
-        
-        let downloadImageTask = session.dataTask(with: iconImageUrl) {(data, response, error) in
-            guard let imageData = data else {return}
-            let image = UIImage(data: imageData)
-            
-            DispatchQueue.main.async(execute: {
-                self.animeImageView.image = image
-                self.backImageView.image = image
-            })
-            
-        }
-        downloadImageTask.resume()
+    private func setImage() {
+        let reference = Storage.storage().reference().child("iconImages/\(viewState.animeModel!.annictID).jpg")
+        let placeholderImage = UIImage(named: "pic")
+        animeImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        backImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
+
 }
 
 extension AnimeDetailHeaderVC: MXParallaxHeaderDelegate {
