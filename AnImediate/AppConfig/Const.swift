@@ -101,3 +101,20 @@ public enum AnimeCardContentType: String {
     case similar = "似ている作品"
     case broadcast = "放送年"
 }
+
+public struct ScreenConfig {
+    // 画面サイズ
+    public static let mainBoundSize: CGSize = UIScreen.main.bounds.size
+    // 解像度
+    public static let mainNativeBoundSize: CGSize = UIScreen.main.nativeBounds.size
+    // 画面の倍率
+    public static let mainScale: CGFloat = UIScreen.main.scale
+    
+    // ステータスバーサイズ
+    public static let statusBarSize: CGSize = UIApplication.shared.statusBarFrame.size
+    // ナビゲーションバー高さ
+    public static let navigationBarHeight: CGFloat = 44
+    
+    // ホーム画面のパラレルヘッダーの高さ
+    public static let homeParallaxHeaderHeight: CGFloat = (mainBoundSize.width * 0.8) + statusBarSize.height + navigationBarHeight
+}
