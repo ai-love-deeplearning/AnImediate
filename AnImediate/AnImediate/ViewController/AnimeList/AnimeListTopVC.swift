@@ -82,7 +82,8 @@ class AnimeListTopVC: UIViewController {
         fetchRanking()
         fetchCurrentTerm()
         initCollectionViews()
-        setupCCView()
+//        setupCCView()
+        fetchRecom()
         bindViews()
         bindState()
     }
@@ -293,16 +294,17 @@ extension AnimeListTopVC {
     }
     
     private func fetchRecom() {
-        guard let recomItems = viewState.recommend else {
-            return
-        }
+//        guard let recomItems = viewState.recommend else {
+//            return
+//        }
+        let recomItems = Array(AnimeModel.readAllRanking()[0 ..< 5])
         
         recomSectionModels = [AnimeListRecomCollectionSectionModel(items: Array(recomItems))]
         
-        Observable.just(rankingSectionModels)
+        Observable.just(recomSectionModels)
             .subscribe(onNext: { [weak self] _ in
                 guard let strongSelf = self else { return }
-                strongSelf.rankingDataRelay.accept(strongSelf.rankingSectionModels)
+                strongSelf.recomDataRelay.accept(strongSelf.recomSectionModels)
             })
             .disposed(by: disposeBag)
     }
@@ -315,6 +317,7 @@ extension AnimeListTopVC {
                 let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "recomCell", for: IndexPath(row: indexPath.row, section: 0)) as! RecomCollectionViewCell
                 
                 cell.setData(anime: item)
+                cell.setImage("iconImages/\(item.annictID).jpg")
                 
                 return cell
         })

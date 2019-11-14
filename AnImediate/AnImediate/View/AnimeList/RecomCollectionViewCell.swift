@@ -34,7 +34,7 @@ class RecomCollectionViewCell: UICollectionViewCell {
         recomImageView.contentMode = .scaleAspectFill
     }
     
-    private func setImage(_ imageRef: String) {
+    public func setImage(_ imageRef: String) {
         let reference = Storage.storage().reference().child(imageRef)
         let placeholderImage = UIImage(named: "pic")
         recomImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
