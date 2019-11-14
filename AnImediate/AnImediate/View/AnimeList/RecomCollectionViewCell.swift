@@ -9,6 +9,7 @@
 import AppConfig
 import AppModel
 import UIKit
+import FirebaseUI
 
 class RecomCollectionViewCell: UICollectionViewCell {
 
@@ -29,20 +30,14 @@ class RecomCollectionViewCell: UICollectionViewCell {
         titleLabel.text = anime.title
         seasonText = anime.seasonNameText
         
-        setIconImageView(imageUrlString: anime.imageUrl)
+        setImage("iconImages/\(anime.annictID).jpg")
         recomImageView.contentMode = .scaleAspectFill
     }
     
-    private func setIconImageView(imageUrlString: String) {
-        guard let iconImageUrl = URL(string: imageUrlString) else {return}
-        let session = URLSession(configuration: .default)
-        let downloadImageTask = session.dataTask(with: iconImageUrl) {(data, response, error) in
-            guard let imageData = data else {return}
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async(execute: {
-                self.recomImageView.image = image
-            })
-        }
-        downloadImageTask.resume()
+    public func setImage(_ imageRef: String) {
+        let reference = Storage.storage().reference().child(imageRef)
+        let placeholderImage = UIImage(named: "pic")
+        recomImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
+    
 }

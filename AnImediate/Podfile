@@ -7,6 +7,8 @@ abstract_target 'Any' do # 実際のターゲット名とかぶらなければ�
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'MXParallaxHeader', '1.0.0'
   pod 'Tabman', '2.5.0'
   pod 'RSKImageCropper', '2.2.3'

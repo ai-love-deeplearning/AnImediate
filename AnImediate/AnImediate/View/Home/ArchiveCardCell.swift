@@ -9,6 +9,7 @@
 import AppConfig
 import AppModel
 import UIKit
+import FirebaseUI
 
 final class ArchiveCardCell: UITableViewCell {
     
@@ -25,7 +26,7 @@ final class ArchiveCardCell: UITableViewCell {
             seasonLabel.text = anime?.seasonNameText
             // TODO:- 見た人なのか登録した人なのか
             resisterCountLabel.text = String(anime?.watchersCount ?? 0)
-            setIconImageView(imageUrlString: anime!.imageUrl)
+            setImage(anime!.annictID)
         }
     }
     
@@ -34,17 +35,10 @@ final class ArchiveCardCell: UITableViewCell {
         
     }
     
-    private func setIconImageView(imageUrlString: String) {
-        guard let iconImageUrl = URL(string: imageUrlString) else {return}
-        let session = URLSession(configuration: .default)
-        let downloadImageTask = session.dataTask(with: iconImageUrl) {(data, response, error) in
-            guard let imageData = data else {return}
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async(execute: {
-                self.iconImageView.image = image
-            })
-        }
-        downloadImageTask.resume()
+    private func setImage(_ imageRef: String) {
+        let reference = Storage.storage().reference().child(imageRef)
+        let placeholderImage = UIImage(named: "pic")
+        iconImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
     
 }
