@@ -6,6 +6,7 @@
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -13,26 +14,34 @@ import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-    let dataManager = DataManager()
+    private var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        window = UIWindow(frame: UIScreen.main.bounds)
+        
+//        let animeListCoordinator = AnimeListCoordinator(presenter: UINavigationController(), childCoordinators: [])
+//        let searchCoordinator = SearchCoordinator(presenter: UINavigationController(), childCoordinators: [])
+//        let exchangeCoordinator = ExchangeCoordinator(presenter: UINavigationController(), childCoordinators: [])
+//        let homeCoordinator = HomeCoordinator(presenter: UINavigationController(), childCoordinators: [])
+//
+//        let mainTabCoordinator = MainTabCoordinator(
+//            presenter: UITabBarController(),
+//            childCoordinators: [animeListCoordinator, searchCoordinator, exchangeCoordinator, homeCoordinator]
+//        )
+//
+//        appCoordinator = AppCoordinator(
+//            window: window!,
+//            rootCoordinator: mainTabCoordinator
+//        )
+//
+//        appCoordinator?.start()
+        
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
-        }
-        
-        //自動ログイン
-        if Auth.auth().currentUser != nil { //もしもユーザがログインしていたら
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let initialViewController = storyboard.instantiateInitialViewController()
-            
-            self.window?.rootViewController = initialViewController
-            
-            self.window?.makeKeyAndVisible()
         }
         
         //Realmのマイグレーション処理
@@ -47,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         newObject!["id"] = String(nextID)
                         nextID += 1
                     }
-                    migration.enumerateObjects(ofType: Work.className()) { oldObject, newObject in
+                    migration.enumerateObjects(ofType: AnimeModel.className()) { oldObject, newObject in
                         newObject!["id"] = String(nextID)
                         nextID += 1
                     }

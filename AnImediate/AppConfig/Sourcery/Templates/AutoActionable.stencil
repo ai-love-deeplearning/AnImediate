@@ -1,0 +1,34 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+{% for type in types.protocols where type.based.AutoActionable or type|annotated:"AutoActionable" %}{% if type.name != "AutoActionable" %}
+
+// sourcery:file:{{ type.name }}Action.swift
+import Foundation
+import ReSwift
+
+public struct {{ type.name }}Action {
+
+    public struct Initialize: Action {
+        public init() {}
+    }
+
+    public struct DismissErrorAlert: Action {
+        public init() {}
+    }
+
+    public struct ExampleAction1: Action {
+        public init() {}
+    }
+
+    public struct ExampleAction2: Action {
+        public let member: Type
+        public init(member: Type) {
+            self.member = member
+        }
+    }
+
+}
+// sourcery:end
+{% endif %}{% endfor %}

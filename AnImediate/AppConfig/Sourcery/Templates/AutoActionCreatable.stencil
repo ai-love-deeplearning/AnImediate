@@ -1,0 +1,47 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+{% for type in types.protocols where type.based.AutoActionCreatable or type|annotated:"AutoActionCreatable" %}
+{% if type.name != "AutoActionCreatable" %}
+
+// sourcery:file:{{ type.name }}ActionCreator.swift
+import AppConfig
+import Foundation
+import ReSwift
+import RxSwift
+
+public protocol {{ type.name }}ActionCreatable {
+    func exampleFunc(disposeBag: DisposeBag) -> Store<{{ type.name }}State>.AsyncActionCreator
+}
+
+class {{ type.name }}ActionCreator: {{ type.name }}ActionCreatable {
+
+        private let arg: Modelable
+
+        public init(arg: Modelable) {
+            arg = arg
+        }
+
+    public func sendAccountModel(disposeBag: DisposeBag) -> Store<ExchangeViewState>.AsyncActionCreator {
+
+        return { [weak self] state, store, callback in
+            callback { _, _ in {{ type.name }}Action.exampleActionThree() }
+
+            self?.arg.ModelableMethod()
+                .subscribe(
+                    onSuccess: { _ in
+                    let action = {{ type.name }}Action.exampleActionOne()
+                        callback { _, _ in action }
+                    },
+                        onError: { error in
+                            print(error.localizedDescription)
+                            print("エラー: 正常にデータの送信が行われませんでした")
+                    })
+                    .disposed(by: disposeBag)
+        }
+    }
+
+}
+// sourcery:end
+{% endif %}{% endfor %}

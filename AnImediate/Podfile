@@ -1,29 +1,47 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
 
-target 'AnImediate' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic framework
+
+abstract_target 'Any' do # 実際のターゲット名とかぶらなければなんでもいい
+  # platform :ios, '12.2'
   use_frameworks!
-
-  # Pods for AnImediate
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'MXParallaxHeader'
-  pod 'Tabman'
-  pod 'RSKImageCropper'
   pod 'Firebase/Database'
-  pod 'CenteredCollectionView'
-  pod 'RealmSwift'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
+  pod 'MXParallaxHeader', '1.0.0'
+  pod 'Tabman', '2.5.0'
+  pod 'RSKImageCropper', '2.2.3'
+  pod 'CenteredCollectionView', '2.2.1'
+  pod 'RealmSwift', '3.18.0'
+  pod 'ReSwift', '4.1.1'
+  pod 'RxSwift', '4.5'
+  pod 'RxCocoa', '4.5'
+  pod 'RxDataSources', '3.1.0'
+  pod 'Swinject', '2.6.2'
+  pod 'SwinjectStoryboard', '2.2.0'
+  pod 'SwiftRichString', '2.1.0'
+  pod 'Sourcery', '0.17.0'
+  pod 'SwiftGen', '6.1.0'
+  pod 'IBAnimatable', '6.0.0'
+
+
+  target 'AnImediate' do
+  end
 
   target 'AnImediateTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
 
   target 'AnImediateUITests' do
-    inherit! :search_paths
-    # Pods for testing
+  end
+
+  target 'AppConfig' do
+  end
+
+  target 'AppModel' do
+  end
+
+  target 'RxMultiPeerWrapper' do
   end
 
 end

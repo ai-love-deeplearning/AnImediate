@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dzN-ah-PRF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--アニメ一覧-->
+        <scene sceneID="8pG-yR-9oa">
+            <objects>
+                <navigationController id="dzN-ah-PRF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="アニメ一覧" image="animeList" id="L4n-Io-LZ4"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2t-rR-yQ7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="TextThema"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="TextThema"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="N8A-Mw-lFo" kind="relationship" relationship="rootViewController" id="Pwl-jL-8nl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2T0-I7-uVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="257" y="21"/>
+        </scene>
+        <!--アニメ一覧-->
+        <scene sceneID="HJQ-Tw-ELQ">
+            <objects>
+                <viewController id="N8A-Mw-lFo" customClass="AnimeListTopVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IqX-5B-ZZc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DXz-WZ-Brv" customClass="PagingCardCollectionView" customModule="AnImediate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="269"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="bSY-Na-m5c" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recomCell" id="pVM-Cy-qyV" customClass="RecomCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-eQ-FLf">
+                                <rect key="frame" x="171.5" y="320" width="71" height="37"/>
+                                <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="bPQ-sx-SUk"/>
+                                    <constraint firstAttribute="width" constant="71" id="yXL-BB-HLL"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duw-R2-icd">
+                                <rect key="frame" x="20" y="377" width="130" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="HAh-42-wpZ"/>
+                                    <constraint firstAttribute="height" constant="35" id="Pfu-mm-jcY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="今期アニメ　＞">
+                                    <color key="titleColor" name="TextThema"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rQn-V9-TeV" kind="show" identifier="fromThisTerm" id="5XH-ro-AtJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-cc-Dkj">
+                                <rect key="frame" x="20" y="581" width="130" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4cg-wC-Ph9"/>
+                                    <constraint firstAttribute="width" constant="130" id="T65-Ks-hj7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="ランキング　＞">
+                                    <color key="titleColor" name="TextThema"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rQn-V9-TeV" kind="show" identifier="fromRank" id="tdx-GJ-nQV"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-Bl-Ey3" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="417" width="414" height="134"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="M7n-nM-w79">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="xIh-EI-F9t" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="621" width="414" height="134.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HdP-jf-K9y">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rankingCell" id="R7g-t3-Irj" userLabel="rankingCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="8zX-8E-SWX"/>
+                            <constraint firstItem="DXz-WZ-Brv" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="CVO-GX-7WB"/>
+                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="MnF-La-xiw"/>
+                            <constraint firstItem="DXz-WZ-Brv" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="NfZ-J5-kc3"/>
+                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="UvB-t1-MW8"/>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="V7Z-OC-6s8"/>
+                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="bottom" constant="5" id="VYg-hZ-snI"/>
+                            <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" constant="20" id="WwB-2P-vOf"/>
+                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="Xp8-P4-ikf"/>
+                            <constraint firstItem="duw-R2-icd" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="b5t-p4-tJB"/>
+                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.15" id="dOa-4A-BtB"/>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="top" secondItem="EOI-cc-Dkj" secondAttribute="bottom" constant="5" id="eAD-dc-5cq"/>
+                            <constraint firstItem="DXz-WZ-Brv" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="hCP-EQ-5iX"/>
+                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="height" secondItem="jQf-Bl-Ey3" secondAttribute="height" id="rXj-As-061"/>
+                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="centerX" secondItem="IqX-5B-ZZc" secondAttribute="centerX" id="s0t-DY-ivM"/>
+                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="top" secondItem="jQf-Bl-Ey3" secondAttribute="bottom" constant="30" id="vN0-bT-U2F"/>
+                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="bottom" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="wHA-6R-Olv"/>
+                            <constraint firstItem="FVy-pc-KTk" firstAttribute="trailing" secondItem="DXz-WZ-Brv" secondAttribute="trailing" id="zMq-c8-qm8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FVy-pc-KTk"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="アニメ一覧" id="qyX-HV-ZZy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="nxT-vC-oKC">
+                            <connections>
+                                <segue destination="xm7-n3-fsF" kind="show" id="O1J-xM-pwS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="currentTermBtn" destination="duw-R2-icd" id="c7X-Uq-Rom"/>
+                        <outlet property="currentTermCollectionView" destination="jQf-Bl-Ey3" id="9FM-86-1Ex"/>
+                        <outlet property="pageControl" destination="tqp-eQ-FLf" id="zmI-V6-14a"/>
+                        <outlet property="rankingBtn" destination="EOI-cc-Dkj" id="Wjp-Ft-jpX"/>
+                        <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="mT7-6e-rrr"/>
+                        <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="MIi-vL-uwD"/>
+                        <segue destination="jmJ-MB-Ky7" kind="show" identifier="toDetails" id="ZRv-Q9-ctg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAg-Fj-oZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018.840579710145" y="20.758928571428569"/>
+        </scene>
+        <!--AnimeListCard-->
+        <scene sceneID="Kxx-NG-RO5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeListCard" id="rQn-V9-TeV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="b9b-CC-NhU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aas-YV-E9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="-119"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="HHc-nH-dnI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="xm7-n3-fsF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwz-sQ-EXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="21"/>
+        </scene>
+        <!--AnimeDetails-->
+        <scene sceneID="cDu-Ml-WF4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="jmJ-MB-Ky7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="egY-HW-xNp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OK-K6-aQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="animeList" width="27.5" height="30"/>
+        <namedColor name="TextThema">
+            <color red="0.88235294117647056" green="0.13725490196078433" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextThema">
+            <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5XH-ro-AtJ"/>
+    </inferredMetricsTieBreakers>
+</document>

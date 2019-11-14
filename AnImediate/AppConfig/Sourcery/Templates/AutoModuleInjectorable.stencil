@@ -1,0 +1,29 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+
+{% for type in types.protocols where type.based.AutoModuleInjectorable or type|annotated:"AutoModuleInjectorable" %}{% if type.name != "AutoModuleInjectorable" %}
+
+// sourcery:file:{{ type.name }}Injecter.swift
+
+import Foundation
+import Swinject
+
+public class ModuleInjector {
+    public class func setup(container: Container) {
+        container.register(Modelable1.self) { _ in
+            Modele1()
+        }
+
+        container.register(Modelable2.self) { _ in
+            Modele2()
+        }
+
+        container.register(Modelable3.self) { _ in
+            Modele3()
+        }
+    }
+}
+// sourcery:end
+{% endif %}{% endfor %}

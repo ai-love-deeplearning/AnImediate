@@ -1,0 +1,31 @@
+// swiftlint:disable line_length
+// swiftlint:disable variable_name
+
+
+
+{% for type in types.protocols where type.based.AutoViewReducerable or type|annotated:"AutoViewReducerable" %}{% if type.name != "AutoViewReducerable" %}
+
+// sourcery:file:{{ type.name }}ViewReducer.swift
+
+import Foundation
+import ReSwift
+
+struct {{ type.name }}ViewReducer {
+
+    static func handleAction(action: Action, state: {{ type.name }}ViewState?) -> {{ type.name }}ViewState {
+        var nextState = state ?? {{ type.name }}ViewState()
+
+        if action is AppAction.InitializeApplication {
+            return {{ type.name }}ViewState()
+        }
+
+        nextState.moduleState = ModuleReducer.handleAction(action: action, state: nextState.moduleState)
+
+        nextState.operation1ViewState = {{ type.name }}Operation1ViewReducer.handleAction(action: action, state: nextState.operation1ViewState)
+        nextState.acceptViewState = {{ type.name }}Operation2ViewReducer.handleAction(action: action, state: nextState.operation2ViewState)
+
+        return nextState
+    }
+}
+// sourcery:end
+{% endif %}{% endfor %}
