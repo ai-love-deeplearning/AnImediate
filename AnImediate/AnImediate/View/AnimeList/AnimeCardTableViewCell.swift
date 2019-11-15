@@ -36,20 +36,6 @@ class AnimeCardTableViewCell: UITableViewCell {
         
     }
     
-    func saveModel() {
-        
-    }
-    
-    func border() {
-        self.layer.borderColor = UIColor.deepMagenta().cgColor
-        self.layer.borderWidth = 2
-    }
-    
-    func unborder() {
-        self.layer.borderColor = UIColor.clear.cgColor
-        self.layer.borderWidth = 0
-    }
-    
     public func setImage(_ imageRef: String) {
         let reference = Storage.storage().reference().child(imageRef)
         let placeholderImage = UIImage(named: "pic")
@@ -58,8 +44,9 @@ class AnimeCardTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        let background = UIView()
+        background.backgroundColor = .LightThema
+        selectedBackgroundView = background
     }
 
 }

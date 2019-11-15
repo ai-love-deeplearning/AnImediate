@@ -78,10 +78,7 @@ class AnimeListCardVC: UIViewController {
         animeCardTable.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.animeCardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
-                    if self.viewState.isRegisterMode {
-                        cell.border()
-                    } else {
+                    if self.viewState.isRegisterMode == false {
                         self.animeCardTable.deselectRow(at: indexPath, animated: false)
                     }
             })
@@ -90,8 +87,7 @@ class AnimeListCardVC: UIViewController {
         animeCardTable.rx.itemDeselected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.animeCardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
-                    cell.unborder()
+                    
             })
             .disposed(by: disposeBag)
         
@@ -160,7 +156,8 @@ class AnimeListCardVC: UIViewController {
                     self.registerModeBtn.title = isRegisterMode ? "キャンセル" : "登録"
                     self.registerModeBtn.tintColor = isRegisterMode ? .lightGray : .deepMagenta()
                     // 複数選択可にする
-                    self.animeCardTable.allowsMultipleSelection = isRegisterMode
+                    self.animeCardTable.allowsMultipleSelectionDuringEditing = isRegisterMode
+                    self.animeCardTable.isEditing = isRegisterMode
                     self.animeCardTable.reloadData()
             })
             .disposed(by: disposeBag)
@@ -213,11 +210,12 @@ extension AnimeListCardVC {
         dataSource = RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>(
             configureCell: { _, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeCardTableViewCell
-
+                
+                // TODO:- setメソッドに変更
                 cell.anime = item
-                _ = cell.isSelected ? cell.border() : cell.unborder()
                 
                 return cell
+                
         }, canEditRowAtIndexPath: { _, _ in
             return true
         })
