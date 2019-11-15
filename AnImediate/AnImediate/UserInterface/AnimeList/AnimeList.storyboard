@@ -45,7 +45,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DXz-WZ-Brv" customClass="PagingCardCollectionView" customModule="AnImediate" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="269"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="bSY-Na-m5c" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recomCell" id="pVM-Cy-qyV" customClass="RecomCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
@@ -59,14 +59,14 @@
                                 </cells>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-eQ-FLf">
-                                <rect key="frame" x="171.5" y="320" width="71" height="37"/>
+                                <rect key="frame" x="171.5" y="308" width="71" height="37"/>
                                 <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="bPQ-sx-SUk"/>
                                     <constraint firstAttribute="width" constant="71" id="yXL-BB-HLL"/>
                                 </constraints>
-                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="pageIndicatorTintColor" name="TextGray"/>
+                                <color key="currentPageIndicatorTintColor" name="MainThema"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duw-R2-icd">
                                 <rect key="frame" x="20" y="377" width="130" height="35"/>
@@ -74,9 +74,9 @@
                                     <constraint firstAttribute="width" constant="130" id="HAh-42-wpZ"/>
                                     <constraint firstAttribute="height" constant="35" id="Pfu-mm-jcY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="今期アニメ　＞">
-                                    <color key="titleColor" name="TextThema"/>
+                                    <color key="titleColor" name="TextBlack"/>
                                 </state>
                                 <connections>
                                     <segue destination="rQn-V9-TeV" kind="show" identifier="fromThisTerm" id="5XH-ro-AtJ"/>
@@ -88,9 +88,9 @@
                                     <constraint firstAttribute="height" constant="35" id="4cg-wC-Ph9"/>
                                     <constraint firstAttribute="width" constant="130" id="T65-Ks-hj7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="ランキング　＞">
-                                    <color key="titleColor" name="TextThema"/>
+                                    <color key="titleColor" name="TextBlack"/>
                                 </state>
                                 <connections>
                                     <segue destination="rQn-V9-TeV" kind="show" identifier="fromRank" id="tdx-GJ-nQV"/>
@@ -143,11 +143,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-hS-1l6" userLabel="LineView">
+                                <rect key="frame" x="0.0" y="357" width="414" height="0.5"/>
+                                <color key="backgroundColor" name="LineLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="X0K-2n-OrW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RlI-Kq-BaY" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="8zX-8E-SWX"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="top" secondItem="FVy-pc-KTk" secondAttribute="top" id="CVO-GX-7WB"/>
+                            <constraint firstItem="FVy-pc-KTk" firstAttribute="trailing" secondItem="hyQ-hS-1l6" secondAttribute="trailing" id="L4g-9X-Owx"/>
+                            <constraint firstItem="hyQ-hS-1l6" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="M1n-vq-RvD"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" id="MnF-La-xiw"/>
                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.3" id="NfZ-J5-kc3"/>
                             <constraint firstItem="EOI-cc-Dkj" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="UvB-t1-MW8"/>
@@ -155,6 +164,7 @@
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="bottom" constant="5" id="VYg-hZ-snI"/>
                             <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" constant="20" id="WwB-2P-vOf"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="trailing" secondItem="FVy-pc-KTk" secondAttribute="trailing" id="Xp8-P4-ikf"/>
+                            <constraint firstItem="hyQ-hS-1l6" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="b32-Ca-vFK"/>
                             <constraint firstItem="duw-R2-icd" firstAttribute="leading" secondItem="FVy-pc-KTk" secondAttribute="leading" constant="20" id="b5t-p4-tJB"/>
                             <constraint firstItem="jQf-Bl-Ey3" firstAttribute="height" secondItem="IqX-5B-ZZc" secondAttribute="height" multiplier="0.15" id="dOa-4A-BtB"/>
                             <constraint firstItem="RlI-Kq-BaY" firstAttribute="top" secondItem="EOI-cc-Dkj" secondAttribute="bottom" constant="5" id="eAD-dc-5cq"/>
@@ -162,7 +172,7 @@
                             <constraint firstItem="RlI-Kq-BaY" firstAttribute="height" secondItem="jQf-Bl-Ey3" secondAttribute="height" id="rXj-As-061"/>
                             <constraint firstItem="tqp-eQ-FLf" firstAttribute="centerX" secondItem="IqX-5B-ZZc" secondAttribute="centerX" id="s0t-DY-ivM"/>
                             <constraint firstItem="EOI-cc-Dkj" firstAttribute="top" secondItem="jQf-Bl-Ey3" secondAttribute="bottom" constant="30" id="vN0-bT-U2F"/>
-                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="bottom" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="wHA-6R-Olv"/>
+                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="bottom" secondItem="DXz-WZ-Brv" secondAttribute="bottom" constant="-12" id="wHA-6R-Olv"/>
                             <constraint firstItem="FVy-pc-KTk" firstAttribute="trailing" secondItem="DXz-WZ-Brv" secondAttribute="trailing" id="zMq-c8-qm8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FVy-pc-KTk"/>
@@ -220,11 +230,20 @@
     </scenes>
     <resources>
         <image name="animeList" width="27.5" height="30"/>
-        <namedColor name="TextThema">
-            <color red="0.88235294117647056" green="0.13725490196078433" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="LineLight">
+            <color red="0.9100000262260437" green="0.85100001096725464" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainThema">
+            <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextBlack">
+            <color red="0.11400000005960464" green="0.0" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextGray">
+            <color red="0.54500001668930054" green="0.52899998426437378" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextThema">
-            <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.88235294117647056" green="0.13725490196078433" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

@@ -6,6 +6,7 @@
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
 import UIKit
 
 class PagingCardCollectionView: UICollectionView {
@@ -14,12 +15,11 @@ class PagingCardCollectionView: UICollectionView {
         super.awakeFromNib()
         
         let layout = PagingCardCollectionViewFlowLayout()
-        
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: self.bounds.width*0.7, height: self.bounds.height)
+        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width-56, height: self.bounds.height*0.8)
         layout.minimumInteritemSpacing = self.bounds.height
-        layout.minimumLineSpacing = 20
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
+        layout.minimumLineSpacing = 12
+        layout.sectionInset = UIEdgeInsets(top: 12, left: 28, bottom: 12, right: 28)
         
         self.showsHorizontalScrollIndicator = false
         self.collectionViewLayout = layout
@@ -35,13 +35,6 @@ class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return proposedContentOffset }
         guard let targetAttributes = layoutAttributesForPaging else { return proposedContentOffset }
-
-        // sectionInset を考慮して表示領域を拡大する
-        let expansionMargin = sectionInset.left + sectionInset.right
-        let expandedVisibleRect = CGRect(x: collectionView.contentOffset.x - expansionMargin,
-                                          y: 0,
-                                          width: collectionView.bounds.width + (expansionMargin * 2),
-                                          height: collectionView.bounds.height)
 
         let nextAttributes: UICollectionViewLayoutAttributes?
         if velocity.x == 0 {
@@ -64,6 +57,7 @@ class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
             let cellLeftMargin = (collectionView.bounds.width - attributes.bounds.width) * 0.5
             return CGPoint(x: attributes.frame.minX - cellLeftMargin, y: collectionView.contentOffset.y)
         }
+
     }
     
     // 画面中央に一番近いセルの attributes を取得する

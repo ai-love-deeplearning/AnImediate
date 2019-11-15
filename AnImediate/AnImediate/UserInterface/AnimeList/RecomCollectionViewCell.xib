@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,18 +25,38 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-t5-9s3">
                         <rect key="frame" x="207" y="0.0" width="207" height="269"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-51-dOF">
-                                <rect key="frame" x="10.5" y="124.5" width="186" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="7zh-xy-8sV">
+                                <rect key="frame" x="6" y="22" width="195" height="65.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アニメタイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTL-gO-9YO">
+                                        <rect key="frame" x="47.5" y="0.0" width="100" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あらすじSynopsis/あらすじSynopsis/あらすじSynopsis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OO-Ta-W9x">
+                                        <rect key="frame" x="1.5" y="39" width="192.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="予測評価" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDl-gs-fuL">
+                                <rect key="frame" x="156" y="243.5" width="45" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" name="TextGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="S5s-51-dOF" firstAttribute="centerX" secondItem="sDK-t5-9s3" secondAttribute="centerX" id="5Pw-l3-2RT"/>
-                            <constraint firstItem="S5s-51-dOF" firstAttribute="width" secondItem="sDK-t5-9s3" secondAttribute="width" multiplier="0.9" id="6sv-WH-CsQ"/>
-                            <constraint firstItem="S5s-51-dOF" firstAttribute="centerY" secondItem="sDK-t5-9s3" secondAttribute="centerY" id="c3t-bV-sms"/>
+                            <constraint firstAttribute="trailing" secondItem="GDl-gs-fuL" secondAttribute="trailing" constant="6" id="BSG-BB-lBi"/>
+                            <constraint firstAttribute="trailing" secondItem="7zh-xy-8sV" secondAttribute="trailing" constant="6" id="Yks-9L-trP"/>
+                            <constraint firstItem="7zh-xy-8sV" firstAttribute="leading" secondItem="sDK-t5-9s3" secondAttribute="leading" constant="6" id="exp-3S-K5D"/>
+                            <constraint firstItem="7zh-xy-8sV" firstAttribute="top" secondItem="sDK-t5-9s3" secondAttribute="top" constant="22" id="fE9-gS-6qZ"/>
+                            <constraint firstItem="7zh-xy-8sV" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="GDl-gs-fuL" secondAttribute="top" constant="-12" id="pOH-L6-sHp"/>
+                            <constraint firstAttribute="bottom" secondItem="GDl-gs-fuL" secondAttribute="bottom" constant="12" id="suv-of-601"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -54,10 +73,17 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="predictRatingLabel" destination="GDl-gs-fuL" id="bLa-Wl-ruc"/>
                 <outlet property="recomImageView" destination="OLL-wb-PDK" id="Twh-0x-xkO"/>
-                <outlet property="titleLabel" destination="S5s-51-dOF" id="h8q-fU-m6O"/>
+                <outlet property="synopsisLabel" destination="2OO-Ta-W9x" id="Gji-ei-maf"/>
+                <outlet property="titleLabel" destination="sTL-gO-9YO" id="vl8-gY-Yzg"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="80.691964285714278"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="TextGray">
+            <color red="0.54500001668930054" green="0.52899998426437378" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

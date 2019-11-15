@@ -82,7 +82,6 @@ class AnimeListTopVC: UIViewController {
         fetchRanking()
         fetchCurrentTerm()
         initCollectionViews()
-//        setupCCView()
         fetchRecom()
         bindViews()
         bindState()
@@ -211,18 +210,6 @@ class AnimeListTopVC: UIViewController {
 //                    self.fetchRanking()
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func setupCCView() {
-        recomCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-        //recomCollectionView.delegate = self
-        recomCollectionView.showsVerticalScrollIndicator = false
-        recomCollectionView.showsHorizontalScrollIndicator = false
-        
-        centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
-        centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width,
-                                                           height: recomCollectionView.bounds.height)
-        centeredCollectionViewFlowLayout.minimumLineSpacing = 0
     }
     
     private func startAutoScroll(duration: TimeInterval){
