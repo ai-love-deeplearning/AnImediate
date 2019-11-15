@@ -33,10 +33,10 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: AnimeList.self)
   }
-  internal enum AnimeListCard: StoryboardType {
-    internal static let storyboardName = "AnimeListCard"
+  internal enum AnimeListTable: StoryboardType {
+    internal static let storyboardName = "AnimeListTable"
 
-    internal static let initialScene = InitialSceneType<AnimeListCardVC>(storyboard: AnimeListCard.self)
+    internal static let initialScene = InitialSceneType<AnimeListTableVC>(storyboard: AnimeListTable.self)
   }
   internal enum ExchangeAccept: StoryboardType {
     internal static let storyboardName = "ExchangeAccept"

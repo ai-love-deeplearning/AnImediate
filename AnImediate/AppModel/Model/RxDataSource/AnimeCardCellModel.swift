@@ -1,5 +1,5 @@
 //
-//  AnimeCardCellModel.swift
+//  AnimeTableCellModel.swift
 //  AppModel
 //
 //  Created by 川村周也 on 2019/10/04.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct AnimeCardModel {
+public struct AnimeTableModel {
     public var title: String
     public var synopsis: String
     public var season: String

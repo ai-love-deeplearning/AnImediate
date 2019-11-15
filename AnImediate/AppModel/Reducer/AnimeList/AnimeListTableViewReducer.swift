@@ -5,25 +5,25 @@
 import Foundation
 import ReSwift
 
-struct AnimeListCardViewReducer {
+struct AnimeListTableViewReducer {
 
-    static func handleAction(action: Action, state: AnimeListCardViewState?) -> AnimeListCardViewState {
-        var nextState = state ?? AnimeListCardViewState()
+    static func handleAction(action: Action, state: AnimeListTableViewState?) -> AnimeListTableViewState {
+        var nextState = state ?? AnimeListTableViewState()
 
         if action is AppAction.InitializeApplication {
-            return AnimeListCardViewState()
+            return AnimeListTableViewState()
         }
 
         switch action {
 
-        case let action as AnimeListCardViewAction.Initialize:
-            nextState = AnimeListCardViewState()
+        case let action as AnimeListTableViewAction.Initialize:
+            nextState = AnimeListTableViewState()
             nextState.contentType = action.contentType
 
-        case is AnimeListCardViewAction.DismissErrorAlert:
+        case is AnimeListTableViewAction.DismissErrorAlert:
             nextState.error = nil
 
-        case is AnimeListCardViewAction.ChangeMode:
+        case is AnimeListTableViewAction.ChangeMode:
             nextState.isRegisterMode = !nextState.isRegisterMode 
             nextState.error = nil
 

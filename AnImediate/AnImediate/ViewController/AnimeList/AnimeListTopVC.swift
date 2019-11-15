@@ -20,7 +20,7 @@ import MXParallaxHeader
 import CenteredCollectionView
 
 protocol AnimeListTopVCDelegate: AnyObject {
-    func animeListTopVCDidSelectList(_ list: AnimeCardContentType)
+    func animeListTopVCDidSelectList(_ list: AnimeTableContentType)
 }
 
 class AnimeListTopVC: UIViewController {
@@ -169,7 +169,7 @@ class AnimeListTopVC: UIViewController {
             .drive(
                 onNext: { [unowned self] in
                     // TODO:- 画面遷移の処理もこっちで書くべきか検討
-                    self.store.dispatch(AnimeListCardViewAction.Initialize(contentType: .currentTerm))
+                    self.store.dispatch(AnimeListTableViewAction.Initialize(contentType: .currentTerm))
             })
             .disposed(by: disposeBag)
         
@@ -177,7 +177,7 @@ class AnimeListTopVC: UIViewController {
             .coolTime()
             .drive(
                 onNext: { [unowned self] in
-                    self.store.dispatch(AnimeListCardViewAction.Initialize(contentType: .ranking))
+                    self.store.dispatch(AnimeListTableViewAction.Initialize(contentType: .ranking))
             })
             .disposed(by: disposeBag)
     }
@@ -241,11 +241,11 @@ class AnimeListTopVC: UIViewController {
         case "toDetails":
             break
         case "fromThisTerm":
-            let nextVC = segue.destination as! AnimeListCardVC
+            let nextVC = segue.destination as! AnimeListTableVC
             nextVC.navigationItem.title = "今期アニメ"
             break
         case "fromRank":
-            let nextVC = segue.destination as! AnimeListCardVC
+            let nextVC = segue.destination as! AnimeListTableVC
             nextVC.navigationItem.title = "ランキング"
             break
         default:

@@ -15,11 +15,11 @@ final class AnimeListTopCoordinator: NavigationCoordinator {
     
     init(presenter: UINavigationController) {
         self.navigationController = presenter
-        presenter.title = "AnimeListCard"
+        presenter.title = "AnimeListTable"
     }
     
     func start() {
-        let animeListTopViewController = StoryboardScene.AnimeListCard.initialScene.instantiate()
+        let animeListTopViewController = StoryboardScene.AnimeListTable.initialScene.instantiate()
         //animeListTopViewController.itemSelected = showItemDetail
         navigationController.pushViewController(animeListTopViewController, animated: false)
     }

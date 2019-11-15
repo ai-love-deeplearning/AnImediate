@@ -90,7 +90,7 @@ class AnimeDetailInfoVC: UIViewController {
         similarBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: {
-                self.store.dispatch(AnimeListCardViewAction.Initialize(contentType: .ranking))
+                self.store.dispatch(AnimeListTableViewAction.Initialize(contentType: .ranking))
                 self.performSegue(withIdentifier: "toDetails", sender: nil)
             }).disposed(by: disposeBag)
     }
@@ -119,7 +119,7 @@ class AnimeDetailInfoVC: UIViewController {
         case "toDetails":
             break
         case "toSimilar":
-            let nextVC = segue.destination as! AnimeListCardVC
+            let nextVC = segue.destination as! AnimeListTableVC
             nextVC.navigationItem.title = "類似作品"
             break
         default:

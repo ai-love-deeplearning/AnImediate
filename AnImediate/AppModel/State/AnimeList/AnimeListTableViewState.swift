@@ -6,14 +6,14 @@ import ReSwift
 import Realm
 import RealmSwift
 
-public struct AnimeListCardViewState: StateType  {
-    public internal(set) var contentType: AnimeCardContentType = .currentTerm
+public struct AnimeListTableViewState: StateType  {
+    public internal(set) var contentType: AnimeTableContentType = .currentTerm
     public internal(set) var isRegisterMode = false
     public internal(set) var error: AnimediateError?
 }
 
-extension AnimeListCardViewState: Equatable {
-    public static func == (lhs: AnimeListCardViewState, rhs: AnimeListCardViewState) -> Bool {
+extension AnimeListTableViewState: Equatable {
+    public static func == (lhs: AnimeListTableViewState, rhs: AnimeListTableViewState) -> Bool {
         return lhs.contentType == rhs.contentType
         && lhs.isRegisterMode == rhs.isRegisterMode
     }

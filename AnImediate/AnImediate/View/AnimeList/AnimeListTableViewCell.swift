@@ -1,5 +1,5 @@
 //
-//  AnimeCardTableViewCell.swift
+//  AnimeListTableViewCell.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/10/04.
@@ -11,28 +11,26 @@ import AppModel
 import UIKit
 import FirebaseUI
 
-class AnimeCardTableViewCell: UITableViewCell {
+class AnimeListTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var synopsisLabel: UILabel!
-    @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet weak var productionLabel: UILabel!
+    @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
     
     var anime: AnimeModel? {
         didSet {
             setImage("iconImages/\(anime!.annictID).jpg")
             seasonLabel.text = anime?.seasonNameText
             titleLabel.text = anime?.title
-            synopsisLabel.text = anime?.synopsis
-            // TODO:- 見た人なのか登録した人なのか
-            registerLabel.text = String(anime?.watchersCount ?? 0)
             
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        iconImageView.cornerRadius = iconImageView.frame.width * 0.5
         
     }
     
