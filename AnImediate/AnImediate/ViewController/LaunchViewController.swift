@@ -49,14 +49,17 @@ class LaunchViewController: UIViewController {
         bind()
         
         // firebaseのログイン判定
-        if Auth.auth().currentUser != nil {
-            transisionType = "toMain"
-        }
+//        if Auth.auth().currentUser != nil {
+//            transisionType = "toMain"
+//        }
+        // 強制的にログイン処理をスキップ
+        transisionType = "toMain"
         
         // CommonModelの値をViewStateに反映
         self.store.dispatch(LaunchViewAction.Initialize())
         
         transition()
+//        performSegue(withIdentifier: transisionType, sender: nil)
         fetch()
     }
     

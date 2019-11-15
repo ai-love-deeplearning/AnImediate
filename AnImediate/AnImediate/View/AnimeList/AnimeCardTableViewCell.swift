@@ -9,6 +9,7 @@
 import AppConfig
 import AppModel
 import UIKit
+import FirebaseUI
 
 class AnimeCardTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
@@ -19,7 +20,7 @@ class AnimeCardTableViewCell: UITableViewCell {
     
     var anime: AnimeModel? {
         didSet {
-            setIconImageView(imageUrlString: anime!.imageUrl)
+            setImage("iconImages/\(anime!.annictID).jpg")
             seasonLabel.text = anime?.seasonNameText
             titleLabel.text = anime?.title
             synopsisLabel.text = anime?.synopsis
@@ -49,17 +50,10 @@ class AnimeCardTableViewCell: UITableViewCell {
         self.layer.borderWidth = 0
     }
     
-    private func setIconImageView(imageUrlString: String) {
-        guard let iconImageUrl = URL(string: imageUrlString) else {return}
-        let session = URLSession(configuration: .default)
-        let downloadImageTask = session.dataTask(with: iconImageUrl) {(data, response, error) in
-            guard let imageData = data else {return}
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async(execute: {
-                self.iconImageView.image = image
-            })
-        }
-        downloadImageTask.resume()
+    public func setImage(_ imageRef: String) {
+        let reference = Storage.storage().reference().child(imageRef)
+        let placeholderImage = UIImage(named: "pic")
+        iconImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

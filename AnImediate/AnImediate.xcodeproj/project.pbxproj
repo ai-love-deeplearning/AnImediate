@@ -208,6 +208,8 @@
 		50DE7FED23414070006C683E /* HomeHeaderViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7FE52341405A006C683E /* HomeHeaderViewReducer.swift */; };
 		50DE7FEE23414077006C683E /* HomeHeaderViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7FE62341405A006C683E /* HomeHeaderViewState.swift */; };
 		50DE7FEF23414087006C683E /* HomeHeaderViewControllerInjecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7FE72341405A006C683E /* HomeHeaderViewControllerInjecter.swift */; };
+		50E21980237BEE4700162FE5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E2197F237BEE4700162FE5 /* Colors.xcassets */; };
+		50E21982237C3F2100162FE5 /* PagingCardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E21981237C3F2100162FE5 /* PagingCardCollectionView.swift */; };
 		50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */; };
 		50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */; };
 		50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9849022D4775600038A23 /* ExchangeAcceptVC.swift */; };
@@ -585,6 +587,8 @@
 		50DE7FE52341405A006C683E /* HomeHeaderViewReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewReducer.swift; sourceTree = "<group>"; };
 		50DE7FE62341405A006C683E /* HomeHeaderViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewState.swift; sourceTree = "<group>"; };
 		50DE7FE72341405A006C683E /* HomeHeaderViewControllerInjecter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewControllerInjecter.swift; sourceTree = "<group>"; };
+		50E2197F237BEE4700162FE5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		50E21981237C3F2100162FE5 /* PagingCardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCardCollectionView.swift; sourceTree = "<group>"; };
 		50F03B93D320BCA9626F2734 /* Pods-Any-AppModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Any-AppModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Any-AppModel/Pods-Any-AppModel.release.xcconfig"; sourceTree = "<group>"; };
 		50F35CCB22DEC29500FD9B26 /* ExchangeNotFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNotFoundVC.swift; sourceTree = "<group>"; };
 		50F35CCD22E1476B00FD9B26 /* SettingAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAccountVC.swift; sourceTree = "<group>"; };
@@ -1122,6 +1126,7 @@
 				507DA8A823489F65001BCA6B /* AnimediatePickerView.swift */,
 				507DA8A523489A2C001BCA6B /* AnimeStatusTextFiewld.swift */,
 				50FE930D23501DD4003393AD /* AnimeHorizontalCollectionView.swift */,
+				50E21981237C3F2100162FE5 /* PagingCardCollectionView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -1220,6 +1225,7 @@
 				50FD228A23433C3B007F11E7 /* Constants */,
 				50FD22A423435B50007F11E7 /* SupportingFiles */,
 				50A5969422C2F2E200378AAB /* Assets.xcassets */,
+				50E2197F237BEE4700162FE5 /* Colors.xcassets */,
 				50A5965E22C0A04A00378AAB /* Info.plist */,
 				50A5968E22C0BAD900378AAB /* GoogleService-Info.plist */,
 				50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */,
@@ -2092,6 +2098,7 @@
 				50F9849322D47C7D00038A23 /* ExchangeAccept.storyboard in Resources */,
 				5001BEEA234E0D9A005C0B8A /* Launch.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
+				50E21980237BEE4700162FE5 /* Colors.xcassets in Resources */,
 				50A5968722C0ADD500378AAB /* Setting.storyboard in Resources */,
 				50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */,
 				963B681422D225DD006988FE /* license.txt in Resources */,
@@ -2519,6 +2526,7 @@
 				321C6E2D22DC648500757F83 /* ResultHeaderVC.swift in Sources */,
 				50DE7A32233FBB44006C683E /* HomeViewControllerInjector.swift in Sources */,
 				50FD22BB23438B76007F11E7 /* HomeArchiveListViewControllerInjecter.swift in Sources */,
+				50E21982237C3F2100162FE5 /* PagingCardCollectionView.swift in Sources */,
 				321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */,
 				50FD2293234340F0007F11E7 /* MainTabCoordinator.swift in Sources */,
 				50F35CCE22E1476B00FD9B26 /* SettingAccountVC.swift in Sources */,

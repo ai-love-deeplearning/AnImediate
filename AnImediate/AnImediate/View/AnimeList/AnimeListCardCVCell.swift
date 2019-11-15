@@ -9,6 +9,7 @@
 import AppConfig
 import AppModel
 import UIKit
+import FirebaseUI
 
 class AnimeListCardCVCell: UICollectionViewCell {
 
@@ -28,28 +29,22 @@ class AnimeListCardCVCell: UICollectionViewCell {
     }
 
     public func bindData(work: AnimeModel) {
-        /*
-        animeId = work.animeId
+        
+        animeId = work.annictID
         imageURL = work.imageUrl
         
         titleLabel.text = work.title
         seasonLabel.text = work.seasonNameText
         registLabel.text = String(work.watchersCount)
         
-        setIconImageView(imageUrlString: work.imageUrl)
-        iconImageView.contentMode = .scaleAspectFill*/
+        setImage(work.annictID)
+        iconImageView.contentMode = .scaleAspectFill
     }
     
-    private func setIconImageView(imageUrlString: String) {
-        guard let iconImageUrl = URL(string: imageUrlString) else {return}
-        let session = URLSession(configuration: .default)
-        let downloadImageTask = session.dataTask(with: iconImageUrl) {(data, response, error) in
-            guard let imageData = data else {return}
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async(execute: {
-                self.iconImageView.image = image
-            })
-        }
-        downloadImageTask.resume()
+    private func setImage(_ imageRef: String) {
+        let reference = Storage.storage().reference().child(imageRef)
+        let placeholderImage = UIImage(named: "pic")
+        iconImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
+    
 }

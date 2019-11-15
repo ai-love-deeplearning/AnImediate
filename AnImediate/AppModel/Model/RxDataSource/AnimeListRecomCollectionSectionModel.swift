@@ -9,9 +9,9 @@
 import RxDataSources
 
 public struct AnimeListRecomCollectionSectionModel {
-    public var items: [AnimeModel]
+    public var items: [Item]
     
-    public init(items: [AnimeModel]) {
+    public init(items: [Item]) {
         self.items = items
     }
 }
