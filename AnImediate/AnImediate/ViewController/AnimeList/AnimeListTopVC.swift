@@ -82,7 +82,6 @@ class AnimeListTopVC: UIViewController {
         fetchRanking()
         fetchCurrentTerm()
         initCollectionViews()
-//        setupCCView()
         fetchRecom()
         bindViews()
         bindState()
@@ -143,6 +142,12 @@ class AnimeListTopVC: UIViewController {
                     self.pageControl.currentPage = Int(self.recomCollectionView.contentOffset.x) / Int(self.recomCollectionView.frame.width)
             })
             .disposed(by: disposeBag)
+        
+        recomCollectionView.rx.willBeginDragging
+            .subscribe(
+                onNext: { [unowned self] _ in
+                    (self.recomCollectionView.collectionViewLayout as! PagingCardCollectionViewFlowLayout).prepareForPaging()
+            }).disposed(by: disposeBag)
         
         currentTermCollectionView.rx.itemSelected
             .subscribe(
@@ -205,18 +210,6 @@ class AnimeListTopVC: UIViewController {
 //                    self.fetchRanking()
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func setupCCView() {
-        recomCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-        //recomCollectionView.delegate = self
-        recomCollectionView.showsVerticalScrollIndicator = false
-        recomCollectionView.showsHorizontalScrollIndicator = false
-        
-        centeredCollectionViewFlowLayout = recomCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
-        centeredCollectionViewFlowLayout.itemSize = CGSize(width: recomCollectionView.bounds.width,
-                                                           height: recomCollectionView.bounds.height)
-        centeredCollectionViewFlowLayout.minimumLineSpacing = 0
     }
     
     private func startAutoScroll(duration: TimeInterval){

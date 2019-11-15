@@ -20,12 +20,4 @@ class ResultUserCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    public func bindData(userInfo: PeerModel) {
-        /*
-        self.userId = userInfo.id
-        
-        self.iconImageView.image = UIImage(data: userInfo.iconData! as Data)!
-        self.nameLabel.text = userInfo.name*/
-    }
 }

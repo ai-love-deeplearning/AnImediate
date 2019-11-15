@@ -102,6 +102,9 @@ public enum AnimeTableContentType: String {
     case broadcast = "放送年"
 }
 
+public struct ResultBarTitles {
+    public static let titles = ["おすすめ", "あなたのみ", "相手のみ", "二人とも"]
+
 public struct ScreenConfig {
     // 画面サイズ
     public static let mainBoundSize: CGSize = UIScreen.main.bounds.size

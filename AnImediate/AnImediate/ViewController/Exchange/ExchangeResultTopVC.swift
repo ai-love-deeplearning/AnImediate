@@ -1,39 +1,37 @@
 //
-//  ResultScrollVC.swift
+//  ExchangeResultTopVC.swift
 //  AnImediate
 //
 //  Created by 前田陸 on 2019/07/15.
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
 import UIKit
 import Tabman
 import Pageboy
 
-class ResultScrollVC: TabmanViewController {
-    
-    var resultVC: ResultVC = ResultVC()
+class ExchangeResultTopVC: TabmanViewController {
     
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
-            storyboard!.instantiateViewController(withIdentifier: "recomm"),
-            storyboard!.instantiateViewController(withIdentifier: "me"),
-            storyboard!.instantiateViewController(withIdentifier: "you"),
-            storyboard!.instantiateViewController(withIdentifier: "both")
+            StoryboardScene.Result.recomm.instantiate(),
+            StoryboardScene.Result.recomm.instantiate(),
+            StoryboardScene.Result.recomm.instantiate(),
+            StoryboardScene.Result.recomm.instantiate()
+//            storyboard!.instantiateViewController(withIdentifier: "recomm"),
+//            storyboard!.instantiateViewController(withIdentifier: "me"),
+//            storyboard!.instantiateViewController(withIdentifier: "you"),
+//            storyboard!.instantiateViewController(withIdentifier: "both")
         ]
     }()
-    
-    let barTitles = ["おすすめ", "あなたのみ", "相手のみ", "二人とも"]
-    
+
     var currentPage: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //resultVC.scrollDelegate = self
-        
         self.dataSource = self
-        
         initBars()
     }
     
@@ -56,27 +54,27 @@ class ResultScrollVC: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
     }
 }
-/*
-extension ResultScrollVC: ResultScrollDelegate {
-    func reload() {
-        switch currentIndex! {
-        case 0:
-            (viewControllers[0] as! ResultRecommCardVC).fetchAnimeModel()
-        case 1:
-            (viewControllers[1] as! ResultMeCardVC).fetchAnimeModel()
-        case 2:
-            (viewControllers[2] as! ResultYouCardVC).fetchAnimeModel()
-        case 3:
-            (viewControllers[3] as! ResultBothCardVC).fetchAnimeModel()
-        default:
-            break
-        }
-    }
- }*/
 
-extension ResultScrollVC: PageboyViewControllerDataSource, TMBarDataSource {
+//extension ResultTopVC: ResultScrollDelegate {
+//    func reload() {
+//        switch currentIndex! {
+//        case 0:
+//            (viewControllers[0] as! ResultRecommCardVC).fetchAnimeModel()
+//        case 1:
+//            (viewControllers[1] as! ResultMeCardVC).fetchAnimeModel()
+//        case 2:
+//            (viewControllers[2] as! ResultYouCardVC).fetchAnimeModel()
+//        case 3:
+//            (viewControllers[3] as! ResultBothCardVC).fetchAnimeModel()
+//        default:
+//            break
+//        }
+//    }
+// }
+
+extension ExchangeResultTopVC: PageboyViewControllerDataSource, TMBarDataSource {
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        return TMBarItem(title: barTitles[index])
+        return TMBarItem(title: ResultBarTitles.titles[index])
     }
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
