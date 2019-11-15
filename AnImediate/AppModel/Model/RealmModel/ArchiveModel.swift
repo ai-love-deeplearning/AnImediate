@@ -24,7 +24,7 @@ public class ArchiveModel: Object, NSCoding {
         return "id"
     }
     
-    public static func read(uid: String) -> Results<ArchiveModel>{
+    public static func read(uid: String) -> Results<ArchiveModel> {
         let realm = try! Realm()
         return realm.objects(self).filter("userID == %@", uid)
     }

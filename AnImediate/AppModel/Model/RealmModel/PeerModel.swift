@@ -77,6 +77,11 @@ public class PeerModel : Object, NSCoding, NSCopying {
         return model
     }
     
+    public static func readAll() -> Results<PeerModel> {
+        let realm = try! Realm()
+        return realm.objects(self)
+    }
+    
     public static func set(uid: String, name: String) {
         let realm = try! Realm()
         

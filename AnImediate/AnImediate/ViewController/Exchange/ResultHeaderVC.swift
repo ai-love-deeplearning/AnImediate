@@ -23,12 +23,10 @@ class ResultHeaderVC: UIViewController {
     var resultUserInfo: [PeerModel] = []
     
     private let realm = try! Realm()
-    var resultVC: ResultVC = ResultVC()
+    var resultVC: ExchangeTopVC = ExchangeTopVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        resultVC.headerDelegate = self
         
         parallaxHeader?.delegate = self
         parallaxHeader?.height = 300
@@ -43,20 +41,20 @@ class ResultHeaderVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let userInfo = realm.objects(PeerModel.self)
-        let index = UserDefaults.standard.integer(forKey: "userNum")
-        /*
-        for user in (userInfo).reversed() {
-            self.resultUserInfo.append(user)
-        }
-        self.resultUserInfo.removeLast()
-        
-        if !self.resultUserInfo.isEmpty {
-            nameLabel.text = self.resultUserInfo[index].name
-            commentLabel.text = self.resultUserInfo[index].comment
-            iconImageView.image = self.resultUserInfo[index].icon
-            backImageView.image = self.resultUserInfo[index].background
-        }*/
+//        let userInfo = realm.objects(PeerModel.self)
+//        let index = UserDefaults.standard.integer(forKey: "userNum")
+//
+//        for user in (userInfo).reversed() {
+//            self.resultUserInfo.append(user)
+//        }
+//        self.resultUserInfo.removeLast()
+//
+//        if !self.resultUserInfo.isEmpty {
+//            nameLabel.text = self.resultUserInfo[index].name
+//            commentLabel.text = self.resultUserInfo[index].comment
+//            iconImageView.image = self.resultUserInfo[index].icon
+//            backImageView.image = self.resultUserInfo[index].background
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,17 +64,15 @@ class ResultHeaderVC: UIViewController {
     }
 }
 
-extension ResultHeaderVC: ResultHeaderDelegate {
-    func reload() {
-        let index = UserDefaults.standard.integer(forKey: "userNum")
-        /*
-        nameLabel.text = self.resultUserInfo[index].name
-        commentLabel.text = self.resultUserInfo[index].comment
-        iconImageView.image = self.resultUserInfo[index].icon
-        backImageView.image = self.resultUserInfo[index].background
- */
-    }
-}
+//extension ResultHeaderVC: ResultHeaderDelegate {
+//    func reload() {
+//        let index = UserDefaults.standard.integer(forKey: "userNum")
+//        nameLabel.text = self.resultUserInfo[index].name
+//        commentLabel.text = self.resultUserInfo[index].comment
+//        iconImageView.image = self.resultUserInfo[index].icon
+//        backImageView.image = self.resultUserInfo[index].background
+//    }
+//}
 
 extension ResultHeaderVC: MXParallaxHeaderDelegate {
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {

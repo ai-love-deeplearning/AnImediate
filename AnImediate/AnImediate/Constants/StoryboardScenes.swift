@@ -94,7 +94,7 @@ internal enum StoryboardScene {
 
     internal static let me = SceneType<ResultMeCardVC>(storyboard: Result.self, identifier: "me")
 
-    internal static let recomm = SceneType<ResultRecommCardVC>(storyboard: Result.self, identifier: "recomm")
+    internal static let recomm = SceneType<ExchangeResultCardVC>(storyboard: Result.self, identifier: "recomm")
 
     internal static let you = SceneType<ResultYouCardVC>(storyboard: Result.self, identifier: "you")
   }
