@@ -33,9 +33,9 @@ class ExchangeResultCardVC: UIViewController {
         return store.state.resultViewState
     }
     
-    private var dataSource: RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>!
-    private var sectionModels: [AnimeCardSectionModel]!
-    private var dataRelay = BehaviorRelay<[AnimeCardSectionModel]>(value: [])
+    private var dataSource: RxTableViewSectionedReloadDataSource<AnimeTableSectionModel>!
+    private var sectionModels: [AnimeTableSectionModel]!
+    private var dataRelay = BehaviorRelay<[AnimeTableSectionModel]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class ExchangeResultCardVC: UIViewController {
                 var items = sectionModel.items
                 items.remove(at: indexPath.row)
                 
-                strongSelf.sectionModels = [AnimeCardSectionModel(items: items)]
+                strongSelf.sectionModels = [AnimeTableSectionModel(items: items)]
                 // dataRelayにデータを流し込む
                 strongSelf.dataRelay.accept(strongSelf.sectionModels)
             })
@@ -75,10 +75,9 @@ class ExchangeResultCardVC: UIViewController {
         cardTable.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.cardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
-                    if self.viewState.isRegisterMode {
-                        cell.border()
-                    } else {
+                    let cell = self.cardTable.cellForRow(at: indexPath) as! AnimeListTableViewCell
+                    // TODO:- 詳細への画面遷移
+                    if self.viewState.isRegisterMode == false {
                         self.cardTable.deselectRow(at: indexPath, animated: false)
                     }
             })
@@ -87,8 +86,7 @@ class ExchangeResultCardVC: UIViewController {
         cardTable.rx.itemDeselected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.cardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
-                    cell.unborder()
+                    
             })
             .disposed(by: disposeBag)
         
@@ -103,7 +101,8 @@ class ExchangeResultCardVC: UIViewController {
 //                    self.registerModeBtn.title = isRegisterMode ? "キャンセル" : "登録"
 //                    self.registerModeBtn.tintColor = isRegisterMode ? .lightGray : .deepMagenta()
                     // 複数選択可にする
-                    self.cardTable.allowsMultipleSelection = isRegisterMode
+                    self.cardTable.allowsMultipleSelectionDuringEditing = isRegisterMode
+                    self.cardTable.isEditing = isRegisterMode
                     self.cardTable.reloadData()
             })
             .disposed(by: disposeBag)
@@ -132,22 +131,19 @@ extension ExchangeResultCardVC {
             items = Array(AnimeModel.readAllRanking())
         }
         
-        sectionModels = [AnimeCardSectionModel(items: items)]
+        sectionModels = [AnimeTableSectionModel(items: items)]
         fetch()
     }
     
     private func initTable() {
         
-        cardTable.register(UINib(nibName: "AnimeCardTableCell", bundle: nil), forCellReuseIdentifier: "AnimeCardCell")
-        
         cardTable.tableFooterView = UIView(frame: .zero)
         
-        dataSource = RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>(
+        dataSource = RxTableViewSectionedReloadDataSource<AnimeTableSectionModel>(
             configureCell: { _, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeCardTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeTableCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeListTableViewCell
                 
                 cell.anime = item
-                _ = cell.isSelected ? cell.border() : cell.unborder()
                 
                 return cell
         }, canEditRowAtIndexPath: { _, _ in

@@ -32,9 +32,13 @@ class AnimeHorizontalCollectionViewCell: UICollectionViewCell {
     public func setData(anime: AnimeModel) {
         annictID = anime.annictID
         imageURL = anime.imageUrl
-        titleLabel.text = anime.title
-        
         seasonText = anime.seasonNameText
+        titleLabel.text = anime.title
+    }
+    
+    public func setData(user: PeerModel) {
+        titleLabel.text = user.name
+        iconImageView.image = user.icon
     }
     
     public func setImage(_ imageRef: String) {
