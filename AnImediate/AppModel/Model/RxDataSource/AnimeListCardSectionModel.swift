@@ -1,5 +1,5 @@
 //
-//  AnimeListCardSectionModel.swift
+//  AnimeTableSectionModel.swift
 //  AppModel
 //
 //  Created by 川村周也 on 2019/10/04.
@@ -8,18 +8,18 @@
 
 import RxDataSources
 
-public struct AnimeCardSectionModel {
-    public var items: [AnimeModel]
+public struct AnimeTableSectionModel {
+    public var items: [Item]
     
-    public init(items: [AnimeModel]) {
+    public init(items: [Item]) {
         self.items = items
     }
 }
 
-extension AnimeCardSectionModel: SectionModelType {
+extension AnimeTableSectionModel: SectionModelType {
     public typealias Item = AnimeModel
     
-    public init(original: AnimeCardSectionModel, items: [AnimeCardSectionModel.Item]) {
+    public init(original: AnimeTableSectionModel, items: [AnimeTableSectionModel.Item]) {
         self = original
         self.items = items
     }

@@ -7,6 +7,7 @@
 //
 
 import AppConfig
+import UIKit
 import Foundation
 
 public extension UIImage {

@@ -95,7 +95,7 @@ public struct AnimeStatusPickerItems {
     public static let items = ["", "見たい", "見てる", "見てない", "見た"]
 }
 
-public enum AnimeCardContentType: String {
+public enum AnimeTableContentType: String {
     case currentTerm = "今期"
     case ranking = "ランキング"
     case similar = "似ている作品"

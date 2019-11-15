@@ -20,7 +20,7 @@ struct AnimeListViewReducer {
         
         nextState.topViewState = AnimeListTopViewReducer.handleAction(action: action, state: nextState.topViewState)
         
-        nextState.cardViewState = AnimeListCardViewReducer.handleAction(action: action, state: nextState.cardViewState)
+        nextState.tableViewState = AnimeListTableViewReducer.handleAction(action: action, state: nextState.tableViewState)
         
         nextState.detailInfoViewState = AnimeDetailInfoViewReducer.handleAction(action: action, state: nextState.detailInfoViewState)
         

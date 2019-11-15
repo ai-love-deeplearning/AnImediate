@@ -23,7 +23,7 @@ internal enum StoryboardSegue {
     case fromThisTerm
     case toDetails
   }
-  internal enum AnimeListCard: String, SegueType {
+  internal enum AnimeListTable: String, SegueType {
     case toDetails
   }
   internal enum ExchangeSearch: String, SegueType {
@@ -46,7 +46,7 @@ internal enum StoryboardSegue {
     case toResultScroll
   }
   internal enum Search: String, SegueType {
-    case toAnimeListCard
+    case toAnimeListTable
     case toDetails
   }
   internal enum Setting: String, SegueType {

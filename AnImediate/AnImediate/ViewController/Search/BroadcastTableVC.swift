@@ -70,8 +70,8 @@ class BroadcastTableVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAnimeListCard" {
-            let nextVC = segue.destination as! AnimeListCardVC
+        if segue.identifier == "toAnimeListTable" {
+            let nextVC = segue.destination as! AnimeListTableVC
             //nextVC.works = works
             nextVC.navigationItem.title = selectedSeason
         }
@@ -119,7 +119,7 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
         //works = Array(seedRealm.objects(AnimeModel.self).filter("seasonNameText == %@", selectedSeason))
         tableView.deselectRow(at: indexPath, animated: false)
         self.view.endEditing(true)
-        performSegue(withIdentifier: "toAnimeListCard", sender: nil)
+        performSegue(withIdentifier: "toAnimeListTable", sender: nil)
     }
     
 }

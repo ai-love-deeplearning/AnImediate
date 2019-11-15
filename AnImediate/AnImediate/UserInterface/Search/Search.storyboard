@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j02-a4-3g7">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j02-a4-3g7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWY-gf-OvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="668" y="88"/>
         </scene>
         <!--Broadcast TableVC-->
         <scene sceneID="rP0-sH-1qH">
@@ -38,7 +37,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="z6q-Fs-fU6">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z6q-Fs-fU6" id="xWe-uj-66O">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -68,17 +67,17 @@
                     <connections>
                         <outlet property="broadcastTable" destination="3L5-sn-l4F" id="EaV-mn-340"/>
                         <outlet property="searchBar" destination="rNC-dl-sj4" id="ryC-hD-Y8u"/>
-                        <segue destination="Hez-6R-BV9" kind="show" identifier="toAnimeListCard" id="pTj-Pm-aCz"/>
+                        <segue destination="Hez-6R-BV9" kind="show" identifier="toAnimeListTable" id="pTj-Pm-aCz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vM-dX-MV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1586.9565217391305" y="91.741071428571431"/>
         </scene>
-        <!--AnimeListCard-->
+        <!--AnimeListTable-->
         <scene sceneID="SuL-Ru-PZb">
             <objects>
-                <viewControllerPlaceholder storyboardName="AnimeListCard" id="Hez-6R-BV9" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AnimeListTable" id="Hez-6R-BV9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gQ-Xh-HT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1588" y="597"/>

@@ -199,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="1018.840579710145" y="20.758928571428569"/>
         </scene>
-        <!--AnimeListCard-->
+        <!--AnimeListTable-->
         <scene sceneID="Kxx-NG-RO5">
             <objects>
-                <viewControllerPlaceholder storyboardName="AnimeListCard" id="rQn-V9-TeV" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AnimeListTable" id="rQn-V9-TeV" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="b9b-CC-NhU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aas-YV-E9S" userLabel="First Responder" sceneMemberID="firstResponder"/>

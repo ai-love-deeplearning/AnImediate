@@ -1,5 +1,5 @@
 //
-//  AnimeListCardVC.swift
+//  AnimeListTableVC.swift
 //  AnImediate
 //
 //  Created by 前田陸 on 2019/07/15.
@@ -15,9 +15,9 @@ import RxCocoa
 import RxDataSources
 import RealmSwift
 
-class AnimeListCardVC: UIViewController {
+class AnimeListTableVC: UIViewController {
 
-    @IBOutlet private weak var animeCardTable: UITableView!
+    @IBOutlet weak var animeTable: UITableView!
     @IBOutlet private weak var registerModeBtn: UIBarButtonItem!
     @IBOutlet private weak var floatingView: UIView!
     @IBOutlet private weak var statusTextField: AnimeStatusTextField!
@@ -27,19 +27,21 @@ class AnimeListCardVC: UIViewController {
     
     private let store = RxStore(store: AppStore.instance.animeListStore)
     
-    private var viewState: AnimeListCardViewState {
-        return store.state.cardViewState
+    private var viewState: AnimeListTableViewState {
+        return store.state.tableViewState
     }
     
-    private var dataSource: RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>!
-    private var sectionModels: [AnimeCardSectionModel]!
-    private var dataRelay = BehaviorRelay<[AnimeCardSectionModel]>(value: [])
+    private var dataSource: RxTableViewSectionedReloadDataSource<AnimeTableSectionModel>!
+    private var sectionModels: [AnimeTableSectionModel]!
+    private var dataRelay = BehaviorRelay<[AnimeTableSectionModel]>(value: [])
     
 
 //    var pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        animeTable.estimatedRowHeight = 130
+        animeTable.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,60 +61,45 @@ class AnimeListCardVC: UIViewController {
     private func bindViews() {
         
         dataRelay.asObservable()
-            .bind(to: animeCardTable.rx.items(dataSource: dataSource))
+            .bind(to: animeTable.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         // TODO:- アイテムの削除を無効化したい
-        animeCardTable.rx.itemDeleted
+        animeTable.rx.itemDeleted
             .subscribe(onNext: { [weak self] indexPath in
                 guard let strongSelf = self, let sectionModel = strongSelf.sectionModels.first else { return }
                 var items = sectionModel.items
                 items.remove(at: indexPath.row)
                 
-                strongSelf.sectionModels = [AnimeCardSectionModel(items: items)]
+                strongSelf.sectionModels = [AnimeTableSectionModel(items: items)]
                 // dataRelayにデータを流し込む
                 strongSelf.dataRelay.accept(strongSelf.sectionModels)
             })
             .disposed(by: disposeBag)
         
-        animeCardTable.rx.itemSelected
+        animeTable.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.animeCardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
-                    if self.viewState.isRegisterMode {
-                        cell.border()
-                    } else {
-                        self.animeCardTable.deselectRow(at: indexPath, animated: false)
+                    if self.viewState.isRegisterMode == false {
+                        let model = (self.animeTable.cellForRow(at: indexPath) as! AnimeListTableViewCell).anime
+                        self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: model!))
+                        self.performSegue(withIdentifier: "toDetails", sender: nil)
+                        self.animeTable.deselectRow(at: indexPath, animated: false)
                     }
             })
             .disposed(by: disposeBag)
         
-        animeCardTable.rx.itemDeselected
+        animeTable.rx.itemDeselected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.animeCardTable.cellForRow(at: indexPath) as! AnimeCardTableViewCell
-                    cell.unborder()
+                    
             })
             .disposed(by: disposeBag)
-        
-//        animeCardTable.rx.modelSelected(AnimeCardSectionModel.self)
-//            .subscribe(
-//                onNext: { [unowned self] item in
-//                    // TODO:- もし登録モードじゃなかったら該当セルのアニメ詳細に遷移する
-//                    guard self.viewState.isRegisterMode else {
-//                        // TODO:- 該当セルのannictIDを取得
-//                        // TODO:- AnimeDetailInfoViewStateにdispatch
-////                        self.store.dispatch(AnimeDetailInfoViewAction.Initialize(item))
-//                        self.performSegue(withIdentifier: "toDetails", sender: nil)
-//                        return
-//                    }
-//            })
-//            .disposed(by: disposeBag)
         
         registerModeBtn.rx.tap.asDriver()
             .coolTime().drive(
                 onNext: { [unowned self] in
-                    self.store.dispatch(AnimeListCardViewAction.ChangeMode())
+                    self.store.dispatch(AnimeListTableViewAction.ChangeMode())
             })
             .disposed(by: disposeBag)
         
@@ -126,7 +113,7 @@ class AnimeListCardVC: UIViewController {
         registerBtn.rx.tap.asDriver()
             .coolTime().drive(
                 onNext: { [unowned self] in
-                    let selectedIndexes = self.animeCardTable.indexPathsForSelectedRows!
+                    let selectedIndexes = self.animeTable.indexPathsForSelectedRows!
                     
                     if self.statusTextField.text!.isEmpty {
                         self.showAlert(title: "エラー", message: "ステータスを設定してください")
@@ -147,7 +134,7 @@ class AnimeListCardVC: UIViewController {
                         }
                         
                     }
-                    self.store.dispatch(AnimeListCardViewAction.ChangeMode())
+                    self.store.dispatch(AnimeListTableViewAction.ChangeMode())
             })
             .disposed(by: disposeBag)
     }
@@ -160,8 +147,9 @@ class AnimeListCardVC: UIViewController {
                     self.registerModeBtn.title = isRegisterMode ? "キャンセル" : "登録"
                     self.registerModeBtn.tintColor = isRegisterMode ? .lightGray : .deepMagenta()
                     // 複数選択可にする
-                    self.animeCardTable.allowsMultipleSelection = isRegisterMode
-                    self.animeCardTable.reloadData()
+                    self.animeTable.allowsMultipleSelectionDuringEditing = isRegisterMode
+                    self.animeTable.isEditing = isRegisterMode
+                    self.animeTable.reloadData()
             })
             .disposed(by: disposeBag)
     }
@@ -183,7 +171,7 @@ class AnimeListCardVC: UIViewController {
     
 }
 
-extension AnimeListCardVC {
+extension AnimeListTableVC {
     private func initSectionModels() {
         var items: [AnimeModel] = []
         
@@ -200,24 +188,25 @@ extension AnimeListCardVC {
             items = Array(AnimeModel.readAllRanking())
         }
         
-        sectionModels = [AnimeCardSectionModel(items: items)]
+        sectionModels = [AnimeTableSectionModel(items: items)]
         fetch()
     }
     
     private func initTable() {
         
-        animeCardTable.register(UINib(nibName: "AnimeCardTableCell", bundle: nil), forCellReuseIdentifier: "AnimeCardCell")
+//        animeTable.register(UINib(nibName: "AnimeCardTableCell", bundle: nil), forCellReuseIdentifier: "AnimeCardCell")
         
-        animeCardTable.tableFooterView = UIView(frame: .zero)
+        animeTable.tableFooterView = UIView(frame: .zero)
         
-        dataSource = RxTableViewSectionedReloadDataSource<AnimeCardSectionModel>(
+        dataSource = RxTableViewSectionedReloadDataSource<AnimeTableSectionModel>(
             configureCell: { _, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeCardTableViewCell
-
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeTableCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeListTableViewCell
+                
+                // TODO:- setメソッドに変更
                 cell.anime = item
-                _ = cell.isSelected ? cell.border() : cell.unborder()
                 
                 return cell
+                
         }, canEditRowAtIndexPath: { _, _ in
             return true
         })
@@ -235,8 +224,8 @@ extension AnimeListCardVC {
 }
 
 private extension RxStore where AnyStateType == AnimeListViewState {
-    var state: Driver<AnimeListCardViewState> {
-        return stateDriver.mapDistinct { $0.cardViewState }
+    var state: Driver<AnimeListTableViewState> {
+        return stateDriver.mapDistinct { $0.tableViewState }
     }
     
     var isRegisterMode: Driver<Bool> {

@@ -12,4 +12,4 @@ protocol AnimeList: AutoVCInjectorable, AutoViewStatable, AutoViewReducerable {}
 
 protocol AnimeListTopView: AutoActionable, AutoStatable, AutoReducerable, AutoActionCreatable {}
 
-protocol AnimeListCardView: AutoActionable, AutoStatable, AutoReducerable {}
+protocol AnimeListTableView: AutoActionable, AutoStatable, AutoReducerable {}

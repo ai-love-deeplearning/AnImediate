@@ -5,11 +5,11 @@ import AppConfig
 import Foundation
 import ReSwift
 
-public struct AnimeListCardViewAction {
+public struct AnimeListTableViewAction {
 
     public struct Initialize: Action {
-        public let contentType: AnimeCardContentType
-        public init(contentType: AnimeCardContentType) {
+        public let contentType: AnimeTableContentType
+        public init(contentType: AnimeTableContentType) {
             self.contentType = contentType
         }
     }
