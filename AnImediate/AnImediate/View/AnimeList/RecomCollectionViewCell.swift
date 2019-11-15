@@ -15,6 +15,8 @@ class RecomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var recomImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var predictRatingLabel: UILabel!
     
     private var annictID = ""
     private var imageURL = ""
@@ -22,12 +24,14 @@ class RecomCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.cornerRadius = self.bounds.height * 0.03
     }
     
     public func setData(anime: AnimeModel) {
         annictID = anime.annictID
         imageURL = anime.imageUrl
         titleLabel.text = anime.title
+        synopsisLabel.text = anime.synopsis
         seasonText = anime.seasonNameText
         
         setImage("iconImages/\(anime.annictID).jpg")

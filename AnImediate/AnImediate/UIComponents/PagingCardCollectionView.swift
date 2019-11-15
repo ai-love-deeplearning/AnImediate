@@ -6,6 +6,7 @@
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
 import UIKit
 
 class PagingCardCollectionView: UICollectionView {
@@ -14,34 +15,26 @@ class PagingCardCollectionView: UICollectionView {
         super.awakeFromNib()
         
         let layout = PagingCardCollectionViewFlowLayout()
-        
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: self.bounds.width*0.7, height: self.bounds.height)
+        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width-56, height: self.bounds.height*0.8)
         layout.minimumInteritemSpacing = self.bounds.height
-        layout.minimumLineSpacing = 20
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
+        layout.minimumLineSpacing = 12
+        layout.sectionInset = UIEdgeInsets(top: 12, left: 28, bottom: 12, right: 28)
         
         self.showsHorizontalScrollIndicator = false
         self.collectionViewLayout = layout
+        self.decelerationRate = .fast
     }
 
 }
 
 class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
+    private var layoutAttributesForPaging: [UICollectionViewLayoutAttributes]?
+    
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return proposedContentOffset }
-
-        // sectionInset を考慮して表示領域を拡大する
-        let expansionMargin = sectionInset.left + sectionInset.right
-        let expandedVisibleRect = CGRect(x: collectionView.contentOffset.x - expansionMargin,
-                                          y: 0,
-                                          width: collectionView.bounds.width + (expansionMargin * 2),
-                                          height: collectionView.bounds.height)
-
-        // 表示領域の layoutAttributes を取得し、X座標でソートする
-        guard let targetAttributes = layoutAttributesForElements(in: expandedVisibleRect)?
-            .sorted(by: { $0.frame.minX < $1.frame.minX }) else { return proposedContentOffset }
+        guard let targetAttributes = layoutAttributesForPaging else { return proposedContentOffset }
 
         let nextAttributes: UICollectionViewLayoutAttributes?
         if velocity.x == 0 {
@@ -64,19 +57,31 @@ class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
             let cellLeftMargin = (collectionView.bounds.width - attributes.bounds.width) * 0.5
             return CGPoint(x: attributes.frame.minX - cellLeftMargin, y: collectionView.contentOffset.y)
         }
+
     }
     
     // 画面中央に一番近いセルの attributes を取得する
     private func layoutAttributesForNearbyCenterX(in attributes: [UICollectionViewLayoutAttributes], collectionView: UICollectionView) -> UICollectionViewLayoutAttributes? {
         var nearByCenter = attributes.first
-        var minDistance = abs(collectionView.center.x - attributes.first!.center.x)
+        var minDistance = abs(collectionView.center.x - (attributes.first!.center.x - collectionView.contentOffset.x))
         for attribute in attributes {
-            print(attribute.center.x)
-            if abs(collectionView.center.x - attribute.center.x) < minDistance {
-                minDistance = abs(collectionView.center.x - attribute.center.x)
+            if abs(collectionView.center.x - (attribute.center.x - collectionView.contentOffset.x)) < minDistance {
+                minDistance = abs(collectionView.center.x - (attribute.center.x - collectionView.contentOffset.x))
                 nearByCenter = attribute
             }
         }
-        return attributes[1]
+        return nearByCenter
+    }
+    
+    // UIScrollViewDelegate scrollViewWillBeginDragging から呼ぶ
+    func prepareForPaging() {
+        // 1ページずつページングさせるために、あらかじめ表示されている attributes の配列を取得しておく
+        guard let collectionView = collectionView else { return }
+        let expansionMargin = sectionInset.left + sectionInset.right
+        let expandedVisibleRect = CGRect(x: collectionView.contentOffset.x - expansionMargin,
+                                          y: 0,
+                                          width: collectionView.bounds.width + (expansionMargin * 2),
+                                          height: collectionView.bounds.height)
+        layoutAttributesForPaging = layoutAttributesForElements(in: expandedVisibleRect)?.sorted { $0.frame.minX < $1.frame.minX }
     }
 }
