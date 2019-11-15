@@ -23,14 +23,18 @@ class PagingCardCollectionView: UICollectionView {
         
         self.showsHorizontalScrollIndicator = false
         self.collectionViewLayout = layout
+        self.decelerationRate = .fast
     }
 
 }
 
 class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
+    private var layoutAttributesForPaging: [UICollectionViewLayoutAttributes]?
+    
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else { return proposedContentOffset }
+        guard let targetAttributes = layoutAttributesForPaging else { return proposedContentOffset }
 
         // sectionInset を考慮して表示領域を拡大する
         let expansionMargin = sectionInset.left + sectionInset.right
@@ -38,10 +42,6 @@ class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
                                           y: 0,
                                           width: collectionView.bounds.width + (expansionMargin * 2),
                                           height: collectionView.bounds.height)
-
-        // 表示領域の layoutAttributes を取得し、X座標でソートする
-        guard let targetAttributes = layoutAttributesForElements(in: expandedVisibleRect)?
-            .sorted(by: { $0.frame.minX < $1.frame.minX }) else { return proposedContentOffset }
 
         let nextAttributes: UICollectionViewLayoutAttributes?
         if velocity.x == 0 {
@@ -69,14 +69,25 @@ class PagingCardCollectionViewFlowLayout: UICollectionViewFlowLayout {
     // 画面中央に一番近いセルの attributes を取得する
     private func layoutAttributesForNearbyCenterX(in attributes: [UICollectionViewLayoutAttributes], collectionView: UICollectionView) -> UICollectionViewLayoutAttributes? {
         var nearByCenter = attributes.first
-        var minDistance = abs(collectionView.center.x - attributes.first!.center.x)
+        var minDistance = abs(collectionView.center.x - (attributes.first!.center.x - collectionView.contentOffset.x))
         for attribute in attributes {
-            print(attribute.center.x)
-            if abs(collectionView.center.x - attribute.center.x) < minDistance {
-                minDistance = abs(collectionView.center.x - attribute.center.x)
+            if abs(collectionView.center.x - (attribute.center.x - collectionView.contentOffset.x)) < minDistance {
+                minDistance = abs(collectionView.center.x - (attribute.center.x - collectionView.contentOffset.x))
                 nearByCenter = attribute
             }
         }
-        return attributes[1]
+        return nearByCenter
+    }
+    
+    // UIScrollViewDelegate scrollViewWillBeginDragging から呼ぶ
+    func prepareForPaging() {
+        // 1ページずつページングさせるために、あらかじめ表示されている attributes の配列を取得しておく
+        guard let collectionView = collectionView else { return }
+        let expansionMargin = sectionInset.left + sectionInset.right
+        let expandedVisibleRect = CGRect(x: collectionView.contentOffset.x - expansionMargin,
+                                          y: 0,
+                                          width: collectionView.bounds.width + (expansionMargin * 2),
+                                          height: collectionView.bounds.height)
+        layoutAttributesForPaging = layoutAttributesForElements(in: expandedVisibleRect)?.sorted { $0.frame.minX < $1.frame.minX }
     }
 }

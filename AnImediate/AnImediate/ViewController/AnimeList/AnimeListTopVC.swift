@@ -144,6 +144,12 @@ class AnimeListTopVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        recomCollectionView.rx.willBeginDragging
+            .subscribe(
+                onNext: { [unowned self] _ in
+                    (self.recomCollectionView.collectionViewLayout as! PagingCardCollectionViewFlowLayout).prepareForPaging()
+            }).disposed(by: disposeBag)
+        
         currentTermCollectionView.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
