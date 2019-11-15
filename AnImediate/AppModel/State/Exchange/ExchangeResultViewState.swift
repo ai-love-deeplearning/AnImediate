@@ -7,7 +7,7 @@ import Realm
 import RealmSwift
 
 public struct ExchangeResultViewState: StateType  {
-    public internal(set) var contentType: AnimeCardContentType = .currentTerm
+    public internal(set) var contentType: AnimeTableContentType = .currentTerm
     public internal(set) var isRegisterMode = false
     public internal(set) var error: AnimediateError?
 }

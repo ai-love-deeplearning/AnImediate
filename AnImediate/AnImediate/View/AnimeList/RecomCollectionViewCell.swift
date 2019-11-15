@@ -14,6 +14,7 @@ import FirebaseUI
 class RecomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var recomImageView: UIImageView!
+    @IBOutlet weak var rightContentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var predictRatingLabel: UILabel!
@@ -25,6 +26,7 @@ class RecomCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.cornerRadius = self.bounds.height * 0.03
+        self.rightContentView.backgroundColor = .LightThema
     }
     
     public func setData(anime: AnimeModel) {

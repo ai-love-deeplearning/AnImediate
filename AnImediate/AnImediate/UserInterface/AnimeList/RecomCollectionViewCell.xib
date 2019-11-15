@@ -75,6 +75,7 @@
             <connections>
                 <outlet property="predictRatingLabel" destination="GDl-gs-fuL" id="bLa-Wl-ruc"/>
                 <outlet property="recomImageView" destination="OLL-wb-PDK" id="Twh-0x-xkO"/>
+                <outlet property="rightContentView" destination="sDK-t5-9s3" id="WB7-DG-V7F"/>
                 <outlet property="synopsisLabel" destination="2OO-Ta-W9x" id="Gji-ei-maf"/>
                 <outlet property="titleLabel" destination="sTL-gO-9YO" id="vl8-gY-Yzg"/>
             </connections>

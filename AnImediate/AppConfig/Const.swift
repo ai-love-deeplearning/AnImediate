@@ -104,6 +104,7 @@ public enum AnimeTableContentType: String {
 
 public struct ResultBarTitles {
     public static let titles = ["おすすめ", "あなたのみ", "相手のみ", "二人とも"]
+}
 
 public struct ScreenConfig {
     // 画面サイズ
@@ -121,3 +122,4 @@ public struct ScreenConfig {
     // ホーム画面のパラレルヘッダーの高さ
     public static let homeParallaxHeaderHeight: CGFloat = (mainBoundSize.width * 0.8) + statusBarSize.height + navigationBarHeight
 }
+
