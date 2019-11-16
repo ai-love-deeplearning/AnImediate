@@ -40,6 +40,7 @@ class HomeArchiveListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         disposeBag = DisposeBag()
+        print("read viewWillAppear")
         initSectionModels()
         initTable()
         bindViews()
@@ -76,13 +77,6 @@ class HomeArchiveListVC: UIViewController {
                 strongSelf.dataRelay.accept(strongSelf.sectionModels)
             })
             .disposed(by: disposeBag)
-        
-        archiveTable.rx.modelSelected(ProfileSectionModel.self)
-            .subscribe(onNext: { [weak self] item in
-                // didselect
-                
-            })
-            .disposed(by: disposeBag)
     }
     
     private func bindState() {
@@ -90,7 +84,8 @@ class HomeArchiveListVC: UIViewController {
             .drive(
                 onNext: { [unowned self] statusType in
                     // TODO:- TableViewのデータソースを切り返る処理
-                    
+//                    self.initSectionModels()
+//                    self.fetch()
             })
             .disposed(by: disposeBag)
         
@@ -106,10 +101,13 @@ class HomeArchiveListVC: UIViewController {
 
 extension HomeArchiveListVC {
     private func initSectionModels() {
-        let items = [
-            HomeArchiveModel(title: "ソードアート・オンライン", synopsis: "", season: "2014年春", image: UIImage(), registerCount: ""),
-            HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: ""),
-            HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: "")]
+//        let items = [
+//            HomeArchiveModel(title: "ソードアート・オンライン", synopsis: "", season: "2014年春", image: UIImage(), registerCount: ""),
+//            HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: ""),
+//            HomeArchiveModel(title: "", synopsis: "", season: "", image: UIImage(), registerCount: "")]
+        // TODO:- ここでarchiveが0だとクラッシュ?
+        let items = Array(ArchiveModel.read(uid: AccountModel.read().userID).filter("animeStatus == %@", self.viewState.statusType.rawValue))
+//        let items = Array(ArchiveModel.read(uid: AccountModel.read().userID))
         sectionModels = [HomeArchiveSectionModel(items: items)]
     }
     
@@ -121,11 +119,8 @@ extension HomeArchiveListVC {
             configureCell: { _, tableView, indexPath, item in
                 // 引数名通り、与えられたデータを利用してcellを生成する
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ArchiveCardCell", for: IndexPath(row: indexPath.row, section: 0)) as! ArchiveCardCell
-                // TODO:- ここでarchiveが0だとクラッシュ
-//                let archives = ArchiveModel.read(id: AccountModel.read().userID).filter("animeStatus == %@", self.viewState.statusType.rawValue)
-//                let item =  AnimeModel.read(annictID: archives[indexPath.row].annictID)
-//                cell.anime = item
-                cell.accessoryType = .disclosureIndicator
+                
+                cell.setArchive(item)
                 
                 return cell
         }, canEditRowAtIndexPath: { _, _ in
