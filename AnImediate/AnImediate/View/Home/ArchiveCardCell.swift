@@ -14,25 +14,18 @@ import FirebaseUI
 final class ArchiveCardCell: UITableViewCell {
     
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var synopsisLabel: UILabel!
     @IBOutlet private weak var seasonLabel: UILabel!
-    @IBOutlet private weak var resisterCountLabel: UILabel!
     @IBOutlet private weak var iconImageView: UIImageView!
-    
-    var anime: AnimeModel? {
-        didSet {
-            titleLabel.text = anime?.title
-            synopsisLabel.text = anime?.synopsis
-            seasonLabel.text = anime?.seasonNameText
-            // TODO:- 見た人なのか登録した人なのか
-            resisterCountLabel.text = String(anime?.watchersCount ?? 0)
-            setImage(anime!.annictID)
-        }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    }
+    
+    public func setArchive(_ archive: ArchiveModel) {
+        let anime = AnimeModel.read(annictID: archive.annictID)
+        titleLabel.text = anime.title
+        seasonLabel.text = anime.seasonNameText
+        setImage("iconImages/\(anime.annictID).jpg")
     }
     
     private func setImage(_ imageRef: String) {

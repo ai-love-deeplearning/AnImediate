@@ -7,7 +7,7 @@ import Realm
 import RealmSwift
 
 public struct HomeArchiveListViewState: StateType  {
-    public internal(set) var statusType: AnimeStatusType = .none
+    public internal(set) var statusType: AnimeStatusType = .keep
     public internal(set) var error: AnimediateError?
 }
 

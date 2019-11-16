@@ -11,8 +11,19 @@ import AppModel
 import UIKit
 import Tabman
 import Pageboy
+import ReSwift
+import RxCocoa
+import RxSwift
 
 class HomeTopVC: TabmanViewController {
+    
+    private var disposeBag = DisposeBag()
+    
+    private let store = RxStore(store: AppStore.instance.homeStore)
+    
+    private var viewState: HomeArchiveListViewState {
+        return store.state.homeArchiveListViewState
+    }
     
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
@@ -56,7 +67,47 @@ class HomeTopVC: TabmanViewController {
         
         addBar(bar, dataSource: self, at: .top)
     }
-
+    
+    private func indexChangeStatus(_ index: Int) {
+        var status = AnimeStatusType.keep
+        switch index {
+        case 0:
+         status = AnimeStatusType.keep
+        case 1:
+         status = AnimeStatusType.now
+        case 2:
+         status = AnimeStatusType.done
+        case 3:
+         status = AnimeStatusType.stop
+        default:
+         status = AnimeStatusType.none
+        }
+        self.store.dispatch(HomeArchiveListViewAction.ChangeContent(content: status))
+    }
+    
+    private func positionChangeStatus(_ x: CGFloat) {
+        var status = AnimeStatusType.keep
+        if ((0.0 <= x) && (x <= 0.1) && (x != 0.008) && (x != 0.016) && (x != 0.024)) || (x == 0.992) || (x == 1.984) || (x == 2.976) {
+            status = AnimeStatusType.keep
+        } else if ((0.9 <= x) && (x <= 1.1) && (x != 0.992) && (x != 1.008) && (x != 1.016)) || (x == 0.008) || (x == 1.992) || (x == 2.984) {
+            status = AnimeStatusType.now
+        } else if ((1.9 <= x) && (x <= 2.1) && (x != 1.984) && (x != 1.992) && (x != 2.008)) || (x == 0.016) || (x == 1.008) || (x == 2.992) {
+            status = AnimeStatusType.done
+        } else if ((2.9 <= x) && (x <= 3.0) && (x != 2.976) && (x != 2.984) && (x != 2.992)) || (x == 0.024) || (x == 1.016) || (x == 2.008) {
+            status = AnimeStatusType.stop
+        }
+        self.store.dispatch(HomeArchiveListViewAction.ChangeContent(content: status))
+    }
+    
+    override func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollTo position: CGPoint, direction: NavigationDirection, animated: Bool) {
+        super.pageboyViewController(self, didScrollTo: position, direction: direction, animated: animated)
+        positionChangeStatus(position.x)
+    }
+    
+    override func pageboyViewController(_ pageboyViewController: PageboyViewController, willScrollToPageAt index: TabmanViewController.PageIndex, direction: PageboyViewController.NavigationDirection, animated: Bool) {
+        super.pageboyViewController(self, willScrollToPageAt: index, direction: direction, animated: animated)
+        indexChangeStatus(index)
+    }
 }
 
 extension HomeTopVC: PageboyViewControllerDataSource, TMBarDataSource {
@@ -77,9 +128,20 @@ extension HomeTopVC: PageboyViewControllerDataSource, TMBarDataSource {
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
-    /*
-    func barItem(for tabViewController: TabmanViewController, at index: Int) -> TMBarItemable {
-        let title = "Page \(index)"
-        return TMBarItem(title: title)
-    }*/
+
+}
+
+private extension RxStore where AnyStateType == HomeViewState {
+    var state: Driver<HomeArchiveListViewState> {
+        return stateDriver.mapDistinct { $0.homeArchiveListViewState }
+    }
+    
+    var statusType: Driver<AnimeStatusType> {
+        return state.mapDistinct { $0.statusType }
+    }
+    
+    var error: Driver<AnimediateError> {
+        return state.mapDistinct { $0.error }.skipNil()
+    }
+    
 }

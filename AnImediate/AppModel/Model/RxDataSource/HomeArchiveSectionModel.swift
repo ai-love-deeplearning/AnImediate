@@ -17,7 +17,7 @@ public struct HomeArchiveSectionModel {
 }
 
 extension HomeArchiveSectionModel: SectionModelType {
-    public typealias Item = HomeArchiveModel
+    public typealias Item = ArchiveModel
     
     public init(original: HomeArchiveSectionModel, items: [HomeArchiveSectionModel.Item]) {
         self = original

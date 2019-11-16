@@ -56,7 +56,7 @@ public struct HomeSBIdentifier {
 }
 
 public struct HomeBarTitles {
-    public static let titles = ["見たい", "見てる", "見てない", "見た"]
+    public static let titles = ["見たい", "見てる", "見た", "見てた"]
 }
 
 public struct ProfileItem {
@@ -85,14 +85,14 @@ public enum cropType {
 
 public enum AnimeStatusType: String {
     case none = ""
-    case yet = "見てない"
-    case did = "見た"
-    case will = "見たい"
+    case stop = "見てた"
+    case done = "見た"
+    case keep = "見たい"
     case now = "見てる"
 }
 
 public struct AnimeStatusPickerItems {
-    public static let items = ["", "見たい", "見てる", "見てない", "見た"]
+    public static let items = ["", "見たい", "見てる", "見た", "見てた"]
 }
 
 public enum AnimeTableContentType: String {
