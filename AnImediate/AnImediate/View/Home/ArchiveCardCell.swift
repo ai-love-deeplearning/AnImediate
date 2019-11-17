@@ -25,7 +25,9 @@ final class ArchiveCardCell: UITableViewCell {
         let anime = AnimeModel.read(annictID: archive.annictID)
         titleLabel.text = anime.title
         seasonLabel.text = anime.seasonNameText
+        
         setImage("iconImages/\(anime.annictID).jpg")
+        iconImageView.contentMode = .scaleAspectFill
     }
     
     private func setImage(_ imageRef: String) {

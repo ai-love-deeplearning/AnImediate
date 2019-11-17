@@ -28,6 +28,7 @@ class AnimeListTopVC: UIViewController {
     @IBOutlet weak var recomCollectionView: UICollectionView!
     @IBOutlet weak var currentTermCollectionView: AnimeHorizontalCollectionView!
     @IBOutlet weak var rankingCollectionView: AnimeHorizontalCollectionView!
+    @IBOutlet weak var genreCollectionView: AnimeGenreCollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var currentTermBtn: UIButton!
     @IBOutlet weak var rankingBtn: UIButton!
@@ -67,6 +68,10 @@ class AnimeListTopVC: UIViewController {
     private var rankingSectionModels: [AnimeHorizontalCollectionSectionModel]!
     private var rankingDataRelay = BehaviorRelay<[AnimeHorizontalCollectionSectionModel]>(value: [])
     
+    private var genreDataSource: RxCollectionViewSectionedReloadDataSource<AnimeGenreCollectionSectionModel>!
+    private var genreSectionModels: [AnimeGenreCollectionSectionModel]!
+    private var genreDataRelay = BehaviorRelay<[AnimeGenreCollectionSectionModel]>(value: [])
+    
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     var autoScrollTimer = Timer()
     
@@ -81,6 +86,7 @@ class AnimeListTopVC: UIViewController {
         super.viewWillAppear(animated)
         fetchRanking()
         fetchCurrentTerm()
+        fetchGenre()
         initCollectionViews()
         fetchRecom()
         bindViews()
@@ -99,6 +105,8 @@ class AnimeListTopVC: UIViewController {
         
         rankingCollectionView.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "rankingCell")
         
+        genreCollectionView.register(UINib(nibName: "AnimeGenreCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "genreCell")
+        
         recomDataRelay.asObservable()
             .bind(to: recomCollectionView.rx.items(dataSource: recomDataSource))
             .disposed(by: disposeBag)
@@ -109,6 +117,10 @@ class AnimeListTopVC: UIViewController {
         
         rankingDataRelay.asObservable()
             .bind(to: rankingCollectionView.rx.items(dataSource: rankingDataSource))
+            .disposed(by: disposeBag)
+        
+        genreDataRelay.asObservable()
+            .bind(to: genreCollectionView.rx.items(dataSource: genreDataSource))
             .disposed(by: disposeBag)
         
         recomCollectionView.rx.itemSelected
@@ -168,6 +180,13 @@ class AnimeListTopVC: UIViewController {
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
             })
             .disposed(by: disposeBag)
+        
+        genreCollectionView.rx.itemSelected
+        .subscribe(
+            onNext: { [unowned self] indexPath in
+                
+        })
+        .disposed(by: disposeBag)
         
         currentTermBtn.rx.tap.asDriver()
             .coolTime()
@@ -286,6 +305,20 @@ extension AnimeListTopVC {
         
     }
     
+    private func fetchGenre() {
+        let genreItems = Array(AnimeModel.readAllRanking()[100 ..< 112])
+        
+        genreSectionModels = [AnimeGenreCollectionSectionModel(items: genreItems)]
+        
+        Observable.just(genreSectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.genreDataRelay.accept(strongSelf.genreSectionModels)
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
     private func fetchRecom() {
 //        guard let recomItems = viewState.recommend else {
 //            return
@@ -332,6 +365,17 @@ extension AnimeListTopVC {
                 guard let strongSelf = self else { return UICollectionViewCell() }
                 let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "rankingCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeHorizontalCollectionViewCell
 
+                cell.setData(anime: item)
+                cell.setImage("iconImages/\(item.annictID).jpg")
+                
+                return cell
+        })
+        
+        genreDataSource = RxCollectionViewSectionedReloadDataSource<AnimeGenreCollectionSectionModel>(
+            configureCell: { [weak self] (_, collectinView, indexPath, item) in
+                guard let strongSelf = self else { return UICollectionViewCell() }
+                let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeGenreCollectionViewCell
+                
                 cell.setData(anime: item)
                 cell.setImage("iconImages/\(item.annictID).jpg")
                 
