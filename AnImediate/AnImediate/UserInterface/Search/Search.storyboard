@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="668" y="88"/>
         </scene>
-        <!--Broadcast TableVC-->
+        <!--Search BroadcastVC-->
         <scene sceneID="rP0-sH-1qH">
             <objects>
-                <viewController storyboardIdentifier="broadcast" id="E48-2F-Df6" customClass="BroadcastTableVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="broadcast" id="E48-2F-Df6" customClass="SearchBroadcastVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X03-Lb-hLy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

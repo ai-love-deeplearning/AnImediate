@@ -140,6 +140,14 @@ class AnimeListTableVC: UIViewController {
     }
     
     private func bindState() {
+        
+        store.contentType
+            .drive(
+                onNext: { [unowned self] contentType in
+                    print(contentType)
+            })
+            .disposed(by: disposeBag)
+        
         store.isRegisterMode
             .drive(
                 onNext: { [unowned self] isRegisterMode in
@@ -152,6 +160,18 @@ class AnimeListTableVC: UIViewController {
                     self.animeTable.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        store.searchKey
+            .drive(
+                onNext: { [unowned self] searchKey in
+                    if self.viewState.contentType == .broadcast{
+                        let items = Array(AnimeModel.readAll().filter("seasonNameText == %@", self.viewState.searchKey))
+                        self.sectionModels = [AnimeTableSectionModel(items: items)]
+                        self.fetch()
+                    }
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -185,7 +205,7 @@ extension AnimeListTableVC {
             items = Array(AnimeModel.readAllRanking())
         case .broadcast:
             // TODO:- 放送年取得メソッドを実装
-            items = Array(AnimeModel.readAllRanking())
+            items = Array(AnimeModel.readAll().filter("seasonNameText == %@", self.viewState.searchKey))
         }
         
         sectionModels = [AnimeTableSectionModel(items: items)]
@@ -230,6 +250,14 @@ private extension RxStore where AnyStateType == AnimeListViewState {
     
     var isRegisterMode: Driver<Bool> {
         return state.mapDistinct { $0.isRegisterMode }
+    }
+    
+    var contentType: Driver<AnimeTableContentType> {
+        return state.mapDistinct { $0.contentType }
+    }
+    
+    var searchKey: Driver<String> {
+        return state.mapDistinct { $0.searchKey }
     }
     
     var error: Driver<AnimediateError> {

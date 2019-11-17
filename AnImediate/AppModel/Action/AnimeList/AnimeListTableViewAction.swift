@@ -21,5 +21,12 @@ public struct AnimeListTableViewAction {
     public struct ChangeMode: Action {
         public init() {}
     }
+    
+    public struct SetSearchKey: Action {
+        public let searchKey: String
+        public init(searchKey: String) {
+            self.searchKey = searchKey
+        }
+    }
 
 }

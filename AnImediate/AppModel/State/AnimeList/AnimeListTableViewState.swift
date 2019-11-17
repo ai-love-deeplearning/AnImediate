@@ -8,6 +8,7 @@ import RealmSwift
 
 public struct AnimeListTableViewState: StateType  {
     public internal(set) var contentType: AnimeTableContentType = .currentTerm
+    public internal(set) var searchKey = ""
     public internal(set) var isRegisterMode = false
     public internal(set) var error: AnimediateError?
 }
@@ -15,6 +16,7 @@ public struct AnimeListTableViewState: StateType  {
 extension AnimeListTableViewState: Equatable {
     public static func == (lhs: AnimeListTableViewState, rhs: AnimeListTableViewState) -> Bool {
         return lhs.contentType == rhs.contentType
-        && lhs.isRegisterMode == rhs.isRegisterMode
+            && lhs.searchKey == rhs.searchKey
+            && lhs.isRegisterMode == rhs.isRegisterMode
     }
 }

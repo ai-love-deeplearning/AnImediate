@@ -31,7 +31,8 @@ class SearchTitleVC: UIViewController {
         searchBar.tintColor = .deepMagenta()
         searchBar.barTintColor = .whiteSmoke()
         searchBar.placeholder = "タイトルを入力"
-        searchBar.setValue("キャンセル", forKey: "_cancelButtonText")
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "キャンセル"
+//        searchBar.setValue("キャンセル", forKey: "_cancelButtonText")
         searchBar.delegate = self
     }
     
