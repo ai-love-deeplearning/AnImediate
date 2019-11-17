@@ -18,10 +18,9 @@ import RealmSwift
 class AnimeListTableVC: UIViewController {
 
     @IBOutlet weak var animeTable: UITableView!
-    @IBOutlet private weak var registerModeBtn: UIBarButtonItem!
-    @IBOutlet private weak var floatingView: UIView!
-    @IBOutlet private weak var statusTextField: AnimeStatusTextField!
-    @IBOutlet private weak var registerBtn: UIButton!
+    @IBOutlet weak var registerMenu: UIButton!
+    
+    private var registerBtns: [UIButton]?
     
     private var disposeBag = DisposeBag()
     
@@ -35,13 +34,20 @@ class AnimeListTableVC: UIViewController {
     private var sectionModels: [AnimeTableSectionModel]!
     private var dataRelay = BehaviorRelay<[AnimeTableSectionModel]>(value: [])
     
-
-//    var pickerView = UIPickerView()
+    private lazy var initRegisterBtnsLayout : Void = {
+        self.registerBtns!.forEach{ $0.center = self.registerMenu.center }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         animeTable.estimatedRowHeight = 130
         animeTable.rowHeight = UITableView.automaticDimension
+        initRegisterBtns()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        _ = initRegisterBtnsLayout
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,56 +102,26 @@ class AnimeListTableVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        registerModeBtn.rx.tap.asDriver()
-            .coolTime().drive(
+        registerMenu.rx.tap.asDriver()
+            .coolTime()
+            .drive(
                 onNext: { [unowned self] in
+                    let toValue = self.viewState.isRegisterMode ? 0 : -CGFloat.pi/4
+                    let fromValue = self.viewState.isRegisterMode ? -CGFloat.pi/4 : 0
+                    self.animateMenu(to: toValue, from: fromValue)
+                    self.animateMenuColor()
+                    self.animateRegisterBtns(self.viewState.isRegisterMode)
+                    
                     self.store.dispatch(AnimeListTableViewAction.ChangeMode())
             })
             .disposed(by: disposeBag)
-        
-        statusTextField.rx.text.orEmpty.asObservable()
-            .subscribe { [unowned self] in
-                // TODO:- Pickerならいらない説
-                // ここでViewModelに値の更新を通知する
-            }
-            .disposed(by: disposeBag)
-        
-        registerBtn.rx.tap.asDriver()
-            .coolTime().drive(
-                onNext: { [unowned self] in
-                    let selectedIndexes = self.animeTable.indexPathsForSelectedRows!
-                    
-                    if self.statusTextField.text!.isEmpty {
-                        self.showAlert(title: "エラー", message: "ステータスを設定してください")
-                        return
-                    } else {
-                        let msg = "\(self.statusTextField.text!)に \(String(selectedIndexes.count))件のデータを登録しました"
-                        self.showAlert(title: "登録", message: msg)
-                    }
-                    
-                    if selectedIndexes.isNotEmpty {
-                        
-                        let selectedAnimes = selectedIndexes.map { self.sectionModels.first!.items[$0.row] }
-                        
-                        selectedAnimes.forEach {
-                            let uid = AccountModel.read().userID
-                            let status = self.statusTextField.text!
-                            ArchiveModel.set(userID: uid, annictID: $0.annictID, animeStatus: status)
-                        }
-                        
-                    }
-                    self.store.dispatch(AnimeListTableViewAction.ChangeMode())
-            })
-            .disposed(by: disposeBag)
+
     }
     
     private func bindState() {
         store.isRegisterMode
             .drive(
                 onNext: { [unowned self] isRegisterMode in
-                    self.floatingView.isHidden = !isRegisterMode
-                    self.registerModeBtn.title = isRegisterMode ? "キャンセル" : "登録"
-                    self.registerModeBtn.tintColor = isRegisterMode ? .lightGray : .deepMagenta()
                     // 複数選択可にする
                     self.animeTable.allowsMultipleSelectionDuringEditing = isRegisterMode
                     self.animeTable.isEditing = isRegisterMode
@@ -154,9 +130,32 @@ class AnimeListTableVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        floatingView.layer.cornerRadius = floatingView.frame.height / 2
+    @objc func registerEvent(_ sender: UIButton) {
+        
+        guard let selectedIndexes = self.animeTable.indexPathsForSelectedRows else {
+            let msg = "アニメが選択されていません"
+            self.showAlert(title: "エラー", message: msg)
+            return
+        }
+
+        if selectedIndexes.isNotEmpty {
+            let msg = "\(HomeBarTitles.titles[sender.tag])に \(String(selectedIndexes.count))件のデータを登録しました"
+            self.showAlert(title: "登録", message: msg)
+            
+            let selectedAnimes = selectedIndexes.map { self.sectionModels.first!.items[$0.row] }
+
+            selectedAnimes.forEach {
+                let uid = AccountModel.read().userID
+                let status = HomeBarTitles.titles[sender.tag]
+                ArchiveModel.set(userID: uid, annictID: $0.annictID, animeStatus: status)
+            }
+        }
+        let toValue = self.viewState.isRegisterMode ? 0 : -CGFloat.pi/4
+        let fromValue = self.viewState.isRegisterMode ? -CGFloat.pi/4 : 0
+        self.animateMenu(to: toValue, from: fromValue)
+        self.animateMenuColor()
+        self.animateRegisterBtns(self.viewState.isRegisterMode)
+        self.store.dispatch(AnimeListTableViewAction.ChangeMode())
     }
     
     private func showAlert(title: String, message: String) {
@@ -171,6 +170,86 @@ class AnimeListTableVC: UIViewController {
     
 }
 
+// MARK:- Animation
+extension AnimeListTableVC {
+    
+    private func initRegisterBtns() {
+        registerBtns = (0 ..< 4).map({ _ in
+            UIButton(frame: CGRect(x: 0, y: 0, width: 56, height: 56))
+        })
+        for (index, btn) in registerBtns!.enumerated() {
+            self.view.insertSubview(btn, belowSubview: registerMenu)
+            btn.center = registerMenu.center
+            btn.backgroundColor = .MainThema
+            btn.setTitleColor(UIColor.white, for: UIControlState.normal)
+            btn.setTitle(HomeBarTitles.titles[index], for: UIControlState.normal)
+            btn.titleLabel?.font = .systemFont(ofSize: 11)
+            btn.cornerRadius = btn.bounds.width / 2
+            btn.shadowOffset = CGSize(width: 0.0, height: 4.0)
+            btn.shadowColor = .black
+            btn.shadowAlpha = 0.5
+            btn.shadowRadius = 5
+            btn.alpha = 0
+            btn.tag = index
+            btn.addTarget(self, action: #selector(registerEvent(_:)), for: UIControlEvents.touchUpInside)
+        }
+    }
+    
+    private func animateMenu(to: CGFloat, from: CGFloat) {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.isRemovedOnCompletion = false
+        rotateAnimation.fillMode = CAMediaTimingFillMode.forwards
+        rotateAnimation.fromValue = from
+        rotateAnimation.toValue = to
+        rotateAnimation.duration = 0.2
+        
+        registerMenu.layer.add(rotateAnimation, forKey: "rotateindicator")
+    }
+    
+    private func animateMenuColor() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.registerMenu.backgroundColor = self.viewState.isRegisterMode ? .MainThema : .TextLightGray
+        })
+    }
+    
+    private func calcExpandedPoint(_ index: Int) -> CGPoint {
+        let leadingMargin: CGFloat = 16
+        let trailingMargin: CGFloat = 12
+        let menuWidth = registerMenu.bounds.width
+        let registerBtnWidth: CGFloat = 56
+        
+        let areaWidth = ScreenConfig.mainBoundSize.width - (leadingMargin + menuWidth + trailingMargin * 2)
+        
+        let margin = (areaWidth - registerBtnWidth * 4) / 3
+        
+        let x_position = leadingMargin + CGFloat(index) * (registerBtnWidth + margin) + registerBtnWidth / 2
+        let y_position = registerMenu.center.y
+        
+        return CGPoint(x: x_position, y: y_position)
+    }
+    
+    private func animateRegisterBtns(_ isRegisterMode: Bool) {
+        if isRegisterMode {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.registerBtns!.forEach{
+                    $0.center = self.registerMenu.center
+                    $0.alpha = 0
+                }
+            })
+        } else {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.registerBtns!.forEach{
+                    $0.center = self.calcExpandedPoint($0.tag)
+                    $0.alpha = 1
+                }
+            })
+        }
+        
+    }
+    
+}
+
+// MARK:- RxDatasources
 extension AnimeListTableVC {
     private func initSectionModels() {
         var items: [AnimeModel] = []
@@ -193,8 +272,6 @@ extension AnimeListTableVC {
     }
     
     private func initTable() {
-        
-//        animeTable.register(UINib(nibName: "AnimeCardTableCell", bundle: nil), forCellReuseIdentifier: "AnimeCardCell")
         
         animeTable.tableFooterView = UIView(frame: .zero)
         
