@@ -16,10 +16,11 @@ class PagingCardCollectionView: UICollectionView {
         
         let layout = PagingCardCollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width-56, height: self.bounds.height*0.8)
+//        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width-56, height: self.bounds.height*0.8)
+        layout.itemSize = CGSize(width: 319, height: 208)
         layout.minimumInteritemSpacing = self.bounds.height
         layout.minimumLineSpacing = 12
-        layout.sectionInset = UIEdgeInsets(top: 12, left: 28, bottom: 12, right: 28)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
         
         self.showsHorizontalScrollIndicator = false
         self.collectionViewLayout = layout
