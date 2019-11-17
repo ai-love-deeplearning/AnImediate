@@ -58,12 +58,13 @@
 		5001BEE8234DEF23005C0B8A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEE7234DEF23005C0B8A /* LaunchViewController.swift */; };
 		5001BEEA234E0D9A005C0B8A /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5001BEE9234E0D9A005C0B8A /* Launch.storyboard */; };
 		5001BEEC234E1609005C0B8A /* LaunchViewControllerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5001BEEB234E1609005C0B8A /* LaunchViewControllerInjector.swift */; };
+		50064002238169A90034B302 /* SearchBroadCastViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50064001238169A90034B302 /* SearchBroadCastViewState.swift */; };
 		500DC47722C4DCD800C345C9 /* ExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */; };
 		50165BAB22C5961E00A038C8 /* WCGraintCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */; };
 		50165BB122C994EA00A038C8 /* BLEConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50165BB022C994EA00A038C8 /* BLEConnectivity.swift */; };
 		5027DEE9233DB9F900F4818F /* SwinjectStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DEE8233DB9F900F4818F /* SwinjectStoryboardExtension.swift */; };
 		5027DEEC233DBAD500F4818F /* P2PConnectionInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DEEB233DBAD500F4818F /* P2PConnectionInjector.swift */; };
-		503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */; };
+		503DD23422DAFBCC004B9746 /* SearchBroadcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23322DAFBCC004B9746 /* SearchBroadcastVC.swift */; };
 		503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */; };
 		503DD23822DB0748004B9746 /* AccordionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */; };
 		503DD23A22DC3636004B9746 /* AccordionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503DD23922DC3636004B9746 /* AccordionViewModel.swift */; };
@@ -429,6 +430,7 @@
 		5001BEE7234DEF23005C0B8A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		5001BEE9234E0D9A005C0B8A /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		5001BEEB234E1609005C0B8A /* LaunchViewControllerInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewControllerInjector.swift; sourceTree = "<group>"; };
+		50064001238169A90034B302 /* SearchBroadCastViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBroadCastViewState.swift; sourceTree = "<group>"; };
 		500DC47622C4DCD800C345C9 /* ExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeSearchVC.swift; sourceTree = "<group>"; };
 		50128DA0233B0BF700A35A97 /* ArchiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveModel.swift; sourceTree = "<group>"; };
 		50165BAA22C5961E00A038C8 /* WCGraintCircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCGraintCircleLayer.swift; sourceTree = "<group>"; };
@@ -436,7 +438,7 @@
 		50165BB222C995BC00A038C8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		5027DEE8233DB9F900F4818F /* SwinjectStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboardExtension.swift; sourceTree = "<group>"; };
 		5027DEEB233DBAD500F4818F /* P2PConnectionInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PConnectionInjector.swift; sourceTree = "<group>"; };
-		503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTableVC.swift; sourceTree = "<group>"; };
+		503DD23322DAFBCC004B9746 /* SearchBroadcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBroadcastVC.swift; sourceTree = "<group>"; };
 		503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionSectionHeaderView.swift; sourceTree = "<group>"; };
 		503DD23722DB0748004B9746 /* AccordionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccordionSectionHeaderView.xib; sourceTree = "<group>"; };
 		503DD23922DC3636004B9746 /* AccordionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionViewModel.swift; sourceTree = "<group>"; };
@@ -899,7 +901,7 @@
 			children = (
 				32CDA22B22CB218800BD5A76 /* SearchVC.swift */,
 				321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */,
-				503DD23322DAFBCC004B9746 /* BroadcastTableVC.swift */,
+				503DD23322DAFBCC004B9746 /* SearchBroadcastVC.swift */,
 				503DD23522DB064D004B9746 /* AccordionSectionHeaderView.swift */,
 				503DD23922DC3636004B9746 /* AccordionViewModel.swift */,
 				32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */,
@@ -1408,6 +1410,7 @@
 			isa = PBXGroup;
 			children = (
 				50DE7A24233FB75A006C683E /* SearchViewState.swift */,
+				50064001238169A90034B302 /* SearchBroadCastViewState.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -2375,6 +2378,7 @@
 				50DE7A21233FB731006C683E /* HomeViewState.swift in Sources */,
 				50FE93102350381B003393AD /* AnimeEpisodeTableSectionModel.swift in Sources */,
 				50FD22822342836A007F11E7 /* ProfileEditCellModel.swift in Sources */,
+				50064002238169A90034B302 /* SearchBroadCastViewState.swift in Sources */,
 				50FE93682355AE38003393AD /* ExchangeResultViewActionCreator.swift in Sources */,
 				50DE7A832340F2D9006C683E /* ProfileEditViewReducer.swift in Sources */,
 				5001BEE6234DD19E005C0B8A /* LaunchViewActionCreator.swift in Sources */,
@@ -2514,6 +2518,7 @@
 				509F60AF2346F9BC00F95B55 /* AnimeListTableViewCell.swift in Sources */,
 				32E48D0D238137C10086B65C /* AnimeGenreCollectionViewCell.swift in Sources */,
 				503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */,
+				503DD23422DAFBCC004B9746 /* SearchBroadcastVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */,
 				50DE7A36233FBB7B006C683E /* SearchViewControllerInjector.swift in Sources */,

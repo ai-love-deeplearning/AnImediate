@@ -17,11 +17,6 @@ struct SearchViewReducer {
         if action is AppAction.InitializeApplication {
             return SearchViewState()
         }
-        /*
-        nextState.p2pConnectionState = P2PConnectionReducer.handleAction(action: action, state: nextState.p2pConnectionState)
-        
-        nextState.searchViewState = ExchangeSearchViewReducer.handleAction(action: action, state: nextState.searchViewState)
-        nextState.acceptViewState = ExchangeAcceptViewReducer.handleAction(action: action, state: nextState.acceptViewState)*/
         
         return nextState
     }

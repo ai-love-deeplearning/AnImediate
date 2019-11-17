@@ -9,9 +9,5 @@
 import ReSwift
 
 public struct SearchViewState: StateType, Equatable {
-    /*
-     public internal(set) var p2pConnectionState = P2PConnectionState()
-     public internal(set) var searchViewState = ExchangeSearchViewState()
-     public internal(set) var acceptViewState = ExchangeAcceptViewState()
-     */
+    public internal(set) var broadCastState = SearchBroadCastViewState()
 }
