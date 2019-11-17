@@ -1,5 +1,5 @@
 //
-//  BroadcastTableVC.swift
+//  SearchBroadcastVC.swift
 //  AnImediate
 //
 //  Created by 川村周也 on 2019/07/14.
@@ -9,13 +9,20 @@
 import AppConfig
 import AppModel
 import UIKit
+import ReSwift
+import RxSwift
+import RxCocoa
 import RealmSwift
 
-class BroadcastTableVC: UIViewController {
+class SearchBroadcastVC: UIViewController {
     
     private var viewModel = AccordionViewModel()
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var broadcastTable: UITableView!
+    
+    private var disposeBag = DisposeBag()
+    
+    private let store = RxStore(store: AppStore.instance.animeListStore)
     
     private let seasons: [String] = ["冬", "春", "夏", "秋"]
     private let seasonTexts: [String] = ["冬（1月 〜 3月）", "春（4月 〜 6月）", "夏（7月 〜 9月）", "秋（10月 〜 12月）"]
@@ -38,7 +45,7 @@ class BroadcastTableVC: UIViewController {
         searchBar.tintColor = .deepMagenta()
         searchBar.barTintColor = .whiteSmoke()
         searchBar.placeholder = "年代を入力"
-        searchBar.setValue("キャンセル", forKey: "_cancelButtonText")
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "キャンセル"
         searchBar.delegate = self
     }
     
@@ -79,7 +86,7 @@ class BroadcastTableVC: UIViewController {
 
 }
 
-extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
+extension SearchBroadcastVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.sectionCount()
     }
@@ -92,7 +99,7 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
         let header = AccordionSectionHeaderView.instance()
         header.setTitle(title: viewModel.categoryTitle(section: section))
         header.section = section
-        header.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(BroadcastTableVC.toggleCategoryHeader(gestureRecognizer: ))))
+        header.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleCategoryHeader(gestureRecognizer: ))))
         header.setImage(isOpen: viewModel.isOpen(in: section))
         header.backgroundColor = .white
         return header
@@ -115,17 +122,20 @@ extension BroadcastTableVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
         let seedRealm = try! Realm(configuration: config)
-        selectedSeason = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
-        //works = Array(seedRealm.objects(AnimeModel.self).filter("seasonNameText == %@", selectedSeason))
+        
         tableView.deselectRow(at: indexPath, animated: false)
         self.view.endEditing(true)
+        
+        self.store.dispatch(AnimeListTableViewAction.Initialize(contentType: .broadcast))
+        selectedSeason = String(latest - indexPath.section) + "年" + seasons[indexPath.row]
+        self.store.dispatch(AnimeListTableViewAction.SetSearchKey(searchKey: selectedSeason))
         performSegue(withIdentifier: "toAnimeListTable", sender: nil)
     }
     
 }
 
 // MARK: - UISearchResultsUpdating
-extension BroadcastTableVC: UISearchBarDelegate {
+extension SearchBroadcastVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
@@ -167,4 +177,11 @@ extension UITableView.RowAnimation {
             return "fade"
         }
     }
+}
+
+private extension RxStore where AnyStateType == AnimeListViewState {
+    var state: Driver<AnimeListTableViewState> {
+        return stateDriver.mapDistinct { $0.tableViewState }
+    }
+    
 }

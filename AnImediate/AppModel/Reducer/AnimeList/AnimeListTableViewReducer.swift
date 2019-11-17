@@ -26,6 +26,10 @@ struct AnimeListTableViewReducer {
         case is AnimeListTableViewAction.ChangeMode:
             nextState.isRegisterMode = !nextState.isRegisterMode 
             nextState.error = nil
+            
+        case let action as AnimeListTableViewAction.SetSearchKey:
+            nextState.searchKey = action.searchKey
+            nextState.error = nil
 
         default:
             break

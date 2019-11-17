@@ -42,6 +42,11 @@ public class AnimeModel: Object {
         return realm.objects(self).sorted(byKeyPath: "watchersCount", ascending: false)
     }
     
+    public static func readAll() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self)
+    }
+    
     public static func read(annictID: String) -> AnimeModel {
         let realm = try! Realm()
         

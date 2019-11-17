@@ -103,7 +103,7 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<SearchVC>(storyboard: Search.self)
 
-    internal static let broadcast = SceneType<BroadcastTableVC>(storyboard: Search.self, identifier: "broadcast")
+    internal static let broadcast = SceneType<SearchBroadcastVC>(storyboard: Search.self, identifier: "broadcast")
 
     internal static let genre = SceneType<UIKit.UIViewController>(storyboard: Search.self, identifier: "genre")
 
