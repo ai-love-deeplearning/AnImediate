@@ -18,7 +18,6 @@ import RealmSwift
 class AnimeListTableVC: UIViewController {
 
     @IBOutlet weak var animeTable: UITableView!
-//    @IBOutlet private weak var registerBtn: UIButton!
     @IBOutlet weak var registerMenu: UIButton!
     
     private var registerBtns: [UIButton]?
@@ -133,12 +132,16 @@ class AnimeListTableVC: UIViewController {
     
     @objc func registerEvent(_ sender: UIButton) {
         
-        let selectedIndexes = self.animeTable.indexPathsForSelectedRows!
-        
-        let msg = "\(HomeBarTitles.titles[sender.tag])に \(String(selectedIndexes.count))件のデータを登録しました"
-        self.showAlert(title: "登録", message: msg)
+        guard let selectedIndexes = self.animeTable.indexPathsForSelectedRows else {
+            let msg = "アニメが選択されていません"
+            self.showAlert(title: "エラー", message: msg)
+            return
+        }
 
         if selectedIndexes.isNotEmpty {
+            let msg = "\(HomeBarTitles.titles[sender.tag])に \(String(selectedIndexes.count))件のデータを登録しました"
+            self.showAlert(title: "登録", message: msg)
+            
             let selectedAnimes = selectedIndexes.map { self.sectionModels.first!.items[$0.row] }
 
             selectedAnimes.forEach {
