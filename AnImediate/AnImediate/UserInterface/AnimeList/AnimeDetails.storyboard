@@ -464,7 +464,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-cg-GGl" customClass="AnimatableTableView" customModule="IBAnimatable">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-cg-GGl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -594,12 +594,23 @@
                     </view>
                     <size key="freeformSize" width="414" height="649"/>
                     <connections>
-                        <outlet property="animeList" destination="f9c-cg-GGl" id="w77-0P-C96"/>
+                        <outlet property="animeList" destination="f9c-cg-GGl" id="GFk-TH-Cdh"/>
+                        <segue destination="h0t-dv-VbW" kind="show" identifier="toDetails" id="GRS-Iv-a6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrV-qh-43F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2469.5652173913045" y="-246.09375"/>
+        </scene>
+        <!--AnimeDetails-->
+        <scene sceneID="MUW-qd-DBY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="h0t-dv-VbW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="G6a-E3-xBB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVH-ta-AD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2317" y="60"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZkG-Lj-tmq">
@@ -609,29 +620,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-SA-1dH">
-                                <rect key="frame" x="109.5" y="162.5" width="195" height="194.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="UzX-SA-1dH" secondAttribute="height" multiplier="1:1" id="Rv0-t3-gqQ"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrm-za-VGu">
-                                <rect key="frame" x="151.5" y="377" width="111" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cJn-Va-WnA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="18"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WikiPedia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRy-u1-WdE">
+                                <rect key="frame" x="22" y="66" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="TextGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公式サイト" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwc-W5-G8M">
+                                <rect key="frame" x="22" y="186.5" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="TextGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xra-kt-pDf">
+                                <rect key="frame" x="22" y="164" width="392" height="0.5"/>
+                                <color key="backgroundColor" name="LineLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="oaY-3E-5KU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6p-bn-qLB">
+                                <rect key="frame" x="22" y="284.5" width="392" height="0.5"/>
+                                <color key="backgroundColor" name="LineLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="O7K-1O-Gtc"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47t-3p-7SU">
+                                <rect key="frame" x="22" y="109" width="62" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="wikiURL">
+                                    <color key="titleColor" name="TextThema"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlW-eX-Isl">
+                                <rect key="frame" x="22" y="229.5" width="85" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="サイトURL">
+                                    <color key="titleColor" name="TextThema"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UzX-SA-1dH" firstAttribute="centerY" secondItem="s4v-kH-lqJ" secondAttribute="centerY" multiplier="0.8" id="0WY-Us-DaJ"/>
-                            <constraint firstItem="UzX-SA-1dH" firstAttribute="height" secondItem="s4v-kH-lqJ" secondAttribute="height" multiplier="0.3" id="0wW-Cw-XRR"/>
-                            <constraint firstItem="wrm-za-VGu" firstAttribute="centerX" secondItem="s4v-kH-lqJ" secondAttribute="centerX" id="ESY-7l-ihL"/>
-                            <constraint firstItem="UzX-SA-1dH" firstAttribute="centerX" secondItem="s4v-kH-lqJ" secondAttribute="centerX" id="nsr-Df-U3g"/>
-                            <constraint firstItem="wrm-za-VGu" firstAttribute="top" secondItem="UzX-SA-1dH" secondAttribute="bottom" constant="20" id="vq5-hx-PPY"/>
+                            <constraint firstItem="gRy-u1-WdE" firstAttribute="leading" secondItem="z78-gn-aH0" secondAttribute="leading" constant="22" id="CZB-ih-uqh"/>
+                            <constraint firstItem="xra-kt-pDf" firstAttribute="top" secondItem="47t-3p-7SU" secondAttribute="bottom" constant="22" id="ECN-qp-Rsf"/>
+                            <constraint firstItem="mlW-eX-Isl" firstAttribute="leading" secondItem="z78-gn-aH0" secondAttribute="leading" constant="22" id="F2i-Ns-64u"/>
+                            <constraint firstItem="47t-3p-7SU" firstAttribute="top" secondItem="gRy-u1-WdE" secondAttribute="bottom" constant="22" id="K43-Br-1VQ"/>
+                            <constraint firstAttribute="trailing" secondItem="G6p-bn-qLB" secondAttribute="trailing" id="N7W-1K-oW3"/>
+                            <constraint firstItem="G6p-bn-qLB" firstAttribute="top" secondItem="mlW-eX-Isl" secondAttribute="bottom" constant="22" id="Z2K-sm-AEC"/>
+                            <constraint firstItem="Cwc-W5-G8M" firstAttribute="leading" secondItem="z78-gn-aH0" secondAttribute="leading" constant="22" id="dtT-GJ-O0J"/>
+                            <constraint firstItem="47t-3p-7SU" firstAttribute="leading" secondItem="z78-gn-aH0" secondAttribute="leading" constant="22" id="e3K-jR-uxl"/>
+                            <constraint firstAttribute="trailing" secondItem="xra-kt-pDf" secondAttribute="trailing" id="gRj-L3-973"/>
+                            <constraint firstItem="Cwc-W5-G8M" firstAttribute="top" secondItem="xra-kt-pDf" secondAttribute="bottom" constant="22" id="iHP-9q-Vjv"/>
+                            <constraint firstItem="xra-kt-pDf" firstAttribute="leading" secondItem="s4v-kH-lqJ" secondAttribute="leading" constant="22" id="kRw-eI-PB0"/>
+                            <constraint firstItem="G6p-bn-qLB" firstAttribute="leading" secondItem="s4v-kH-lqJ" secondAttribute="leading" constant="22" id="rzf-2U-O7q"/>
+                            <constraint firstItem="mlW-eX-Isl" firstAttribute="top" secondItem="Cwc-W5-G8M" secondAttribute="bottom" constant="22" id="t9v-4F-Av7"/>
+                            <constraint firstItem="gRy-u1-WdE" firstAttribute="top" secondItem="z78-gn-aH0" secondAttribute="top" constant="22" id="zKM-c2-yf1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z78-gn-aH0"/>
                     </view>
@@ -639,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwc-DL-sNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3259" y="-246"/>
+            <point key="canvasLocation" x="3257.971014492754" y="-246.09375"/>
         </scene>
         <!--Anime Detail HeaderVC-->
         <scene sceneID="6Q9-Tl-2cm">
@@ -716,9 +761,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="coming" width="1266" height="1139"/>
         <image name="no_anime" width="1125" height="1310"/>
         <image name="star" catalog="system" width="64" height="58"/>
+        <namedColor name="LineLight">
+            <color red="0.9100000262260437" green="0.85100001096725464" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="MainThema">
             <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -727,6 +774,9 @@
         </namedColor>
         <namedColor name="TextGray">
             <color red="0.54500001668930054" green="0.52899998426437378" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextThema">
+            <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
