@@ -71,6 +71,8 @@ class AnimeDetailSimilarVC: UIViewController {
                 onNext: { [unowned self] indexPath in
                     let model = (self.animeList.cellForRow(at: indexPath) as! AnimeListTableViewCell).anime
                     self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: model!))
+                    self.store.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: model!))
+                    self.store.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: model!))
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
                     self.animeList.deselectRow(at: indexPath, animated: false)
             })

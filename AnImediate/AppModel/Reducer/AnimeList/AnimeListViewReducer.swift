@@ -26,6 +26,8 @@ struct AnimeListViewReducer {
         
         nextState.detailEpisodeViewState = AnimeDetailEpisodeViewReducer.handleAction(action: action, state: nextState.detailEpisodeViewState)
         
+        nextState.detailURLViewState = AnimeDetailURLViewReducer.handleAction(action: action, state: nextState.detailURLViewState)
+        
         return nextState
     }
 }
