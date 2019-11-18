@@ -33,6 +33,7 @@
 		32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */; };
 		32A6411D22DC53CB002EF6F3 /* Exchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A6411C22DC53CB002EF6F3 /* Exchange.storyboard */; };
 		32A6411F22DC57AD002EF6F3 /* ExchangeTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6411E22DC57AD002EF6F3 /* ExchangeTopVC.swift */; };
+		32BEDE3F2382D82D00300DCA /* AnimeDetailSimilarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BEDE3E2382D82D00300DCA /* AnimeDetailSimilarVC.swift */; };
 		32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA22B22CB218800BD5A76 /* SearchVC.swift */; };
 		32CDA22E22CB219A00BD5A76 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CDA22D22CB219A00BD5A76 /* Search.storyboard */; };
 		32CDA23022CB21BD00BD5A76 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */; };
@@ -402,6 +403,7 @@
 		32A6411822DC38CD002EF6F3 /* AnimeListCardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCardCVCell.swift; sourceTree = "<group>"; };
 		32A6411C22DC53CB002EF6F3 /* Exchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exchange.storyboard; sourceTree = "<group>"; };
 		32A6411E22DC57AD002EF6F3 /* ExchangeTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTopVC.swift; sourceTree = "<group>"; };
+		32BEDE3E2382D82D00300DCA /* AnimeDetailSimilarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailSimilarVC.swift; sourceTree = "<group>"; };
 		32CDA22B22CB218800BD5A76 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		32CDA22D22CB219A00BD5A76 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		32CDA22F22CB21BD00BD5A76 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
@@ -918,6 +920,7 @@
 				3226CD2422D575EC0090937F /* AnimeDetailTopVC.swift */,
 				3226CD2822D583B80090937F /* AnimeDetailInfoVC.swift */,
 				32FEDB2122E0CC5200462E12 /* AnimeDetailEpisodesVC.swift */,
+				32BEDE3E2382D82D00300DCA /* AnimeDetailSimilarVC.swift */,
 			);
 			path = AnimeList;
 			sourceTree = "<group>";
@@ -2517,7 +2520,8 @@
 				321C6E3F22DCB97200757F83 /* HomeWillSeeVC.swift in Sources */,
 				509F60AF2346F9BC00F95B55 /* AnimeListTableViewCell.swift in Sources */,
 				32E48D0D238137C10086B65C /* AnimeGenreCollectionViewCell.swift in Sources */,
-				503DD23422DAFBCC004B9746 /* BroadcastTableVC.swift in Sources */,
+				503DD23422DAFBCC004B9746 /* SearchBroadcastVC.swift in Sources */,
+				32BEDE3F2382D82D00300DCA /* AnimeDetailSimilarVC.swift in Sources */,
 				503DD23422DAFBCC004B9746 /* SearchBroadcastVC.swift in Sources */,
 				50A5965522C0A04900378AAB /* ViewController.swift in Sources */,
 				50F9849122D4775600038A23 /* ExchangeAcceptVC.swift in Sources */,

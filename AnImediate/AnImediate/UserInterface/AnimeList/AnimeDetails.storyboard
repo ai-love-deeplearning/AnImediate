@@ -372,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9HL-2M-AVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="-218"/>
+            <point key="canvasLocation" x="906" y="-267"/>
         </scene>
         <!--Anime Detail EpisodesVC-->
         <scene sceneID="2dR-yv-UH3">
