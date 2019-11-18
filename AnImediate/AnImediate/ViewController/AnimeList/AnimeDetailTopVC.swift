@@ -25,7 +25,7 @@ class AnimeDetailTopVC: TabmanViewController {
          storyboard!.instantiateViewController(withIdentifier: "rinks")]
     }()
     
-    let barTitles = ["基本情報", "各話", "レビュー", "リンク"]
+    let barTitles = ["基本情報", "各話", "類似", "リンク"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

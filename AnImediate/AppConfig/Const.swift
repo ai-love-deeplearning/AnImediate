@@ -121,5 +121,7 @@ public struct ScreenConfig {
     
     // ホーム画面のパラレルヘッダーの高さ
     public static let homeParallaxHeaderHeight: CGFloat = (mainBoundSize.width * 0.8) + statusBarSize.height + navigationBarHeight
+    
+    public static let animeDetailsParallaxHeaderHeight: CGFloat = 242 + statusBarSize.height + navigationBarHeight
 }
 
