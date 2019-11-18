@@ -6,25 +6,20 @@
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
+import AppConfig
+import AppModel
 import UIKit
+import ReSwift
+import RxSwift
+import RxCocoa
+import RxDataSources
+import RealmSwift
 
 class AnimeDetailSimilarVC: UIViewController {
 
+    @IBOutlet weak var animeList: AnimatableTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
