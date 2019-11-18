@@ -18,13 +18,9 @@ struct ExchangeResultViewReducer {
 
         case let action as ExchangeResultViewAction.Initialize:
             nextState = ExchangeResultViewState()
-            nextState.contentType = action.contentType
+            nextState.peerID = action.peerID
 
         case is ExchangeResultViewAction.DismissErrorAlert:
-            nextState.error = nil
-
-        case is ExchangeResultViewAction.ChangeMode:
-            nextState.isRegisterMode = !nextState.isRegisterMode
             nextState.error = nil
 
         default:

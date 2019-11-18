@@ -26,6 +26,14 @@ internal enum StoryboardSegue {
   internal enum AnimeListTable: String, SegueType {
     case toDetails
   }
+  internal enum Exchange: String, SegueType {
+    case toResult
+    case toSearch
+  }
+  internal enum ExchangeResult: String, SegueType {
+    case toContent
+    case toHead
+  }
   internal enum ExchangeSearch: String, SegueType {
     case toNotFound
     case toPopUpModal
@@ -33,17 +41,14 @@ internal enum StoryboardSegue {
   internal enum Home: String, SegueType {
     case toContent
     case toDetails
-    case toEdit
     case toHead
+  }
+  internal enum Launch: String, SegueType {
+    case toLogin
+    case toMain
   }
   internal enum Login: String, SegueType {
     case loginToMain
-  }
-  internal enum Result: String, SegueType {
-    case toContainer
-    case toDetails
-    case toResultHeader
-    case toResultScroll
   }
   internal enum Search: String, SegueType {
     case toAnimeListTable

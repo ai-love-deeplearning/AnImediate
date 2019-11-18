@@ -17,8 +17,10 @@ import MXParallaxHeader
 
 class ExchangeTopVC: UIViewController {
 
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var peerCollectionView: AnimeHorizontalCollectionView!
+
+    @IBOutlet weak var peerTable: UITableView!
+    @IBOutlet weak var emptyView: UIView!
+    //    @IBOutlet weak var peerCollectionView: AnimeHorizontalCollectionView!
     
     private var disposeBag = DisposeBag()
     
@@ -28,12 +30,15 @@ class ExchangeTopVC: UIViewController {
         return store.state.topViewState
     }
     
-    private var userDataSource: RxCollectionViewSectionedReloadDataSource<PeerHorizontalCollectionSectionModel>!
-    private var userSectionModels: [PeerHorizontalCollectionSectionModel]!
-    private var userDataRelay = BehaviorRelay<[PeerHorizontalCollectionSectionModel]>(value: [])
+    private var dataSource: RxTableViewSectionedReloadDataSource<ExchangeTopTableSectionModel>!
+    private var sectionModels: [ExchangeTopTableSectionModel]!
+    private var dataRelay = BehaviorRelay<[ExchangeTopTableSectionModel]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        peerTable.estimatedRowHeight = 88
+        peerTable.rowHeight = UITableView.automaticDimension
         
         // TODO:- PeerModelを検索して交換済みユーザーがいるかいないかをviewStateに反映
         
@@ -44,8 +49,9 @@ class ExchangeTopVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchPeer()
-        initCollectionViews()
+        emptyView.isHidden = PeerModel.readAll().isNotEmpty
+        initSectionModels()
+        initTable()
         bindViews()
     }
     
@@ -55,88 +61,69 @@ class ExchangeTopVC: UIViewController {
     }
     
     private func bindViews() {
-        peerCollectionView.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "userCell")
         
-        userDataRelay.asObservable()
-            .bind(to: peerCollectionView.rx.items(dataSource: userDataSource))
+        dataRelay.asObservable()
+            .bind(to: peerTable.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        peerCollectionView.rx.itemSelected
+        
+        peerTable.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.peerCollectionView.cellForItem(at: indexPath) as! AnimeHorizontalCollectionViewCell
-                    // TODO:- 選択されていなかったら枠線をつける。
-//                    cell.iconImageView.layer.borderWidth = 1
-                    self.peerCollectionView.deselectItem(at: indexPath, animated: false)
+                    let cell = self.peerTable.cellForRow(at: indexPath) as! ExchangeTopTableViewCell
                     
                     // TODO:- 次の画面へ値を渡す処理
-                    //self.performSegue(withIdentifier: "toDetails", sender: nil)
-            })
-            .disposed(by: disposeBag)
-        
-        peerCollectionView.rx.itemDeselected
-            .subscribe(onNext: { [unowned self] indexPath in
-                let cell = self.peerCollectionView.cellForItem(at: indexPath) as! AnimeHorizontalCollectionViewCell
-//                cell.iconImageView.layer.borderWidth = 0
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func setupCV() {
-//        self.userCV.showsHorizontalScrollIndicator = false
-//        self.userCV.register(UINib(nibName: "ResultUserCVCell", bundle: nil), forCellWithReuseIdentifier: "userCell")
-//
-//        let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: self.userCV.bounds.width*0.3, height: self.userCV.bounds.height)
-//        layout.minimumLineSpacing = 0.3
-//        layout.scrollDirection = .horizontal
-//        self.userCV.collectionViewLayout = layout
-    }
-}
+//                    self.performSegue(withIdentifier: "toDetails", sender: nil)
 
-extension ExchangeTopVC: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let cell = peerCollectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! ResultUserCVCell
-//        //cell.bindData(userInfo: self.resultUserInfo[indexPath.row])
-//
-//        let selectCell = collectionView.cellForItem(at: indexPath) as! ResultUserCVCell
-//        selectCell.iconImageView.layer.borderWidth = 1
-//
-//        //UserDefaults.standard.set(self.resultUserInfo[indexPath.row].id, forKey: "userID")
-//        UserDefaults.standard.set(indexPath.row, forKey: "userNum")
+            })
+            .disposed(by: disposeBag)
         
-//        self.headerDelegate?.reload()
-//        self.scrollDelegate?.reload()
+        peerTable.rx.itemDeselected
+            .subscribe(
+                onNext: { [unowned self] indexPath in
+                    
+            })
+            .disposed(by: disposeBag)
+        
     }
+    
 }
 
 extension ExchangeTopVC {
     
-    private func fetchPeer() {
-        let peerItems = Array(PeerModel.readAll())
-        userSectionModels = [PeerHorizontalCollectionSectionModel(items: peerItems)]
+    private func initSectionModels() {
+        var items: [PeerModel] = []
+        items = Array(PeerModel.readAll())
         
-        Observable.just(userSectionModels)
-            .subscribe(onNext: { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.userDataRelay.accept(strongSelf.userSectionModels)
-            })
-            .disposed(by: disposeBag)
+        sectionModels = [ExchangeTopTableSectionModel(items: items)]
+        fetch()
     }
     
-    private func initCollectionViews() {
-        userDataSource = RxCollectionViewSectionedReloadDataSource<PeerHorizontalCollectionSectionModel>(
-            configureCell: { [weak self] (_, collectinView, indexPath, item) in
-                guard let strongSelf = self else { return UICollectionViewCell() }
-                // 引数名通り、与えられたデータを利用してcellを生成する
-                let cell = collectinView.dequeueReusableCell(withReuseIdentifier: "userCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeHorizontalCollectionViewCell
+    private func initTable() {
+        
+        peerTable.tableFooterView = UIView(frame: .zero)
+        
+        dataSource = RxTableViewSectionedReloadDataSource<ExchangeTopTableSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PeerTableCell", for: IndexPath(row: indexPath.row, section: 0)) as! ExchangeTopTableViewCell
                 
-                cell.setData(user: item)
-//                cell.iconImageView.layer.borderWidth = 0
+                // TODO:- setメソッドに変更
+                cell.setData(peer: item)
                 
                 return cell
+                
+        }, canEditRowAtIndexPath: { _, _ in
+            return false
         })
+    }
+    
+    private func fetch() {
+        Observable.just(sectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
     }
     
 }

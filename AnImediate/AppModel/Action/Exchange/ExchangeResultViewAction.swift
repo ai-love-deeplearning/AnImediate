@@ -8,17 +8,13 @@ import ReSwift
 public struct ExchangeResultViewAction {
 
     public struct Initialize: Action {
-        public let contentType: AnimeTableContentType
-        public init(contentType: AnimeTableContentType) {
-            self.contentType = contentType
+        public let peerID: String
+        public init(peerID: String) {
+            self.peerID = peerID
         }
     }
 
     public struct DismissErrorAlert: Action {
-        public init() {}
-    }
-
-    public struct ChangeMode: Action {
         public init() {}
     }
 

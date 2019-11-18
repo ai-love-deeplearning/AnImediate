@@ -33,7 +33,7 @@ public class P2PConnectivity: NSObject, P2PConnectable {
     private var receiveDataObservable: Observable<(type: String, id: String)> { return receiveDataSubject.asObservable() }
     
     public func startSearching(serviceType: String, displayName: String) -> (session: Observable<MCSessionState>, data: Observable<(type: String, id: String)>) {
-        let peerID = MCPeerID(displayName: displayName)
+        let peerID = MCPeerID(displayName: displayName.isEmpty ? "peer" : displayName)
         
         self.session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .optional)
         self.advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: serviceType)

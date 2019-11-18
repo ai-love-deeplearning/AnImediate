@@ -7,14 +7,12 @@ import Realm
 import RealmSwift
 
 public struct ExchangeResultViewState: StateType  {
-    public internal(set) var contentType: AnimeTableContentType = .currentTerm
-    public internal(set) var isRegisterMode = false
+    public internal(set) var peerID = ""
     public internal(set) var error: AnimediateError?
 }
 
 extension ExchangeResultViewState: Equatable {
     public static func == (lhs: ExchangeResultViewState, rhs: ExchangeResultViewState) -> Bool {
-        return lhs.contentType == rhs.contentType
-        && lhs.isRegisterMode == rhs.isRegisterMode
+        return lhs.peerID == rhs.peerID
     }
 }
