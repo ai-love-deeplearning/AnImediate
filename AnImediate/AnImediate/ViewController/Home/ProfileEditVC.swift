@@ -21,10 +21,8 @@ import RSKImageCropper
 class ProfileEditVC: UIViewController {
     
     @IBOutlet private weak var editTable: UITableView!
-    @IBOutlet private weak var background: UIImageView!
     @IBOutlet private weak var icon: UIImageView!
     @IBOutlet private weak var iconBtn: UIButton!
-    @IBOutlet private weak var backgroundBtn: UIButton!
     @IBOutlet private weak var cancelBtn: UIBarButtonItem!
     @IBOutlet private weak var saveBtn: UIBarButtonItem!
     
@@ -43,74 +41,31 @@ class ProfileEditVC: UIViewController {
     private var sectionModels: [ProfileSectionModel]!
     private var dataRelay = BehaviorRelay<[ProfileSectionModel]>(value: [])
     
-    private var P2PSearchActionCreator: P2PSearchActionCreatable! = nil {
-        willSet {
-            if P2PSearchActionCreator != nil {
-                fatalError()
-            }
-        }
-    }
-    
-    private var ExchangeAccountActionCreator: ExchangeAccountActionCreatable! = nil {
-        willSet {
-            if ExchangeAccountActionCreator != nil {
-                fatalError()
-            }
-        }
-    }
-    
-    private var ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable! = nil {
-        willSet {
-            if ExchangeArchiveActionCreator != nil {
-                fatalError()
-            }
-        }
-    }
-    
-    func inject(P2PSearchActionCreator: P2PSearchActionCreatable, ExchangeAccountActionCreator: ExchangeAccountActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
-        self.P2PSearchActionCreator = P2PSearchActionCreator
-        self.ExchangeAccountActionCreator = ExchangeAccountActionCreator
-        self.ExchangeArchiveActionCreator = ExchangeArchiveActionCreator
-    }
-    
-    var nameText: String = ""
-    var commentText: String = ""
-    var iconImage: UIImage = UIImage()
-    var backImage: UIImage = UIImage()
-    
-    var isFirstEdit: Bool = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editTable.delegate = self
-        editTable.dataSource = self
-        
-        setViews()
-        //initSectionModels()
-        //initTable()
+        initSectionModels()
+        initTable()
         bindViews()
-        //fetch()
+        fetch()
         
-        if isFirstEdit {
-            cancelBtn.isEnabled = false
-            cancelBtn.title = ""
-        } else {
+        if CommonStateModel.read().isRegistered {
+            setViews()
             cancelBtn.isEnabled = true
             cancelBtn.title = "キャンセル"
+        } else {
+            cancelBtn.isEnabled = false
+            cancelBtn.title = ""
         }
     }
     
     private func setViews() {
         icon.image = AccountModel.read().icon
-        background.image = AccountModel.read().background
-        
         icon.layer.cornerRadius = icon.frame.width * 0.5
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
     }
     
     private func bindViews() {
-        /*
         // dataRelayの変更をキャッチしてdataSourceにデータを流す
         dataRelay.asObservable()
             .bind(to: editTable.rx.items(dataSource: dataSource))
@@ -129,13 +84,9 @@ class ProfileEditVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        editTable.rx.modelSelected(ProfileSectionModel.self)
-            .subscribe(onNext: { [weak self] item in
-                // didselect
-                
-            })
+        editTable.rx.setDelegate(self)
             .disposed(by: disposeBag)
-        */
+        
         iconBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
@@ -145,18 +96,12 @@ class ProfileEditVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        backgroundBtn.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                self.store.dispatch(ProfileEditViewAction.CangeCropType(cropType: .back))
-                self.showCameraroll()
-            })
-            .disposed(by: disposeBag)
-        
         cancelBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
-                self.store.dispatch(ProfileEditViewAction.Registered())
+                // TODO:- 各項目にデフォルト値を設定するか、初回登録時必須にしてキャンセルできないようにするか
+                CommonStateModel.set(isRegistered: true)
+//                self.store.dispatch(ProfileEditViewAction.Registered())
                 self.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -164,14 +109,25 @@ class ProfileEditVC: UIViewController {
         saveBtn.rx.tap.asDriver()
             .coolTime()
             .drive(onNext: { [unowned self] in
-                // TODO:- Stateからとってくるように変更
-                let name = (self.editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
-                let comment = (self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell).contentTF.text!
-                AccountModel.set(name: name)
-                AccountModel.set(comment: comment)
+                // TODO:- Rx化してStateからとってくるように変更
+                let idCell = self.editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell
+                let nameCell = self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell
+                let commentCell = self.editTable.cellForRow(at: IndexPath(row: 2, section: 0)) as! ProfileEditCommentTableViewCell
+                
+                let idSuccess = idCell.saveData()
+                let nameSuccess = nameCell.saveData()
+                let commentSuccess = commentCell.saveData()
                 AccountModel.set(icon: self.icon.image!.resizeSameAspect()!)
-                AccountModel.set(background: self.background.image!.resizeSameAspect()!)
-                self.store.dispatch(ProfileEditViewAction.Registered())
+                
+                // 初回登録時
+                
+                if !idSuccess || !nameSuccess || !commentSuccess {
+                    let msg = "空白の項目があります"
+                    self.showAlert(title: "", message: msg)
+                    return
+                }
+                
+                CommonStateModel.set(isRegistered: true)
                 self.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
@@ -190,6 +146,16 @@ class ProfileEditVC: UIViewController {
         }
     }
     
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: {
+            // アラートを閉じる
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                alert.dismiss(animated: true, completion: nil)
+            })
+        })
+    }
+    
     private func getTopMostViewController() -> UIViewController? {
         var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
         
@@ -202,87 +168,74 @@ class ProfileEditVC: UIViewController {
     
 }
 
-extension ProfileEditVC {
-    private func initSectionModels() {
-        let items = [
-            ProfileModel(name:"test1", comment: "comment1"),
-            ProfileModel(name:"test2", comment: "comment2"),
-            ProfileModel(name:"test3", comment: "comment3")]
-        sectionModels = [ProfileSectionModel(items: items)]
-    }
-    
-    private func initTable() {
-        dataSource = RxTableViewSectionedReloadDataSource<ProfileSectionModel>(
-            configureCell: { _, tableView, indexPath, item in
-                // 引数名通り、与えられたデータを利用してcellを生成する
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
-                                                         for: IndexPath(row: indexPath.row, section: 0))
-                cell.textLabel?.text = item.name
-                cell.accessoryType = .disclosureIndicator
-                
-                return cell
-        }, canEditRowAtIndexPath: { _, _ in
-            // この引数を設定しないと、Cellの削除アクションができない
-            return true
-        })
-    }
-    
-    // 初期表示用のデータフェッチする処理
-    private func fetch() {
-        // sectionModelsを利用して
-        Observable.just(sectionModels)
-            .subscribe(onNext: { [weak self] _ in
-                guard let strongSelf = self else { return }
-                
-                // dataRelayにデータを流し込む
-                strongSelf.dataRelay.accept(strongSelf.sectionModels)
-            })
-            .disposed(by: disposeBag)
-    }
-}
-
-// TODO:- tableviewにする意味ないと思う
-extension ProfileEditVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return CGFloat.leastNormalMagnitude
-        }
-        return tableView.sectionHeaderHeight
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ProfileEditTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProfileEditTableViewCell
-        cell.titleLabel.text = ProfileItem.editLabels[indexPath.row]
-        cell.titleLabel.textColor = .deepMagenta()
-        cell.titleLabel.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
-        
-        switch indexPath.row {
-        case 0:
-            cell.contentTF.text = nameText
-        case 1:
-            cell.contentTF.text = commentText
-        default:
-            break
-        }
-        
-        return cell
-    }
-    
+extension ProfileEditVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0:
-            return 50
-        case 1:
-            return 100
+        case 0, 1:
+            return 64
+        case 2:
+            return 152
         default:
             return tableView.rowHeight
         }
     }
     
+}
+
+extension ProfileEditVC {
+    private func initSectionModels() {
+        
+        // TODO:- UserIDは初回必須登録項目で、全ユーザを通してユニークである必要がある。
+        // TODO:- firebaseでユーザ情報を管理？
+        
+        let items = [
+            ProfileModel(label: ProfileItem.editLabels[0], content: AccountModel.read().userID),
+            ProfileModel(label: ProfileItem.editLabels[1], content: AccountModel.read().name),
+            ProfileModel(label: ProfileItem.editLabels[2], content: AccountModel.read().comment)]
+        sectionModels = [ProfileSectionModel(items: items)]
+    }
+    
+    private func initTable() {
+        
+        editTable.tableFooterView = UIView(frame: .zero)
+        
+        dataSource = RxTableViewSectionedReloadDataSource<ProfileSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                
+                switch indexPath.row {
+                case 0, 1:
+                    // 引数名通り、与えられたデータを利用してcellを生成する
+                    let cell = self.editTable.dequeueReusableCell(withIdentifier: "ProfileEditCell", for: IndexPath(row: indexPath.row, section: 0)) as! ProfileEditTableViewCell
+                    
+                    cell.setData(item.label, item.content)
+                    
+                    return cell
+                case 2:
+                    // 引数名通り、与えられたデータを利用してcellを生成する
+                    let cell = self.editTable.dequeueReusableCell(withIdentifier: "ProfileEditCommentCell", for: IndexPath(row: indexPath.row, section: 0)) as! ProfileEditCommentTableViewCell
+                    
+                    cell.setData(item.label, item.content)
+                    
+                    return cell
+                default:
+                    return UITableViewCell()
+                }
+        }, canEditRowAtIndexPath: { _, _ in
+            // この引数を設定しないと、Cellの削除アクションができない
+            return false
+        })
+    }
+    
+    // 初期表示用のデータフェッチする処理
+    private func fetch() {
+        
+        Observable.just(sectionModels)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.dataRelay.accept(strongSelf.sectionModels)
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 extension ProfileEditVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -360,7 +313,8 @@ extension ProfileEditVC: RSKImageCropViewControllerDelegate, RSKImageCropViewCon
         
         switch viewState.cropType {
         case .back:
-            background.image = croppedImage.resizeSameAspect()
+            break
+//            background.image = croppedImage.resizeSameAspect()
         case .icon:
             icon.image = croppedImage.resizeSameAspect()
         }

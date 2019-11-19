@@ -9,11 +9,11 @@
 import Foundation
 
 public struct ProfileModel {
-    public var name: String
-    public var comment: String
+    public var label: String
+    public var content: String
     
-    public init(name: String, comment: String) {
-        self.name = name
-        self.comment = comment
+    public init(label: String, content: String) {
+        self.label = label
+        self.content = content
     }
 }

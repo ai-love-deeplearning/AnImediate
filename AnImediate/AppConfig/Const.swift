@@ -60,7 +60,7 @@ public struct HomeBarTitles {
 }
 
 public struct ProfileItem {
-    public static let editLabels = ["名前", "自己紹介"]
+    public static let editLabels = ["ID", "名前", "コメント"]
 }
 
 public struct UIImageToData {

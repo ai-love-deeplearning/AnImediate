@@ -88,6 +88,15 @@ public class AccountModel : Object, NSCoding, NSCopying {
         return encoded
     }
     
+    public static func set(uid: String) {
+        let realm = try! Realm()
+        
+        let model = read()
+        try! realm.write {
+            model.userID = uid
+        }
+    }
+    
     public static func set(name: String) {
         let realm = try! Realm()
         
