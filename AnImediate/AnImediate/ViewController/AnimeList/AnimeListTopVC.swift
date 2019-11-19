@@ -167,6 +167,7 @@ class AnimeListTopVC: UIViewController {
                     guard let anime = self.currentSectionModels.first?.items[indexPath.row] else { return }
                     self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
                     self.store.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
+                    self.store.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: anime))
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
             })
             .disposed(by: disposeBag)
@@ -177,6 +178,7 @@ class AnimeListTopVC: UIViewController {
                     guard let anime = self.rankingSectionModels.first?.items[indexPath.row] else { return }
                     self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
                     self.store.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
+                    self.store.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: anime))
                     self.performSegue(withIdentifier: "toDetails", sender: nil)
             })
             .disposed(by: disposeBag)

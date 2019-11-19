@@ -39,13 +39,11 @@ class AnimeDetailHeaderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindState()
-        statusBarHeight = UIApplication.shared.statusBarFrame.height
-        navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
         
         parallaxHeader?.delegate = self
-        parallaxHeader?.height = 242
         parallaxHeader?.mode = .fill
-        parallaxHeader?.minimumHeight = statusBarHeight + navBarHeight
+        parallaxHeader?.height = ScreenConfig.animeDetailsParallaxHeaderHeight
+        parallaxHeader?.minimumHeight = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
         
         backEffectView.effect = blurEffect
         
@@ -53,7 +51,7 @@ class AnimeDetailHeaderVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        animeImageTopConstraint.constant = statusBarHeight+navBarHeight
+        animeImageTopConstraint.constant = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -84,7 +82,7 @@ class AnimeDetailHeaderVC: UIViewController {
 
 extension AnimeDetailHeaderVC: MXParallaxHeaderDelegate {
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-        if parallaxHeader.progress > 1.359 {
+        if parallaxHeader.progress > 1.0 {
             animeImageTopConstraint.isActive = true
         } else {
             if let constraint = animeImageTopConstraint {
