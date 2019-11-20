@@ -29,6 +29,11 @@ public class ArchiveModel: Object, NSCoding {
         return realm.objects(self).filter("userID == %@", uid)
     }
     
+    public static func read(uid: String, animeID: String) -> ArchiveModel? {
+        let realm = try! Realm()
+        return realm.objects(self).filter("userID == %@ && annictID == %@", uid, animeID).first
+    }
+    
     // TODO:- Dataとして読めるのは自分のデータだけ
     public static func readAsData(uid: String) -> Data? {
         let model = read(uid: uid)
@@ -42,23 +47,25 @@ public class ArchiveModel: Object, NSCoding {
     
     public static func set(userID: String, annictID: String, animeStatus: String) {
         let realm = try! Realm()
-        let model = read(uid: userID)
-        
-        let archive = ArchiveModel()
-        
-        archive.userID = userID
-        archive.annictID = annictID
-        archive.animeStatus = animeStatus
-
-        if model.isEmpty {
+        guard let model = read(uid: userID, animeID: annictID) else {
+            let archive = ArchiveModel()
+            archive.userID = userID
+            archive.annictID = annictID
+            archive.animeStatus = animeStatus
             archive.createdAt = AnimediateConfig.dateString
-        } else {
-            archive.createdAt = AnimediateConfig.dateString
+            
+            try! realm.write {
+                realm.add(archive)
+            }
+            return
         }
         
         try! realm.write {
-            realm.add(archive, update: .modified)
+            model.animeStatus = animeStatus
+            model.updatedAt = AnimediateConfig.dateString
+            realm.add(model, update: .modified)
         }
+        
     }
     
     public static func set(archive: ArchiveModel) {
@@ -68,7 +75,7 @@ public class ArchiveModel: Object, NSCoding {
         if model.isEmpty {
             archive.createdAt = AnimediateConfig.dateString
         } else {
-            archive.createdAt = AnimediateConfig.dateString
+            archive.updatedAt = AnimediateConfig.dateString
         }
         
         try! realm.write {

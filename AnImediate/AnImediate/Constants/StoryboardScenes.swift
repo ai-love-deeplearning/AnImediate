@@ -39,10 +39,22 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<AnimeListTableVC>(storyboard: AnimeListTable.self)
   }
+  internal enum Exchange: StoryboardType {
+    internal static let storyboardName = "Exchange"
+
+    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Exchange.self)
+  }
   internal enum ExchangeAccept: StoryboardType {
     internal static let storyboardName = "ExchangeAccept"
 
     internal static let initialScene = InitialSceneType<ExchangeAcceptVC>(storyboard: ExchangeAccept.self)
+  }
+  internal enum ExchangeResult: StoryboardType {
+    internal static let storyboardName = "ExchangeResult"
+
+    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: ExchangeResult.self)
+
+    internal static let exchangeArchiveList = SceneType<ExchangeResultTableVC>(storyboard: ExchangeResult.self, identifier: "ExchangeArchiveList")
   }
   internal enum ExchangeSearch: StoryboardType {
     internal static let storyboardName = "ExchangeSearch"
@@ -63,6 +75,13 @@ internal enum StoryboardScene {
     internal static let seeingSB = SceneType<HomeSeeingVC>(storyboard: Home.self, identifier: "seeingSB")
 
     internal static let willSeeSB = SceneType<HomeWillSeeVC>(storyboard: Home.self, identifier: "willSeeSB")
+  }
+  internal enum Launch: StoryboardType {
+    internal static let storyboardName = "Launch"
+
+    internal static let initialScene = InitialSceneType<LaunchViewController>(storyboard: Launch.self)
+
+    internal static let launch = SceneType<LaunchViewController>(storyboard: Launch.self, identifier: "Launch")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
@@ -85,19 +104,6 @@ internal enum StoryboardScene {
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: ProfileEdit.self)
 
     internal static let navigationController = SceneType<UIKit.UINavigationController>(storyboard: ProfileEdit.self, identifier: "NavigationController")
-  }
-  internal enum Result: StoryboardType {
-    internal static let storyboardName = "Result"
-
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Result.self)
-
-    internal static let both = SceneType<ResultBothCardVC>(storyboard: Result.self, identifier: "both")
-
-    internal static let me = SceneType<ResultMeCardVC>(storyboard: Result.self, identifier: "me")
-
-    internal static let recomm = SceneType<ExchangeResultCardVC>(storyboard: Result.self, identifier: "recomm")
-
-    internal static let you = SceneType<ResultYouCardVC>(storyboard: Result.self, identifier: "you")
   }
   internal enum Search: StoryboardType {
     internal static let storyboardName = "Search"

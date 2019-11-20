@@ -16,14 +16,10 @@ class ExchangeResultTopVC: TabmanViewController {
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
-            StoryboardScene.Result.recomm.instantiate(),
-            StoryboardScene.Result.recomm.instantiate(),
-            StoryboardScene.Result.recomm.instantiate(),
-            StoryboardScene.Result.recomm.instantiate()
-//            storyboard!.instantiateViewController(withIdentifier: "recomm"),
-//            storyboard!.instantiateViewController(withIdentifier: "me"),
-//            storyboard!.instantiateViewController(withIdentifier: "you"),
-//            storyboard!.instantiateViewController(withIdentifier: "both")
+            StoryboardScene.ExchangeResult.exchangeArchiveList.instantiate(),
+            StoryboardScene.ExchangeResult.exchangeArchiveList.instantiate(),
+            StoryboardScene.ExchangeResult.exchangeArchiveList.instantiate(),
+            StoryboardScene.ExchangeResult.exchangeArchiveList.instantiate()
         ]
     }()
 

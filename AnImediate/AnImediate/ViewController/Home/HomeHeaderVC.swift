@@ -14,9 +14,12 @@ import MXParallaxHeader
 
 class HomeHeaderVC: UIViewController {
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     private let store = RxStore(store: AppStore.instance.homeStore)
     
@@ -38,26 +41,38 @@ class HomeHeaderVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if store.state.profileEditViewState.isFirstEdit {
-            // AccountModelを参照して空だったら初回登録
-            //self.performSegue(withIdentifier: "toEdit", sender: nil)
-        } else {
+        if CommonStateModel.read().isRegistered {
             setViews()
+        } else {
+            // TODO:- CommonStateModel.isRegisteredを参照してfalseだったら初回登録
+            //self.performSegue(withIdentifier: "toEdit", sender: nil)
         }
     }
     
     private func setViews() {
         let model = AccountModel.read()
         nameLabel.text = model.name
+        idLabel.text = model.userID
         commentLabel.text = model.comment
         iconView.image = model.icon
+        
+        commentLabel.sizeToFit()
+        // 44+99+22+label+22
+        parallaxHeader?.height = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight + 165 + commentLabel.bounds.height + 22
     }
     
 }
 
 extension HomeHeaderVC: MXParallaxHeaderDelegate {
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-        //let alpha = 1 - min(1, parallaxHeader.progress)
-        let alpha = 1 - (parallaxHeader.progress - 0.27)
+//        if parallaxHeader.progress > 1.359 {
+//            if let constraint = topConstraint {
+//                constraint.isActive = true
+//            }
+//        } else {
+//            if let constraint = topConstraint {
+//                constraint.isActive = false
+//            }
+//        }
     }
 }
