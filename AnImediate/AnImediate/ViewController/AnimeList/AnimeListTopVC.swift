@@ -78,7 +78,6 @@ class AnimeListTopVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         disposeBag = DisposeBag()
-        
 //        fetchRecom()
     }
     
@@ -160,6 +159,12 @@ class AnimeListTopVC: UIViewController {
                 onNext: { [unowned self] _ in
                     (self.recomCollectionView.collectionViewLayout as! PagingCardCollectionViewFlowLayout).prepareForPaging()
             }).disposed(by: disposeBag)
+        
+        genreCollectionView.rx.willBeginDragging
+        .subscribe(
+            onNext: { [unowned self] _ in
+                (self.genreCollectionView.collectionViewLayout as! AnimeGenreCollectionViewFlowLayout).prepareForPaging()
+        }).disposed(by: disposeBag)
         
         currentTermCollectionView.rx.itemSelected
             .subscribe(
