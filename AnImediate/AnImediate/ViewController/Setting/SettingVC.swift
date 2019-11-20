@@ -57,7 +57,7 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource{
         let cell = settingTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) 
         cell.textLabel?.text = settingItem[indexPath.row]
         // 色仮置き
-        cell.textLabel?.textColor = UIColor.deepMagenta()
+        cell.textLabel?.textColor = .MainThema
         return cell
     }
     

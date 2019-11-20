@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j02-a4-3g7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LY8-T6-boi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,10 +19,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rOt-Ja-CzR"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xl5-oo-EGj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWY-gf-OvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="88"/>
+            <point key="canvasLocation" x="1576.8115942028987" y="87.723214285714278"/>
         </scene>
         <!--Search BroadcastVC-->
         <scene sceneID="rP0-sH-1qH">
@@ -48,7 +50,8 @@
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rNC-dl-sj4">
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                                <color key="barTintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="TextLightGray"/>
+                                <color key="barTintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -72,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vM-dX-MV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586.9565217391305" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2497.1014492753625" y="91.741071428571431"/>
         </scene>
         <!--AnimeListTable-->
         <scene sceneID="SuL-Ru-PZb">
@@ -119,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YV9-UG-ki8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2632" y="92"/>
+            <point key="canvasLocation" x="3542.0289855072465" y="91.741071428571431"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="iq6-lI-Pov">
@@ -158,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6H-dy-OZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3657" y="92"/>
+            <point key="canvasLocation" x="4566.666666666667" y="91.741071428571431"/>
         </scene>
         <!--Search TitleVC-->
         <scene sceneID="KdZ-JN-Qbj">
@@ -174,7 +177,7 @@
                                     <constraint firstAttribute="height" constant="56" id="1I0-kx-eHP"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="barTintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Um6-HD-hNi">
@@ -280,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx5-bU-sVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4671.0144927536239" y="91.741071428571431"/>
+            <point key="canvasLocation" x="5581.1594202898559" y="91.741071428571431"/>
         </scene>
         <!--AnimeDetails-->
         <scene sceneID="fKc-Zl-Pow">
@@ -290,9 +293,46 @@
             </objects>
             <point key="canvasLocation" x="4680" y="502"/>
         </scene>
+        <!--検索-->
+        <scene sceneID="hdf-WQ-Sad">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LY8-T6-boi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="検索" image="magnifyingglass" catalog="system" id="rgw-D3-MoR"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F1d-zq-zW6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="MainThema"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="TextThema"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="TextThema"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="j02-a4-3g7" kind="relationship" relationship="rootViewController" id="DoO-O2-gXB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ju3-6i-fDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666.66666666666674" y="87.723214285714278"/>
+        </scene>
     </scenes>
     <resources>
         <image name="coming" width="1266" height="1139"/>
         <image name="lupe" width="982" height="1078"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <namedColor name="MainThema">
+            <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextLightGray">
+            <color red="0.74900001287460327" green="0.72200000286102295" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextThema">
+            <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

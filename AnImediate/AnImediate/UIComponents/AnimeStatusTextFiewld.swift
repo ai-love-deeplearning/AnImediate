@@ -41,8 +41,8 @@ public class AnimeStatusTextField: UITextField {
     }
     
     private func initToolbar() {
-        doneBtn.tintColor = .deepMagenta()
-        cancelBtn.tintColor = .deepMagenta()
+        doneBtn.tintColor = .MainThema
+        cancelBtn.tintColor = .MainThema
         toolbar.backgroundColor = .white
         toolbar.setItems([cancelBtn, blankItem, doneBtn], animated: true)
     }

@@ -19,23 +19,19 @@ class HomeHeaderVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var keepCountLabel: UILabel!
+    @IBOutlet weak var nowCountLabel: UILabel!
+    @IBOutlet weak var doneCountLabel: UILabel!
+    @IBOutlet weak var stopCountLabel: UILabel!
     
     private let store = RxStore(store: AppStore.instance.homeStore)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        parallaxHeader?.delegate = self
-        parallaxHeader?.height = ScreenConfig.homeParallaxHeaderHeight
-        parallaxHeader?.minimumHeight = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
-        parallaxHeader?.mode = .fill
         
-        iconView.layer.cornerRadius = iconView.frame.width * 0.5
-        iconView.layer.shadowOffset = .zero
-        iconView.layer.shadowColor = UIColor.black.cgColor
-        iconView.layer.shadowOpacity = 0.6
-        iconView.layer.shadowRadius = 4
+        initParallaxHeader()
+        initIconImageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,12 +45,37 @@ class HomeHeaderVC: UIViewController {
         }
     }
     
+    private func initParallaxHeader() {
+        parallaxHeader?.delegate = self
+        parallaxHeader?.height = ScreenConfig.homeParallaxHeaderHeight
+        parallaxHeader?.minimumHeight = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
+        parallaxHeader?.mode = .fill
+    }
+    
+    private func initIconImageView() {
+        iconView.layer.cornerRadius = iconView.frame.width * 0.5
+        iconView.layer.shadowOffset = .zero
+        iconView.layer.shadowColor = UIColor.black.cgColor
+        iconView.layer.shadowOpacity = 0.6
+        iconView.layer.shadowRadius = 4
+    }
+    
     private func setViews() {
         let model = AccountModel.read()
         nameLabel.text = model.name
         idLabel.text = model.userID
         commentLabel.text = model.comment
         iconView.image = model.icon
+        
+        let keepModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.keep.rawValue)
+        let nowModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.now.rawValue)
+        let doneModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.done.rawValue)
+        let stopModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.stop.rawValue)
+        
+        keepCountLabel.text = String(keepModel.count)
+        nowCountLabel.text = String(nowModel.count)
+        doneCountLabel.text = String(doneModel.count)
+        stopCountLabel.text = String(stopModel.count)
         
         commentLabel.sizeToFit()
         // 44+99+22+label+22

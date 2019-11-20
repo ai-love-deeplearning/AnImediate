@@ -13,7 +13,7 @@
         <scene sceneID="WoE-pk-cWZ">
             <objects>
                 <navigationController id="w9P-iz-vK1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="交換" image="exchange" id="wLu-Pr-asX"/>
+                    <tabBarItem key="tabBarItem" title="交換" image="arrow.2.circlepath" catalog="system" id="wLu-Pr-asX"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IcS-5b-9rF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -272,7 +272,6 @@
     <resources>
         <image name="arrow.2.circlepath" catalog="system" width="64" height="50"/>
         <image name="ex_data" width="1840" height="2376"/>
-        <image name="exchange" width="30" height="27.5"/>
         <namedColor name="MainThema">
             <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

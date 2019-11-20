@@ -13,16 +13,6 @@ extension UIColor {
     class func rgba(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
         return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
     }
-    
-    class func deepMagenta()->UIColor{
-        let color = rgba(red: 210, green: 0, blue: 100, alpha: 1)
-        return color
-    }
-    
-    class func whiteSmoke()->UIColor{
-        let color = rgba(red: 245, green: 245, blue: 245, alpha: 1)
-        return color
-    }
 
 }
 
@@ -66,6 +56,10 @@ extension UIColor {
     // LineLight: #E8D9E1
     class var LineLight: UIColor {
         return UIColor(named: "LineLight") ?? .black
+    }
+    
+    class var WhiteSmoke: UIColor {
+        return UIColor(named: "WhiteSmoke") ?? .black
     }
     
 }

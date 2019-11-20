@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -14,7 +14,7 @@
         <scene sceneID="8pG-yR-9oa">
             <objects>
                 <navigationController id="dzN-ah-PRF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="アニメ一覧" image="animeList" id="L4n-Io-LZ4"/>
+                    <tabBarItem key="tabBarItem" title="アニメ一覧" image="play.rectangle" catalog="system" id="L4n-Io-LZ4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2t-rR-yQ7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -22,10 +22,10 @@
                         <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" name="TextThema"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" name="TextThema"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbY-fN-SJy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbY-fN-SJy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a24-rr-SKX" userLabel="ContentView">
@@ -169,7 +169,7 @@
                                                     <color key="titleColor" name="TextBlack"/>
                                                 </state>
                                             </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-jN-4tt" customClass="AnimeGenreCollectionView" customModule="AnImediate" customModuleProvider="target">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-jN-4tt" customClass="AnimeGenreCollectionView" customModule="AnImediate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="672.5" width="414" height="280"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -257,13 +257,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FVy-pc-KTk"/>
                     </view>
-                    <navigationItem key="navigationItem" title="アニメ一覧" id="qyX-HV-ZZy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="nxT-vC-oKC">
-                            <connections>
-                                <segue destination="xm7-n3-fsF" kind="show" id="O1J-xM-pwS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="アニメ一覧" id="qyX-HV-ZZy"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="currentTermBtn" destination="duw-R2-icd" id="c7X-Uq-Rom"/>
@@ -310,7 +304,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="animeList" width="27.5" height="30"/>
+        <image name="play.rectangle" catalog="system" width="64" height="46"/>
         <namedColor name="LineLight">
             <color red="0.9100000262260437" green="0.85100001096725464" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -322,6 +316,9 @@
         </namedColor>
         <namedColor name="TextGray">
             <color red="0.54500001668930054" green="0.52899998426437378" blue="0.53700000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextThema">
+            <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

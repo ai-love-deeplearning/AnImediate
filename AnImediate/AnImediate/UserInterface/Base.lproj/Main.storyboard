@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
-        <!--Home-->
+        <!--AnimeList-->
         <scene sceneID="zi3-Kb-lE3">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="H0O-ug-VcX" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AnimeList" id="H0O-ug-VcX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="oJC-nA-Nfj"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9g-Jk-QNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,20 +49,20 @@
             </objects>
             <point key="canvasLocation" x="1293" y="38"/>
         </scene>
-        <!--AnimeList-->
+        <!--Search-->
         <scene sceneID="Vxr-6M-kn4">
             <objects>
-                <viewControllerPlaceholder storyboardName="AnimeList" id="eGP-T3-5n9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Search" id="eGP-T3-5n9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="rkA-ne-8Co"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gO5-Ex-c3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1279" y="179"/>
         </scene>
-        <!--Setting-->
+        <!--Home-->
         <scene sceneID="cbM-pC-wdV">
             <objects>
-                <viewControllerPlaceholder storyboardName="Setting" id="top-OW-DBt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" id="top-OW-DBt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JBR-NE-sdt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqC-ro-rJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
