@@ -67,7 +67,8 @@ class HomeHeaderVC: UIViewController {
         iconView.image = model.icon
         
         commentLabel.sizeToFit()
-        parallaxHeader?.height = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight + 143 + commentLabel.bounds.height + 22
+        // 44+99+22+label+22
+        parallaxHeader?.height = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight + 165 + commentLabel.bounds.height + 22
     }
     
 }

@@ -49,8 +49,10 @@ class ProfileEditVC: UIViewController {
         bindViews()
         fetch()
         
+        setViews()
+        
         if CommonStateModel.read().isRegistered {
-            setViews()
+            icon.image = AccountModel.read().icon
             cancelBtn.isEnabled = true
             cancelBtn.title = "キャンセル"
         } else {
@@ -60,7 +62,6 @@ class ProfileEditVC: UIViewController {
     }
     
     private func setViews() {
-        icon.image = AccountModel.read().icon
         icon.layer.cornerRadius = icon.frame.width * 0.5
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
     }

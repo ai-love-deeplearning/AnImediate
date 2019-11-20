@@ -153,7 +153,6 @@ public class AccountModel : Object, NSCoding, NSCopying {
             model.name = data.name
             model.comment = data.comment
             model.icon = data.icon
-            model.background = data.background
             model.excangedAt = data.excangedAt
         }
     }
@@ -213,7 +212,6 @@ public class AccountModel : Object, NSCoding, NSCopying {
         copy.comment = comment
         copy.excangedAt = excangedAt
         copy.iconData = iconData
-        copy.backData = backData
         
         return copy
     }
@@ -225,7 +223,6 @@ public class AccountModel : Object, NSCoding, NSCopying {
         aCoder.encode(self.comment, forKey: "comment")
         aCoder.encode(self.excangedAt, forKey: "excangedAt")
         aCoder.encode(self.iconData, forKey: "icon")
-        aCoder.encode(self.backData, forKey: "back")
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -236,7 +233,6 @@ public class AccountModel : Object, NSCoding, NSCopying {
         self.comment = aDecoder.decodeObject(forKey: "comment") as! String
         self.excangedAt = aDecoder.decodeObject(forKey: "excangedAt") as! String
         self.iconData = (aDecoder.decodeObject(forKey: "icon") as! NSData)
-        self.backData = (aDecoder.decodeObject(forKey: "back") as! NSData)
         
     }
     

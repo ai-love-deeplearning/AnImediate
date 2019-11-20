@@ -116,7 +116,7 @@ extension P2PConnectivity: MCSessionDelegate {
             receiveDataSubject.onNext((type: "ArchiveModel", id: decoded.first!.userID))
         } else {
             // TODO:- 予期せぬデータが送られてきたときのエラーハンドリング
-            fatalError()
+//            fatalError()
         }
         
     }
