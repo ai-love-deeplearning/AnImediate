@@ -204,7 +204,7 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lupe" translatesAutoresizingMaskIntoConstraints="NO" id="mpt-2q-58W">
-                                        <rect key="frame" x="112" y="133.5" width="190.50000000000023" height="190.5"/>
+                                        <rect key="frame" x="112" y="133.5" width="190.5" height="190.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mpt-2q-58W" secondAttribute="height" multiplier="1:1" id="r5s-dt-jUF"/>
                                         </constraints>

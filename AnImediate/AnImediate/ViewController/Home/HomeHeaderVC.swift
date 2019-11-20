@@ -37,8 +37,6 @@ class HomeHeaderVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        initArchiveCounts()
-        
         if CommonStateModel.read().isRegistered {
             setViews()
         } else {
@@ -62,25 +60,22 @@ class HomeHeaderVC: UIViewController {
         iconView.layer.shadowRadius = 4
     }
     
-    private func initArchiveCounts() {
-        let myID = AccountModel.read().userID
-        let keepModel = ArchiveModel.read(uid: myID).filter("animeStatus == %@", AnimeStatusType.keep.rawValue)
-        let nowModel = ArchiveModel.read(uid: myID).filter("animeStatus == %@", AnimeStatusType.now.rawValue)
-        let doneModel = ArchiveModel.read(uid: myID).filter("animeStatus == %@", AnimeStatusType.done.rawValue)
-        let stopModel = ArchiveModel.read(uid: myID).filter("animeStatus == %@", AnimeStatusType.stop.rawValue)
-        
-        keepCountLabel.text = String(keepModel.count)
-        nowCountLabel.text = String(nowModel.count)
-        doneCountLabel.text = String(doneModel.count)
-        stopCountLabel.text = String(stopModel.count)
-    }
-    
     private func setViews() {
         let model = AccountModel.read()
         nameLabel.text = model.name
         idLabel.text = model.userID
         commentLabel.text = model.comment
         iconView.image = model.icon
+        
+        let keepModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.keep.rawValue)
+        let nowModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.now.rawValue)
+        let doneModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.done.rawValue)
+        let stopModel = ArchiveModel.read(uid: model.userID).filter("animeStatus == %@", AnimeStatusType.stop.rawValue)
+        
+        keepCountLabel.text = String(keepModel.count)
+        nowCountLabel.text = String(nowModel.count)
+        doneCountLabel.text = String(doneModel.count)
+        stopCountLabel.text = String(stopModel.count)
         
         commentLabel.sizeToFit()
         // 44+99+22+label+22

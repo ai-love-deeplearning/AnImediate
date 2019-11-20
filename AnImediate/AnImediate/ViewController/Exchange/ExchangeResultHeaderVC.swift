@@ -18,8 +18,13 @@ import MXParallaxHeader
 class ExchangeResultHeaderVC: UIViewController {
 
     @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var keepCountLabel: UILabel!
+    @IBOutlet weak var nowCountLabel: UILabel!
+    @IBOutlet weak var doneCountLabel: UILabel!
+    @IBOutlet weak var stopCountLabel: UILabel!
     
     private let store = RxStore(store: AppStore.instance.exchangeStore)
     
@@ -30,32 +35,48 @@ class ExchangeResultHeaderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parallaxHeader?.height = ScreenConfig.homeParallaxHeaderHeight
-        parallaxHeader?.mode = .fill
-        
-        iconImageView.layer.cornerRadius = iconImageView.frame.width * 0.5
-        iconImageView.layer.shadowOffset = .zero
-        iconImageView.layer.shadowColor = UIColor.black.cgColor
-        iconImageView.layer.shadowOpacity = 0.6
-        iconImageView.layer.shadowRadius = 4
-        
+        initParallaxHeader()
+        initIconImageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setViews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    private func initIconImageView() {
+        iconImageView.layer.cornerRadius = iconImageView.frame.width * 0.5
+        iconImageView.layer.shadowOffset = .zero
+        iconImageView.layer.shadowColor = UIColor.black.cgColor
+        iconImageView.layer.shadowOpacity = 0.6
+        iconImageView.layer.shadowRadius = 4
+    }
+    
+    private func initParallaxHeader() {
+        parallaxHeader?.height = ScreenConfig.homeParallaxHeaderHeight
         parallaxHeader?.minimumHeight = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
+        parallaxHeader?.mode = .fill
     }
     
     private func setViews() {
         let model = PeerModel.read(id: viewState.peerID)
+        idLabel.text = model.userID
         nameLabel.text = model.name
         commentLabel.text = model.comment
         iconImageView.image = model.icon
+        
+        let keepModel = ArchiveModel.read(uid: viewState.peerID).filter("animeStatus == %@", AnimeStatusType.keep.rawValue)
+        let nowModel = ArchiveModel.read(uid: viewState.peerID).filter("animeStatus == %@", AnimeStatusType.now.rawValue)
+        let doneModel = ArchiveModel.read(uid: viewState.peerID).filter("animeStatus == %@", AnimeStatusType.done.rawValue)
+        let stopModel = ArchiveModel.read(uid: viewState.peerID).filter("animeStatus == %@", AnimeStatusType.stop.rawValue)
+        
+        keepCountLabel.text = String(keepModel.count)
+        nowCountLabel.text = String(nowModel.count)
+        doneCountLabel.text = String(doneModel.count)
+        stopCountLabel.text = String(stopModel.count)
+        
+        commentLabel.sizeToFit()
+        // 44+99+22+label+22
+        parallaxHeader?.height = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight + 165 + commentLabel.bounds.height + 22
     }
     
 }
