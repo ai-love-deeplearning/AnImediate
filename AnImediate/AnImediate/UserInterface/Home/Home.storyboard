@@ -697,9 +697,13 @@
                     <connections>
                         <outlet property="backView" destination="lQ7-2u-Qwh" id="5X1-re-USV"/>
                         <outlet property="commentLabel" destination="KEk-J2-qu6" id="fuF-SG-GzG"/>
+                        <outlet property="doneCountLabel" destination="r0A-I1-rol" id="0hq-vc-18I"/>
                         <outlet property="iconView" destination="bPs-Oc-N2E" id="RcN-DN-88n"/>
                         <outlet property="idLabel" destination="S6R-D7-2Ph" id="pbo-Ek-ObZ"/>
+                        <outlet property="keepCountLabel" destination="dFD-nO-AMe" id="oGz-bb-KCt"/>
                         <outlet property="nameLabel" destination="8bl-O6-rsH" id="H93-y1-ZxS"/>
+                        <outlet property="nowCountLabel" destination="mcX-nE-hCE" id="2un-9b-99O"/>
+                        <outlet property="stopCountLabel" destination="Zsr-wz-Gux" id="wZ7-fr-Xq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxr-G1-sm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
