@@ -28,7 +28,7 @@ class HomeHeaderVC: UIViewController {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         parallaxHeader?.delegate = self
         parallaxHeader?.height = ScreenConfig.homeParallaxHeaderHeight
-        
+        parallaxHeader?.minimumHeight = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
         parallaxHeader?.mode = .fill
         
         iconView.layer.cornerRadius = iconView.frame.width * 0.5
@@ -47,16 +47,6 @@ class HomeHeaderVC: UIViewController {
             // TODO:- CommonStateModel.isRegisteredを参照してfalseだったら初回登録
             //self.performSegue(withIdentifier: "toEdit", sender: nil)
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        parallaxHeader?.minimumHeight = ScreenConfig.statusBarSize.height + ScreenConfig.navigationBarHeight
     }
     
     private func setViews() {

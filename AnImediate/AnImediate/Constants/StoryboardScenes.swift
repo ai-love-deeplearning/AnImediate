@@ -22,6 +22,7 @@ internal enum StoryboardScene {
 
     internal static let episodes = SceneType<AnimeDetailEpisodesVC>(storyboard: AnimeDetails.self, identifier: "episodes")
 
+    @available(iOS 13.0, *)
     internal static let info = SceneType<AnimeDetailInfoVC>(storyboard: AnimeDetails.self, identifier: "info")
 
     internal static let reviews = SceneType<UIKit.UIViewController>(storyboard: AnimeDetails.self, identifier: "reviews")
