@@ -24,7 +24,7 @@ class AnimeHorizontalCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        titleLabel.tintColor = .deepMagenta()
+        titleLabel.tintColor = .MainThema
         iconImageView.contentMode = .scaleAspectFill
 //        iconImageView.cornerRadius = iconImageView.bounds.width / 2
     }

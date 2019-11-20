@@ -42,10 +42,19 @@ class SearchBroadcastVC: UIViewController {
         
         addSectionContents()
         
-        searchBar.tintColor = .deepMagenta()
-        searchBar.barTintColor = .whiteSmoke()
+        initSearchBar()
+    }
+    
+    private func initSearchBar() {
+        searchBar.tintColor = .MainThema
+        searchBar.barTintColor = .WhiteSmoke
         searchBar.placeholder = "年代を入力"
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "キャンセル"
+//        searchBar.searchTextField.layer.cornerRadius = searchBar.searchTextField.bounds.height
+//        searchBar.searchTextField.layer.masksToBounds = tru
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.backgroundImage = UIImage()
+        searchBar.isTranslucent = false
         searchBar.delegate = self
     }
     

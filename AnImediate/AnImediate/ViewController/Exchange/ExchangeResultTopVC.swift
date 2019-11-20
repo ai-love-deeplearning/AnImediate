@@ -33,7 +33,7 @@ class ExchangeResultTopVC: TabmanViewController {
     
     private func initBars() {
         let bar = TMBar.ButtonBar()
-        bar.indicator.tintColor = .deepMagenta()
+        bar.indicator.tintColor = .MainThema
         bar.indicator.weight = .light
         bar.layout.transitionStyle = .snap // Customize
         bar.layout.contentMode = .fit
@@ -43,7 +43,7 @@ class ExchangeResultTopVC: TabmanViewController {
             button.tintColor = .lightGray
             button.font = UIFont(name: "Hiragino Maru Gothic ProN", size: UIFont.labelFontSize)!
             // 選択時の色
-            button.selectedTintColor = .deepMagenta()
+            button.selectedTintColor = .MainThema
             
         }
         

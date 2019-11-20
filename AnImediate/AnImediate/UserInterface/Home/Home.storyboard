@@ -20,6 +20,7 @@
                         <viewLayoutGuide key="safeArea" id="Ebs-jp-W4c"/>
                     </view>
                     <navigationItem key="navigationItem" title="ホーム" id="w0M-kg-3zL">
+                        <barButtonItem key="leftBarButtonItem" image="setting" id="DNO-58-MTN"/>
                         <barButtonItem key="rightBarButtonItem" image="pencil.and.outline" catalog="system" id="diN-5O-DwO">
                             <connections>
                                 <segue destination="s6H-Bf-6JH" kind="show" id="3At-E3-cl3"/>
@@ -852,6 +853,7 @@
         <image name="no_anime" width="1125" height="1310"/>
         <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
         <image name="pic" width="481" height="480"/>
+        <image name="setting" width="30" height="30"/>
         <namedColor name="MainThema">
             <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
