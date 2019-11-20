@@ -25,7 +25,6 @@ class SearchVC: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
         self.dataSource = self
         initBars()
         navigationItem.title = "検索"

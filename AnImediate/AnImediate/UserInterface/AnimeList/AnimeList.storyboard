@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -14,7 +14,7 @@
         <scene sceneID="8pG-yR-9oa">
             <objects>
                 <navigationController id="dzN-ah-PRF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="アニメ一覧" image="animeList" id="L4n-Io-LZ4"/>
+                    <tabBarItem key="tabBarItem" title="アニメ一覧" image="play.rectangle" catalog="system" id="L4n-Io-LZ4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2t-rR-yQ7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -310,7 +310,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="animeList" width="27.5" height="30"/>
+        <image name="play.rectangle" catalog="system" width="64" height="46"/>
         <namedColor name="LineLight">
             <color red="0.9100000262260437" green="0.85100001096725464" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

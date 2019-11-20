@@ -823,7 +823,7 @@
         <scene sceneID="dEu-Zy-Qb1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="PkT-1N-Qbi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ホーム" image="home" id="oOM-GJ-sww"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house" catalog="system" id="oOM-GJ-sww"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pNS-DV-fbU">
@@ -848,7 +848,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="30" height="27"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <image name="no_anime" width="1125" height="1310"/>
         <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
         <image name="pic" width="481" height="480"/>
