@@ -105,8 +105,6 @@ extension ExchangeTopVC {
     private func initSectionModels() {
         var items: [PeerModel] = []
         items = Array(PeerModel.readAll())
-        print("@@@ ExchangeTop peer sectionModel @@@: \(items)")
-        print("@@@ ExchangeTop archive @@@: \(ArchiveModel.read(uid: items.first!.userID))")
         
         sectionModels = [ExchangeTopTableSectionModel(items: items)]
         fetch()

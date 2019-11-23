@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Collection {
+public extension Collection {
     public var isNotEmpty: Bool {
         return !isEmpty
     }

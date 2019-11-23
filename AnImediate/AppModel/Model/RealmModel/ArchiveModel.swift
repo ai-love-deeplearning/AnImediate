@@ -90,22 +90,16 @@ public class ArchiveModel: Object, NSCoding {
         guard let archive = archives.first else { return }
         let model = read(uid: archive.userID)
         
-        print("@@@ archivemodel set @@@: \(model)")
-        
-        if model.isEmpty {
-            archives.forEach {
-                $0.id = NSUUID().uuidString
-            }
-            
+        if model.isNotEmpty {
             try! realm.write {
-                realm.add(archives, update: .modified)
+                realm.delete(model)
             }
-            return
         }
         
+        archives.forEach{ $0.id = NSUUID().uuidString }
+
         try! realm.write {
-            realm.delete(model)
-            realm.add(model, update: .modified)
+            realm.add(archives)
         }
         
     }

@@ -33,7 +33,7 @@ class ExchangeTopTableViewCell: UITableViewCell {
         let peerArchives = Array(ArchiveModel.read(uid: peer.userID))
         let myArchives = Array(ArchiveModel.read(uid: AccountModel.read().userID))
         
-        let common = peerArchives.intersect(myArchives)
+        let common = peerArchives.map{ $0.annictID }.intersect(myArchives.map{ $0.annictID })
 //        let onlyMe = peerArchives.except(myArchives)
 //        let onlyPeer = myArchives.except(peerArchives)
         

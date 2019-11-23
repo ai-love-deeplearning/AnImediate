@@ -6,8 +6,8 @@
 //  Copyright © 2019 AI_Love_DeepLearning. All rights reserved.
 //
 
-extension String {
-    public var isNotEmpty: Bool {
+public extension String {
+    var isNotEmpty: Bool {
         return !isEmpty
     }
 }
