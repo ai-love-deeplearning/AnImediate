@@ -58,7 +58,7 @@ class ExchangeResultHeaderVC: UIViewController {
     }
     
     private func setViews() {
-        let model = PeerModel.read(id: viewState.peerID)
+        guard let model = PeerModel.read(id: viewState.peerID).first else { return }
         idLabel.text = model.userID
         nameLabel.text = model.name
         commentLabel.text = model.comment

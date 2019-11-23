@@ -21,7 +21,6 @@ class ExchangeAcceptVC: UIViewController {
     @IBOutlet private weak var peerName: UILabel!
     
     @IBOutlet private weak var acceptBtn: UIButton!
-    @IBOutlet private weak var cancelBtn: UIButton!
     
     private var disposeBag = DisposeBag()
     
@@ -29,14 +28,6 @@ class ExchangeAcceptVC: UIViewController {
     
     private var viewState: ExchangeAcceptViewState {
         return store.state.acceptViewState
-    }
-    
-    private var P2PDisconnectActionCreator: P2PDisconnectActionCreatable! = nil {
-        willSet {
-            if P2PDisconnectActionCreator != nil {
-                fatalError()
-            }
-        }
     }
     
     private var ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable! = nil {
@@ -47,8 +38,7 @@ class ExchangeAcceptVC: UIViewController {
         }
     }
     
-    func inject(P2PDisconnectActionCreator: P2PDisconnectActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
-        self.P2PDisconnectActionCreator = P2PDisconnectActionCreator
+    func inject(ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
         self.ExchangeArchiveActionCreator = ExchangeArchiveActionCreator
     }
     
@@ -58,6 +48,11 @@ class ExchangeAcceptVC: UIViewController {
         
         bindState()
         bindViews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        acceptBtn.layer.cornerRadius = acceptBtn.frame.height / 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,20 +65,37 @@ class ExchangeAcceptVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // TODO:- もしアクセプトボタンを押さずにviewが閉じたらRealmから交換相手のアカウント情報を消す
+//        self.store.dispatch(self.P2PDisconnectActionCreator.disconnect(disposeBag: disposeBag))
+        // TODO:- もしアクセプトボタンを押さずにviewが閉じたらRealmから交換相手の情報を消す
+        if let viewControllers = self.navigationController?.viewControllers {
+            var existSelfInViewControllers = true
+            for viewController in viewControllers {
+                if viewController == self {
+                    existSelfInViewControllers = false
+                    break
+                }
+            }
+
+            if existSelfInViewControllers {
+                print("@@@ Accept deleeeeeeeeete @@@")
+                PeerModel.delete(uid: store.state.p2pConnectionState.peerID)
+                ArchiveModel.delete(uid: store.state.p2pConnectionState.peerID)
+            }
+        }
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        acceptBtn.layer.cornerRadius = acceptBtn.frame.height / 2
-        cancelBtn.layer.cornerRadius = cancelBtn.frame.height / 2
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        disposeBag = DisposeBag()
     }
     
     private func setPeerData() {
-        let id = store.state.p2pConnectionState.peerID
-        self.peerIcon.image = PeerModel.read(id: id).icon
-        self.peerName.text =  PeerModel.read(id: id).name
+        let id = viewState.peerID
+        print("@@@ Accept setPeerData @@@: \(id)")
+        guard let peer = PeerModel.read(id: id).first else { return }
+        self.peerIcon.image = peer.icon
+        self.peerName.text =  peer.name
     }
     
     private func bindViews() {
@@ -92,55 +104,15 @@ class ExchangeAcceptVC: UIViewController {
             .coolTime()
             .drive(onNext: { [unowned self] in
                 // TODO もしすでにデータを受け取っていたら画面遷移する処理
-                // self.navigationController?.popToRootViewController(animated: true)
-                self.store.dispatch(self.ExchangeArchiveActionCreator.sendArchiveModel(disposeBag: self.disposeBag))
+                self.navigationController?.popToRootViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
-        cancelBtn.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: { [unowned self] in
-                // TODO:- 接続を切断して前の画面に遷移
-                /*
-                 let result = realm.objects(UserInfo.self).filter("id == %@", peerInfo.id)
-                 try! realm.write {
-                 realm.delete(result[0])
-                 }
-                 self.navigationController?.popViewController(animated: true)*/
-                //self.store.dispatch(self.ExchangeArchiveActionCreator.sendArchiveModel(disposeBag: self.disposeBag))
-            }).disposed(by: disposeBag)
     }
     
     private func bindState() {
-        store.connectionState
+        store.peerID
             .drive(
-                onNext: {[unowned self] connectionState in
-                    switch connectionState {
-                    case .notConnected:
-                        // TODO:- 接続が切断されたとき自分も切断してAlartを出す -> ok が押されたらアラートを消して画面遷移
-                        break
-                    case .connecting, .connected:
-                        // TODO:- ここに入ることはないはずだから何らかのエラーハンドリング
-                        break
-                    @unknown default:
-                        fatalError()
-                    }
-            })
-            .disposed(by: disposeBag)
-        
-        store.isSendArchiveModel
-            .drive(
-                onNext: { [unowned self] isSendAccountModel in
-                    // TODO:- 先に受け取っていたら画面遷移
-                    // TODO:- 受け取ってなかったら待機アニメーション
-            })
-            .disposed(by: disposeBag)
-        
-        store.isReceiveArchiveModel
-            .drive(
-                onNext: { account in
-                    // TODO:- 受け取った通知を発行
-                    // TODO:- すでに自分が送信していたら画面遷移
+                onNext: { [unowned self] peerID in
                     
             })
             .disposed(by: disposeBag)
@@ -157,7 +129,7 @@ class ExchangeAcceptVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult" {
-            self.store.dispatch(self.P2PDisconnectActionCreator.disconnect(disposeBag: disposeBag))
+//            self.store.dispatch(self.P2PDisconnectActionCreator.disconnect(disposeBag: disposeBag))
         }
     }
 
@@ -168,44 +140,12 @@ private extension RxStore where AnyStateType == ExchangeViewState {
         return stateDriver.mapDistinct { $0.acceptViewState }
     }
     
-    var isReceiveArchiveModel: Driver<Bool> {
-        return state.mapDistinct { $0.isReceiveArchiveModel }
-    }
-    
-    var isSendArchiveModel: Driver<Bool> {
-        return state.mapDistinct { $0.isSendArchiveModel }
+    var peerID: Driver<String> {
+        return state.mapDistinct { $0.peerID }
     }
     
     var error: Driver<AnimediateError> {
         return state.mapDistinct { $0.error }.skipNil()
-    }
-    
-    var p2pState: Driver<P2PConnectionState> {
-        return stateDriver.mapDistinct { $0.p2pConnectionState }
-    }
-    
-    var connectionState: Driver<MCSessionState> {
-        return p2pState.mapDistinct { $0.connectionState }
-    }
-    
-    var peerID: Driver<String> {
-        return p2pState.mapDistinct { $0.peerID }
-    }
-    
-    var isAdvertising: Driver<Bool> {
-        return p2pState.mapDistinct { $0.isAdvertising }
-    }
-    
-    var isBrowsing: Driver<Bool> {
-        return p2pState.mapDistinct { $0.isBrowsing }
-    }
-    
-    var isLoading: Driver<Bool> {
-        return p2pState.mapDistinct { $0.isLoading }
-    }
-    
-    var p2pError: Driver<AnimediateError> {
-        return p2pState.mapDistinct { $0.error }.skipNil()
     }
     
 }

@@ -15,9 +15,8 @@ public protocol P2PConnectable {
     func startSearching(serviceType: String, displayName: String) -> (session: Observable<MCSessionState>, data: Observable<(type: String, id: String)>)
     func disconnect()
     func sendAccountModel(data: Data?) -> Single<Bool>
-    func noticeSuccessAccount()
     func sendArchiveModel(data: Data?) -> Single<Bool>
-    func noticeSuccessArchive()
+    func sendNotification() -> Single<Bool>
 }
 
 public class P2PConnectivity: NSObject, P2PConnectable {
@@ -46,6 +45,8 @@ public class P2PConnectivity: NSObject, P2PConnectable {
         self.advertiser.startAdvertisingPeer()
         self.browser.startBrowsingForPeers()
         
+        print("@@@ Session @@@: \(session)")
+        
         return (session: sessionObservable, data: receiveDataObservable)
     }
     
@@ -61,40 +62,64 @@ public class P2PConnectivity: NSObject, P2PConnectable {
     public func sendAccountModel(data: Data?) -> Single<Bool> {
         return Single.create { observer -> Disposable in
             do {
-                try self.session.send(data!, toPeers: self.session.connectedPeers, with: .reliable)
+                guard let data = data else {
+                    observer(.error(P2PError.accountDataEmpty))
+                    return Disposables.create()
+                }
+                if self.session == nil {
+                    observer(.error(P2PError.sessionNil))
+                    return Disposables.create()
+                }
+                print("@@@ SendAccount to @@@: \(self.session.connectedPeers)")
+                try self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
             } catch {
-                observer(.error(error))
-                /*
-                print(error.localizedDescription)
-                print("エラー: 正常にデータの送信が行われませんでした")
-                */
+                observer(.error(P2PError.accountSendFailed))
             }
             observer(.success(true))
             return Disposables.create()
         }
     }
     
-    public func noticeSuccessAccount() {
-        // TODO:- 受取通知を行う
+    // 受信成功通知
+    public func sendNotification() -> Single<Bool> {
+        return Single.create { observer -> Disposable in
+            do {
+                print("@@@ Notice @@@")
+                guard let data = "success".data(using:.utf8) else {
+                    observer(.error(P2PError.notificationError))
+                    return Disposables.create()
+                }
+                try self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
+            } catch {
+                observer(.error(P2PError.notificationError))
+            }
+            observer(.success(true))
+            return Disposables.create()
+        }
     }
     
     @discardableResult
     public func sendArchiveModel(data: Data?) -> Single<Bool> {
         return Single.create { observer -> Disposable in
             do {
-                try self.session.send(data!, toPeers: self.session.connectedPeers, with: .reliable)
+                guard let data = data else {
+                    observer(.error(P2PError.archiveDataEmpty))
+                    return Disposables.create()
+                }
+                if self.session == nil {
+                    observer(.error(P2PError.sessionNil))
+                    return Disposables.create()
+                }
+                print("@@@ SendArchive to @@@: \(self.session.connectedPeers)")
+                try self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
             } catch {
-                observer(.error(error))
+                observer(.error(P2PError.archiveSendFailed))
+                return Disposables.create()
             }
             observer(.success(true))
             return Disposables.create()
         }
     }
-    
-    public func noticeSuccessArchive() {
-        // TODO:- 受取通知を行う
-    }
-    
     
 }
 
@@ -107,16 +132,32 @@ extension P2PConnectivity: MCSessionDelegate {
     
     public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         // TODO:- 画面遷移の処理をVC側で記述
-        if let decoded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? PeerModel {
-            PeerModel.set(uid: decoded.userID, data: decoded)
+        if let decoded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AccountModel {
+            if decoded.userID == AccountModel.read().userID { return }
+            print("@@@ RecievePeer @@@: \(decoded.userID)")
+            
+            PeerModel.set(data: decoded)
             receiveDataSubject.onNext((type: "PeerModel", id: decoded.userID))
+            
         } else if let decoded = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [ArchiveModel] {
-            ArchiveModel.set(archives: decoded)
             // TODO:- 送られてきた履歴が空でない保証
+            if decoded.isEmpty { return }
+            else if decoded.first!.userID == AccountModel.read().userID { return }
+            print("@@@ RecieveArchive @@@: \(decoded.first!)")
+            
+            ArchiveModel.set(archives: decoded)
             receiveDataSubject.onNext((type: "ArchiveModel", id: decoded.first!.userID))
+            
+        } else if let decoded = String(data: data, encoding: .utf8) {
+            print("@@@ RecieveNotice @@@: \(decoded)")
+            if decoded == "success" {
+                receiveDataSubject.onNext((type: "Notification", id: decoded))
+            }
+            
         } else {
             // TODO:- 予期せぬデータが送られてきたときのエラーハンドリング
-//            fatalError()
+//            receiveDataSubject.onNext((type: "Notification", id: decoded))
+            fatalError()
         }
         
     }
@@ -137,7 +178,7 @@ extension P2PConnectivity: MCSessionDelegate {
     }
     
     public func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        //print(#function)
+        print("State: \(state.rawValue)")
         sessiouStateSubject.onNext(state)
     }
     

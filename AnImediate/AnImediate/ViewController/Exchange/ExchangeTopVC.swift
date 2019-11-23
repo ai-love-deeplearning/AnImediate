@@ -66,14 +66,25 @@ class ExchangeTopVC: UIViewController {
             .bind(to: peerTable.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        peerTable.rx.itemDeleted
+            .subscribe(
+                onNext: { [unowned self] indexPath in
+                    if self.sectionModels.first!.items.count == 1 {
+                        self.emptyView.isHidden = false
+                    }
+                    let uid = self.sectionModels.first!.items[indexPath.row].userID
+                    PeerModel.delete(uid: uid)
+                    ArchiveModel.delete(uid: uid)
+                    self.initSectionModels()
+                }).disposed(by: disposeBag)
+        
         
         peerTable.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.peerTable.cellForRow(at: indexPath) as! ExchangeTopTableViewCell
-                    
-                    // TODO:- 次の画面へ値を渡す処理
-//                    self.performSegue(withIdentifier: "toDetails", sender: nil)
+                    let model = self.sectionModels.first!.items[indexPath.row]
+                    self.store.dispatch(ExchangeResultViewAction.Initialize(peerID: model.userID))
+                    self.performSegue(withIdentifier: "toResult", sender: nil)
 
             })
             .disposed(by: disposeBag)
@@ -94,6 +105,8 @@ extension ExchangeTopVC {
     private func initSectionModels() {
         var items: [PeerModel] = []
         items = Array(PeerModel.readAll())
+        print("@@@ ExchangeTop peer sectionModel @@@: \(items)")
+        print("@@@ ExchangeTop archive @@@: \(ArchiveModel.read(uid: items.first!.userID))")
         
         sectionModels = [ExchangeTopTableSectionModel(items: items)]
         fetch()
@@ -107,13 +120,12 @@ extension ExchangeTopVC {
             configureCell: { _, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PeerTableCell", for: IndexPath(row: indexPath.row, section: 0)) as! ExchangeTopTableViewCell
                 
-                // TODO:- setメソッドに変更
                 cell.setData(peer: item)
                 
                 return cell
                 
         }, canEditRowAtIndexPath: { _, _ in
-            return false
+            return true
         })
     }
     

@@ -37,9 +37,10 @@ public class ArchiveModel: Object, NSCoding {
     // TODO:- Dataとして読めるのは自分のデータだけ
     public static func readAsData(uid: String) -> Data? {
         let model = read(uid: uid)
-        guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false) else {
+        guard let encoded = try? NSKeyedArchiver.archivedData(withRootObject: Array(model), requiringSecureCoding: false) else {
             // TODO:- 上手いエラーハンドリングを考える。
-            return nil
+            print("@@@ アーカイブのデータ化に失敗 @@@")
+            return Data()
         }
         
         return encoded
@@ -86,16 +87,37 @@ public class ArchiveModel: Object, NSCoding {
     
     public static func set(archives: [ArchiveModel]) {
         let realm = try! Realm()
-        let model = read(uid: archives.first!.userID)
+        guard let archive = archives.first else { return }
+        let model = read(uid: archive.userID)
         
-        archives.forEach {
-            $0.id = NSUUID().uuidString
+        print("@@@ archivemodel set @@@: \(model)")
+        
+        if model.isEmpty {
+            archives.forEach {
+                $0.id = NSUUID().uuidString
+            }
+            
+            try! realm.write {
+                realm.add(archives, update: .modified)
+            }
+            return
         }
         
         try! realm.write {
-            realm.add(archives, update: .modified)
+            realm.delete(model)
+            realm.add(model, update: .modified)
         }
         
+    }
+    
+    public static func delete(uid: String) {
+        let realm = try! Realm()
+        let model = read(uid: uid)
+        try! realm.write {
+            if !model.isEmpty {
+                realm.delete(model)
+            }
+        }
     }
     
     public func encode(with aCoder: NSCoder) {

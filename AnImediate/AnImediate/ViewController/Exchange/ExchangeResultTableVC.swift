@@ -28,19 +28,22 @@ class ExchangeResultTableVC: UIViewController {
         return store.state.resultViewState
     }
     
-    private var dataSource: RxTableViewSectionedReloadDataSource<AnimeTableSectionModel>!
-    private var sectionModels: [AnimeTableSectionModel]!
-    private var dataRelay = BehaviorRelay<[AnimeTableSectionModel]>(value: [])
+    private var dataSource: RxTableViewSectionedReloadDataSource<HomeArchiveSectionModel>!
+    private var sectionModels: [HomeArchiveSectionModel]!
+    private var dataRelay = BehaviorRelay<[HomeArchiveSectionModel]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        disposeBag = DisposeBag()
         initSectionModels()
         initTable()
         bindViews()
         bindState()
+        
+        emptyView.isHidden = ArchiveModel.read(uid: viewState.peerID).isNotEmpty
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -57,7 +60,7 @@ class ExchangeResultTableVC: UIViewController {
         archiveTable.rx.itemSelected
             .subscribe(
                 onNext: { [unowned self] indexPath in
-                    let cell = self.archiveTable.cellForRow(at: indexPath) as! AnimeListTableViewCell
+                    let cell = self.archiveTable.cellForRow(at: indexPath) as! ArchiveCardCell
                     // TODO:- 詳細への画面遷移
                     self.archiveTable.deselectRow(at: indexPath, animated: false)
                     
@@ -77,19 +80,14 @@ class ExchangeResultTableVC: UIViewController {
     private func bindState() {
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetails" {
-        }
-    }
 }
 
 extension ExchangeResultTableVC {
     private func initSectionModels() {
-        var items: [AnimeModel] = []
-        items = Array(AnimeModel.readCurrentTerm())
+        // TODO:- コンテンツの表示切り替え
+        let items = Array(ArchiveModel.read(uid: viewState.peerID))
+        sectionModels = [HomeArchiveSectionModel(items: items)]
         
-        sectionModels = [AnimeTableSectionModel(items: items)]
         fetch()
     }
     
@@ -97,11 +95,11 @@ extension ExchangeResultTableVC {
         
         archiveTable.tableFooterView = UIView(frame: .zero)
         
-        dataSource = RxTableViewSectionedReloadDataSource<AnimeTableSectionModel>(
+        dataSource = RxTableViewSectionedReloadDataSource<HomeArchiveSectionModel>(
             configureCell: { _, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeTableCell", for: IndexPath(row: indexPath.row, section: 0)) as! AnimeListTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ArchiveTableCell", for: IndexPath(row: indexPath.row, section: 0)) as! ArchiveCardCell
                 
-                cell.anime = item
+                cell.setArchive(item)
                 
                 return cell
         }, canEditRowAtIndexPath: { _, _ in

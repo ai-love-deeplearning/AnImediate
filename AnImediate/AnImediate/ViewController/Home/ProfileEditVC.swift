@@ -111,6 +111,7 @@ class ProfileEditVC: UIViewController {
             .coolTime()
             .drive(onNext: { [unowned self] in
                 // TODO:- Rx化してStateからとってくるように変更
+                // TODO:- IDを変更した時にArchiveModelの自分のデータのIDも書き換える
                 let idCell = self.editTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! ProfileEditTableViewCell
                 let nameCell = self.editTable.cellForRow(at: IndexPath(row: 1, section: 0)) as! ProfileEditTableViewCell
                 let commentCell = self.editTable.cellForRow(at: IndexPath(row: 2, section: 0)) as! ProfileEditCommentTableViewCell

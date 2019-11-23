@@ -11,14 +11,12 @@ import Realm
 import RealmSwift
 
 public struct ExchangeAcceptViewState: StateType  {
-    public internal(set) var isSendArchiveModel = false
-    public internal(set) var isReceiveArchiveModel = false
+    public internal(set) var peerID = ""
     public internal(set) var error: AnimediateError?
 }
 
 extension ExchangeAcceptViewState: Equatable {
     public static func == (lhs: ExchangeAcceptViewState, rhs: ExchangeAcceptViewState) -> Bool {
-        return lhs.isSendArchiveModel == rhs.isSendArchiveModel
-            && lhs.isReceiveArchiveModel == rhs.isReceiveArchiveModel
+        return lhs.peerID == rhs.peerID
     }
 }

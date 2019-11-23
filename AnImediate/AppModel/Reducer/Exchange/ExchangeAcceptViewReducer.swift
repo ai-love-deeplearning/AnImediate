@@ -26,12 +26,8 @@ struct ExchangeAcceptViewReducer {
         case is ExchangeAcceptViewAction.DismissErrorAlert:
             nextState.error = nil
             
-        case is ExchangeAcceptViewAction.SendArchiveModel:
-            nextState.isSendArchiveModel = true
-            nextState.error = nil
-            
-        case is ExchangeAcceptViewAction.ReceiveArchiveModel:
-            nextState.isReceiveArchiveModel = true
+        case let action as ExchangeAcceptViewAction.SetPeerID:
+            nextState.peerID = action.peerID
             nextState.error = nil
             
         default:

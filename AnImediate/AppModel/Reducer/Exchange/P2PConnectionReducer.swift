@@ -45,6 +45,7 @@ struct P2PConnectionReducer {
             nextState.isAdvertising = false
             nextState.isBrowsing = false
             nextState.connectionState = .notConnected
+            nextState.peerID = ""
             nextState.error = nil
             
         case is P2PConnectAction.SendAccountModelSuccess:
@@ -52,6 +53,7 @@ struct P2PConnectionReducer {
             nextState.error = nil
             
         case let action as P2PConnectAction.ReceivePeerID:
+            print("@@@ Reduser ReceivePeerID @@@: \(action.peerID)")
             nextState.peerID = action.peerID
             nextState.error = nil
             

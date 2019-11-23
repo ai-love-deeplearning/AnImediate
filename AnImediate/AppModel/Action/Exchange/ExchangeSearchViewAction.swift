@@ -19,11 +19,31 @@ public struct ExchangeSearchViewAction {
         public init() {}
     }
     
+    public struct Disconnect: Action {
+        public init() {}
+    }
+    
     public struct SendAccountModel: Action {
         public init() {}
     }
     
     public struct ReceivePeerModel: Action {
+        public init() {}
+    }
+    
+    public struct SendArchiveModel: Action {
+        public init() {}
+    }
+    
+    public struct ReceiveArchiveModel: Action {
+        public init() {}
+    }
+    
+    public struct SendNotification: Action {
+        public init() {}
+    }
+    
+    public struct ReceiveNotification: Action {
         public init() {}
     }
     
