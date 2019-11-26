@@ -19,12 +19,11 @@ public struct ExchangeAcceptViewAction {
         public init() {}
     }
     
-    public struct SendArchiveModel: Action {
-        public init() {}
-    }
-    
-    public struct ReceiveArchiveModel: Action {
-        public init() {}
+    public struct SetPeerID: Action {
+        public let peerID: String
+        public init(peerID: String) {
+            self.peerID = peerID
+        }
     }
     
 }

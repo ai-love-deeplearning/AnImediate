@@ -37,6 +37,7 @@ class AnimeDetailSimilarVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        disposeBag = DisposeBag()
         initSectionModels()
         initTable()
         bindViews()

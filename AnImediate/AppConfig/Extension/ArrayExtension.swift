@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
     // 配列同士の差集合を得る
     func except<T : Equatable>(_ obj: [T]) -> [T] {

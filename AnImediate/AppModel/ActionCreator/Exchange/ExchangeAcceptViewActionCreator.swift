@@ -26,17 +26,18 @@ public class ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable {
     public func sendArchiveModel(disposeBag: DisposeBag) -> Store<ExchangeViewState>.AsyncActionCreator {
         
         return { [weak self] state, store, callback in
-            callback { _, _ in ExchangeAcceptViewAction.SendArchiveModel() }
+            callback { _, _ in ExchangeSearchViewAction.SendArchiveModel() }
             
-            self?.connector.sendArchiveModel(data: ArchiveModel.readAsData(uid: AccountModel.read().id))
+            self?.connector.sendArchiveModel(data: ArchiveModel.readAsData(uid: AccountModel.read().userID))
                 .subscribe(
                     onSuccess: { _ in
                         let action = P2PConnectAction.SendArchiveModelSuccess()
                         callback { _, _ in action }
                 },
                     onError: { error in
-                        print(error.localizedDescription)
-                        print("エラー: 正常にデータの送信が行われませんでした")
+                        let p2pError = error as! P2PError
+                        print("@@@ エラー @@@")
+                        print(p2pError.errorDescription!)
                 })
                 .disposed(by: disposeBag)
         }

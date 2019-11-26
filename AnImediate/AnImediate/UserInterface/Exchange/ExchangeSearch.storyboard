@@ -25,8 +25,8 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-0E-rHn">
-                                <rect key="frame" x="142.5" y="567.5" width="129" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="161.5" y="572" width="91" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="TextGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,13 +46,13 @@
                     <connections>
                         <outlet property="loadingView" destination="48T-pS-274" id="4lJ-GZ-w00"/>
                         <outlet property="seachLLabel" destination="EBH-0E-rHn" id="l3I-aP-4gv"/>
-                        <segue destination="yrX-OQ-JN1" kind="show" identifier="toPopUpModal" id="Ddo-bq-8f7"/>
+                        <segue destination="yrX-OQ-JN1" kind="show" identifier="toExchangeAccept" id="Ddo-bq-8f7"/>
                         <segue destination="pNf-dK-sDP" kind="show" identifier="toNotFound" id="ult-Zl-OR7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUW-5d-Sd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1614" y="-583"/>
+            <point key="canvasLocation" x="2523.1884057971015" y="-583.25892857142856"/>
         </scene>
         <!--Exchange Not FoundVC-->
         <scene sceneID="FuO-ET-LF4">
@@ -69,7 +69,6 @@
                                 </state>
                                 <connections>
                                     <action selector="againBtnTapped:" destination="pNf-dK-sDP" eventType="touchUpInside" id="3iD-h0-T30"/>
-                                    <segue destination="ETi-Nl-zLc" kind="show" id="MoD-3p-qtY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,18 +79,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="evX-Co-ve5"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nlm-hk-LIE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLo-Zx-AL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="163"/>
+            <point key="canvasLocation" x="2523" y="199"/>
         </scene>
         <!--ExchangeAccept-->
         <scene sceneID="v6j-OG-9Tf">
             <objects>
-                <viewControllerPlaceholder storyboardName="ExchangeAccept" id="yrX-OQ-JN1" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ExchangeAccept" id="yrX-OQ-JN1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="L1u-p5-rH3"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYn-wh-Vvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2288" y="-583"/>
+            <point key="canvasLocation" x="3197.826086956522" y="-583.25892857142856"/>
         </scene>
     </scenes>
     <resources>

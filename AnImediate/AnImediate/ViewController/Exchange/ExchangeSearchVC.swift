@@ -58,10 +58,20 @@ class ExchangeSearchVC: UIViewController {
         }
     }
     
-    func inject(P2PSearchActionCreator: P2PSearchActionCreatable, ExchangeAccountActionCreator: ExchangeAccountActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable) {
+    private var ExchangeNotificationActionCreator: ExchangeNotificationActionCreatable! = nil {
+        willSet {
+            if ExchangeNotificationActionCreator != nil {
+                fatalError()
+            }
+        }
+    }
+    
+    func inject(P2PSearchActionCreator: P2PSearchActionCreatable, ExchangeAccountActionCreator: ExchangeAccountActionCreatable, ExchangeArchiveActionCreator: ExchangeArchiveActionCreatable, ExchangeNotificationActionCreator: ExchangeNotificationActionCreatable) {
+        print("@@@ inject @@@")
         self.P2PSearchActionCreator = P2PSearchActionCreator
         self.ExchangeAccountActionCreator = ExchangeAccountActionCreator
         self.ExchangeArchiveActionCreator = ExchangeArchiveActionCreator
+        self.ExchangeNotificationActionCreator = ExchangeNotificationActionCreator
     }
     
     @objc func labelAnimetion(_ tm: Timer) {
@@ -89,13 +99,15 @@ class ExchangeSearchVC: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        initGradientLayer()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         initGradientLayer()
-        
-        //let result = realm.objects(UserInfo.self)
-        //myInfo = result[0].copy() as! UserInfo
         
         animateIndicator()
         
@@ -106,7 +118,8 @@ class ExchangeSearchVC: UIViewController {
         
         bind()
         
-        self.store.dispatch(self.P2PSearchActionCreator.startSerching(disposeBag: self.disposeBag))
+        print("@@@ ExSearchViewState @@@: \(self.viewState)")
+        self.store.dispatch(self.P2PSearchActionCreator.startSearching(disposeBag: self.disposeBag))
 
     }
     
@@ -114,18 +127,45 @@ class ExchangeSearchVC: UIViewController {
         super.viewWillDisappear(animated)
         timer.invalidate()
         timer = nil
+        self.store.dispatch(self.P2PSearchActionCreator.stopSearching(disposeBag: self.disposeBag))
+        self.store.dispatch(ExchangeSearchViewAction.Disconnect())
+        self.store.dispatch(P2PConnectAction.Disconnect())
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        initGradientLayer()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        disposeBag = DisposeBag()
     }
     
     private func bind() {
-        store.isSendAccountModel
+        
+        store.isReceiveArchiveModel
             .drive(
-                onNext: { [unowned self] isSendAccountModel in
-                // TODO:- 先に受け取っていたら画面遷移
+                onNext: { [unowned self] _ in
+                    if self.viewState.isReceivePeerModel {
+                        print("@@@ Search Send Notification @@@")
+                        self.store.dispatch(self.ExchangeNotificationActionCreator.sendNotification(disposeBag: self.disposeBag))
+                    }
+            })
+            .disposed(by: disposeBag)
+        
+        store.isReceivePeerModel
+            .drive(
+                onNext: { [unowned self] _ in
+                    if self.viewState.isReceiveArchiveModel {
+                        print("@@@ Search Send Notification @@@")
+                        self.store.dispatch(self.ExchangeNotificationActionCreator.sendNotification(disposeBag: self.disposeBag))
+                    }
+            })
+            .disposed(by: disposeBag)
+        
+        store.isReceiveNotification
+            .drive(
+                onNext: { [unowned self] isReceiveNotification in
+                    if self.chackValidTransition() {
+                        self.store.dispatch(ExchangeAcceptViewAction.SetPeerID(peerID: self.store.state.p2pConnectionState.peerID))
+                        self.performSegue(withIdentifier: "toExchangeAccept", sender: nil)
+                    }
             })
             .disposed(by: disposeBag)
         
@@ -134,6 +174,7 @@ class ExchangeSearchVC: UIViewController {
                 onNext: {[unowned self] connectionState in
                     switch connectionState {
                     case .notConnected:
+                        // TODO:- コネクションが切れたら全ViewStateを初期化する。
                         self.searchingTimer.fire()
                         break
                     case .connecting:
@@ -141,6 +182,8 @@ class ExchangeSearchVC: UIViewController {
                         self.searchingTime = 0
                         break
                     case .connected:
+                        // TODO:- 再接続した時にちゃんとここに来るのか調査。一回
+                        self.store.dispatch(self.ExchangeArchiveActionCreator.sendArchiveModel(disposeBag: self.disposeBag))
                         self.store.dispatch(self.ExchangeAccountActionCreator.sendAccountModel(disposeBag: self.disposeBag))
                     @unknown default:
                         fatalError()
@@ -148,19 +191,12 @@ class ExchangeSearchVC: UIViewController {
                 })
             .disposed(by: disposeBag)
         
-        store.isReceivePeerModel
-            .drive(
-                onNext: { isReceivePeerModel in
-                    if isReceivePeerModel {
-                        
-                    }
-            })
-            .disposed(by: disposeBag)
-        
         store.peerID
             .drive(
                 onNext: { peerID in
-                    self.store.dispatch(ExchangeSearchViewAction.ReceivePeerModel())
+                    if peerID.isNotEmpty {
+                        self.store.dispatch(ExchangeSearchViewAction.ReceivePeerModel())
+                    }
             })
             .disposed(by: disposeBag)
         
@@ -200,12 +236,13 @@ class ExchangeSearchVC: UIViewController {
         }
     }
     
-    // TODO:- 余裕があったら画面遷移はCoodinatorを使いたい
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPopUpModal" {
-            let nextVC = segue.destination as! ExchangeAcceptVC
+    private func chackValidTransition() -> Bool {
+        if self.viewState.isReceiveArchiveModel, self.viewState.isReceivePeerModel, self.viewState.isSendArchiveModel, self.viewState.isSendAccountModel, self.viewState.isSendNotification {
+            return true
         }
+        return false
     }
+    
 }
 
 private extension RxStore where AnyStateType == ExchangeViewState {
@@ -219,6 +256,22 @@ private extension RxStore where AnyStateType == ExchangeViewState {
     
     var isSendAccountModel: Driver<Bool> {
         return state.mapDistinct { $0.isSendAccountModel }
+    }
+    
+    var isReceiveArchiveModel: Driver<Bool> {
+        return state.mapDistinct { $0.isReceiveArchiveModel }
+    }
+    
+    var isSendArchiveModel: Driver<Bool> {
+        return state.mapDistinct { $0.isSendArchiveModel }
+    }
+    
+    var isSendNotification: Driver<Bool> {
+        return state.mapDistinct { $0.isSendNotification }
+    }
+    
+    var isReceiveNotification: Driver<Bool> {
+        return state.mapDistinct { $0.isReceiveNotification }
     }
     
     var error: Driver<AnimediateError> {

@@ -12,7 +12,7 @@ import RealmSwift
 
 public class AccountModel : Object, NSCoding, NSCopying {
     
-    @objc dynamic var id = "0"
+    @objc private dynamic var id = "0"
     @objc public dynamic var userID = ""
     @objc public dynamic var name = ""
     @objc public dynamic var comment = ""

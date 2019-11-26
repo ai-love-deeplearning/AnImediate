@@ -12,7 +12,7 @@ import RealmSwift
 
 public class PeerModel : Object, NSCoding, NSCopying {
     
-    @objc dynamic var id = ""
+    @objc private dynamic var id = ""
     @objc public dynamic var userID = ""
     @objc public dynamic var name = ""
     @objc public dynamic var comment = ""
@@ -64,16 +64,10 @@ public class PeerModel : Object, NSCoding, NSCopying {
         return "id"
     }
     
-    public static func read(id: String) -> PeerModel {
+    public static func read(id: String) -> Results<PeerModel> {
         let realm = try! Realm()
-        if let model = realm.object(ofType: self, forPrimaryKey: id) {
-            return model
-        }
+        let model = realm.objects(self).filter("userID == %@", id)
         
-        let model = PeerModel()
-        try! realm.write {
-            realm.add(model)
-        }
         return model
     }
     
@@ -85,7 +79,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     public static func set(uid: String, name: String) {
         let realm = try! Realm()
         
-        let model = read(id: uid)
+        guard let model = read(id: uid).first else { return }
         try! realm.write {
             model.name = name
         }
@@ -94,7 +88,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     public static func set(uid: String, comment: String) {
         let realm = try! Realm()
         
-        let model = read(id: uid)
+        guard let model = read(id: uid).first else { return }
         try! realm.write {
             model.comment = comment
         }
@@ -103,7 +97,7 @@ public class PeerModel : Object, NSCoding, NSCopying {
     public static func set(uid: String, excangedAt: String) {
         let realm = try! Realm()
         
-        let model = read(id: uid)
+        guard let model = read(id: uid).first else { return }
         try! realm.write {
             model.excangedAt = excangedAt
         }
@@ -113,33 +107,37 @@ public class PeerModel : Object, NSCoding, NSCopying {
     public static func set(uid: String, icon: UIImage) {
         let realm = try! Realm()
         
-        let model = read(id: uid)
+        guard let model = read(id: uid).first else { return }
         try! realm.write {
             model.icon = icon
         }
         //self.iconData = icon.pngData() as NSData?
     }
     
-    public static func set(uid: String, background: UIImage) {
+    public static func set(data: AccountModel) {
         let realm = try! Realm()
-        
-        let model = read(id: uid)
-        try! realm.write {
-            model.background = background
+        let model: PeerModel
+        if read(id: data.userID).first == nil {
+            model = PeerModel()
+        } else {
+            model = read(id: data.userID).first!
         }
-    }
-    
-    public static func set(uid: String, data: PeerModel) {
-        let realm = try! Realm()
         
-        let model = read(id: uid)
         try! realm.write {
             model.userID = data.userID
             model.name = data.name
             model.comment = data.comment
             model.icon = data.icon
-            model.background = data.background
             model.excangedAt = AnimediateConfig.dateString
+            realm.add(model, update: .modified)
+        }
+    }
+    
+    public static func delete(uid: String) {
+        let realm = try! Realm()
+        guard let model = read(id: uid).first else { return }
+        try! realm.write {
+            realm.delete(model)
         }
     }
     
