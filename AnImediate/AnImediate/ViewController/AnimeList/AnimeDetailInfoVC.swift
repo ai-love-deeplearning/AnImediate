@@ -13,6 +13,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import RealmSwift
+import Cosmos
 
 @available(iOS 13.0, *)
 
@@ -24,11 +25,7 @@ class AnimeDetailInfoVC: UIViewController {
     @IBOutlet private weak var nowButton: UIButton!
     @IBOutlet private weak var doneButton: UIButton!
     @IBOutlet private weak var stopButton: UIButton!
-    @IBOutlet private weak var oneEvalButton: UIButton!
-    @IBOutlet private weak var twoEvalButton: UIButton!
-    @IBOutlet private weak var threeEvalButton: UIButton!
-    @IBOutlet private weak var fourEvalButton: UIButton!
-    @IBOutlet private weak var fiveEvalButton: UIButton!
+    @IBOutlet weak var evaluationView: CosmosView!
     //    @IBOutlet private weak var seasonLabel: UILabel!
 //    @IBOutlet private weak var statusTextField: AnimeStatusTextField!
 //    @IBOutlet private weak var similarCollectionView: AnimeHorizontalCollectionView!
@@ -69,45 +66,16 @@ class AnimeDetailInfoVC: UIViewController {
     }
     
     private func bindViews() {
-//        similarCollectionView.register(UINib(nibName: "AnimeHorizontalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "similarCell")
-//
-//        similarDataRelay.asObservable()
-//            .bind(to: similarCollectionView.rx.items(dataSource: similarDataSource))
-//            .disposed(by: disposeBag)
-//
-//        similarCollectionView.rx.itemSelected
-//            .subscribe(
-//                onNext: { [unowned self] indexPath in
-//                    guard let anime = self.similarSectionModels.first?.items[indexPath.row] else { return }
-//                    self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
-//                    self.performSegue(withIdentifier: "toDetails", sender: nil)
-//            })
-//            .disposed(by: disposeBag)
-//
-//        statusTextField.rx.text.orEmpty.asObservable()
-//            .subscribe { [unowned self] in
-//                // TODO:- Pickerならいらない説
-//            }
-//            .disposed(by: disposeBag)
-//
-//        statusTextField.rx.controlEvent(.editingDidEnd).asDriver()
-//            .drive(onNext: { [weak self] in
-//                guard let strongSelf = self else { return }
-//                if strongSelf.statusTextField.text != "" {
-//                    let userTD = AccountModel.read().userID
-//                    let archive = ArchiveModel.read(uid: userTD).filter("annictID == %@", strongSelf.viewState.animeModel?.annictID)
-//
-//                    ArchiveModel.set(archive: archive.first!)
-//                }
-//            })
-//            .disposed(by: disposeBag)
-//
-//        similarBtn.rx.tap.asDriver()
-//            .coolTime()
-//            .drive(onNext: {
-//                self.store.dispatch(AnimeListTableViewAction.Initialize(contentType: .ranking))
-//                self.performSegue(withIdentifier: "toDetails", sender: nil)
-//            }).disposed(by: disposeBag)
+        evaluationView.didTouchCosmos = { rating in
+            let uid = AccountModel.read().userID
+            guard let animeID = self.viewState.animeModel?.annictID else { return }
+            let result = ArchiveModel.set(uid: uid, animeID: animeID, evalPoint: String(rating))
+            
+            if !result {
+                // TODO:- 登録に失敗のエラーアラートを表示
+            }
+            
+        }
         
         keepButton.rx.tap.asDriver()
             .coolTime()
@@ -161,50 +129,6 @@ class AnimeDetailInfoVC: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
-        oneEvalButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
-                let images : [UIImage] = [self.starFillImage!, self.starImage!, self.starImage!, self.starImage!, self.starImage!]
-                self.setBtnImage(btns: btns, image: images)
-                print("1")
-            }).disposed(by: disposeBag)
-        
-        twoEvalButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
-                let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starImage!, self.starImage!, self.starImage!]
-                self.setBtnImage(btns: btns, image: images)
-                print("2")
-            }).disposed(by: disposeBag)
-        
-        threeEvalButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
-                let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starImage!, self.starImage!]
-                self.setBtnImage(btns: btns, image: images)
-                print("3")
-            }).disposed(by: disposeBag)
-        
-        fourEvalButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
-                let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starImage!]
-                self.setBtnImage(btns: btns, image: images)
-                print("4")
-            }).disposed(by: disposeBag)
-        
-        fiveEvalButton.rx.tap.asDriver()
-            .coolTime()
-            .drive(onNext: {
-                let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
-                let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starFillImage!]
-                self.setBtnImage(btns: btns, image: images)
-                print("5")
-            }).disposed(by: disposeBag)
     }
     
     private func bindState() {
@@ -230,6 +154,9 @@ class AnimeDetailInfoVC: UIViewController {
         let uid = AccountModel.read().userID
         guard let animeID = viewState.animeModel?.annictID else { return }
         guard let model = ArchiveModel.read(uid: uid, animeID: animeID) else { return }
+        
+        evaluationView.rating = Double(model.evalPoint) ?? 0
+        
         switch model.animeStatus {
         case  AnimeStatusType.keep.rawValue:
             changeBtnState(btn: self.keepButton)

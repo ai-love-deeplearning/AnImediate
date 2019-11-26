@@ -45,7 +45,7 @@ class ExchangeAcceptVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarController?.delegate = self
         bindState()
         bindViews()
     }
@@ -134,6 +134,15 @@ class ExchangeAcceptVC: UIViewController {
     }
 
 }
+
+extension ExchangeAcceptVC: UITabBarControllerDelegate {
+    // ダブルタップでのpopViewController無効化
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        return viewController != tabBarController.selectedViewController
+    }
+}
+
+
 
 private extension RxStore where AnyStateType == ExchangeViewState {
     var state: Driver<ExchangeAcceptViewState> {
