@@ -44,7 +44,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qr9-ID-iQp" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="493"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ソードアート・オンライン" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIi-5g-d5b">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Anime Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIi-5g-d5b">
                                                 <rect key="frame" x="22" y="22" width="370" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -55,9 +55,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="88" id="aNJ-9Z-f4f"/>
                                                 </constraints>
-                                                <string key="text">西暦2022年、1000人のユーザーによるベータテストを経て世界初のVRMMORPG「ソードアート・オンライン」（SAO）の正式サービスが開始され、約1万人のユーザーは完全なる仮想空間を謳歌していた。
-しかし、ゲームマスターにして開発者である天才量子物理学者の茅場晶彦がプレイヤーたちの前に現れ、自発的ログアウトは不可能であること、舞台「浮遊城アインクラッド」の最上部第100層のボスを倒してクリアすることだけが脱出する唯一の方法であること、そして死亡した場合には現実世界のプレイヤー自身が本当に死亡するということを宣言した。プレイヤーの1人である少年キリトはこの絶望的な狂気のデスゲームで生き残るべく戦うことを決意し、始まりの街から旅立ってゆく。
-しかし、後に「SAO事件」と称されるこのデスゲームは、仮想世界をめぐるさまざまな事件の幕開けにすぎなかった。</string>
+                                                <mutableString key="text">This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. This aera is anime synopsys area. </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="TextGray"/>
                                                 <nil key="highlightedColor"/>
@@ -165,80 +163,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評価" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-5T-YKw">
-                                                <rect key="frame" x="22" y="237" width="29" height="17"/>
+                                                <rect key="frame" x="22" y="249" width="29" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" name="TextGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="N5d-AJ-kst">
-                                                <rect key="frame" x="132" y="223.5" width="244" height="44"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIL-bZ-h70">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="WIL-bZ-h70" secondAttribute="height" multiplier="1:1" id="DHm-fg-Zbx"/>
-                                                            <constraint firstAttribute="height" constant="44" id="cMe-3v-TtJ"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="tintColor" name="MainThema"/>
-                                                        <state key="normal" image="star" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="large"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf3-F9-IbK">
-                                                        <rect key="frame" x="50" y="0.0" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Zf3-F9-IbK" secondAttribute="height" multiplier="1:1" id="IZU-3r-3XQ"/>
-                                                            <constraint firstAttribute="height" constant="44" id="mJi-nn-cx0"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="MainThema"/>
-                                                        <state key="normal" image="star" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="large"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zp8-Fz-Phe">
-                                                        <rect key="frame" x="100" y="0.0" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Zp8-Fz-Phe" secondAttribute="height" multiplier="1:1" id="5Kk-NS-rSz"/>
-                                                            <constraint firstAttribute="height" constant="44" id="eV8-KT-CyO"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="MainThema"/>
-                                                        <state key="normal" image="star" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="large"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7P-mE-0WQ">
-                                                        <rect key="frame" x="150" y="0.0" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Z7P-mE-0WQ" secondAttribute="height" multiplier="1:1" id="4dW-TB-AvD"/>
-                                                            <constraint firstAttribute="height" constant="44" id="m2w-io-6dH"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="MainThema"/>
-                                                        <state key="normal" image="star" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="large"/>
-                                                        </state>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-96-1wp">
-                                                        <rect key="frame" x="200" y="0.0" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="44" id="F2m-ON-25C"/>
-                                                            <constraint firstAttribute="width" secondItem="rsT-96-1wp" secondAttribute="height" multiplier="1:1" id="ZLs-Ka-VpU"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="MainThema"/>
-                                                        <state key="normal" image="star" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="large"/>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="rsT-96-1wp" firstAttribute="width" secondItem="rsT-96-1wp" secondAttribute="height" multiplier="1:1" id="H09-yv-p22"/>
-                                                    <constraint firstItem="Zf3-F9-IbK" firstAttribute="width" secondItem="Zf3-F9-IbK" secondAttribute="height" multiplier="1:1" id="Vfg-Pr-1Kn"/>
-                                                    <constraint firstItem="Zp8-Fz-Phe" firstAttribute="width" secondItem="Zp8-Fz-Phe" secondAttribute="height" multiplier="1:1" id="rHJ-n0-GmC"/>
-                                                    <constraint firstItem="Z7P-mE-0WQ" firstAttribute="width" secondItem="Z7P-mE-0WQ" secondAttribute="height" multiplier="1:1" id="rIQ-LN-EY6"/>
-                                                </constraints>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="yLo-TO-c3D">
-                                                <rect key="frame" x="22" y="286" width="57.5" height="173"/>
+                                                <rect key="frame" x="22" y="298" width="57.5" height="173"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="放送年" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXl-4g-79i">
                                                         <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
@@ -273,7 +204,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="vSE-cW-0Fy">
-                                                <rect key="frame" x="138" y="286" width="254" height="173"/>
+                                                <rect key="frame" x="138" y="298" width="254" height="173"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="××××年×月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVH-LW-Dgf">
                                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="17"/>
@@ -307,31 +238,73 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5u-jv-T6q" customClass="CosmosView" customModule="Cosmos">
+                                                <rect key="frame" x="132" y="235.5" width="266" height="44"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="4XZ-nS-ylK"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" name="TextThema"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                                        <color key="value" name="MainThema"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                                        <color key="value" name="LineMedium"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                        <color key="value" name="MainThema"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="7cb-5T-YKw" firstAttribute="top" secondItem="mAo-LD-gNd" secondAttribute="bottom" constant="32" id="0dM-yf-zks"/>
+                                            <constraint firstItem="7cb-5T-YKw" firstAttribute="top" secondItem="mAo-LD-gNd" secondAttribute="bottom" constant="44" id="0dM-yf-zks"/>
+                                            <constraint firstItem="W5u-jv-T6q" firstAttribute="leading" secondItem="yed-7J-OMz" secondAttribute="leading" constant="-6" id="3d3-U4-oxe"/>
                                             <constraint firstItem="yLo-TO-c3D" firstAttribute="top" secondItem="7cb-5T-YKw" secondAttribute="bottom" constant="32" id="4aj-35-Hhq"/>
                                             <constraint firstAttribute="trailing" secondItem="AIi-5g-d5b" secondAttribute="trailing" constant="22" id="5RV-1j-KOW"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yed-7J-OMz" secondAttribute="trailing" constant="6" id="CCU-BA-jO5"/>
                                             <constraint firstItem="yed-7J-OMz" firstAttribute="leading" secondItem="mAo-LD-gNd" secondAttribute="trailing" constant="44" id="HFW-NH-SPd"/>
                                             <constraint firstItem="mAo-LD-gNd" firstAttribute="top" secondItem="RnV-sz-eEa" secondAttribute="bottom" constant="32" id="LNg-sa-fup"/>
                                             <constraint firstItem="RnV-sz-eEa" firstAttribute="top" secondItem="AIi-5g-d5b" secondAttribute="bottom" constant="22" id="MqY-av-cNP"/>
-                                            <constraint firstItem="N5d-AJ-kst" firstAttribute="leading" secondItem="yed-7J-OMz" secondAttribute="leading" constant="-6" id="My9-yr-TSB"/>
                                             <constraint firstAttribute="height" constant="493" id="OqJ-ga-IAe"/>
                                             <constraint firstAttribute="trailing" secondItem="vSE-cW-0Fy" secondAttribute="trailing" constant="22" id="PUs-hv-e30"/>
                                             <constraint firstItem="7cb-5T-YKw" firstAttribute="leading" secondItem="qr9-ID-iQp" secondAttribute="leading" constant="22" id="PZt-QG-MxG"/>
                                             <constraint firstItem="vSE-cW-0Fy" firstAttribute="top" secondItem="yLo-TO-c3D" secondAttribute="top" id="SwO-je-hve"/>
                                             <constraint firstAttribute="trailing" secondItem="RnV-sz-eEa" secondAttribute="trailing" constant="22" id="Xo7-8O-lvD"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N5d-AJ-kst" secondAttribute="trailing" constant="6" id="aEK-YC-bad"/>
                                             <constraint firstItem="yed-7J-OMz" firstAttribute="centerY" secondItem="mAo-LD-gNd" secondAttribute="centerY" id="bGt-fk-S27"/>
                                             <constraint firstItem="AIi-5g-d5b" firstAttribute="leading" secondItem="qr9-ID-iQp" secondAttribute="leading" constant="22" id="bau-6U-lmf"/>
                                             <constraint firstItem="vSE-cW-0Fy" firstAttribute="leading" secondItem="yed-7J-OMz" secondAttribute="leading" id="doj-fx-SmC"/>
                                             <constraint firstItem="mAo-LD-gNd" firstAttribute="leading" secondItem="qr9-ID-iQp" secondAttribute="leading" constant="22" id="fuX-Je-0vb"/>
                                             <constraint firstItem="AIi-5g-d5b" firstAttribute="top" secondItem="qr9-ID-iQp" secondAttribute="top" constant="22" id="nA6-Dn-a0E"/>
                                             <constraint firstItem="yLo-TO-c3D" firstAttribute="leading" secondItem="qr9-ID-iQp" secondAttribute="leading" constant="22" id="ooc-wd-IgC"/>
+                                            <constraint firstItem="7cb-5T-YKw" firstAttribute="centerY" secondItem="W5u-jv-T6q" secondAttribute="centerY" id="qDo-iG-Kid"/>
+                                            <constraint firstAttribute="trailing" secondItem="W5u-jv-T6q" secondAttribute="trailing" constant="16" id="rZn-yh-kI3"/>
                                             <constraint firstItem="RnV-sz-eEa" firstAttribute="leading" secondItem="qr9-ID-iQp" secondAttribute="leading" constant="22" id="uAa-d0-eMZ"/>
-                                            <constraint firstItem="N5d-AJ-kst" firstAttribute="centerY" secondItem="7cb-5T-YKw" secondAttribute="centerY" id="zfb-xf-Y8K"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -358,16 +331,12 @@
                     <size key="freeformSize" width="414" height="586"/>
                     <connections>
                         <outlet property="doneButton" destination="Ku5-2i-Q5T" id="MYZ-hb-uFs"/>
-                        <outlet property="fiveEvalButton" destination="rsT-96-1wp" id="TWO-6Q-ged"/>
-                        <outlet property="fourEvalButton" destination="Z7P-mE-0WQ" id="MYo-8g-cob"/>
+                        <outlet property="evaluationView" destination="W5u-jv-T6q" id="vZj-aw-zXe"/>
                         <outlet property="keepButton" destination="O8A-k9-PdU" id="1V0-qf-7yh"/>
                         <outlet property="nowButton" destination="lsc-Sb-y7U" id="hym-I3-646"/>
-                        <outlet property="oneEvalButton" destination="WIL-bZ-h70" id="Lpx-QQ-D1c"/>
                         <outlet property="stopButton" destination="2uh-lh-sat" id="dq0-GN-wlU"/>
                         <outlet property="synopsisLabel" destination="RnV-sz-eEa" id="c50-hQ-Cqw"/>
-                        <outlet property="threeEvalButton" destination="Zp8-Fz-Phe" id="UH9-0c-J78"/>
                         <outlet property="titleLabel" destination="AIi-5g-d5b" id="GPu-cn-Pg3"/>
-                        <outlet property="twoEvalButton" destination="Zf3-F9-IbK" id="5BT-2F-pP1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9HL-2M-AVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -768,9 +737,11 @@
     </scenes>
     <resources>
         <image name="no_anime" width="1125" height="1310"/>
-        <image name="star" catalog="system" width="64" height="58"/>
         <namedColor name="LineLight">
             <color red="0.9100000262260437" green="0.85100001096725464" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LineMedium">
+            <color red="0.76899999380111694" green="0.70200002193450928" blue="0.7369999885559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainThema">
             <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

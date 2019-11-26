@@ -87,8 +87,10 @@ class AnimeListTableVC: UIViewController {
             .subscribe(
                 onNext: { [unowned self] indexPath in
                     if self.viewState.isRegisterMode == false {
-                        let model = (self.animeTable.cellForRow(at: indexPath) as! AnimeListTableViewCell).anime
-                        self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: model!))
+                        guard let model = (self.animeTable.cellForRow(at: indexPath) as! AnimeListTableViewCell).anime else { return }
+                        self.store.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: model))
+                        self.store.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: model))
+                        self.store.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: model))
                         self.performSegue(withIdentifier: "toDetails", sender: nil)
                         self.animeTable.deselectRow(at: indexPath, animated: false)
                     }
