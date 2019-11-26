@@ -17,6 +17,8 @@ public class ArchiveModel: Object, NSCoding {
     @objc public dynamic var userID = ""
     @objc public dynamic var annictID = ""
     @objc public dynamic var animeStatus = ""
+    @objc public dynamic var evalPoint = ""
+    @objc public dynamic var predictPoint = ""
     @objc dynamic var createdAt = ""
     @objc public dynamic var updatedAt = ""
     
@@ -45,13 +47,27 @@ public class ArchiveModel: Object, NSCoding {
         return encoded
     }
     
-    public static func set(userID: String, annictID: String, animeStatus: String) {
+    public static func set(uid: String, animeID: String, evalPoint: String) -> Bool {
+        let realm = try! Realm()
+        guard let model = read(uid: uid, animeID: animeID) else { return false }
+        
+        try! realm.write {
+            model.evalPoint = evalPoint
+            model.updatedAt = AnimediateConfig.dateString
+            realm.add(model, update: .modified)
+        }
+        return true
+    }
+    
+    public static func set(userID: String, annictID: String, animeStatus: String, evalPoint: String, predictPoint: String) {
         let realm = try! Realm()
         guard let model = read(uid: userID, animeID: annictID) else {
             let archive = ArchiveModel()
             archive.userID = userID
             archive.annictID = annictID
             archive.animeStatus = animeStatus
+            archive.evalPoint = evalPoint
+            archive.predictPoint = predictPoint
             archive.createdAt = AnimediateConfig.dateString
             
             try! realm.write {
@@ -103,6 +119,8 @@ public class ArchiveModel: Object, NSCoding {
         aCoder.encode(self.userID, forKey: "userID")
         aCoder.encode(self.annictID, forKey: "annictID")
         aCoder.encode(self.animeStatus, forKey: "animeStatus")
+        aCoder.encode(self.animeStatus, forKey: "evalPoint")
+        aCoder.encode(self.animeStatus, forKey: "predictPoint")
         aCoder.encode(self.createdAt, forKey: "createdAt")
         aCoder.encode(self.updatedAt, forKey: "updatedAt")
     }
@@ -112,6 +130,8 @@ public class ArchiveModel: Object, NSCoding {
         self.userID = aDecoder.decodeObject(forKey: "userID") as! String
         self.annictID = aDecoder.decodeObject(forKey: "annictID") as! String
         self.animeStatus = aDecoder.decodeObject(forKey: "animeStatus") as! String
+        self.animeStatus = aDecoder.decodeObject(forKey: "evalPoint") as! String
+        self.animeStatus = aDecoder.decodeObject(forKey: "predictPoint") as! String
         self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
         self.updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! String
     }
@@ -122,6 +142,8 @@ public class ArchiveModel: Object, NSCoding {
         self.userID = ""
         self.annictID = ""
         self.animeStatus = ""
+        self.evalPoint = ""
+        self.predictPoint = ""
         self.createdAt = ""
         self.updatedAt = ""
     }

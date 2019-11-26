@@ -59,104 +59,6 @@
             </objects>
             <point key="canvasLocation" x="3077" y="237"/>
         </scene>
-        <!--Home Will SeeVC-->
-        <scene sceneID="nFg-Za-sT3">
-            <objects>
-                <viewController storyboardIdentifier="willSeeSB" id="J1V-ER-UFE" customClass="HomeWillSeeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oG9-ku-9ZH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mlh-3e-yef">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="willSeeCell" id="wI8-Nh-Ugm">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wI8-Nh-Ugm" id="Mfe-1D-k8J">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhd-FB-s6A">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_anime" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-Xz-r8C">
-                                        <rect key="frame" x="114" y="220.33333333333331" width="147" height="146.66666666666669"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Frj-Xz-r8C" secondAttribute="height" multiplier="1:1" id="MEc-JS-3JN"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Anime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sU1-08-4O0">
-                                        <rect key="frame" x="147" y="397" width="81" height="17"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VxE-rt-zEn">
-                                        <rect key="frame" x="119.66666666666669" y="508" width="136" height="29"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="アニメ一覧画面へ">
-                                                    <attributes>
-                                                        <color key="NSColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                                                        <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
-                                                        <integer key="NSUnderline" value="1"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <connections>
-                                            <action selector="toAnimeListBtnTapped:" destination="J1V-ER-UFE" eventType="touchUpInside" id="2SW-R5-O9G"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだ何もアニメが登録されていないようです" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybB-3R-jbU">
-                                        <rect key="frame" x="67.666666666666686" y="444" width="240" height="14"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <color key="textColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="ybB-3R-jbU" firstAttribute="top" secondItem="sU1-08-4O0" secondAttribute="bottom" constant="30" id="2Nv-BV-O8H"/>
-                                    <constraint firstItem="ybB-3R-jbU" firstAttribute="centerX" secondItem="Bhd-FB-s6A" secondAttribute="centerX" id="3nS-o6-COd"/>
-                                    <constraint firstItem="VxE-rt-zEn" firstAttribute="centerX" secondItem="Bhd-FB-s6A" secondAttribute="centerX" id="GyP-3C-Phg"/>
-                                    <constraint firstItem="VxE-rt-zEn" firstAttribute="top" secondItem="ybB-3R-jbU" secondAttribute="bottom" constant="50" id="KZW-CX-ukZ"/>
-                                    <constraint firstItem="sU1-08-4O0" firstAttribute="top" secondItem="Frj-Xz-r8C" secondAttribute="bottom" constant="30" id="hTa-hG-MCY"/>
-                                    <constraint firstItem="Frj-Xz-r8C" firstAttribute="centerY" secondItem="Bhd-FB-s6A" secondAttribute="centerY" multiplier="0.8" id="k17-9t-wDY"/>
-                                    <constraint firstItem="sU1-08-4O0" firstAttribute="centerX" secondItem="Bhd-FB-s6A" secondAttribute="centerX" id="qMj-VL-lVX"/>
-                                    <constraint firstItem="Frj-Xz-r8C" firstAttribute="centerX" secondItem="Bhd-FB-s6A" secondAttribute="centerX" id="wn1-zB-OAY"/>
-                                    <constraint firstItem="Frj-Xz-r8C" firstAttribute="height" secondItem="Bhd-FB-s6A" secondAttribute="height" multiplier="0.2" id="xdR-Ig-om0"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="trailing" secondItem="Mlh-3e-yef" secondAttribute="trailing" id="6fl-X1-QTj"/>
-                            <constraint firstItem="Mlh-3e-yef" firstAttribute="top" secondItem="nXe-4f-Qfw" secondAttribute="top" id="QS9-Qe-TJm"/>
-                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="bottom" secondItem="Mlh-3e-yef" secondAttribute="bottom" id="V7g-8G-dDD"/>
-                            <constraint firstItem="Bhd-FB-s6A" firstAttribute="leading" secondItem="nXe-4f-Qfw" secondAttribute="leading" id="Ykp-Z0-f0m"/>
-                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="trailing" secondItem="Bhd-FB-s6A" secondAttribute="trailing" id="fUd-KM-v9n"/>
-                            <constraint firstItem="Mlh-3e-yef" firstAttribute="leading" secondItem="nXe-4f-Qfw" secondAttribute="leading" id="nGI-CV-aR7"/>
-                            <constraint firstItem="nXe-4f-Qfw" firstAttribute="bottom" secondItem="Bhd-FB-s6A" secondAttribute="bottom" id="r2P-Q6-CXL"/>
-                            <constraint firstItem="Bhd-FB-s6A" firstAttribute="top" secondItem="nXe-4f-Qfw" secondAttribute="top" id="sjY-da-zx0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="nXe-4f-Qfw"/>
-                    </view>
-                    <connections>
-                        <outlet property="cardTable" destination="Mlh-3e-yef" id="C2m-vg-wDv"/>
-                        <outlet property="emptyView" destination="Bhd-FB-s6A" id="XOi-2c-tf4"/>
-                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="E7J-tH-QcN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a7d-f2-4Vy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4176.811594202899" y="235.71428571428569"/>
-        </scene>
         <!--Home Archive ListVC-->
         <scene sceneID="NFh-Fc-bV5">
             <objects>
@@ -299,227 +201,22 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="archiveTable" destination="V93-1r-zy6" id="b4i-xV-Ldw"/>
+                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="328-hB-pij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQB-eF-tad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4159.1999999999998" y="1132.0197044334975"/>
-        </scene>
-        <!--Home SeeingVC-->
-        <scene sceneID="MMn-MC-Q9m">
-            <objects>
-                <viewController storyboardIdentifier="seeingSB" id="WEk-8Y-Jkc" customClass="HomeSeeingVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lb8-lM-utD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e84-BY-4b7">
-                                <rect key="frame" x="0.0" y="44" width="375" height="665"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="El0-mC-dH7">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="i0B-YP-bq8" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLz-w7-V91">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_anime" translatesAutoresizingMaskIntoConstraints="NO" id="q1R-Yc-L7Y">
-                                        <rect key="frame" x="114" y="220.33333333333331" width="147" height="146.66666666666669"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="q1R-Yc-L7Y" secondAttribute="height" multiplier="1:1" id="i1B-HI-Tr0"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Anime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcU-cV-WjT">
-                                        <rect key="frame" x="147" y="397" width="81" height="17"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだ何もアニメが登録されていないようです" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8I-O4-3Uk">
-                                        <rect key="frame" x="67.666666666666686" y="444" width="240" height="14"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <color key="textColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lch-wu-Kcm">
-                                        <rect key="frame" x="119.66666666666669" y="508" width="136" height="29"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="アニメ一覧画面へ">
-                                                    <attributes>
-                                                        <color key="NSColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                                                        <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
-                                                        <integer key="NSUnderline" value="1"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <connections>
-                                            <action selector="toAnimeListBtnTapped:" destination="WEk-8Y-Jkc" eventType="touchUpInside" id="pfz-1R-VfZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="G8I-O4-3Uk" firstAttribute="centerX" secondItem="YLz-w7-V91" secondAttribute="centerX" id="0t6-Vd-Lvn"/>
-                                    <constraint firstItem="IcU-cV-WjT" firstAttribute="top" secondItem="q1R-Yc-L7Y" secondAttribute="bottom" constant="30" id="1Fa-b8-91Z"/>
-                                    <constraint firstItem="IcU-cV-WjT" firstAttribute="centerX" secondItem="YLz-w7-V91" secondAttribute="centerX" id="26T-4K-Uoy"/>
-                                    <constraint firstItem="Lch-wu-Kcm" firstAttribute="top" secondItem="G8I-O4-3Uk" secondAttribute="bottom" constant="50" id="Sgk-0T-FWZ"/>
-                                    <constraint firstItem="q1R-Yc-L7Y" firstAttribute="centerX" secondItem="YLz-w7-V91" secondAttribute="centerX" id="Tkp-q4-GGJ"/>
-                                    <constraint firstItem="q1R-Yc-L7Y" firstAttribute="height" secondItem="YLz-w7-V91" secondAttribute="height" multiplier="0.2" id="dUC-bG-XrI"/>
-                                    <constraint firstItem="q1R-Yc-L7Y" firstAttribute="centerY" secondItem="YLz-w7-V91" secondAttribute="centerY" multiplier="0.8" id="fbS-QA-GX9"/>
-                                    <constraint firstItem="G8I-O4-3Uk" firstAttribute="top" secondItem="IcU-cV-WjT" secondAttribute="bottom" constant="30" id="fzq-Bb-y60"/>
-                                    <constraint firstItem="Lch-wu-Kcm" firstAttribute="centerX" secondItem="YLz-w7-V91" secondAttribute="centerX" id="tLy-Hl-Rdo"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="sQD-8v-7vu" firstAttribute="bottom" secondItem="e84-BY-4b7" secondAttribute="bottom" constant="69" id="09j-jI-6LV"/>
-                            <constraint firstItem="YLz-w7-V91" firstAttribute="top" secondItem="sQD-8v-7vu" secondAttribute="top" id="6Yl-b5-Jq6"/>
-                            <constraint firstItem="YLz-w7-V91" firstAttribute="trailing" secondItem="sQD-8v-7vu" secondAttribute="trailing" id="XO2-jw-dE9"/>
-                            <constraint firstItem="sQD-8v-7vu" firstAttribute="bottom" secondItem="YLz-w7-V91" secondAttribute="bottom" id="az3-xI-6Pb"/>
-                            <constraint firstItem="e84-BY-4b7" firstAttribute="leading" secondItem="sQD-8v-7vu" secondAttribute="leading" id="dn4-Z5-sMX"/>
-                            <constraint firstItem="e84-BY-4b7" firstAttribute="top" secondItem="sQD-8v-7vu" secondAttribute="top" id="ejy-eK-c3L"/>
-                            <constraint firstItem="YLz-w7-V91" firstAttribute="leading" secondItem="sQD-8v-7vu" secondAttribute="leading" id="fS6-rD-wjO"/>
-                            <constraint firstItem="e84-BY-4b7" firstAttribute="trailing" secondItem="sQD-8v-7vu" secondAttribute="trailing" id="vLc-g9-vyM"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sQD-8v-7vu"/>
-                    </view>
-                    <connections>
-                        <outlet property="cardCV" destination="e84-BY-4b7" id="Alk-pN-xme"/>
-                        <outlet property="emptyView" destination="YLz-w7-V91" id="iS4-mp-LcJ"/>
-                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="WNb-ze-9sb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yvd-vw-OJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5060.8695652173919" y="235.71428571428569"/>
+            <point key="canvasLocation" x="3990" y="236"/>
         </scene>
         <!--AnimeDetails-->
         <scene sceneID="M5Y-yP-jS4">
             <objects>
-                <viewControllerPlaceholder storyboardName="AnimeDetails" id="gV6-ha-OWe" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="gV6-ha-OWe" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9v6-lx-yiN"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEa-un-pjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5481" y="-371"/>
-        </scene>
-        <!--Home Not SeeVC-->
-        <scene sceneID="Mos-cg-uZn">
-            <objects>
-                <viewController storyboardIdentifier="notSeeSB" id="FRp-al-eud" customClass="HomeNotSeeVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nya-Kd-UCn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="szk-fu-FLl">
-                                <rect key="frame" x="0.0" y="44" width="375" height="665"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mT0-N9-ROS">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="jFi-ZO-zhb" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kaz-yY-aff">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_anime" translatesAutoresizingMaskIntoConstraints="NO" id="DJi-qV-dWr">
-                                        <rect key="frame" x="114" y="220.33333333333331" width="147" height="146.66666666666669"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="DJi-qV-dWr" secondAttribute="height" multiplier="1:1" id="rb9-M6-EsF"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Anime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaY-Y0-ELM">
-                                        <rect key="frame" x="147" y="397" width="81" height="17"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkd-Qj-R16">
-                                        <rect key="frame" x="119.66666666666669" y="508" width="136" height="29"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="アニメ一覧画面へ">
-                                                    <attributes>
-                                                        <color key="NSColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                                                        <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
-                                                        <integer key="NSUnderline" value="1"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <connections>
-                                            <action selector="toAnimeListBtnTapped:" destination="FRp-al-eud" eventType="touchUpInside" id="vXK-XM-uNI"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだ何もアニメが登録されていないようです" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoI-W9-LJJ">
-                                        <rect key="frame" x="67.666666666666686" y="444" width="240" height="14"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <color key="textColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="nkd-Qj-R16" firstAttribute="top" secondItem="VoI-W9-LJJ" secondAttribute="bottom" constant="50" id="0ho-wI-pLi"/>
-                                    <constraint firstItem="VoI-W9-LJJ" firstAttribute="top" secondItem="gaY-Y0-ELM" secondAttribute="bottom" constant="30" id="4hp-kb-GHP"/>
-                                    <constraint firstItem="nkd-Qj-R16" firstAttribute="centerX" secondItem="Kaz-yY-aff" secondAttribute="centerX" id="6Y5-Nq-QBd"/>
-                                    <constraint firstItem="VoI-W9-LJJ" firstAttribute="centerX" secondItem="Kaz-yY-aff" secondAttribute="centerX" id="NIr-bu-X0Y"/>
-                                    <constraint firstItem="DJi-qV-dWr" firstAttribute="centerY" secondItem="Kaz-yY-aff" secondAttribute="centerY" multiplier="0.8" id="Pmz-zB-10E"/>
-                                    <constraint firstItem="DJi-qV-dWr" firstAttribute="height" secondItem="Kaz-yY-aff" secondAttribute="height" multiplier="0.2" id="a6j-MZ-6Cj"/>
-                                    <constraint firstItem="gaY-Y0-ELM" firstAttribute="centerX" secondItem="Kaz-yY-aff" secondAttribute="centerX" id="cej-pq-dyM"/>
-                                    <constraint firstItem="gaY-Y0-ELM" firstAttribute="top" secondItem="DJi-qV-dWr" secondAttribute="bottom" constant="30" id="lfL-mm-35l"/>
-                                    <constraint firstItem="DJi-qV-dWr" firstAttribute="centerX" secondItem="Kaz-yY-aff" secondAttribute="centerX" id="uKb-Bn-XG2"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Kaz-yY-aff" firstAttribute="top" secondItem="zQo-2f-I34" secondAttribute="top" id="0zS-0M-LKf"/>
-                            <constraint firstItem="Kaz-yY-aff" firstAttribute="leading" secondItem="zQo-2f-I34" secondAttribute="leading" id="9Sv-Qx-x4O"/>
-                            <constraint firstAttribute="trailing" secondItem="Kaz-yY-aff" secondAttribute="trailing" id="EMu-uj-aZl"/>
-                            <constraint firstItem="szk-fu-FLl" firstAttribute="trailing" secondItem="zQo-2f-I34" secondAttribute="trailing" id="Mlg-bZ-tZJ"/>
-                            <constraint firstItem="Kaz-yY-aff" firstAttribute="bottom" secondItem="zQo-2f-I34" secondAttribute="bottom" id="Qab-hn-dqV"/>
-                            <constraint firstItem="szk-fu-FLl" firstAttribute="leading" secondItem="zQo-2f-I34" secondAttribute="leading" id="S2v-iO-MEK"/>
-                            <constraint firstItem="zQo-2f-I34" firstAttribute="bottom" secondItem="szk-fu-FLl" secondAttribute="bottom" constant="69" id="nIa-IS-EH7"/>
-                            <constraint firstItem="szk-fu-FLl" firstAttribute="top" secondItem="zQo-2f-I34" secondAttribute="top" id="wsO-eN-Gus"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="zQo-2f-I34"/>
-                    </view>
-                    <connections>
-                        <outlet property="cardCV" destination="szk-fu-FLl" id="vI6-V4-hiA"/>
-                        <outlet property="emptyView" destination="Kaz-yY-aff" id="d8q-7c-u3x"/>
-                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="v5f-ol-Jcc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eeN-Pq-6dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5928.985507246377" y="235.71428571428569"/>
+            <point key="canvasLocation" x="4674" y="236"/>
         </scene>
         <!--Home HeaderVC-->
         <scene sceneID="rlR-Zm-LDY">
@@ -714,110 +411,6 @@
             </objects>
             <point key="canvasLocation" x="2238" y="-327"/>
         </scene>
-        <!--Home SawVC-->
-        <scene sceneID="YHL-fZ-nZ1">
-            <objects>
-                <viewController storyboardIdentifier="sawSB" id="UD9-Wj-79s" customClass="HomeSawVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dvk-I8-LAh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NK8-aj-ke1">
-                                <rect key="frame" x="0.0" y="44" width="375" height="665"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yhv-fS-Z9g">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="Iy2-xf-7KF" customClass="AnimeListCardCVCell" customModule="AnImediate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXi-A2-rML">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_anime" translatesAutoresizingMaskIntoConstraints="NO" id="6lk-jc-pkY">
-                                        <rect key="frame" x="114" y="220.33333333333331" width="147" height="146.66666666666669"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="6lk-jc-pkY" secondAttribute="height" multiplier="1:1" id="z2o-nW-5Yi"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Anime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3s-Yh-6X1">
-                                        <rect key="frame" x="147" y="397" width="81" height="17"/>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだ何もアニメが登録されていないようです" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xL-Dc-brI">
-                                        <rect key="frame" x="67.666666666666686" y="444" width="240" height="14"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <color key="textColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aIM-Bc-9zj">
-                                        <rect key="frame" x="119.66666666666669" y="508" width="136" height="29"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="アニメ一覧画面へ">
-                                                    <attributes>
-                                                        <color key="NSColor" cyan="0.0" magenta="1" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                                                        <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
-                                                        <integer key="NSUnderline" value="1"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <connections>
-                                            <action selector="toAnimeListBtnTapped:" destination="UD9-Wj-79s" eventType="touchUpInside" id="Ue7-S6-Pjt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="4xL-Dc-brI" firstAttribute="top" secondItem="m3s-Yh-6X1" secondAttribute="bottom" constant="30" id="1zj-Fs-MD2"/>
-                                    <constraint firstItem="4xL-Dc-brI" firstAttribute="centerX" secondItem="gXi-A2-rML" secondAttribute="centerX" id="2cT-5c-uQO"/>
-                                    <constraint firstItem="m3s-Yh-6X1" firstAttribute="top" secondItem="6lk-jc-pkY" secondAttribute="bottom" constant="30" id="9vm-lo-jO6"/>
-                                    <constraint firstItem="aIM-Bc-9zj" firstAttribute="centerX" secondItem="gXi-A2-rML" secondAttribute="centerX" id="DbT-Nn-rcq"/>
-                                    <constraint firstItem="aIM-Bc-9zj" firstAttribute="top" secondItem="4xL-Dc-brI" secondAttribute="bottom" constant="50" id="YIR-I4-YUH"/>
-                                    <constraint firstItem="6lk-jc-pkY" firstAttribute="centerX" secondItem="gXi-A2-rML" secondAttribute="centerX" id="n78-ZS-ty2"/>
-                                    <constraint firstItem="m3s-Yh-6X1" firstAttribute="centerX" secondItem="gXi-A2-rML" secondAttribute="centerX" id="nM7-JS-Umb"/>
-                                    <constraint firstItem="6lk-jc-pkY" firstAttribute="centerY" secondItem="gXi-A2-rML" secondAttribute="centerY" multiplier="0.8" id="v4z-C6-qiL"/>
-                                    <constraint firstItem="6lk-jc-pkY" firstAttribute="height" secondItem="gXi-A2-rML" secondAttribute="height" multiplier="0.2" id="z7k-iV-35q"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="oYW-vk-Tfu" firstAttribute="bottom" secondItem="NK8-aj-ke1" secondAttribute="bottom" constant="69" id="9be-ab-kxO"/>
-                            <constraint firstItem="gXi-A2-rML" firstAttribute="top" secondItem="oYW-vk-Tfu" secondAttribute="top" id="Lda-J8-NHy"/>
-                            <constraint firstItem="NK8-aj-ke1" firstAttribute="leading" secondItem="oYW-vk-Tfu" secondAttribute="leading" id="MZe-9I-4YN"/>
-                            <constraint firstItem="oYW-vk-Tfu" firstAttribute="bottom" secondItem="gXi-A2-rML" secondAttribute="bottom" id="bpF-tb-kzM"/>
-                            <constraint firstItem="NK8-aj-ke1" firstAttribute="trailing" secondItem="oYW-vk-Tfu" secondAttribute="trailing" id="kfb-yF-5Fk"/>
-                            <constraint firstItem="NK8-aj-ke1" firstAttribute="top" secondItem="oYW-vk-Tfu" secondAttribute="top" id="ouQ-z7-J7I"/>
-                            <constraint firstItem="gXi-A2-rML" firstAttribute="leading" secondItem="oYW-vk-Tfu" secondAttribute="leading" id="pVQ-2z-agM"/>
-                            <constraint firstItem="gXi-A2-rML" firstAttribute="trailing" secondItem="oYW-vk-Tfu" secondAttribute="trailing" id="yJH-Tc-w4d"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="oYW-vk-Tfu"/>
-                    </view>
-                    <connections>
-                        <outlet property="cardCV" destination="NK8-aj-ke1" id="Nt1-ln-HZY"/>
-                        <outlet property="emptyView" destination="gXi-A2-rML" id="i8E-0K-oSh"/>
-                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="Tp6-Sd-4c8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j0S-Os-n1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6782.608695652174" y="235.71428571428569"/>
-        </scene>
         <!--ホーム-->
         <scene sceneID="dEu-Zy-Qb1">
             <objects>
@@ -848,7 +441,6 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="64" height="54"/>
-        <image name="no_anime" width="1125" height="1310"/>
         <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
         <image name="pic" width="481" height="480"/>
         <image name="setting" width="30" height="30"/>
@@ -865,7 +457,4 @@
             <color red="0.74900001287460327" green="0.72200000286102295" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tp6-Sd-4c8"/>
-    </inferredMetricsTieBreakers>
 </document>

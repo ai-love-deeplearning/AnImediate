@@ -24,6 +24,7 @@ class HomeArchiveListVC: UIViewController {
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.homeStore)
+    private let animeListStore = RxStore(store: AppStore.instance.animeListStore)
     
     private var viewState: HomeArchiveListViewState {
         return store.state.homeArchiveListViewState
@@ -76,6 +77,17 @@ class HomeArchiveListVC: UIViewController {
                 strongSelf.dataRelay.accept(strongSelf.sectionModels)
             })
             .disposed(by: disposeBag)
+        
+        archiveTable.rx.itemSelected
+            .subscribe(onNext: { [unowned self] indexPath in
+                let model = self.sectionModels.first!.items[indexPath.row]
+                let anime = AnimeModel.read(annictID: model.annictID)
+                self.animeListStore.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
+                self.animeListStore.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
+                self.animeListStore.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: anime))
+                self.performSegue(withIdentifier: "toDetails", sender: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindState() {
@@ -99,7 +111,9 @@ class HomeArchiveListVC: UIViewController {
 extension HomeArchiveListVC {
     private func initSectionModels() {
         // TODO:- ここでarchiveが0だとクラッシュ?
-        let items = Array(ArchiveModel.read(uid: AccountModel.read().userID).filter("animeStatus == %@", self.viewState.statusType.rawValue))
+        let uid = AccountModel.read().userID
+        let items = Array(ArchiveModel.read(uid: uid).filter("animeStatus == %@", self.viewState.statusType.rawValue))
+        print(items)
         sectionModels = [HomeArchiveSectionModel(items: items)]
     }
     

@@ -167,7 +167,7 @@ class AnimeListTableVC: UIViewController {
             selectedAnimes.forEach {
                 let uid = AccountModel.read().userID
                 let status = HomeBarTitles.titles[sender.tag]
-                ArchiveModel.set(userID: uid, annictID: $0.annictID, animeStatus: status)
+                ArchiveModel.set(userID: uid, annictID: $0.annictID, animeStatus: status, evalPoint: "", predictPoint: "")
             }
         }
         let toValue = self.viewState.isRegisterMode ? 0 : -CGFloat.pi/4
@@ -203,7 +203,7 @@ extension AnimeListTableVC {
             btn.backgroundColor = .MainThema
             btn.setTitleColor(UIColor.white, for: UIControlState.normal)
             btn.setTitle(HomeBarTitles.titles[index], for: UIControlState.normal)
-            btn.titleLabel?.font = .systemFont(ofSize: 11)
+            btn.titleLabel?.font = .systemFont(ofSize: 14)
             btn.cornerRadius = btn.bounds.width / 2
             btn.shadowOffset = CGSize(width: 0.0, height: 4.0)
             btn.shadowColor = .black

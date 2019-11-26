@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,13 +45,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="493"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ソードアート・オンライン" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIi-5g-d5b">
-                                                <rect key="frame" x="22" y="22" width="370" height="22.5"/>
-                                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                                                <rect key="frame" x="22" y="22" width="370" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnV-sz-eEa">
-                                                <rect key="frame" x="22" y="66.5" width="370" height="88"/>
+                                                <rect key="frame" x="22" y="68" width="370" height="88"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="88" id="aNJ-9Z-f4f"/>
                                                 </constraints>
@@ -63,7 +63,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ステータス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAo-LD-gNd">
-                                                <rect key="frame" x="22" y="186.5" width="72" height="17"/>
+                                                <rect key="frame" x="22" y="188" width="72" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="72" id="X3e-1k-9jD"/>
                                                 </constraints>
@@ -72,7 +72,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yed-7J-OMz">
-                                                <rect key="frame" x="138" y="173" width="212" height="44"/>
+                                                <rect key="frame" x="138" y="174.5" width="212" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8A-k9-PdU">
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -82,7 +82,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="見たい">
-                                                            <color key="titleColor" name="MainThema"/>
+                                                            <color key="titleColor" name="TextThema"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,7 +104,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="見てる">
-                                                            <color key="titleColor" name="MainThema"/>
+                                                            <color key="titleColor" name="TextThema"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -126,7 +126,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="見た">
-                                                            <color key="titleColor" name="MainThema"/>
+                                                            <color key="titleColor" name="TextThema"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -148,7 +148,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="見てた">
-                                                            <color key="titleColor" name="MainThema"/>
+                                                            <color key="titleColor" name="TextThema"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -165,13 +165,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="評価" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-5T-YKw">
-                                                <rect key="frame" x="22" y="235.5" width="29" height="17"/>
+                                                <rect key="frame" x="22" y="237" width="29" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" name="TextGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="N5d-AJ-kst">
-                                                <rect key="frame" x="132" y="222" width="244" height="44"/>
+                                                <rect key="frame" x="132" y="223.5" width="244" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIL-bZ-h70">
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -238,7 +238,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="yLo-TO-c3D">
-                                                <rect key="frame" x="22" y="284.5" width="57.5" height="173"/>
+                                                <rect key="frame" x="22" y="286" width="57.5" height="173"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="放送年" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXl-4g-79i">
                                                         <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
@@ -273,7 +273,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="vSE-cW-0Fy">
-                                                <rect key="frame" x="138" y="284.5" width="254" height="173"/>
+                                                <rect key="frame" x="138" y="286" width="254" height="173"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="××××年×月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVH-LW-Dgf">
                                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="17"/>

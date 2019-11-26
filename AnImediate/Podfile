@@ -24,6 +24,7 @@ abstract_target 'Any' do # 実際のターゲット名とかぶらなければ�
   pod 'Sourcery', '0.17.0'
   pod 'SwiftGen', '6.1.0'
   pod 'IBAnimatable', '6.0.0'
+  pod 'Cosmos'
 
 
   target 'AnImediate' do

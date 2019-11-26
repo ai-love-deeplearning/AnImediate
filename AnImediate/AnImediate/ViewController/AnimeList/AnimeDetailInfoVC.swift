@@ -58,6 +58,7 @@ class AnimeDetailInfoVC: UIViewController {
         disposeBag = DisposeBag()
 //        fetchSimilar()
 //        initCollectionViews()
+        setViews()
         bindViews()
         bindState()
     }
@@ -116,7 +117,8 @@ class AnimeDetailInfoVC: UIViewController {
                     let uid = AccountModel.read().userID
                     let annictid = (strongSelf.viewState.animeModel?.annictID)!
                     let status = strongSelf.keepButton.titleLabel!.text!
-                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status)
+                    strongSelf.changeBtnState(btn: strongSelf.keepButton)
+                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status, evalPoint: "", predictPoint: "")
                 }
             }).disposed(by: disposeBag)
         
@@ -128,7 +130,8 @@ class AnimeDetailInfoVC: UIViewController {
                     let uid = AccountModel.read().userID
                     let annictid = (strongSelf.viewState.animeModel?.annictID)!
                     let status = strongSelf.nowButton.titleLabel!.text!
-                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status)
+                    strongSelf.changeBtnState(btn: strongSelf.nowButton)
+                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status, evalPoint: "", predictPoint: "")
                 }
             }).disposed(by: disposeBag)
         
@@ -140,7 +143,8 @@ class AnimeDetailInfoVC: UIViewController {
                     let uid = AccountModel.read().userID
                     let annictid = (strongSelf.viewState.animeModel?.annictID)!
                     let status = strongSelf.doneButton.titleLabel!.text!
-                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status)
+                    strongSelf.changeBtnState(btn: strongSelf.doneButton)
+                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status, evalPoint: "", predictPoint: "")
                 }
             }).disposed(by: disposeBag)
         
@@ -152,7 +156,8 @@ class AnimeDetailInfoVC: UIViewController {
                     let uid = AccountModel.read().userID
                     let annictid = (strongSelf.viewState.animeModel?.annictID)!
                     let status = strongSelf.stopButton.titleLabel!.text!
-                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status)
+                    strongSelf.changeBtnState(btn: strongSelf.stopButton)
+                    ArchiveModel.set(userID: uid, annictID: annictid, animeStatus: status, evalPoint: "", predictPoint: "")
                 }
             }).disposed(by: disposeBag)
         
@@ -161,7 +166,7 @@ class AnimeDetailInfoVC: UIViewController {
             .drive(onNext: {
                 let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
                 let images : [UIImage] = [self.starFillImage!, self.starImage!, self.starImage!, self.starImage!, self.starImage!]
-                self.setBtnImage(btn: btns, image: images)
+                self.setBtnImage(btns: btns, image: images)
                 print("1")
             }).disposed(by: disposeBag)
         
@@ -170,7 +175,7 @@ class AnimeDetailInfoVC: UIViewController {
             .drive(onNext: {
                 let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
                 let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starImage!, self.starImage!, self.starImage!]
-                self.setBtnImage(btn: btns, image: images)
+                self.setBtnImage(btns: btns, image: images)
                 print("2")
             }).disposed(by: disposeBag)
         
@@ -179,7 +184,7 @@ class AnimeDetailInfoVC: UIViewController {
             .drive(onNext: {
                 let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
                 let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starImage!, self.starImage!]
-                self.setBtnImage(btn: btns, image: images)
+                self.setBtnImage(btns: btns, image: images)
                 print("3")
             }).disposed(by: disposeBag)
         
@@ -188,7 +193,7 @@ class AnimeDetailInfoVC: UIViewController {
             .drive(onNext: {
                 let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
                 let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starImage!]
-                self.setBtnImage(btn: btns, image: images)
+                self.setBtnImage(btns: btns, image: images)
                 print("4")
             }).disposed(by: disposeBag)
         
@@ -197,7 +202,7 @@ class AnimeDetailInfoVC: UIViewController {
             .drive(onNext: {
                 let btns : [UIButton] = [self.oneEvalButton, self.twoEvalButton, self.threeEvalButton, self.fourEvalButton, self.fiveEvalButton]
                 let images : [UIImage] = [self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starFillImage!, self.starFillImage!]
-                self.setBtnImage(btn: btns, image: images)
+                self.setBtnImage(btns: btns, image: images)
                 print("5")
             }).disposed(by: disposeBag)
     }
@@ -221,6 +226,33 @@ class AnimeDetailInfoVC: UIViewController {
         
     }
     
+    private func setViews() {
+        let uid = AccountModel.read().userID
+        guard let animeID = viewState.animeModel?.annictID else { return }
+        guard let model = ArchiveModel.read(uid: uid, animeID: animeID) else { return }
+        switch model.animeStatus {
+        case  AnimeStatusType.keep.rawValue:
+            changeBtnState(btn: self.keepButton)
+        case AnimeStatusType.now.rawValue:
+            changeBtnState(btn: self.nowButton)
+        case AnimeStatusType.done.rawValue:
+            changeBtnState(btn: self.doneButton)
+        case AnimeStatusType.stop.rawValue:
+            changeBtnState(btn: self.stopButton)
+        default:
+            break
+        }
+    }
+    
+    private func changeBtnState(btn: UIButton) {
+        let btns = [self.keepButton, self.nowButton, self.doneButton, self.stopButton]
+        btns.forEach{
+            $0?.backgroundColor = ($0 == btn) ? .MainThema : .white
+            $0?.setTitleColor(($0 == btn) ? .white : .TextThema, for: .normal)
+        }
+    }
+    
+    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        switch segue.identifier {
 //        case "toDetails":
@@ -233,14 +265,15 @@ class AnimeDetailInfoVC: UIViewController {
 //            break
 //        }
 //    }
+    
 }
 
 @available(iOS 13.0, *)
 extension AnimeDetailInfoVC {
     
-    private func setBtnImage(btn: [UIButton], image: [UIImage]) {
-        for i in 0..<5 {
-            btn[i].setImage(image[i], for: .normal)
+    private func setBtnImage(btns: [UIButton], image: [UIImage]) {
+        for (i, btn) in btns.enumerated() {
+            btn.setImage(image[i], for: .normal)
         }
     }
 
