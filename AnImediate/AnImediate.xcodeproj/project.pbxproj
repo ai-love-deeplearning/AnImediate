@@ -11,10 +11,6 @@
 		321C6E2F22DC68FA00757F83 /* ExchangeResultTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E2E22DC68FA00757F83 /* ExchangeResultTopVC.swift */; };
 		321C6E3522DC869000757F83 /* ExchangeResultTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3422DC869000757F83 /* ExchangeResultTableVC.swift */; };
 		321C6E3C22DC9C2900757F83 /* ResultUserCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */; };
-		321C6E3F22DCB97200757F83 /* HomeWillSeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E3E22DCB97200757F83 /* HomeWillSeeVC.swift */; };
-		321C6E4122DCB99600757F83 /* HomeSeeingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4022DCB99600757F83 /* HomeSeeingVC.swift */; };
-		321C6E4322DCB9B000757F83 /* HomeNotSeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4222DCB9B000757F83 /* HomeNotSeeVC.swift */; };
-		321C6E4522DCB9C700757F83 /* HomeSawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4422DCB9C700757F83 /* HomeSawVC.swift */; };
 		321C6E4B22DCD57900757F83 /* SearchTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */; };
 		3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */; };
 		3226CD2522D575EC0090937F /* AnimeDetailTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226CD2422D575EC0090937F /* AnimeDetailTopVC.swift */; };
@@ -140,6 +136,9 @@
 		50A5969322C1F16C00378AAB /* HomeTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeTopVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		50AFA2DB2389D54B002D06A1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5061BE9C2382452C00A5405E /* ArrayExtension.swift */; };
+		50AFA2DC2389D54E002D06A1 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */; };
+		50AFA2DD2389D551002D06A1 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A08233F9D03006C683E /* StringExtension.swift */; };
 		50DE7995233DCA5E006C683E /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B380CE233799BC0092B59C /* AppStore.swift */; };
 		50DE7996233DCA5E006C683E /* RxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B380CA2337961A0092B59C /* RxStore.swift */; };
 		50DE7997233DCA5E006C683E /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5042F3782337B78C00D89478 /* AppAction.swift */; };
@@ -169,7 +168,6 @@
 		50DE79C9233F1FCB006C683E /* ExchangeSearchViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79C8233F1FCB006C683E /* ExchangeSearchViewReducer.swift */; };
 		50DE79CB233F201F006C683E /* ExchangeSearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE79CA233F201F006C683E /* ExchangeSearchViewState.swift */; };
 		50DE7A07233F7341006C683E /* RxUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A06233F7341006C683E /* RxUIKit.swift */; };
-		50DE7A09233F9D03006C683E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A08233F9D03006C683E /* StringExtension.swift */; };
 		50DE7A0B233F9DE4006C683E /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */; };
 		50DE7A21233FB731006C683E /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A20233FB731006C683E /* HomeViewState.swift */; };
 		50DE7A23233FB74D006C683E /* AnimeListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A22233FB74D006C683E /* AnimeListViewState.swift */; };
@@ -385,10 +383,6 @@
 		321C6E2E22DC68FA00757F83 /* ExchangeResultTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultTopVC.swift; sourceTree = "<group>"; };
 		321C6E3422DC869000757F83 /* ExchangeResultTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultTableVC.swift; sourceTree = "<group>"; };
 		321C6E3A22DC9C2900757F83 /* ResultUserCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultUserCVCell.swift; sourceTree = "<group>"; };
-		321C6E3E22DCB97200757F83 /* HomeWillSeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWillSeeVC.swift; sourceTree = "<group>"; };
-		321C6E4022DCB99600757F83 /* HomeSeeingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSeeingVC.swift; sourceTree = "<group>"; };
-		321C6E4222DCB9B000757F83 /* HomeNotSeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotSeeVC.swift; sourceTree = "<group>"; };
-		321C6E4422DCB9C700757F83 /* HomeSawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSawVC.swift; sourceTree = "<group>"; };
 		321C6E4A22DCD57900757F83 /* SearchTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleVC.swift; sourceTree = "<group>"; };
 		3226CD1E22D4622B0090937F /* AnimeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetails.storyboard; sourceTree = "<group>"; };
 		3226CD2422D575EC0090937F /* AnimeDetailTopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailTopVC.swift; sourceTree = "<group>"; };
@@ -855,10 +849,6 @@
 				50A5969222C1F16C00378AAB /* HomeTopVC.swift */,
 				50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */,
 				50FD22AE23438269007F11E7 /* HomeArchiveListVC.swift */,
-				321C6E3E22DCB97200757F83 /* HomeWillSeeVC.swift */,
-				321C6E4022DCB99600757F83 /* HomeSeeingVC.swift */,
-				321C6E4222DCB9B000757F83 /* HomeNotSeeVC.swift */,
-				321C6E4422DCB9C700757F83 /* HomeSawVC.swift */,
 				50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */,
 			);
 			path = Home;
@@ -1062,6 +1052,7 @@
 		5042F393233927A700D89478 /* AppConfig */ = {
 			isa = PBXGroup;
 			children = (
+				50AFA2DA2389D197002D06A1 /* Extension */,
 				5042F394233927A700D89478 /* AppConfig.h */,
 				5042F395233927A700D89478 /* Info.plist */,
 				5042F3B1233927DE00D89478 /* Const.swift */,
@@ -1271,6 +1262,16 @@
 				50A5967422C0A04A00378AAB /* Info.plist */,
 			);
 			path = AnImediateUITests;
+			sourceTree = "<group>";
+		};
+		50AFA2DA2389D197002D06A1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */,
+				5061BE9C2382452C00A5405E /* ArrayExtension.swift */,
+				50DE7A08233F9D03006C683E /* StringExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		50B380D323379BA40092B59C /* State */ = {
@@ -1560,9 +1561,6 @@
 			isa = PBXGroup;
 			children = (
 				5042F38923391E2D00D89478 /* OptionalType.swift */,
-				50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */,
-				5061BE9C2382452C00A5405E /* ArrayExtension.swift */,
-				50DE7A08233F9D03006C683E /* StringExtension.swift */,
 			);
 			path = FoundationExtension;
 			sourceTree = "<group>";
@@ -2366,12 +2364,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50AFA2DC2389D54E002D06A1 /* CollectionExtension.swift in Sources */,
 				50DE7FE3234133F5006C683E /* AutoCreatableSource.swift in Sources */,
 				5042F3B0233927D000D89478 /* ErrorCode.swift in Sources */,
 				509F60992346E3A900F95B55 /* AnimeListVCSource.swift in Sources */,
 				5042F3B2233927DE00D89478 /* Const.swift in Sources */,
 				50FE931223506DAD003393AD /* ExchangeVCSource.swift in Sources */,
+				50AFA2DB2389D54B002D06A1 /* ArrayExtension.swift in Sources */,
 				50FD22B1234388A8007F11E7 /* HomeArchiveVCSource.swift in Sources */,
+				50AFA2DD2389D551002D06A1 /* StringExtension.swift in Sources */,
 				50DE7A792340ED1F006C683E /* ProfileEditVCSource.swift in Sources */,
 				50DE7FE123413391006C683E /* HomeHeaderVCSource.swift in Sources */,
 				507DA955234CEA10001BCA6B /* AnimeDetailVCSource.swift in Sources */,
@@ -2536,7 +2537,6 @@
 				50FD228923430946007F11E7 /* AppCoordinator.swift in Sources */,
 				50DE7A0B233F9DE4006C683E /* CollectionExtension.swift in Sources */,
 				50FD229B234341CF007F11E7 /* HomeCoordinator.swift in Sources */,
-				321C6E3F22DCB97200757F83 /* HomeWillSeeVC.swift in Sources */,
 				5061BEA32383A5D700A5405E /* ProfileEditCommentTableViewCell.swift in Sources */,
 				509F60AF2346F9BC00F95B55 /* AnimeListTableViewCell.swift in Sources */,
 				32E48D0D238137C10086B65C /* AnimeGenreCollectionViewCell.swift in Sources */,
@@ -2561,7 +2561,6 @@
 				503DD23622DB064D004B9746 /* AccordionSectionHeaderView.swift in Sources */,
 				32A6411522DC387E002EF6F3 /* AnimeListTableVC.swift in Sources */,
 				3226CD2522D575EC0090937F /* AnimeDetailTopVC.swift in Sources */,
-				50DE7A09233F9D03006C683E /* StringExtension.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				50DE7A3C233FC6E8006C683E /* UIStyleExtension.swift in Sources */,
 				50FD228E23433F64007F11E7 /* NavigationCoordinator.swift in Sources */,
@@ -2577,21 +2576,18 @@
 				50FD22AB23435E07007F11E7 /* StoryboardScenes.swift in Sources */,
 				50FD2287234308F4007F11E7 /* Coordinator.swift in Sources */,
 				50DE7A34233FBB62006C683E /* AnimeListTopViewControllerInjector.swift in Sources */,
-				321C6E4122DCB99600757F83 /* HomeSeeingVC.swift in Sources */,
 				5042F3B92339D50600D89478 /* ExchangeViewControllerInjecter.swift in Sources */,
 				50A5965322C0A04900378AAB /* AppDelegate.swift in Sources */,
 				50F35CCC22DEC29500FD9B26 /* ExchangeNotFoundVC.swift in Sources */,
 				50FD22A223435A9E007F11E7 /* StoryboardSegues.swift in Sources */,
 				50FD229D234341F3007F11E7 /* SettingCoordinator.swift in Sources */,
 				50FD22AA23435E07007F11E7 /* Images.swift in Sources */,
-				321C6E4522DCB9C700757F83 /* HomeSawVC.swift in Sources */,
 				32CDA22C22CB218800BD5A76 /* SearchVC.swift in Sources */,
 				50A5968D22C0B51900378AAB /* LoginVC.swift in Sources */,
 				500DC47722C4DCD800C345C9 /* ExchangeSearchVC.swift in Sources */,
 				50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */,
 				50FD22A923435E07007F11E7 /* Colors.swift in Sources */,
 				5027DEE9233DB9F900F4818F /* SwinjectStoryboardExtension.swift in Sources */,
-				321C6E4322DCB9B000757F83 /* HomeNotSeeVC.swift in Sources */,
 				32CDA23522CB228700BD5A76 /* AnimeHorizontalCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

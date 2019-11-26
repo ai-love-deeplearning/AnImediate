@@ -68,13 +68,6 @@ internal enum StoryboardScene {
 
     internal static let homeArchiveListSB = SceneType<HomeArchiveListVC>(storyboard: Home.self, identifier: "HomeArchiveListSB")
 
-    internal static let notSeeSB = SceneType<HomeNotSeeVC>(storyboard: Home.self, identifier: "notSeeSB")
-
-    internal static let sawSB = SceneType<HomeSawVC>(storyboard: Home.self, identifier: "sawSB")
-
-    internal static let seeingSB = SceneType<HomeSeeingVC>(storyboard: Home.self, identifier: "seeingSB")
-
-    internal static let willSeeSB = SceneType<HomeWillSeeVC>(storyboard: Home.self, identifier: "willSeeSB")
   }
   internal enum Launch: StoryboardType {
     internal static let storyboardName = "Launch"
