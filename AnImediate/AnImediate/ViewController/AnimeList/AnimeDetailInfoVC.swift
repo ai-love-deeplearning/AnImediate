@@ -72,7 +72,9 @@ class AnimeDetailInfoVC: UIViewController {
             let result = ArchiveModel.set(uid: uid, animeID: animeID, evalPoint: String(rating))
             
             if !result {
-                // TODO:- 登録に失敗のエラーアラートを表示
+                let msg = "ステータスが設定されていません"
+                self.showAlert(title: "エラー", message: msg)
+                self.evaluationView.rating = 0
             }
             
         }
@@ -177,6 +179,16 @@ class AnimeDetailInfoVC: UIViewController {
             $0?.backgroundColor = ($0 == btn) ? .MainThema : .white
             $0?.setTitleColor(($0 == btn) ? .white : .TextThema, for: .normal)
         }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: {
+            // アラートを閉じる
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                alert.dismiss(animated: true, completion: nil)
+            })
+        })
     }
     
     
