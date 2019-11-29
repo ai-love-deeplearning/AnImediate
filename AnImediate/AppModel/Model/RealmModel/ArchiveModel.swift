@@ -135,8 +135,8 @@ public class ArchiveModel: Object, NSCoding {
         aCoder.encode(self.userID, forKey: "userID")
         aCoder.encode(self.annictID, forKey: "annictID")
         aCoder.encode(self.animeStatus, forKey: "animeStatus")
-        aCoder.encode(self.animeStatus, forKey: "evalPoint")
-        aCoder.encode(self.animeStatus, forKey: "predictPoint")
+        aCoder.encode(self.evalPoint, forKey: "evalPoint")
+        aCoder.encode(self.predictPoint, forKey: "predictPoint")
         aCoder.encode(self.createdAt, forKey: "createdAt")
         aCoder.encode(self.updatedAt, forKey: "updatedAt")
     }
@@ -146,8 +146,8 @@ public class ArchiveModel: Object, NSCoding {
         self.userID = aDecoder.decodeObject(forKey: "userID") as! String
         self.annictID = aDecoder.decodeObject(forKey: "annictID") as! String
         self.animeStatus = aDecoder.decodeObject(forKey: "animeStatus") as! String
-        self.animeStatus = aDecoder.decodeObject(forKey: "evalPoint") as! String
-        self.animeStatus = aDecoder.decodeObject(forKey: "predictPoint") as! String
+        self.evalPoint = aDecoder.decodeObject(forKey: "evalPoint") as! String
+        self.predictPoint = aDecoder.decodeObject(forKey: "predictPoint") as! String
         self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
         self.updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! String
     }
