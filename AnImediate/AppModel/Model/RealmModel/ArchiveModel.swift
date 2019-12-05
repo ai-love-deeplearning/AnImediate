@@ -60,6 +60,31 @@ public class ArchiveModel: Object, NSCoding {
         return true
     }
     
+    public static func set(uid: String, animeID: String, predictPoint: String) {
+        let realm = try! Realm()
+        guard let model = read(uid: uid, animeID: animeID) else {
+            let archive = ArchiveModel()
+            archive.userID = uid
+            archive.annictID = animeID
+            archive.animeStatus = AnimeStatusType.none.rawValue
+            archive.evalPoint = ""
+            archive.predictPoint = predictPoint
+            archive.createdAt = AnimediateConfig.dateString
+            
+            try! realm.write {
+                realm.add(archive)
+            }
+            
+            return
+        }
+        
+        try! realm.write {
+            model.predictPoint = predictPoint
+            model.updatedAt = AnimediateConfig.dateString
+            realm.add(model, update: .modified)
+        }
+    }
+    
     public static func set(userID: String, annictID: String, animeStatus: String, evalPoint: String, predictPoint: String) {
         let realm = try! Realm()
         guard let model = read(uid: userID, animeID: annictID) else {

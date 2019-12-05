@@ -15,6 +15,7 @@ public class CommonStateModel: Object {
     @objc public dynamic var isRegistered = false
     @objc public dynamic var isAnimeFetched = false
     @objc public dynamic var isEpisodeFetched = false
+    @objc public dynamic var isPredictionFetched = false
     @objc dynamic var createdAt = ""
     @objc public dynamic var udatedAt = ""
     
@@ -59,6 +60,15 @@ public class CommonStateModel: Object {
         let model = read()
         try! realm.write {
             model.isEpisodeFetched = isEpisodeFetched
+        }
+    }
+    
+    public static func set(isPredictionFetched: Bool) {
+        let realm = try! Realm()
+        
+        let model = read()
+        try! realm.write {
+            model.isPredictionFetched = isPredictionFetched
         }
     }
     

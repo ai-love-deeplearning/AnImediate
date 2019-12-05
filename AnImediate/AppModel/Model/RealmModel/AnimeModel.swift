@@ -18,11 +18,12 @@ public class AnimeModel: Object {
     @objc public dynamic var title = ""
     @objc public dynamic var synopsis = ""
     @objc public dynamic var seasonNameText = ""
+    @objc public dynamic var genre = ""
     @objc public dynamic var episodesCount = 0
     @objc public dynamic var watchersCount = 0
     @objc public dynamic var reviewsCount = 0
     @objc public dynamic var imageUrl = ""
-    public var casts = List<String>()
+    public var casts = List<String?>()
     @objc public dynamic var manager = ""
     @objc public dynamic var company = ""
     @objc public dynamic var officialSiteUrl = ""
@@ -76,12 +77,13 @@ public class AnimeModel: Object {
         self.annictID = value[FirebaseWorks.animeID] as? String ?? ""
         self.title = value[FirebaseWorks.title] as? String ?? ""
         self.synopsis = value[FirebaseWorks.synopsis] as? String ?? ""
+        self.genre = value[FirebaseWorks.synopsis] as? String ?? ""
         self.episodesCount = value[FirebaseWorks.episodesCount] as? Int ?? 0
         self.seasonNameText = value[FirebaseWorks.seasonNameText] as? String ?? ""
         self.watchersCount = value[FirebaseWorks.watchersCount] as? Int ?? 0
         self.reviewsCount = value[FirebaseWorks.reviewsCount] as? Int ?? 0
         self.imageUrl = value[FirebaseWorks.imageURL] as? String ?? ""
-        self.casts = value[FirebaseWorks.cast] as? List<String> ?? List<String>()
+        self.casts = value[FirebaseWorks.cast] as? List<String?> ?? List<String?>()
         self.manager = value[FirebaseWorks.manager] as? String ?? ""
         self.company = value[FirebaseWorks.company] as? String ?? ""
         self.officialSiteUrl = value[FirebaseWorks.officialSiteURL] as? String ?? ""
@@ -98,7 +100,7 @@ public class AnimeModel: Object {
         self.watchersCount = 0
         self.reviewsCount = 0
         self.imageUrl = ""
-        self.casts = List<String>()
+        self.casts = List<String?>()
         self.manager = ""
         self.company = ""
         self.officialSiteUrl = ""
