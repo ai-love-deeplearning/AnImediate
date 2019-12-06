@@ -155,6 +155,53 @@ public class ArchiveModel: Object, NSCoding {
         }
     }
     
+    // 配列同士の差集合を得る
+    public static func except(_ base: [ArchiveModel], _ prepare: [ArchiveModel]) -> [ArchiveModel] {
+        var ret = [ArchiveModel]()
+        let baseIDs = base.map{ $0.annictID }
+        let prepareIDs = prepare.map{ $0.annictID }
+        
+        for (i, prepareID) in prepareIDs.enumerated() {
+            if !baseIDs.contains(prepareID) {
+                ret.append(prepare[i])
+            }
+        }
+        
+        return ret
+    }
+    
+    // 配列同士の積集合を得る
+    public static func intersect(_ base: [ArchiveModel], _ prepare: [ArchiveModel]) -> [ArchiveModel] {
+        var ret = [ArchiveModel]()
+        let baseIDs = base.map{ $0.annictID }
+        let prepareIDs = prepare.map{ $0.annictID }
+        
+        for (i, prepareID) in prepareIDs.enumerated() {
+            if baseIDs.contains(prepareID) {
+                ret.append(prepare[i])
+            }
+        }
+
+        return ret
+    }
+    
+    public static func reccomend(_ myID: String, _ peerID: String) -> [ArchiveModel] {
+        let peerArchives = Array(ArchiveModel.read(uid: peerID).filter("animeStatus == %@", AnimeStatusType.done.rawValue))
+        let myArchives = Array(ArchiveModel.read(uid: myID).filter("animeStatus == %@", AnimeStatusType.done.rawValue))
+        let onlyMe = except(peerArchives, myArchives)
+        var results: [ArchiveModel] = []
+        let threshold = "5.0"
+        
+        onlyMe.forEach{
+            let archive = ArchiveModel.read(uid: peerID, animeID: $0.annictID)!
+            if archive.predictPoint == threshold {
+                results.append(archive)
+            }
+        }
+        return results
+        
+    }
+    
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.userID, forKey: "userID")

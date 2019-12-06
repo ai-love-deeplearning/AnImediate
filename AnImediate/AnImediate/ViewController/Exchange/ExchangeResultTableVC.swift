@@ -84,8 +84,28 @@ class ExchangeResultTableVC: UIViewController {
 
 extension ExchangeResultTableVC {
     private func initSectionModels() {
-        // TODO:- コンテンツの表示切り替え
-        let items = Array(ArchiveModel.read(uid: viewState.peerID))
+        
+        let peerArchives = Array(ArchiveModel.read(uid: viewState.peerID).filter("animeStatus == %@", AnimeStatusType.done.rawValue))
+        let myArchives = Array(ArchiveModel.read(uid: AccountModel.read().userID).filter("animeStatus == %@", AnimeStatusType.done.rawValue))
+        
+        var items: [ArchiveModel] = []
+        
+        switch viewState.content {
+        case .none:
+            print("@@@ ERROR: viewState.content is .none @@@")
+            break
+        case .reccomend:
+            items = ArchiveModel.reccomend(AccountModel.read().userID, viewState.peerID)
+        case .onlyMe:
+            items = ArchiveModel.except(peerArchives, myArchives)
+        case .onlyYou:
+            items = ArchiveModel.except(myArchives, peerArchives)
+        case .both:
+            items = ArchiveModel.intersect(myArchives, peerArchives)
+        default:
+            break
+        }
+
         sectionModels = [HomeArchiveSectionModel(items: items)]
         
         fetch()
@@ -125,6 +145,10 @@ private extension RxStore where AnyStateType == ExchangeViewState {
     
     var peerID: Driver<String> {
         return state.mapDistinct { $0.peerID }
+    }
+    
+    var content: Driver<ExchangeResultType> {
+        return state.mapDistinct { $0.content }
     }
     
     var error: Driver<AnimediateError> {

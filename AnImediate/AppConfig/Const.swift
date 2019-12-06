@@ -93,6 +93,14 @@ public enum AnimeStatusType: String {
     case now = "見てる"
 }
 
+public enum ExchangeResultType: String {
+    case none = ""
+    case onlyMe = "あなたのみ"
+    case onlyYou = "相手のみ"
+    case both = "二人とも"
+    case reccomend = "おすすめ"
+}
+
 public struct AnimeStatusPickerItems {
     public static let items = ["", "見たい", "見てる", "見た", "見てた"]
 }

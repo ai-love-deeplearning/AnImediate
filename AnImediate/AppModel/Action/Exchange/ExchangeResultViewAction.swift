@@ -17,5 +17,12 @@ public struct ExchangeResultViewAction {
     public struct DismissErrorAlert: Action {
         public init() {}
     }
+    
+    public struct ChangeContent: Action {
+        public let content: ExchangeResultType
+        public init(content: ExchangeResultType) {
+            self.content = content
+        }
+    }
 
 }

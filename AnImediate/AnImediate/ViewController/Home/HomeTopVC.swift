@@ -85,6 +85,7 @@ class HomeTopVC: TabmanViewController {
         self.store.dispatch(HomeArchiveListViewAction.ChangeContent(content: status))
     }
     
+    // TODO:- 条件が汚すぎるのをなんとかする
     private func positionChangeStatus(_ x: CGFloat) {
         var status = AnimeStatusType.keep
         if ((0.0 <= x) && (x <= 0.1) && (x != 0.008) && (x != 0.016) && (x != 0.024)) || (x == 0.992) || (x == 1.984) || (x == 2.976) {
