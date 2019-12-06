@@ -92,6 +92,11 @@ class LaunchViewController: UIViewController {
     }
     
     private func transition() {
+        if !CommonStateModel.read().isRegistered {
+            if viewState.isAnimeFetched, viewState.isEpisodeFetched {
+                performSegue(withIdentifier: transisionType, sender: nil)
+            }
+        }
         if viewState.isAnimeFetched, viewState.isEpisodeFetched, viewState.isPredictionFetched {
             performSegue(withIdentifier: transisionType, sender: nil)
         }
@@ -102,10 +107,10 @@ class LaunchViewController: UIViewController {
         if !viewState.isAnimeFetched {
             self.store.dispatch(LaunchViewActionCreator.startFetchingAnime(disposeBag: disposeBag))
         }
-        if !viewState.isEpisodeFetched{
+        if !viewState.isEpisodeFetched {
             self.store.dispatch(LaunchViewActionCreator.startFetchingEpisode(disposeBag: disposeBag))
         }
-        if !viewState.isPredictionFetched{
+        if !viewState.isPredictionFetched, CommonStateModel.read().isRegistered {
             self.store.dispatch(LaunchViewActionCreator.startFetchingPrediction(disposeBag: disposeBag))
         }
     }

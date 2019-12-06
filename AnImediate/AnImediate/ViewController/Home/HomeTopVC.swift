@@ -43,6 +43,9 @@ class HomeTopVC: TabmanViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        if !CommonStateModel.read().isRegistered {
+            performSegue(withIdentifier: "toEdit", sender: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
