@@ -124,6 +124,7 @@ extension SearchBroadcastVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.textColor = .TextGray
         cell.textLabel?.text = cellTitleForRowAtIndexPath(indexPath)
         return cell
     }

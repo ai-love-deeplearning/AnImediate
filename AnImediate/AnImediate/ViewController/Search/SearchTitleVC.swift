@@ -29,25 +29,28 @@ class SearchTitleVC: UIViewController {
         setupCV()
         
         searchBar.tintColor = .MainThema
-        searchBar.barTintColor = .WhiteSmoke
+        searchBar.searchTextField.backgroundColor = .WhiteSmoke
+        searchBar.barTintColor = .white
         searchBar.placeholder = "タイトルを入力"
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "キャンセル"
 //        searchBar.setValue("キャンセル", forKey: "_cancelButtonText")
+        searchBar.backgroundImage = UIImage()
+        searchBar.isTranslucent = false
         searchBar.delegate = self
     }
     
     private func fetchAnimeModel() {
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "anime", withExtension: "realm"),readOnly: true)
-        let seedRealm = try! Realm(configuration: config)
+//        let seedRealm = try! Realm(configuration: config)
         
-        let results = seedRealm.objects(AnimeModel.self).filter("title CONTAINS %@", self.searchBar.text ?? "")
+        let results = AnimeModel.readAll().filter("title CONTAINS %@", self.searchBar.text ?? "")
         var resultAnimeModel = [AnimeModel]()
         
         for i in 0..<results.count {
             resultAnimeModel.append(results[i])
         }
         self.works = resultAnimeModel
-        resultAnimeModel = [AnimeModel]()
+//        resultAnimeModel = [AnimeModel]()
     }
     
     private func setupCV() {
@@ -55,7 +58,7 @@ class SearchTitleVC: UIViewController {
         self.cardCV.delegate = self
         self.cardCV.dataSource = self
         self.cardCV.showsVerticalScrollIndicator = false
-        self.cardCV.register(UINib(nibName: "AnimeListCardCVCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
+//        self.cardCV.register(UINib(nibName: "AnimeListCardCVCell", bundle: nil), forCellWithReuseIdentifier: "cardCell")
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.bounds.width*0.9, height: 130)
