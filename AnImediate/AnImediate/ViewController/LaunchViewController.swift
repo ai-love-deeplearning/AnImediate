@@ -82,10 +82,22 @@ class LaunchViewController: UIViewController {
                     self.transition()
             })
             .disposed(by: disposeBag)
+        
+        store.isPredictionFetched
+            .drive(
+                onNext: { [unowned self] _ in
+                    self.transition()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func transition() {
-        if viewState.isAnimeFetched, viewState.isEpisodeFetched {
+        if !CommonStateModel.read().isRegistered {
+            if viewState.isAnimeFetched, viewState.isEpisodeFetched {
+                performSegue(withIdentifier: transisionType, sender: nil)
+            }
+        }
+        if viewState.isAnimeFetched, viewState.isEpisodeFetched, viewState.isPredictionFetched {
             performSegue(withIdentifier: transisionType, sender: nil)
         }
     }
@@ -95,8 +107,11 @@ class LaunchViewController: UIViewController {
         if !viewState.isAnimeFetched {
             self.store.dispatch(LaunchViewActionCreator.startFetchingAnime(disposeBag: disposeBag))
         }
-        if !viewState.isEpisodeFetched{
+        if !viewState.isEpisodeFetched {
             self.store.dispatch(LaunchViewActionCreator.startFetchingEpisode(disposeBag: disposeBag))
+        }
+        if !viewState.isPredictionFetched, CommonStateModel.read().isRegistered {
+            self.store.dispatch(LaunchViewActionCreator.startFetchingPrediction(disposeBag: disposeBag))
         }
     }
     
@@ -113,6 +128,10 @@ private extension RxStore where AnyStateType == AppState {
     
     var isEpisodeFetched: Driver<Bool> {
         return state.mapDistinct { $0.isEpisodeFetched }
+    }
+    
+    var isPredictionFetched: Driver<Bool> {
+        return state.mapDistinct { $0.isPredictionFetched }
     }
     
     var error: Driver<AnimediateError> {

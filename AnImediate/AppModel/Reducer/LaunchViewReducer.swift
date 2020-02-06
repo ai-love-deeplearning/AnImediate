@@ -19,12 +19,16 @@ struct LaunchViewReducer {
         case is LaunchViewAction.Initialize:
             nextState.isAnimeFetched = CommonStateModel.read().isAnimeFetched
             nextState.isEpisodeFetched = CommonStateModel.read().isEpisodeFetched
+            nextState.isPredictionFetched = CommonStateModel.read().isPredictionFetched
             
         case is LaunchViewAction.FetchAllAnimeCompleted:
             nextState.isAnimeFetched = true
             
         case is LaunchViewAction.FetchAllEpisodeCompleted:
             nextState.isEpisodeFetched = true
+            
+        case is LaunchViewAction.FetchAllPredictionCompleted:
+            nextState.isPredictionFetched = true
             
 //        case is LaunchViewAction.FetchAllAnimeSuccess:
 //

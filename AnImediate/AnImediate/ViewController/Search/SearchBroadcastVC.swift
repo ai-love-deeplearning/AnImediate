@@ -47,12 +47,12 @@ class SearchBroadcastVC: UIViewController {
     
     private func initSearchBar() {
         searchBar.tintColor = .MainThema
-        searchBar.barTintColor = .WhiteSmoke
+        searchBar.barTintColor = .white
         searchBar.placeholder = "年代を入力"
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "キャンセル"
 //        searchBar.searchTextField.layer.cornerRadius = searchBar.searchTextField.bounds.height
 //        searchBar.searchTextField.layer.masksToBounds = true
-        searchBar.searchTextField.backgroundColor = .white
+        searchBar.searchTextField.backgroundColor = .WhiteSmoke
         searchBar.backgroundImage = UIImage()
         searchBar.isTranslucent = false
         searchBar.delegate = self
@@ -124,6 +124,7 @@ extension SearchBroadcastVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.textColor = .TextGray
         cell.textLabel?.text = cellTitleForRowAtIndexPath(indexPath)
         return cell
     }

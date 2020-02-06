@@ -31,6 +31,8 @@ class SearchVC: TabmanViewController {
     }
     
     private func initBars() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         let bar = TMBar.ButtonBar()
         bar.indicator.tintColor = .MainThema
         bar.indicator.weight = .light
@@ -40,7 +42,7 @@ class SearchVC: TabmanViewController {
         bar.buttons.customize { (button) in
             // 通常時の色
             button.tintColor = .lightGray
-            button.font = UIFont(name: "Hiragino Maru Gothic ProN", size: UIFont.labelFontSize)!
+//            button.font = UIFont(name: "Hiragino Maru Gothic ProN", size: UIFont.labelFontSize)!
             // 選択時の色
             button.selectedTintColor = .MainThema
             

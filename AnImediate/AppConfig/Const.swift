@@ -24,6 +24,7 @@ public struct AnimediateConfig {
 public struct FirebaseTables {
     public static let works = "works"
     public static let episodes = "episodes"
+    public static let predictions = "predictions"
 }
 
 public struct FirebaseWorks {
@@ -31,6 +32,7 @@ public struct FirebaseWorks {
     public static let animeID = "animeId"
     public static let cast = "cast"
     public static let company = "company"
+    public static let genre = "genre"
     public static let episodesCount = "episodesCount"
     public static let imageURL = "imageUrl"
     public static let manager = "manager"
@@ -89,6 +91,14 @@ public enum AnimeStatusType: String {
     case done = "見た"
     case keep = "見たい"
     case now = "見てる"
+}
+
+public enum ExchangeResultType: String {
+    case none = ""
+    case onlyMe = "あなたのみ"
+    case onlyYou = "相手のみ"
+    case both = "二人とも"
+    case reccomend = "おすすめ"
 }
 
 public struct AnimeStatusPickerItems {

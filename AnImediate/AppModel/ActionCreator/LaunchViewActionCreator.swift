@@ -14,6 +14,7 @@ import RxSwift
 public protocol LaunchViewActionCreatable {
     func startFetchingAnime(disposeBag: DisposeBag) -> Store<AppState>.AsyncActionCreator
     func startFetchingEpisode(disposeBag: DisposeBag) -> Store<AppState>.AsyncActionCreator
+    func startFetchingPrediction(disposeBag: DisposeBag) -> Store<AppState>.AsyncActionCreator
 }
 
 public class LaunchViewActionCreator: LaunchViewActionCreatable {
@@ -53,6 +54,26 @@ public class LaunchViewActionCreator: LaunchViewActionCreatable {
                     onSuccess: { data in
                         CommonStateModel.set(isEpisodeFetched: true)
                         let action = LaunchViewAction.FetchAllEpisodeCompleted()
+                        callback { _, _ in action }
+                },
+                    onError: { error in
+                        print(error.localizedDescription)
+                        print("エラー: 今期アニメの取得に失敗しました")
+                })
+                .disposed(by: disposeBag)
+            
+        }
+    }
+    
+    public func startFetchingPrediction(disposeBag: DisposeBag) -> Store<AppState>.AsyncActionCreator {
+        return { [weak self] state, store, callback in
+            callback { _, _ in LaunchViewAction.FetchAllPredictionSuccess() }
+            
+            self?.request.fetchPredictions()
+                .subscribe(
+                    onSuccess: { data in
+                        CommonStateModel.set(isPredictionFetched: true)
+                        let action = LaunchViewAction.FetchAllPredictionCompleted()
                         callback { _, _ in action }
                 },
                     onError: { error in

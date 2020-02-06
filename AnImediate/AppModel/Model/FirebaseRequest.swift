@@ -18,6 +18,7 @@ public protocol FirebaseRequestable {
     func fetchRankingAnime(term: String) -> Single<[AnimeModel]>
     func fetchAllAnime() -> Single<[AnimeModel]>
     func fetchAllEpisodes() -> Single<[AnimeEpisodeModel]>
+    func fetchPredictions() -> Single<[Int]>
 }
 
 public class FirebaseRequest: NSObject, FirebaseRequestable {
@@ -142,7 +143,38 @@ public class FirebaseRequest: NSObject, FirebaseRequestable {
                 AnimeEpisodeModel.set(models: episodes)
                 
                 singleEvent(.success(episodes))
-                print("100% CompleteAnimeModels Episodes")
+                print("100% Complete Episodes")
+                
+            }) { (error) in
+                singleEvent(.error(AnimediateError.unknown))
+            }
+            
+            return disposable
+        }
+    }
+    
+    public func fetchPredictions() -> Single<[Int]> {
+        return Single.create { singleEvent in
+            let disposable = Disposables.create()
+            
+            self.ref = Database.database().reference()
+            
+            // 予測結果情報を取得＆realmに登録
+            self.ref.child(FirebaseTables.predictions).observe(.value, with: { (snapshot) in
+                guard let info = snapshot.value as? [Any] else {return}
+                
+                // indexに対応したanimeIDの予測評価
+                let values = info.compactMap { (info) -> Int? in
+                    return info as? Int
+                }
+                
+                let uid = AccountModel.read().userID
+                for (i, value) in values.enumerated() {
+                    ArchiveModel.set(uid: uid, animeID: String(i+1), predictPoint: String(Float(value)))
+                }
+                
+                singleEvent(.success(values))
+                print("100% CompleteAnimeModels Predictions")
                 
             }) { (error) in
                 singleEvent(.error(AnimediateError.unknown))

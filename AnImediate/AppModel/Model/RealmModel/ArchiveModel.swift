@@ -60,6 +60,31 @@ public class ArchiveModel: Object, NSCoding {
         return true
     }
     
+    public static func set(uid: String, animeID: String, predictPoint: String) {
+        let realm = try! Realm()
+        guard let model = read(uid: uid, animeID: animeID) else {
+            let archive = ArchiveModel()
+            archive.userID = uid
+            archive.annictID = animeID
+            archive.animeStatus = AnimeStatusType.none.rawValue
+            archive.evalPoint = ""
+            archive.predictPoint = predictPoint
+            archive.createdAt = AnimediateConfig.dateString
+            
+            try! realm.write {
+                realm.add(archive)
+            }
+            
+            return
+        }
+        
+        try! realm.write {
+            model.predictPoint = predictPoint
+            model.updatedAt = AnimediateConfig.dateString
+            realm.add(model, update: .modified)
+        }
+    }
+    
     public static func set(userID: String, annictID: String, animeStatus: String, evalPoint: String, predictPoint: String) {
         let realm = try! Realm()
         guard let model = read(uid: userID, animeID: annictID) else {
@@ -130,13 +155,60 @@ public class ArchiveModel: Object, NSCoding {
         }
     }
     
+    // 配列同士の差集合を得る
+    public static func except(_ base: [ArchiveModel], _ prepare: [ArchiveModel]) -> [ArchiveModel] {
+        var ret = [ArchiveModel]()
+        let baseIDs = base.map{ $0.annictID }
+        let prepareIDs = prepare.map{ $0.annictID }
+        
+        for (i, prepareID) in prepareIDs.enumerated() {
+            if !baseIDs.contains(prepareID) {
+                ret.append(prepare[i])
+            }
+        }
+        
+        return ret
+    }
+    
+    // 配列同士の積集合を得る
+    public static func intersect(_ base: [ArchiveModel], _ prepare: [ArchiveModel]) -> [ArchiveModel] {
+        var ret = [ArchiveModel]()
+        let baseIDs = base.map{ $0.annictID }
+        let prepareIDs = prepare.map{ $0.annictID }
+        
+        for (i, prepareID) in prepareIDs.enumerated() {
+            if baseIDs.contains(prepareID) {
+                ret.append(prepare[i])
+            }
+        }
+
+        return ret
+    }
+    
+    public static func reccomend(_ myID: String, _ peerID: String) -> [ArchiveModel] {
+        let peerArchives = Array(ArchiveModel.read(uid: peerID).filter("animeStatus == %@", AnimeStatusType.done.rawValue))
+        let myArchives = Array(ArchiveModel.read(uid: myID).filter("animeStatus == %@", AnimeStatusType.done.rawValue))
+        let onlyMe = except(peerArchives, myArchives)
+        var results: [ArchiveModel] = []
+        let threshold = "5.0"
+        
+        onlyMe.forEach{
+            let archive = ArchiveModel.read(uid: peerID, animeID: $0.annictID)!
+            if archive.predictPoint == threshold {
+                results.append(archive)
+            }
+        }
+        return results
+        
+    }
+    
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.userID, forKey: "userID")
         aCoder.encode(self.annictID, forKey: "annictID")
         aCoder.encode(self.animeStatus, forKey: "animeStatus")
-        aCoder.encode(self.animeStatus, forKey: "evalPoint")
-        aCoder.encode(self.animeStatus, forKey: "predictPoint")
+        aCoder.encode(self.evalPoint, forKey: "evalPoint")
+        aCoder.encode(self.predictPoint, forKey: "predictPoint")
         aCoder.encode(self.createdAt, forKey: "createdAt")
         aCoder.encode(self.updatedAt, forKey: "updatedAt")
     }
@@ -146,8 +218,8 @@ public class ArchiveModel: Object, NSCoding {
         self.userID = aDecoder.decodeObject(forKey: "userID") as! String
         self.annictID = aDecoder.decodeObject(forKey: "annictID") as! String
         self.animeStatus = aDecoder.decodeObject(forKey: "animeStatus") as! String
-        self.animeStatus = aDecoder.decodeObject(forKey: "evalPoint") as! String
-        self.animeStatus = aDecoder.decodeObject(forKey: "predictPoint") as! String
+        self.evalPoint = aDecoder.decodeObject(forKey: "evalPoint") as! String
+        self.predictPoint = aDecoder.decodeObject(forKey: "predictPoint") as! String
         self.createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
         self.updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! String
     }

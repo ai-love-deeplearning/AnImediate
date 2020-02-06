@@ -113,7 +113,6 @@ extension HomeArchiveListVC {
         // TODO:- ここでarchiveが0だとクラッシュ?
         let uid = AccountModel.read().userID
         let items = Array(ArchiveModel.read(uid: uid).filter("animeStatus == %@", self.viewState.statusType.rawValue))
-        print(items)
         sectionModels = [HomeArchiveSectionModel(items: items)]
     }
     

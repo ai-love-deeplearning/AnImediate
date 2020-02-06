@@ -22,6 +22,10 @@ struct ExchangeResultViewReducer {
 
         case is ExchangeResultViewAction.DismissErrorAlert:
             nextState.error = nil
+            
+        case let action as ExchangeResultViewAction.ChangeContent:
+            nextState.content = action.content
+            nextState.error = nil
 
         default:
             break

@@ -23,11 +23,19 @@ public struct LaunchViewAction {
         public init() {}
     }
     
+    public struct FetchAllPredictionCompleted: Action {
+        public init() {}
+    }
+    
     public struct FetchAllAnimeSuccess: Action {
         public init() {}
     }
     
     public struct FetchAllEpisodeSuccess: Action {
+        public init() {}
+    }
+    
+    public struct FetchAllPredictionSuccess: Action {
         public init() {}
     }
     

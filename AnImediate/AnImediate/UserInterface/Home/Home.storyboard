@@ -23,7 +23,7 @@
                         <barButtonItem key="leftBarButtonItem" image="setting" id="DNO-58-MTN"/>
                         <barButtonItem key="rightBarButtonItem" image="pencil.and.outline" catalog="system" id="diN-5O-DwO">
                             <connections>
-                                <segue destination="s6H-Bf-6JH" kind="show" id="3At-E3-cl3"/>
+                                <segue destination="s6H-Bf-6JH" kind="show" identifier="" id="3At-E3-cl3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -54,6 +54,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="418-du-8DL"/>
                     </view>
+                    <connections>
+                        <segue destination="s6H-Bf-6JH" kind="show" identifier="toEdit" id="wIo-5C-NM3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aio-VP-1e2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -475,4 +478,7 @@
             <color red="0.74900001287460327" green="0.72200000286102295" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wIo-5C-NM3"/>
+    </inferredMetricsTieBreakers>
 </document>

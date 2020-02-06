@@ -8,11 +8,13 @@ import RealmSwift
 
 public struct ExchangeResultViewState: StateType  {
     public internal(set) var peerID = ""
+    public internal(set) var content = ExchangeResultType.reccomend
     public internal(set) var error: AnimediateError?
 }
 
 extension ExchangeResultViewState: Equatable {
     public static func == (lhs: ExchangeResultViewState, rhs: ExchangeResultViewState) -> Bool {
         return lhs.peerID == rhs.peerID
+            && lhs.content == rhs.content
     }
 }
