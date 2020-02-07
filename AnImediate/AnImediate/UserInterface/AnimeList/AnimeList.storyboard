@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dzN-ah-PRF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dzN-ah-PRF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -86,38 +86,39 @@
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="289.5" width="414" height="122"/>
+                                                <rect key="frame" x="0.0" y="289.5" width="414" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="122" id="uGa-4y-kun"/>
+                                                    <constraint firstAttribute="height" constant="200" id="uGa-4y-kun"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="12" minimumInteritemSpacing="12" id="HdP-jf-K9y">
-                                                    <size key="itemSize" width="153" height="122"/>
+                                                    <size key="itemSize" width="122" height="189.5"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rankingCell" id="R7g-t3-Irj" userLabel="rankingCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="153" height="122"/>
+                                                        <rect key="frame" x="0.0" y="5.5" width="122" height="189.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="153" height="122"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="189.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </view>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <size key="customSize" width="122" height="189.5"/>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWD-cQ-5V3" userLabel="LineView">
-                                                <rect key="frame" x="12" y="423.5" width="402" height="0.5"/>
+                                                <rect key="frame" x="12" y="501.5" width="402" height="0.5"/>
                                                 <color key="backgroundColor" name="LineLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="0.5" id="bjB-DE-VKW"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duw-R2-icd">
-                                                <rect key="frame" x="22" y="436" width="122" height="33"/>
+                                                <rect key="frame" x="22" y="514" width="122" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <state key="normal" title="今期アニメ　＞">
                                                     <color key="titleColor" name="TextBlack"/>
@@ -127,23 +128,23 @@
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-Bl-Ey3" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="481" width="414" height="122"/>
+                                                <rect key="frame" x="0.0" y="559" width="414" height="189.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="122" id="PZz-ZH-16g"/>
+                                                    <constraint firstAttribute="height" constant="189.5" id="PZz-ZH-16g"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="12" id="M7n-nM-w79">
-                                                    <size key="itemSize" width="153" height="122"/>
+                                                    <size key="itemSize" width="122" height="189.5"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="xIh-EI-F9t" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="153" height="122"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="122" height="189.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="153" height="122"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="189.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </view>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -156,21 +157,21 @@
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFd-Ok-wid" userLabel="LineView">
-                                                <rect key="frame" x="12" y="615" width="402" height="0.5"/>
+                                                <rect key="frame" x="12" y="760.5" width="402" height="0.5"/>
                                                 <color key="backgroundColor" name="LineLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="0.5" id="az6-C6-o03"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9x-d0-n3S">
-                                                <rect key="frame" x="22" y="627.5" width="104" height="33"/>
+                                                <rect key="frame" x="22" y="773" width="104" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <state key="normal" title="ジャンル　＞">
                                                     <color key="titleColor" name="TextBlack"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-jN-4tt" customClass="AnimeGenreCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="672.5" width="414" height="280"/>
+                                                <rect key="frame" x="0.0" y="818" width="414" height="280"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="280" id="q3e-is-V7D"/>
