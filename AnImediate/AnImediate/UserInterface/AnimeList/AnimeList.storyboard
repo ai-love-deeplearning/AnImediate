@@ -68,59 +68,25 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-hS-1l6" userLabel="LineView">
-                                                <rect key="frame" x="0.0" y="232" width="414" height="0.5"/>
-                                                <color key="backgroundColor" name="LineLight"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="0.5" id="gC2-DC-OVW"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-cc-Dkj">
-                                                <rect key="frame" x="22" y="244.5" width="122" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今期アニメ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1r-XP-hfo">
+                                                <rect key="frame" x="22" y="254" width="87" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <state key="normal" title="ランキング　＞">
-                                                    <color key="titleColor" name="TextBlack"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="rQn-V9-TeV" kind="show" identifier="fromRank" id="tdx-GJ-nQV"/>
-                                                </connections>
-                                            </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-Kq-BaY" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="289.5" width="414" height="200"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="uGa-4y-kun"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="12" minimumInteritemSpacing="12" id="HdP-jf-K9y">
-                                                    <size key="itemSize" width="122" height="189.5"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rankingCell" id="R7g-t3-Irj" userLabel="rankingCell" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="5.5" width="122" height="189.5"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="189.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </view>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <size key="customSize" width="122" height="189.5"/>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWD-cQ-5V3" userLabel="LineView">
-                                                <rect key="frame" x="12" y="501.5" width="402" height="0.5"/>
-                                                <color key="backgroundColor" name="LineLight"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="0.5" id="bjB-DE-VKW"/>
-                                                </constraints>
-                                            </view>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXB-Ml-lNa">
+                                                <rect key="frame" x="374.5" y="254" width="17.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duw-R2-icd">
-                                                <rect key="frame" x="22" y="514" width="122" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <state key="normal" title="今期アニメ　＞">
+                                                <rect key="frame" x="22" y="254" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="fO1-4P-rZz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal">
                                                     <color key="titleColor" name="TextBlack"/>
                                                 </state>
                                                 <connections>
@@ -128,23 +94,23 @@
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-Bl-Ey3" customClass="AnimeHorizontalCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="559" width="414" height="189.5"/>
+                                                <rect key="frame" x="0.0" y="287" width="414" height="168"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="189.5" id="PZz-ZH-16g"/>
+                                                    <constraint firstAttribute="height" constant="168" id="fWX-Nn-37Q"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="12" id="M7n-nM-w79">
-                                                    <size key="itemSize" width="122" height="189.5"/>
+                                                    <size key="itemSize" width="100" height="168"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thisTermCell" id="xIh-EI-F9t" customClass="AnimeHorizontalCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="122" height="189.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="168"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="189.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="168"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </view>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -156,25 +122,169 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFd-Ok-wid" userLabel="LineView">
-                                                <rect key="frame" x="12" y="760.5" width="402" height="0.5"/>
-                                                <color key="backgroundColor" name="LineLight"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="0.5" id="az6-C6-o03"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9x-d0-n3S">
-                                                <rect key="frame" x="22" y="773" width="104" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3t-dS-T4F">
+                                                <rect key="frame" x="22" y="477" width="69.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <state key="normal" title="ジャンル　＞">
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSn-Q7-Nzv">
+                                                <rect key="frame" x="22" y="515" width="84" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yVj-hK-MUB">
+                                                <rect key="frame" x="22" y="509.5" width="370" height="123"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eXJ-V1-HR1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="55.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SF ファンタジー" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqM-FU-WHT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="55.5" id="p2R-gQ-4Pc"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アクション バトル" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ni-xI-RpI">
+                                                                <rect key="frame" x="95.5" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ホラー サスペンス" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FP5-RW-QYu">
+                                                                <rect key="frame" x="191" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ロボット メカ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edd-ZG-6kp">
+                                                                <rect key="frame" x="286.5" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="XMy-bk-fwH">
+                                                        <rect key="frame" x="0.0" y="67.5" width="370" height="55.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恋愛 ラブコメ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEd-dC-WfM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメディ ギャグ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeF-MF-33u">
+                                                                <rect key="frame" x="95.5" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日常 ほのぼの" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xn-M9-vXc">
+                                                                <rect key="frame" x="191" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポーツ 競技" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSO-gU-vMu">
+                                                                <rect key="frame" x="286.5" y="0.0" width="83.5" height="55.5"/>
+                                                                <color key="backgroundColor" name="LightThema"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="123" id="ZpO-Uc-GT6"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ランキング" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0M-FT-qbD">
+                                                <rect key="frame" x="22" y="654.5" width="87" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-qy-n2j">
+                                                <rect key="frame" x="374.5" y="654.5" width="17.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9x-d0-n3S">
+                                                <rect key="frame" x="22" y="654.5" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="MFt-ym-7uL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <state key="normal">
                                                     <color key="titleColor" name="TextBlack"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-jN-4tt" customClass="AnimeGenreCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="818" width="414" height="280"/>
+                                                <rect key="frame" x="0.0" y="687.5" width="414" height="280"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="280" id="q3e-is-V7D"/>
+                                                    <constraint firstAttribute="height" constant="280" id="z1u-7V-XGl"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="h2O-k2-hfA">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -194,7 +304,7 @@
                                                 </cells>
                                             </collectionView>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-eQ-FLf">
-                                                <rect key="frame" x="171.5" y="195" width="71" height="37"/>
+                                                <rect key="frame" x="171.5" y="217" width="71" height="37"/>
                                                 <color key="tintColor" red="1" green="0.086339731350000004" blue="0.59157119599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="37" id="1nW-wD-2Sk"/>
@@ -206,36 +316,37 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="M9x-d0-n3S" firstAttribute="top" secondItem="NFd-Ok-wid" secondAttribute="bottom" constant="12" id="3lr-VF-cyO"/>
-                                            <constraint firstAttribute="trailing" secondItem="wTw-jN-4tt" secondAttribute="trailing" id="4sR-DE-YYh"/>
-                                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="bottom" constant="12" id="7Oz-t8-Pvf"/>
-                                            <constraint firstAttribute="trailing" secondItem="NFd-Ok-wid" secondAttribute="trailing" id="7bn-gO-ze5"/>
-                                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="top" secondItem="hyQ-hS-1l6" secondAttribute="bottom" constant="12" id="9ux-Na-AeA"/>
-                                            <constraint firstItem="cWD-cQ-5V3" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="12" id="Bq2-Dm-W6Q"/>
-                                            <constraint firstItem="EOI-cc-Dkj" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="CA5-zz-NNW"/>
-                                            <constraint firstAttribute="trailing" secondItem="RlI-Kq-BaY" secondAttribute="trailing" id="DVd-hs-kw5"/>
-                                            <constraint firstItem="wTw-jN-4tt" firstAttribute="top" secondItem="M9x-d0-n3S" secondAttribute="bottom" constant="12" id="Hsv-Qc-ZSn"/>
+                                            <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="tqp-eQ-FLf" secondAttribute="bottom" id="0i3-Bl-dTO"/>
+                                            <constraint firstItem="Y1r-XP-hfo" firstAttribute="leading" secondItem="duw-R2-icd" secondAttribute="leading" id="4Ax-4j-hgO"/>
+                                            <constraint firstItem="M9x-d0-n3S" firstAttribute="top" secondItem="yVj-hK-MUB" secondAttribute="bottom" constant="22" id="6LV-fh-QQK"/>
+                                            <constraint firstItem="hXB-Ml-lNa" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="top" id="6lx-qE-dqB"/>
+                                            <constraint firstAttribute="trailing" secondItem="jQf-Bl-Ey3" secondAttribute="trailing" id="AvJ-gl-OZs"/>
+                                            <constraint firstItem="wTw-jN-4tt" firstAttribute="top" secondItem="M9x-d0-n3S" secondAttribute="bottom" constant="12" id="Dgz-4z-8G4"/>
+                                            <constraint firstItem="t3t-dS-T4F" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="H7b-Oo-Jcu"/>
+                                            <constraint firstItem="V0M-FT-qbD" firstAttribute="top" secondItem="M9x-d0-n3S" secondAttribute="top" id="Hr5-Cw-cEX"/>
                                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="top" secondItem="a24-rr-SKX" secondAttribute="top" id="KhF-Zy-0mD"/>
-                                            <constraint firstItem="hyQ-hS-1l6" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="M6F-IP-1Gz"/>
-                                            <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="cWD-cQ-5V3" secondAttribute="bottom" constant="12" id="NBx-ab-8vW"/>
-                                            <constraint firstItem="NFd-Ok-wid" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="12" id="PdI-DP-K0h"/>
-                                            <constraint firstItem="M9x-d0-n3S" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="SLg-Fj-lzS"/>
-                                            <constraint firstAttribute="trailing" secondItem="cWD-cQ-5V3" secondAttribute="trailing" id="SPg-yE-Rtm"/>
-                                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="Zf7-RL-vO0"/>
-                                            <constraint firstItem="tqp-eQ-FLf" firstAttribute="bottom" secondItem="DXz-WZ-Brv" secondAttribute="bottom" id="aYZ-BY-k7E"/>
-                                            <constraint firstItem="cWD-cQ-5V3" firstAttribute="top" secondItem="RlI-Kq-BaY" secondAttribute="bottom" constant="12" id="b8l-Oj-Lhl"/>
-                                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="ejL-cI-i2T"/>
-                                            <constraint firstAttribute="trailing" secondItem="jQf-Bl-Ey3" secondAttribute="trailing" id="gQo-Wn-Kxq"/>
+                                            <constraint firstItem="duw-R2-icd" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="Lbo-Ut-S3M"/>
+                                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="Mqi-MO-rJQ"/>
+                                            <constraint firstItem="bQY-qy-n2j" firstAttribute="top" secondItem="M9x-d0-n3S" secondAttribute="top" id="N9D-31-yvC"/>
+                                            <constraint firstItem="Y1r-XP-hfo" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="top" id="OEp-a5-RsC"/>
+                                            <constraint firstAttribute="trailing" secondItem="yVj-hK-MUB" secondAttribute="trailing" constant="22" id="Osf-iK-bG5"/>
+                                            <constraint firstItem="duw-R2-icd" firstAttribute="top" secondItem="DXz-WZ-Brv" secondAttribute="bottom" constant="22" id="R28-Ep-OkC"/>
+                                            <constraint firstAttribute="trailing" secondItem="duw-R2-icd" secondAttribute="trailing" constant="22" id="UlZ-uy-o2e"/>
+                                            <constraint firstItem="wTw-jN-4tt" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="j3d-Pi-pHL"/>
+                                            <constraint firstItem="M9x-d0-n3S" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="j5w-BU-qAo"/>
                                             <constraint firstAttribute="height" constant="1128" id="m2s-XJ-dPv"/>
+                                            <constraint firstItem="yVj-hK-MUB" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="mJ4-cs-PAt"/>
+                                            <constraint firstAttribute="trailing" secondItem="wTw-jN-4tt" secondAttribute="trailing" id="oUT-6b-iCY"/>
                                             <constraint firstAttribute="trailing" secondItem="DXz-WZ-Brv" secondAttribute="trailing" id="oWo-1f-OuY"/>
-                                            <constraint firstItem="hyQ-hS-1l6" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="otG-cZ-nQD"/>
-                                            <constraint firstItem="RlI-Kq-BaY" firstAttribute="top" secondItem="EOI-cc-Dkj" secondAttribute="bottom" constant="12" id="sER-05-f8h"/>
+                                            <constraint firstItem="bQY-qy-n2j" firstAttribute="trailing" secondItem="M9x-d0-n3S" secondAttribute="trailing" id="pDj-lg-GlZ"/>
+                                            <constraint firstItem="V0M-FT-qbD" firstAttribute="leading" secondItem="M9x-d0-n3S" secondAttribute="leading" id="pii-Sq-MWF"/>
+                                            <constraint firstItem="hXB-Ml-lNa" firstAttribute="trailing" secondItem="duw-R2-icd" secondAttribute="trailing" id="q9V-b3-2fj"/>
+                                            <constraint firstItem="t3t-dS-T4F" firstAttribute="top" secondItem="jQf-Bl-Ey3" secondAttribute="bottom" constant="22" id="s3d-4w-Qib"/>
+                                            <constraint firstAttribute="trailing" secondItem="M9x-d0-n3S" secondAttribute="trailing" constant="22" id="sDR-b0-b6W"/>
                                             <constraint firstItem="tqp-eQ-FLf" firstAttribute="centerX" secondItem="a24-rr-SKX" secondAttribute="centerX" id="sXb-Bx-OJN"/>
-                                            <constraint firstItem="wTw-jN-4tt" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="uHj-li-FGJ"/>
-                                            <constraint firstItem="duw-R2-icd" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="uaD-j9-wry"/>
-                                            <constraint firstAttribute="trailing" secondItem="hyQ-hS-1l6" secondAttribute="trailing" id="vqz-6I-MgD"/>
-                                            <constraint firstItem="NFd-Ok-wid" firstAttribute="top" secondItem="jQf-Bl-Ey3" secondAttribute="bottom" constant="12" id="w78-mT-y8n"/>
+                                            <constraint firstItem="yVj-hK-MUB" firstAttribute="top" secondItem="t3t-dS-T4F" secondAttribute="bottom" constant="12" id="soq-fu-D6p"/>
                                             <constraint firstItem="DXz-WZ-Brv" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="zBg-V9-f4Q"/>
+                                            <constraint firstItem="jQf-Bl-Ey3" firstAttribute="top" secondItem="duw-R2-icd" secondAttribute="bottom" constant="12" id="zwe-ba-FrK"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -265,8 +376,6 @@
                         <outlet property="currentTermCollectionView" destination="jQf-Bl-Ey3" id="9FM-86-1Ex"/>
                         <outlet property="genreCollectionView" destination="wTw-jN-4tt" id="qWl-N2-bhF"/>
                         <outlet property="pageControl" destination="tqp-eQ-FLf" id="zmI-V6-14a"/>
-                        <outlet property="rankingBtn" destination="EOI-cc-Dkj" id="Wjp-Ft-jpX"/>
-                        <outlet property="rankingCollectionView" destination="RlI-Kq-BaY" id="mT7-6e-rrr"/>
                         <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="MIi-vL-uwD"/>
                         <segue destination="jmJ-MB-Ky7" kind="show" identifier="toDetails" id="ZRv-Q9-ctg"/>
                     </connections>
@@ -306,8 +415,8 @@
     </scenes>
     <resources>
         <image name="play.rectangle" catalog="system" width="64" height="46"/>
-        <namedColor name="LineLight">
-            <color red="0.9100000262260437" green="0.85100001096725464" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="LightThema">
+            <color red="0.99599999189376831" green="0.90200001001358032" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainThema">
             <color red="0.94099998474121094" green="0.059000000357627869" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -322,7 +431,4 @@
             <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="5XH-ro-AtJ"/>
-    </inferredMetricsTieBreakers>
 </document>
