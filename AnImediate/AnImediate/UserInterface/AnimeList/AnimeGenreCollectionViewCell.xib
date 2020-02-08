@@ -48,41 +48,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ソードアート・オンライン" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBn-yv-Qr4">
-                                <rect key="frame" x="96" y="31" width="223" height="21"/>
+                                <rect key="frame" x="96" y="34" width="223" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A-1 Pictures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtF-4I-MX3">
-                                <rect key="frame" x="96" y="52" width="223" height="14"/>
+                                <rect key="frame" x="96" y="58" width="223" height="14"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" name="TextGray"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SF/ファンタジー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTD-kF-D4t">
-                                <rect key="frame" x="96" y="70" width="223" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bTD-kF-D4t" firstAttribute="leading" secondItem="luo-yq-grh" secondAttribute="trailing" constant="12" id="0Sa-SA-mjB"/>
                             <constraint firstItem="r8F-0s-ceF" firstAttribute="top" secondItem="fHU-of-dPW" secondAttribute="top" id="1fa-qJ-8T7"/>
                             <constraint firstAttribute="trailing" secondItem="tBn-yv-Qr4" secondAttribute="trailing" constant="12" id="7tL-3u-nP3"/>
-                            <constraint firstItem="RtF-4I-MX3" firstAttribute="top" secondItem="tBn-yv-Qr4" secondAttribute="bottom" id="8UN-67-dNi"/>
+                            <constraint firstItem="RtF-4I-MX3" firstAttribute="top" secondItem="tBn-yv-Qr4" secondAttribute="bottom" constant="3" id="8UN-67-dNi"/>
                             <constraint firstItem="r8F-0s-ceF" firstAttribute="leading" secondItem="luo-yq-grh" secondAttribute="trailing" constant="6" id="EnB-xV-LzR"/>
                             <constraint firstItem="tBn-yv-Qr4" firstAttribute="leading" secondItem="luo-yq-grh" secondAttribute="trailing" constant="12" id="OMg-9y-bSG"/>
                             <constraint firstItem="luo-yq-grh" firstAttribute="top" secondItem="fHU-of-dPW" secondAttribute="top" constant="3" id="ZRg-Dh-veJ"/>
-                            <constraint firstItem="bTD-kF-D4t" firstAttribute="bottom" secondItem="luo-yq-grh" secondAttribute="bottom" id="aaj-sW-6ZQ"/>
-                            <constraint firstAttribute="trailing" secondItem="bTD-kF-D4t" secondAttribute="trailing" constant="12" id="dhf-Tg-nCg"/>
                             <constraint firstAttribute="trailing" secondItem="RtF-4I-MX3" secondAttribute="trailing" constant="12" id="fmX-Ln-yxG"/>
                             <constraint firstItem="mbK-3C-ddi" firstAttribute="top" secondItem="r8F-0s-ceF" secondAttribute="bottom" constant="6" id="g4q-rV-ixE"/>
                             <constraint firstItem="luo-yq-grh" firstAttribute="leading" secondItem="fHU-of-dPW" secondAttribute="leading" id="i3j-ir-nE2"/>
                             <constraint firstItem="RtF-4I-MX3" firstAttribute="leading" secondItem="luo-yq-grh" secondAttribute="trailing" constant="12" id="mTl-kP-v2X"/>
                             <constraint firstItem="mbK-3C-ddi" firstAttribute="leading" secondItem="luo-yq-grh" secondAttribute="trailing" constant="12" id="oQR-Yd-sJG"/>
-                            <constraint firstItem="tBn-yv-Qr4" firstAttribute="top" secondItem="mbK-3C-ddi" secondAttribute="bottom" constant="3" id="tVb-NN-n7q"/>
+                            <constraint firstItem="tBn-yv-Qr4" firstAttribute="top" secondItem="mbK-3C-ddi" secondAttribute="bottom" constant="6" id="tVb-NN-n7q"/>
                             <constraint firstAttribute="trailing" secondItem="r8F-0s-ceF" secondAttribute="trailing" id="xQZ-Sg-zV9"/>
                         </constraints>
                     </view>
@@ -97,7 +88,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="352" height="129"/>
             <connections>
+                <outlet property="companyLabel" destination="RtF-4I-MX3" id="T8n-aS-w5J"/>
                 <outlet property="iconImageView" destination="luo-yq-grh" id="Bct-F7-Kby"/>
+                <outlet property="lineView" destination="r8F-0s-ceF" id="ber-KB-Kto"/>
+                <outlet property="rankLabel" destination="mbK-3C-ddi" id="iew-gS-J7S"/>
+                <outlet property="titleLabel" destination="tBn-yv-Qr4" id="Q7H-Db-vJd"/>
             </connections>
             <point key="canvasLocation" x="173.91304347826087" y="109.82142857142857"/>
         </collectionViewCell>

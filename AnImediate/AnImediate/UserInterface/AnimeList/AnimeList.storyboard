@@ -279,6 +279,9 @@
                                                 <state key="normal">
                                                     <color key="titleColor" name="TextBlack"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="rQn-V9-TeV" kind="show" identifier="fromRank" id="i57-nl-dZe"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-jN-4tt" customClass="AnimeGenreCollectionView" customModule="AnImediate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="687.5" width="414" height="285"/>
@@ -376,6 +379,7 @@
                         <outlet property="currentTermCollectionView" destination="jQf-Bl-Ey3" id="9FM-86-1Ex"/>
                         <outlet property="genreCollectionView" destination="wTw-jN-4tt" id="qWl-N2-bhF"/>
                         <outlet property="pageControl" destination="tqp-eQ-FLf" id="zmI-V6-14a"/>
+                        <outlet property="rankingBtn" destination="M9x-d0-n3S" id="Blv-wK-cF4"/>
                         <outlet property="recomCollectionView" destination="DXz-WZ-Brv" id="MIi-vL-uwD"/>
                         <segue destination="jmJ-MB-Ky7" kind="show" identifier="toDetails" id="ZRv-Q9-ctg"/>
                     </connections>
@@ -431,4 +435,7 @@
             <color red="0.88200002908706665" green="0.13699999451637268" blue="0.52899998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5XH-ro-AtJ"/>
+    </inferredMetricsTieBreakers>
 </document>
