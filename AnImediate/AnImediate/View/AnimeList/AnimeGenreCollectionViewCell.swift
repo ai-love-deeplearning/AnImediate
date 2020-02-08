@@ -15,7 +15,7 @@ import FirebaseUI
 class AnimeGenreCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var iconImageView: UIImageView!
-    @IBOutlet private weak var genreLabel: UILabel!
+//    @IBOutlet private weak var genreLabel: UILabel!
     
     private var imageURL = ""
     

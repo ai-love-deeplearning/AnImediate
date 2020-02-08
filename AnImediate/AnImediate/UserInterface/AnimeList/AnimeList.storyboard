@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a24-rr-SKX" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DXz-WZ-Brv" customClass="PagingCardCollectionView" customModule="AnImediate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="232"/>
@@ -281,10 +281,10 @@
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-jN-4tt" customClass="AnimeGenreCollectionView" customModule="AnImediate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="687.5" width="414" height="280"/>
+                                                <rect key="frame" x="0.0" y="687.5" width="414" height="285"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="280" id="z1u-7V-XGl"/>
+                                                    <constraint firstAttribute="height" constant="285" id="z1u-7V-XGl"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="h2O-k2-hfA">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -334,7 +334,7 @@
                                             <constraint firstAttribute="trailing" secondItem="duw-R2-icd" secondAttribute="trailing" constant="22" id="UlZ-uy-o2e"/>
                                             <constraint firstItem="wTw-jN-4tt" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" id="j3d-Pi-pHL"/>
                                             <constraint firstItem="M9x-d0-n3S" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="j5w-BU-qAo"/>
-                                            <constraint firstAttribute="height" constant="1128" id="m2s-XJ-dPv"/>
+                                            <constraint firstAttribute="height" constant="1146" id="m2s-XJ-dPv"/>
                                             <constraint firstItem="yVj-hK-MUB" firstAttribute="leading" secondItem="a24-rr-SKX" secondAttribute="leading" constant="22" id="mJ4-cs-PAt"/>
                                             <constraint firstAttribute="trailing" secondItem="wTw-jN-4tt" secondAttribute="trailing" id="oUT-6b-iCY"/>
                                             <constraint firstAttribute="trailing" secondItem="DXz-WZ-Brv" secondAttribute="trailing" id="oWo-1f-OuY"/>
