@@ -46,15 +46,33 @@
             <point key="canvasLocation" x="1601" y="-78"/>
         </scene>
         <!--ホーム-->
+        <scene sceneID="0kM-N7-7Mi">
+            <objects>
+                <viewController id="tcF-pL-hGp" customClass="HomeTopVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Adn-vN-Tye">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ATX-t7-1H2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ホーム" id="eQf-fj-AbX">
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="NKK-4m-unH"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbe-aI-Yas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1567" y="1034"/>
+        </scene>
+        <!--ホーム-->
         <scene sceneID="wQf-Oa-HZ0">
             <objects>
-                <viewController id="PPl-HV-tYB" customClass="HomeTopVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeArchiveCollectionSB" id="PPl-HV-tYB" customClass="HomeArchiveCollectionVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vgb-AS-dV2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-gL-ArQ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x6W-3n-nqc">
                                     <size key="itemSize" width="85" height="112"/>
@@ -63,7 +81,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="a2O-NT-wGm" customClass="HomeCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="archiveCell" id="a2O-NT-wGm" customClass="ArchiveCollectionViewCell" customModule="AnImediate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oJX-54-FvW">
@@ -88,12 +106,12 @@
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="Php-fj-cL4"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="ArchiveCollectionView" destination="rlx-gL-ArQ" id="ryl-2y-cxt"/>
+                        <outlet property="archiveCollectionView" destination="rlx-gL-ArQ" id="XiN-36-xTe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9c-ss-Ebz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600.8" y="928.81773399014787"/>
+            <point key="canvasLocation" x="2518" y="1034"/>
         </scene>
         <!--Home TopVC-->
         <scene sceneID="thc-yl-AQg">
@@ -503,7 +521,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PPl-HV-tYB" kind="relationship" relationship="rootViewController" id="8be-hf-hFw"/>
+                        <segue destination="tcF-pL-hGp" kind="relationship" relationship="rootViewController" id="oug-L6-FDr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-Su-UYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -534,6 +552,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3At-E3-cl3"/>
+        <segue reference="wIo-5C-NM3"/>
     </inferredMetricsTieBreakers>
 </document>

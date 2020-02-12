@@ -17,7 +17,6 @@ import RxSwift
 
 class HomeTopVC: TabmanViewController {
     
-    @IBOutlet weak var ArchiveCollectionView: UICollectionView!
     private var disposeBag = DisposeBag()
     
     private let store = RxStore(store: AppStore.instance.homeStore)
@@ -29,10 +28,10 @@ class HomeTopVC: TabmanViewController {
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
-            StoryboardScene.Home.homeArchiveListSB.instantiate(),
-            StoryboardScene.Home.homeArchiveListSB.instantiate(),
-            StoryboardScene.Home.homeArchiveListSB.instantiate(),
-            StoryboardScene.Home.homeArchiveListSB.instantiate()
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate(),
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate(),
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate(),
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate()
         ]
     }()
 
