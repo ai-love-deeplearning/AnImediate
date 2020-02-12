@@ -74,16 +74,16 @@ class HomeArchiveCollectionVC: UIViewController {
 //            })
 //            .disposed(by: disposeBag)
 //        
-//        archiveCollectionView.rx.itemSelected
-//            .subscribe(onNext: { [unowned self] indexPath in
-//                let model = self.sectionModels.first!.items[indexPath.row]
-//                let anime = AnimeModel.read(annictID: model.annictID)
-//                self.animeListStore.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
-//                self.animeListStore.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
-//                self.animeListStore.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: anime))
-//                self.performSegue(withIdentifier: "toDetails", sender: nil)
-//            })
-//            .disposed(by: disposeBag)
+        archiveCollectionView.rx.itemSelected
+            .subscribe(onNext: { [unowned self] indexPath in
+                let model = self.sectionModels.first!.items[indexPath.row]
+                let anime = AnimeModel.read(annictID: model.annictID)
+                self.animeListStore.dispatch(AnimeDetailInfoViewAction.Initialize(animeModel: anime))
+                self.animeListStore.dispatch(AnimeDetailEpisodeViewAction.Initialize(animeModel: anime))
+                self.animeListStore.dispatch(AnimeDetailURLViewAction.Initialize(animeModel: anime))
+                self.performSegue(withIdentifier: "toDetails", sender: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindState() {

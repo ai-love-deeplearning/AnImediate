@@ -107,11 +107,22 @@
                     </navigationItem>
                     <connections>
                         <outlet property="archiveCollectionView" destination="rlx-gL-ArQ" id="XiN-36-xTe"/>
+                        <segue destination="0Pt-lO-L6E" kind="show" identifier="toDetails" id="fdG-Pe-A4N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9c-ss-Ebz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2518" y="1034"/>
+        </scene>
+        <!--AnimeDetails-->
+        <scene sceneID="vPa-Vw-tdy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimeDetails" id="0Pt-lO-L6E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UpZ-Y4-As6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqB-xl-sgO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3177" y="1034"/>
         </scene>
         <!--Home TopVC-->
         <scene sceneID="thc-yl-AQg">
@@ -291,22 +302,11 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="archiveTable" destination="V93-1r-zy6" id="b4i-xV-Ldw"/>
-                        <segue destination="gV6-ha-OWe" kind="show" identifier="toDetails" id="328-hB-pij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQB-eF-tad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3989.5999999999999" y="235.71428571428572"/>
-        </scene>
-        <!--AnimeDetails-->
-        <scene sceneID="M5Y-yP-jS4">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AnimeDetails" id="gV6-ha-OWe" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="9v6-lx-yiN"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sEa-un-pjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4674" y="236"/>
         </scene>
         <!--Home HeaderVC-->
         <scene sceneID="rlR-Zm-LDY">
