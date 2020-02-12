@@ -45,6 +45,37 @@
             </objects>
             <point key="canvasLocation" x="1601" y="-78"/>
         </scene>
+        <!--Home MenuVC-->
+        <scene sceneID="JbS-hb-dfb">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="sxe-Nr-UrO" customClass="HomeMenuVC" customModule="AnImediate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="e0I-SE-iSG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DI-Nr-Uv6">
+                                <rect key="frame" x="0.0" y="0.0" width="262.66666666666669" height="812"/>
+                                <color key="backgroundColor" name="MainThema"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.60397046232876717" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2DI-Nr-Uv6" firstAttribute="width" secondItem="e0I-SE-iSG" secondAttribute="width" multiplier="0.7" id="8ZA-yt-aCx"/>
+                            <constraint firstItem="2DI-Nr-Uv6" firstAttribute="top" secondItem="e0I-SE-iSG" secondAttribute="top" id="9b7-eJ-0lH"/>
+                            <constraint firstItem="2DI-Nr-Uv6" firstAttribute="bottom" secondItem="e0I-SE-iSG" secondAttribute="bottom" id="U7V-HV-nW6"/>
+                            <constraint firstItem="2DI-Nr-Uv6" firstAttribute="leading" secondItem="QAo-5w-Pt8" secondAttribute="leading" id="yfr-Bx-jE2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QAo-5w-Pt8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B5w-nT-IJP"/>
+                    <connections>
+                        <outlet property="menuView" destination="2DI-Nr-Uv6" id="Lkg-3S-nUg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hjt-Rn-xc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="622" y="1034"/>
+        </scene>
         <!--ホーム-->
         <scene sceneID="0kM-N7-7Mi">
             <objects>
@@ -56,7 +87,11 @@
                         <viewLayoutGuide key="safeArea" id="ATX-t7-1H2"/>
                     </view>
                     <navigationItem key="navigationItem" title="ホーム" id="eQf-fj-AbX">
-                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="NKK-4m-unH"/>
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="NKK-4m-unH">
+                            <connections>
+                                <segue destination="sxe-Nr-UrO" kind="presentation" modalTransitionStyle="crossDissolve" id="bLA-mT-DA5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbe-aI-Yas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
