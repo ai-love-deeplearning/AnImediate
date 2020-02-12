@@ -19,6 +19,20 @@ public struct AnimediateConfig {
     }
     // TODO:- 上のdateStringから計算してreturnするようにしたい
     public static let CurrentTerm = "2019年秋"
+    
+    public static let sfGenre = "SF,ファンタジー"
+    public static let battleGenre = "アクション/バトル"
+    public static let horrorGenre = "ホラー/サスペンス/推理"
+    public static let robotGenre = "ロボット/メカ"
+    public static let loveGenre = "恋愛/ラブコメ"
+    public static let loveComeGenre = "恋愛、ラブコメ"
+    public static let comedyGenre = "コメディ/ギャグ"
+    public static let dailyGenre = "日常/ほのぼの"
+    public static let sportsGenre = "スポーツ/競技"
+    public static let dramaGenre = "青春/ドラマ"
+    public static let histGenre = "歴史/戦記"
+    public static let warGenre = "戦争/ミリタリー"
+    public static let otherGenre = "その他"
 }
 
 public struct FirebaseTables {
@@ -110,6 +124,18 @@ public enum AnimeTableContentType: String {
     case ranking = "ランキング"
     case similar = "似ている作品"
     case broadcast = "放送年"
+    case sfGenre = "SF/ファンタジー"
+    case battleGenre = "アクション/バトル"
+    case horrorGenre = "ホラー/サスペンス/推理"
+    case robotGenre = "ロボット/メカ"
+    case loveGenre = "恋愛/ラブコメ"
+    case comedyGenre = "コメディ/ギャグ"
+    case dailyGenre = "日常/ほのぼの"
+    case sportsGenre = "スポーツ/競技"
+    case dramaGenre = "青春/ドラマ"
+    case histGenre = "歴史/戦記"
+    case warGenre = "戦争/ミリタリー"
+    case otherGenre = "その他"
 }
 
 public struct ResultBarTitles {

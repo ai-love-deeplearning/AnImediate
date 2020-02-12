@@ -287,6 +287,30 @@ extension AnimeListTableVC {
         case .broadcast:
             // TODO:- 放送年取得メソッドを実装
             items = Array(AnimeModel.readAll().filter("seasonNameText == %@", self.viewState.searchKey))
+        case .sfGenre:
+            items = Array(AnimeModel.readSFGenre())
+        case .battleGenre:
+            items = Array(AnimeModel.readBattleGenre())
+        case .horrorGenre:
+            items = Array(AnimeModel.readHorrorGenre())
+        case .robotGenre:
+            items = Array(AnimeModel.readRobotGenre())
+        case .loveGenre:
+            items = Array(AnimeModel.readLoveGenre())
+        case .comedyGenre:
+            items = Array(AnimeModel.readComedyGenre())
+        case .dailyGenre:
+            items = Array(AnimeModel.readDailyGenre())
+        case .sportsGenre:
+            items = Array(AnimeModel.readSportsGenre())
+        case .dramaGenre:
+            items = Array(AnimeModel.readDramaGenre())
+        case .histGenre:
+            items = Array(AnimeModel.readHistGenre())
+        case .warGenre:
+            items = Array(AnimeModel.readWarGenre())
+        case .otherGenre:
+            items = Array(AnimeModel.readOtherGenre())
         }
         
         sectionModels = [AnimeTableSectionModel(items: items)]

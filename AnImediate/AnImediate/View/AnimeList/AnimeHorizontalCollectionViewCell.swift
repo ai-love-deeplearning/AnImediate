@@ -15,7 +15,7 @@ import FirebaseUI
 class AnimeHorizontalCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var iconImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     public var annictID = ""
     private var imageURL = ""

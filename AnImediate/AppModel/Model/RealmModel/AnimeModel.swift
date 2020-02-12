@@ -37,7 +37,68 @@ public class AnimeModel: Object {
         let realm = try! Realm()
         return realm.objects(self).filter("seasonNameText == %@", AnimediateConfig.CurrentTerm)
     }
-
+    
+    public static func readSFGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.sfGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readBattleGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.battleGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readHorrorGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.horrorGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readRobotGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.robotGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readLoveGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@ OR genre == %@", AnimediateConfig.loveGenre, AnimediateConfig.loveComeGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readComedyGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.comedyGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readDailyGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.dailyGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readSportsGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.sportsGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readDramaGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.dramaGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readHistGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.histGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readWarGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.warGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    public static func readOtherGenre() -> Results<AnimeModel> {
+        let realm = try! Realm()
+        return realm.objects(self).filter("genre == %@", AnimediateConfig.otherGenre).sorted(byKeyPath: "watchersCount", ascending: false)
+    }
+    
+    // TODO :- ランキング取得処理
     public static func readAllRanking() -> Results<AnimeModel> {
         let realm = try! Realm()
         return realm.objects(self).sorted(byKeyPath: "watchersCount", ascending: false)
@@ -89,7 +150,7 @@ public class AnimeModel: Object {
         self.annictID = value[FirebaseWorks.animeID] as? String ?? ""
         self.title = value[FirebaseWorks.title] as? String ?? ""
         self.synopsis = value[FirebaseWorks.synopsis] as? String ?? ""
-        self.genre = value[FirebaseWorks.synopsis] as? String ?? ""
+        self.genre = value[FirebaseWorks.genre] as? String ?? ""
         self.episodesCount = value[FirebaseWorks.episodesCount] as? Int ?? 0
         self.seasonNameText = value[FirebaseWorks.seasonNameText] as? String ?? ""
         self.watchersCount = value[FirebaseWorks.watchersCount] as? Int ?? 0

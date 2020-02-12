@@ -15,8 +15,8 @@ class AnimeGenreCollectionView: UICollectionView {
         super.awakeFromNib()
         
         let layout = AnimeGenreCollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width-64, height: 128)
-        layout.minimumLineSpacing = 0
+        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width-64, height: 87)
+        layout.minimumLineSpacing = 12
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
         
