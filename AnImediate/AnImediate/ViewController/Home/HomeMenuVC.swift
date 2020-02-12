@@ -26,7 +26,7 @@ class HomeMenuVC: UIViewController {
         self.menuView.layer.position.x = -self.menuView.frame.width
         // 表示時のアニメーションを作成する
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.3,
             delay: 0,
             options: .curveEaseOut,
             animations: {
