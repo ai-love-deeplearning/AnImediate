@@ -24,7 +24,7 @@ public struct AnimediateConfig {
 public struct FirebaseTables {
     public static let works = "works"
     public static let episodes = "episodes"
-    public static let predictions = "predictions"
+    public static let predictions = "predictions_1"
 }
 
 public struct FirebaseWorks {
