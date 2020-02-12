@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppConfig
 
 class AnimeHorizontalCollectionView: UICollectionView {
 
@@ -16,7 +17,7 @@ class AnimeHorizontalCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         // TODO:- animeList:0.25(4個表示)、Exchange:0.3(3個表示)
 //        layout.itemSize = CGSize(width: self.bounds.width*0.25, height: self.bounds.height)
-        layout.itemSize = CGSize(width: 153, height: 122)
+        layout.itemSize = CGSize(width: ScreenConfig.mainBoundSize.width*0.26, height: 168)
 //        layout.minimumLineSpacing = 0.3
         layout.minimumLineSpacing = 12
         layout.scrollDirection = .horizontal
