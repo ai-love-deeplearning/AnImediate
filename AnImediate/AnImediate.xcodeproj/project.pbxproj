@@ -136,6 +136,8 @@
 		50A5969322C1F16C00378AAB /* HomeTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeTopVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		50AD91CB23F479FE00742271 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD91C923F479FE00742271 /* HomeCollectionViewCell.swift */; };
+		50AD91CC23F479FE00742271 /* ArchiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50AD91CA23F479FE00742271 /* ArchiveCollectionViewCell.xib */; };
 		50AFA2DB2389D54B002D06A1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5061BE9C2382452C00A5405E /* ArrayExtension.swift */; };
 		50AFA2DC2389D54E002D06A1 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */; };
 		50AFA2DD2389D551002D06A1 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A08233F9D03006C683E /* StringExtension.swift */; };
@@ -536,6 +538,8 @@
 		50A5969422C2F2E200378AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
+		50AD91C923F479FE00742271 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		50AD91CA23F479FE00742271 /* ArchiveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveCollectionViewCell.xib; sourceTree = "<group>"; };
 		50B380CA2337961A0092B59C /* RxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxStore.swift; sourceTree = "<group>"; };
 		50B380CC233798B50092B59C /* ExchangeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewState.swift; sourceTree = "<group>"; };
 		50B380CE233799BC0092B59C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
@@ -924,6 +928,7 @@
 		5042F3692337AC6300D89478 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				50AD91C923F479FE00742271 /* HomeCollectionViewCell.swift */,
 				50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */,
 				50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */,
 				5061BEA22383A5D700A5405E /* ProfileEditCommentTableViewCell.swift */,
@@ -1026,6 +1031,7 @@
 			children = (
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
 				50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */,
+				50AD91CA23F479FE00742271 /* ArchiveCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2124,6 +2130,7 @@
 				3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */,
 				50F9849322D47C7D00038A23 /* ExchangeAccept.storyboard in Resources */,
 				5061BE9F23825D7400A5405E /* ExchangeResult.storyboard in Resources */,
+				50AD91CC23F479FE00742271 /* ArchiveCollectionViewCell.xib in Resources */,
 				5001BEEA234E0D9A005C0B8A /* Launch.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50E21980237BEE4700162FE5 /* Colors.xcassets in Resources */,
@@ -2505,6 +2512,7 @@
 				321C6E2F22DC68FA00757F83 /* ExchangeResultTopVC.swift in Sources */,
 				32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */,
 				50A5969322C1F16C00378AAB /* HomeTopVC.swift in Sources */,
+				50AD91CB23F479FE00742271 /* HomeCollectionViewCell.swift in Sources */,
 				5042F386233916DC00D89478 /* MapDistinct.swift in Sources */,
 				50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */,
 				32A6411F22DC57AD002EF6F3 /* ExchangeTopVC.swift in Sources */,
