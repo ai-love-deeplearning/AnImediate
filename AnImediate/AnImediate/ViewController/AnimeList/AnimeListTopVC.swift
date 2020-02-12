@@ -490,7 +490,7 @@ extension AnimeListTopVC {
 //        guard let recomItems = viewState.recommend else {
 //            return
 //        }
-        let recomItems = Array(AnimeModel.readAllRanking()[0 ..< 5])
+        let recomItems = AnimeModel.readAllRecommend()
         
         recomSectionModels = [AnimeListRecomCollectionSectionModel(items: Array(recomItems))]
         

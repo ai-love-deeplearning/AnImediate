@@ -31,6 +31,7 @@ final class ArchiveCardCell: UITableViewCell {
         titleLabel.text = anime.title
         seasonLabel.text = anime.seasonNameText
         companyLabel.text = anime.company
+        print(archive.evalPoint)
         ratingTitleLabel.text = (archive.evalPoint == "") ? "予測評価" : "評価"
         
         let rating = (archive.evalPoint == "") ? archive.predictPoint : archive.evalPoint

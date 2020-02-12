@@ -104,6 +104,18 @@ public class AnimeModel: Object {
         return realm.objects(self).sorted(byKeyPath: "watchersCount", ascending: false)
     }
     
+    public static func readAllRecommend() -> [AnimeModel] {
+        let archives = ArchiveModel.read(uid: AccountModel.read().userID).filter("predictPoint == %@", "5.0")
+        var recommends: [AnimeModel] = []
+        for (i, archive) in archives.enumerated() {
+            if i == 1009 { break }
+            if i > 1002, i < 1008 {
+                recommends.append(AnimeModel.read(annictID: archive.annictID))
+            }
+        }
+        return recommends
+    }
+    
     public static func readAll() -> Results<AnimeModel> {
         let realm = try! Realm()
         return realm.objects(self)
