@@ -35,7 +35,7 @@ extension UIColor {
     
     // TextBlack: #1D0010
     class var TextBlack: UIColor {
-        return UIColor(named: "TextThema") ?? .black
+        return UIColor(named: "TextBlack") ?? .black
     }
     
     // TextGray: #8B8789
