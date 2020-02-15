@@ -67,6 +67,8 @@ internal enum StoryboardScene {
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Home.self)
 
     internal static let homeArchiveListSB = SceneType<HomeArchiveListVC>(storyboard: Home.self, identifier: "HomeArchiveListSB")
+    
+    internal static let homeArchiveCollectionSB = SceneType<HomeArchiveCollectionVC>(storyboard: Home.self, identifier: "HomeArchiveCollectionSB")
 
   }
   internal enum Launch: StoryboardType {

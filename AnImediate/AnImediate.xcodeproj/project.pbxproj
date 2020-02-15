@@ -85,6 +85,9 @@
 		50457AC622D0EBF9002971D7 /* ProfileEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */; };
 		50457ACA22D0EC6A002971D7 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */; };
 		50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */; };
+		5052F27E23F48DE50074CD89 /* ArchiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052F27D23F48DE50074CD89 /* ArchiveCollectionViewCell.swift */; };
+		5052F28023F493FB0074CD89 /* HomeArchiveCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052F27F23F493FB0074CD89 /* HomeArchiveCollectionVC.swift */; };
+		5052F28223F4A8FD0074CD89 /* HomeMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052F28123F4A8FD0074CD89 /* HomeMenuVC.swift */; };
 		5061BE992381E44500A5405E /* ExchangeTopTableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5061BE982381E44500A5405E /* ExchangeTopTableSectionModel.swift */; };
 		5061BE9B2381E55200A5405E /* ExchangeTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5061BE9A2381E55200A5405E /* ExchangeTopTableViewCell.swift */; };
 		5061BE9D2382452C00A5405E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5061BE9C2382452C00A5405E /* ArrayExtension.swift */; };
@@ -136,6 +139,7 @@
 		50A5969322C1F16C00378AAB /* HomeTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969222C1F16C00378AAB /* HomeTopVC.swift */; };
 		50A5969522C2F2E200378AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5969422C2F2E200378AAB /* Assets.xcassets */; };
 		50A5969C22C313DE00378AAB /* HomeHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */; };
+		50AD91CC23F479FE00742271 /* ArchiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50AD91CA23F479FE00742271 /* ArchiveCollectionViewCell.xib */; };
 		50AFA2DB2389D54B002D06A1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5061BE9C2382452C00A5405E /* ArrayExtension.swift */; };
 		50AFA2DC2389D54E002D06A1 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A0A233F9DE4006C683E /* CollectionExtension.swift */; };
 		50AFA2DD2389D551002D06A1 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE7A08233F9D03006C683E /* StringExtension.swift */; };
@@ -477,6 +481,9 @@
 		50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileEdit.storyboard; sourceTree = "<group>"; };
 		50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditTableViewCell.swift; sourceTree = "<group>"; };
+		5052F27D23F48DE50074CD89 /* ArchiveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCollectionViewCell.swift; sourceTree = "<group>"; };
+		5052F27F23F493FB0074CD89 /* HomeArchiveCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeArchiveCollectionVC.swift; sourceTree = "<group>"; };
+		5052F28123F4A8FD0074CD89 /* HomeMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuVC.swift; sourceTree = "<group>"; };
 		5061BE982381E44500A5405E /* ExchangeTopTableSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTopTableSectionModel.swift; sourceTree = "<group>"; };
 		5061BE9A2381E55200A5405E /* ExchangeTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTopTableViewCell.swift; sourceTree = "<group>"; };
 		5061BE9C2382452C00A5405E /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
@@ -536,6 +543,7 @@
 		50A5969422C2F2E200378AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50A5969722C2FBD500378AAB /* AnImediate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnImediate-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderVC.swift; sourceTree = "<group>"; };
+		50AD91CA23F479FE00742271 /* ArchiveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveCollectionViewCell.xib; sourceTree = "<group>"; };
 		50B380CA2337961A0092B59C /* RxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxStore.swift; sourceTree = "<group>"; };
 		50B380CC233798B50092B59C /* ExchangeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewState.swift; sourceTree = "<group>"; };
 		50B380CE233799BC0092B59C /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
@@ -849,6 +857,8 @@
 				50A5969222C1F16C00378AAB /* HomeTopVC.swift */,
 				50A5969B22C313DE00378AAB /* HomeHeaderVC.swift */,
 				50FD22AE23438269007F11E7 /* HomeArchiveListVC.swift */,
+				5052F27F23F493FB0074CD89 /* HomeArchiveCollectionVC.swift */,
+				5052F28123F4A8FD0074CD89 /* HomeMenuVC.swift */,
 				50457AC922D0EC6A002971D7 /* ProfileEditVC.swift */,
 			);
 			path = Home;
@@ -924,6 +934,7 @@
 		5042F3692337AC6300D89478 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5052F27D23F48DE50074CD89 /* ArchiveCollectionViewCell.swift */,
 				50FD22C22343AB44007F11E7 /* ArchiveCardCell.swift */,
 				50457ACB22D230D5002971D7 /* ProfileEditTableViewCell.swift */,
 				5061BEA22383A5D700A5405E /* ProfileEditCommentTableViewCell.swift */,
@@ -1026,6 +1037,7 @@
 			children = (
 				50A5968022C0AD6400378AAB /* Home.storyboard */,
 				50457AC522D0EBF9002971D7 /* ProfileEdit.storyboard */,
+				50AD91CA23F479FE00742271 /* ArchiveCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2124,6 +2136,7 @@
 				3226CD1F22D4622B0090937F /* AnimeDetails.storyboard in Resources */,
 				50F9849322D47C7D00038A23 /* ExchangeAccept.storyboard in Resources */,
 				5061BE9F23825D7400A5405E /* ExchangeResult.storyboard in Resources */,
+				50AD91CC23F479FE00742271 /* ArchiveCollectionViewCell.xib in Resources */,
 				5001BEEA234E0D9A005C0B8A /* Launch.storyboard in Resources */,
 				50A5968B22C0B11100378AAB /* SignUp.storyboard in Resources */,
 				50E21980237BEE4700162FE5 /* Colors.xcassets in Resources */,
@@ -2506,11 +2519,13 @@
 				32CDA23A22CB46CE00BD5A76 /* UIViewExtension.swift in Sources */,
 				50A5969322C1F16C00378AAB /* HomeTopVC.swift in Sources */,
 				5042F386233916DC00D89478 /* MapDistinct.swift in Sources */,
+				5052F28223F4A8FD0074CD89 /* HomeMenuVC.swift in Sources */,
 				50457ACC22D230D5002971D7 /* ProfileEditTableViewCell.swift in Sources */,
 				32A6411F22DC57AD002EF6F3 /* ExchangeTopVC.swift in Sources */,
 				503DD23A22DC3636004B9746 /* AccordionViewModel.swift in Sources */,
 				5042F38A23391E2D00D89478 /* OptionalType.swift in Sources */,
 				321C6E3522DC869000757F83 /* ExchangeResultTableVC.swift in Sources */,
+				5052F28023F493FB0074CD89 /* HomeArchiveCollectionVC.swift in Sources */,
 				50FD229723434194007F11E7 /* SearchCoordinator.swift in Sources */,
 				32A6411A22DC38CD002EF6F3 /* AnimeListCardCVCell.swift in Sources */,
 				50DE7A822340F1A0006C683E /* ProfileEditViewControllerInjecter.swift in Sources */,
@@ -2563,6 +2578,7 @@
 				3226CD2522D575EC0090937F /* AnimeDetailTopVC.swift in Sources */,
 				509D820A22C364D800BF813F /* UIColorExtension.swift in Sources */,
 				50DE7A3C233FC6E8006C683E /* UIStyleExtension.swift in Sources */,
+				5052F27E23F48DE50074CD89 /* ArchiveCollectionViewCell.swift in Sources */,
 				50FD228E23433F64007F11E7 /* NavigationCoordinator.swift in Sources */,
 				321C6E2D22DC648500757F83 /* ExchangeResultHeaderVC.swift in Sources */,
 				50DE7A32233FBB44006C683E /* HomeViewControllerInjector.swift in Sources */,

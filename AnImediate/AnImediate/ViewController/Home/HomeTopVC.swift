@@ -28,10 +28,10 @@ class HomeTopVC: TabmanViewController {
     // ページングメニューに対応したビューコントローラ
     private lazy var viewControllers: [UIViewController] = {
         [
-            StoryboardScene.Home.homeArchiveListSB.instantiate(),
-            StoryboardScene.Home.homeArchiveListSB.instantiate(),
-            StoryboardScene.Home.homeArchiveListSB.instantiate(),
-            StoryboardScene.Home.homeArchiveListSB.instantiate()
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate(),
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate(),
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate(),
+            StoryboardScene.Home.homeArchiveCollectionSB.instantiate()
         ]
     }()
 
@@ -53,19 +53,19 @@ class HomeTopVC: TabmanViewController {
     }
     
     private func initBars() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         let bar = TMBar.ButtonBar()
         bar.indicator.tintColor = .MainThema
         bar.indicator.weight = .light
-        bar.layout.transitionStyle = .snap // Customize
+        bar.layout.transitionStyle = .snap
         bar.layout.contentMode = .fit
         bar.layout.view.backgroundColor = .white
         bar.buttons.customize { (button) in
             // 通常時の色
             button.tintColor = .lightGray
-            button.font = UIFont(name: "Hiragino Maru Gothic ProN", size: UIFont.labelFontSize)!
             // 選択時の色
             button.selectedTintColor = .MainThema
-            
         }
         
         addBar(bar, dataSource: self, at: .top)
